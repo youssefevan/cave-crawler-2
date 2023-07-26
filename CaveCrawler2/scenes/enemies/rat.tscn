@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://bqdrntg643p4m"]
+[gd_scene load_steps=23 format=3 uid="uid://bqdrntg643p4m"]
 
 [ext_resource type="Script" path="res://scripts/enemies/rat/rat.gd" id="1_y6ss1"]
 [ext_resource type="Texture2D" uid="uid://bl8c4jartqik0" path="res://sprites/enemies/rat.png" id="2_qv7ne"]
+[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/camera_room_detector.tscn" id="2_r7n40"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="3_o26c8"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/idle.gd" id="4_kiy5e"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/anticipate.gd" id="6_o0fmc"]
@@ -135,6 +136,8 @@ floor_snap_length = 2.0
 safe_margin = 0.04
 script = ExtResource("1_y6ss1")
 
+[node name="CameraRoomDetector" parent="." instance=ExtResource("2_r7n40")]
+
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_2qwgw")
@@ -149,6 +152,7 @@ position = Vector2(0, -8)
 texture = ExtResource("2_qv7ne")
 hframes = 3
 vframes = 2
+frame = 2
 
 [node name="StateManager" type="Node" parent="."]
 script = ExtResource("3_o26c8")
@@ -191,6 +195,10 @@ shape = SubResource("CapsuleShape2D_kvlvt")
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_3gcf6")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.7, 0.6)
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]

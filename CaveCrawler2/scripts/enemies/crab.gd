@@ -28,3 +28,8 @@ func _physics_process(delta):
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Player"):
 		pass
+
+
+#func _on_camera_room_detector_area_exited(area):
+#	if area.get_collision_layer_value(5):
+#		call_deferred("queue_free")

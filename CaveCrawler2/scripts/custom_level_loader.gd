@@ -15,6 +15,8 @@ extends Node2D
 @export var camera_room_instance : PackedScene
 @export var crab_instance : PackedScene
 
+var player_in_level := false
+
 var tile_size := 8
 
 func _ready():
@@ -42,9 +44,11 @@ func _ready():
 				c.global_position = Vector2(x, y) * tile_size
 				
 			elif data.get_pixel(x, y) == player:
-				var p = player_instance.instantiate()
-				add_child(p)
-				p.global_position = Vector2(x, y) * tile_size
+				if not player_in_level:
+					var p = player_instance.instantiate()
+					add_child(p)
+					p.global_position = Vector2(x, y) * tile_size
+					player_in_level = true
 				
 			elif data.get_pixel(x, y).a != 0:
 				tiles.set_cell(0, Vector2(x, y), 0, Vector2(1,1))

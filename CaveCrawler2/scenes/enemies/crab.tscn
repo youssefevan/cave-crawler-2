@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://6eklyp1v0thi"]
+[gd_scene load_steps=13 format=3 uid="uid://6eklyp1v0thi"]
 
 [ext_resource type="Script" path="res://scripts/enemies/crab.gd" id="1_2cxas"]
 [ext_resource type="Texture2D" uid="uid://dghn0gfmu6qon" path="res://sprites/enemies/crab.png" id="1_v0h3a"]
 [ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/hurtbox.tscn" id="2_0fly8"]
+[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/camera_room_detector.tscn" id="2_u6wru"]
 [ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="3_nswl4"]
 
 [sub_resource type="Animation" id="Animation_1nvwl"]
@@ -50,6 +51,8 @@ floor_max_angle = 0.872665
 floor_snap_length = 2.0
 script = ExtResource("1_2cxas")
 
+[node name="CameraRoomDetector" parent="." instance=ExtResource("2_u6wru")]
+
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_63ooq")
@@ -85,6 +88,10 @@ shape = SubResource("CircleShape2D_1lyv1")
 [node name="ColliderClawLeft" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-7, -7)
 shape = SubResource("CircleShape2D_duent")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-8.34465e-07, -5.5)
+scale = Vector2(1, 0.55)
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 

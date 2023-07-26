@@ -56,14 +56,22 @@ func apply_friction(delta):
 	if is_on_floor():
 		velocity.x = lerpf(velocity.x, 0, deceleration * delta)
 
+
 func _on_attack_range_body_entered(body):
 	if body.collision_layer == 2:
 		player = body
+
 
 func _on_attack_range_body_exited(body):
 	if body == player:
 		player = null
 
+
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Player"):
 		pass
+
+
+#func _on_camera_room_detector_area_exited(area):
+#	if area.get_collision_layer_value(5):
+#		call_deferred("queue_free")
