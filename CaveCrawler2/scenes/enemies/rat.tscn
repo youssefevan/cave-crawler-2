@@ -1,0 +1,174 @@
+[gd_scene load_steps=18 format=3 uid="uid://bqdrntg643p4m"]
+
+[ext_resource type="Texture2D" uid="uid://bl8c4jartqik0" path="res://sprites/rat.png" id="1_gy3ni"]
+[ext_resource type="Script" path="res://scripts/enemies/rat/rat.gd" id="1_y6ss1"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="3_o26c8"]
+[ext_resource type="Script" path="res://scripts/enemies/rat/states/idle.gd" id="4_kiy5e"]
+[ext_resource type="Script" path="res://scripts/enemies/rat/states/anticipate.gd" id="6_o0fmc"]
+[ext_resource type="Script" path="res://scripts/enemies/rat/states/jump.gd" id="7_a2g8n"]
+[ext_resource type="Script" path="res://scripts/enemies/rat/states/fall.gd" id="7_tqq34"]
+[ext_resource type="Script" path="res://scripts/enemies/rat/states/land.gd" id="8_m28nv"]
+
+[sub_resource type="Animation" id="Animation_g33s2"]
+resource_name = "Anticipate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_frodu"]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_tc5lb"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_a1p34"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_ga6ju"]
+resource_name = "Land"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tiw44"]
+resource_name = "Persue"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2qwgw"]
+_data = {
+"Anticipate": SubResource("Animation_g33s2"),
+"Fall": SubResource("Animation_frodu"),
+"Idle": SubResource("Animation_tc5lb"),
+"Jump": SubResource("Animation_a1p34"),
+"Land": SubResource("Animation_ga6ju"),
+"Persue": SubResource("Animation_tiw44")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0in3r"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0octu"]
+size = Vector2(64.0002, 208)
+
+[node name="Rat" type="CharacterBody2D"]
+light_mask = 4
+collision_layer = 4
+floor_constant_speed = true
+floor_max_angle = 0.872665
+floor_snap_length = 2.0
+safe_margin = 0.04
+script = ExtResource("1_y6ss1")
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2qwgw")
+}
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_0in3r")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_gy3ni")
+hframes = 3
+vframes = 2
+
+[node name="StateManager" type="Node" parent="."]
+script = ExtResource("3_o26c8")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateManager"]
+script = ExtResource("4_kiy5e")
+
+[node name="Anticipate" type="Node" parent="StateManager"]
+script = ExtResource("6_o0fmc")
+
+[node name="Jump" type="Node" parent="StateManager"]
+script = ExtResource("7_a2g8n")
+
+[node name="Fall" type="Node" parent="StateManager"]
+script = ExtResource("7_tqq34")
+
+[node name="Land" type="Node" parent="StateManager"]
+script = ExtResource("8_m28nv")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Collider" type="CollisionShape2D" parent="AttackRange"]
+visible = false
+position = Vector2(2.38773e-07, -16.0001)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_0octu")
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]

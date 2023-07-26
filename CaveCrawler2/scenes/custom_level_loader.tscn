@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdwtpmwatgytk"]
+
+[ext_resource type="Script" path="res://scripts/custom_level_loader.gd" id="1_m6kmy"]
+[ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_o6b1y"]
+[ext_resource type="Texture2D" uid="uid://rqqjm3rfv2w1" path="res://sprites/custom_level_1.png" id="2_lp3ph"]
+[ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="3_r8tj7"]
+[ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="4_toqpu"]
+[ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/camera_room.tscn" id="5_cteni"]
+
+[node name="CustomLevelLoader" type="Node2D"]
+script = ExtResource("1_m6kmy")
+image = ExtResource("2_lp3ph")
+ground = Color(1, 1, 1, 1)
+rat = Color(1, 0, 0, 1)
+player = Color(0, 1, 0, 1)
+slope_left = Color(0, 1, 1, 1)
+slope_right = Color(1, 0, 1, 1)
+rat_instance = ExtResource("3_r8tj7")
+player_instance = ExtResource("4_toqpu")
+camera_room_instance = ExtResource("5_cteni")
+
+[node name="TileMap" parent="." instance=ExtResource("1_o6b1y")]
