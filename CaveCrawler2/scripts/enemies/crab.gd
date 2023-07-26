@@ -20,7 +20,7 @@ func _physics_process(delta):
 	
 	velocity.x = lerpf(velocity.x, speed * move_direction, 100 * delta) # effectively no interpolation
 	
-	print(velocity)
+	$Animator.play("Move")
 	
 	move_and_slide()
 

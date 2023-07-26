@@ -8,10 +8,12 @@ extends Node2D
 @export var player : Color
 @export var slope_left : Color
 @export var slope_right : Color
+@export var crab : Color
 
 @export var rat_instance : PackedScene
 @export var player_instance : PackedScene
 @export var camera_room_instance : PackedScene
+@export var crab_instance : PackedScene
 
 var tile_size := 8
 
@@ -33,6 +35,11 @@ func _ready():
 				var r = rat_instance.instantiate()
 				add_child(r)
 				r.global_position = Vector2(x, y) * tile_size
+				
+			elif data.get_pixel(x, y) == crab:
+				var c = crab_instance.instantiate()
+				add_child(c)
+				c.global_position = Vector2(x, y) * tile_size
 				
 			elif data.get_pixel(x, y) == player:
 				var p = player_instance.instantiate()

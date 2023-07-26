@@ -36,6 +36,12 @@ var gravity_up := 600.0
 var gravity_down := 1400.0
 var max_fall_speed := 250.0
 
+var max_health := 4
+var health : int
+
+var can_get_hurt := true
+var invincibility_length := 2.0 # in seconds
+
 # Gun varaibles
 var can_fire : bool
 var fire_rate := 0.25
@@ -43,6 +49,7 @@ var fire_rate := 0.25
 func _ready():
 	states.init(self)
 	can_fire = true
+	health = max_health
 
 func _physics_process(delta):
 	states.physics_update(delta)
@@ -114,4 +121,12 @@ func _on_camera_room_detector_area_entered(area):
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Enemy"):
-		pass
+		if can_get_hurt:
+			get_hurt()
+
+func get_hurt():
+	health -= 1
+	print(health)
+	can_get_hurt = false
+	await get_tree().create_timer(invincibility_length).timeout
+	can_get_hurt = true
