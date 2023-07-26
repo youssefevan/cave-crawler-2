@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmcygxcgpgtdt"]
+[gd_scene load_steps=6 format=3 uid="uid://cmcygxcgpgtdt"]
 
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="1_1tsot"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_tsine"]
 [ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="3_pmbve"]
 [ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/camera_room.tscn" id="4_k3fw4"]
+[ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="5_v0jx1"]
 
 [node name="World" type="Node2D"]
 
@@ -24,3 +25,6 @@ position = Vector2(216, 120)
 
 [node name="Player" parent="." instance=ExtResource("1_1tsot")]
 position = Vector2(24, 120)
+
+[node name="Crab" parent="." instance=ExtResource("5_v0jx1")]
+position = Vector2(192, 64)

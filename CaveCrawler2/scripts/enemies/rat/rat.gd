@@ -44,6 +44,8 @@ func _physics_process(delta):
 			move_direction = -1
 			$Sprite.flip_h = false
 	
+	velocity.y = clampf(velocity.y, -250.0, 250.0)
+	
 	move_and_slide()
 
 func apply_gravity(delta):
@@ -61,3 +63,7 @@ func _on_attack_range_body_entered(body):
 func _on_attack_range_body_exited(body):
 	if body == player:
 		player = null
+
+func _on_hurtbox_area_entered(area):
+	if area.is_in_group("Player"):
+		pass

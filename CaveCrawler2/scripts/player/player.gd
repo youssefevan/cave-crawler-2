@@ -111,3 +111,7 @@ func _on_camera_room_detector_area_entered(area):
 		camera.limit_left = area.global_position.x
 		camera.limit_bottom = area.global_position.y + area.scale.y
 		camera.limit_right = area.global_position.x + area.scale.x
+
+func _on_hurtbox_area_entered(area):
+	if area.is_in_group("Enemy"):
+		pass

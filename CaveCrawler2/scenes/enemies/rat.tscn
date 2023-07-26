@@ -1,13 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bqdrntg643p4m"]
+[gd_scene load_steps=22 format=3 uid="uid://bqdrntg643p4m"]
 
-[ext_resource type="Texture2D" uid="uid://bl8c4jartqik0" path="res://sprites/rat.png" id="1_gy3ni"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/rat.gd" id="1_y6ss1"]
+[ext_resource type="Texture2D" uid="uid://bl8c4jartqik0" path="res://sprites/enemies/rat.png" id="2_qv7ne"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="3_o26c8"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/idle.gd" id="4_kiy5e"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/anticipate.gd" id="6_o0fmc"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/jump.gd" id="7_a2g8n"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/fall.gd" id="7_tqq34"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/land.gd" id="8_m28nv"]
+[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/hurtbox.tscn" id="9_r0a47"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="10_t81aq"]
 
 [sub_resource type="Animation" id="Animation_g33s2"]
 resource_name = "Anticipate"
@@ -117,6 +119,13 @@ size = Vector2(10, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0octu"]
 size = Vector2(64.0002, 208)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kvlvt"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gcf6"]
+radius = 5.0
+
 [node name="Rat" type="CharacterBody2D"]
 light_mask = 4
 collision_layer = 4
@@ -137,7 +146,7 @@ shape = SubResource("RectangleShape2D_0in3r")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
-texture = ExtResource("1_gy3ni")
+texture = ExtResource("2_qv7ne")
 hframes = 3
 vframes = 2
 
@@ -170,5 +179,22 @@ position = Vector2(2.38773e-07, -16.0001)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_0octu")
 
+[node name="Hurtbox" parent="." instance=ExtResource("9_r0a47")]
+
+[node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, -6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_kvlvt")
+
+[node name="Hitbox" parent="." groups=["Enemy"] instance=ExtResource("10_t81aq")]
+
+[node name="Collider" parent="Hitbox" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_3gcf6")
+
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]
