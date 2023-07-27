@@ -36,9 +36,11 @@ var gravity_up := 600.0
 var gravity_down := 1400.0
 var max_fall_speed := 250.0
 
+# Health
 var max_health := 4
 var health : int
 
+# Hurt
 var can_get_hurt := true
 var invincibility_length := 2.0 # in seconds
 
