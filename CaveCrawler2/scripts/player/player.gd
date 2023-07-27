@@ -126,7 +126,22 @@ func _on_hurtbox_area_entered(area):
 
 func get_hurt():
 	health -= 1
-	print(health)
+	
+	if health == 0:
+		die()
+	
 	can_get_hurt = false
+	hit_flash()
 	await get_tree().create_timer(invincibility_length).timeout
 	can_get_hurt = true
+
+func hit_flash():
+	while not can_get_hurt:
+		$Sprite.visible = false
+		await get_tree().create_timer(0.1).timeout
+		$Sprite.visible = true
+		await get_tree().create_timer(0.1).timeout
+
+func die():
+	set_physics_process(false)
+	visible = false
