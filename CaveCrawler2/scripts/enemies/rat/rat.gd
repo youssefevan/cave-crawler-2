@@ -24,6 +24,8 @@ var deceleration := 10.0
 
 var move_direction := 0
 
+var health := 3
+
 # Checks
 var player : Player
 
@@ -69,7 +71,10 @@ func _on_attack_range_body_exited(body):
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Player"):
-		pass
+		health -= 1
+		
+		if health == 0:
+			call_deferred("queue_free")
 
 
 #func _on_camera_room_detector_area_exited(area):

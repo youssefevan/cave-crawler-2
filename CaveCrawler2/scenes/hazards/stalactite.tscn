@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbne2o42871na"]
+
+[ext_resource type="Script" path="res://scripts/hazards/stalactite.gd" id="1_b6yq4"]
+[ext_resource type="Texture2D" uid="uid://csjg1pv3m10io" path="res://sprites/hazards/stalactite.png" id="1_yvxls"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="2_8pemx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwrij"]
+radius = 2.23607
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ntpl5"]
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umjnd"]
+size = Vector2(80, 144)
+
+[node name="Stalactite" type="CharacterBody2D"]
+collision_layer = 128
+script = ExtResource("1_b6yq4")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_vwrij")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+texture = ExtResource("1_yvxls")
+
+[node name="Hitbox" parent="." groups=["Enemy"] instance=ExtResource("2_8pemx")]
+
+[node name="Collider" parent="Hitbox" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_ntpl5")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Collider" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(0, 72)
+shape = SubResource("RectangleShape2D_umjnd")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+
+[editable path="Hitbox"]

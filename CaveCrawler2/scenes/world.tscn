@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmcygxcgpgtdt"]
+[gd_scene load_steps=9 format=3 uid="uid://cmcygxcgpgtdt"]
 
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="1_1tsot"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_tsine"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="5_v0jx1"]
 [ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/bg.png" id="6_k4pey"]
 [ext_resource type="Texture2D" uid="uid://c0e0ci47gkbq2" path="res://sprites/crystal1.png" id="7_cd3ux"]
+[ext_resource type="PackedScene" uid="uid://cbne2o42871na" path="res://scenes/hazards/stalactite.tscn" id="8_dnuif"]
 
 [node name="World" type="Node2D"]
 
@@ -44,3 +45,6 @@ motion_mirroring = Vector2(4096, 0)
 [node name="Bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(128, 72)
 texture = ExtResource("6_k4pey")
+
+[node name="Stalactite" parent="." instance=ExtResource("8_dnuif")]
+position = Vector2(80, 8)
