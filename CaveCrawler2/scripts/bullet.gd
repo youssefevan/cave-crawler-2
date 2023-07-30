@@ -2,6 +2,7 @@ extends Area2D
 class_name Bullet
 
 var speed := 200.0
+var hitstun_weight := 0.1
 
 func _physics_process(delta):
 	position.x += speed * delta

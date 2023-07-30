@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Enemy
 class_name Crab
 
 var speed := 40.0
@@ -23,11 +23,6 @@ func _physics_process(delta):
 	$Animator.play("Move")
 	
 	move_and_slide()
-
-
-func _on_hurtbox_area_entered(area):
-	if area.is_in_group("Player"):
-		pass
 
 
 #func _on_camera_room_detector_area_exited(area):

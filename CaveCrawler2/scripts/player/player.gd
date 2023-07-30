@@ -131,6 +131,10 @@ func get_hurt():
 	
 	if health == 0:
 		die()
+	else:
+		set_physics_process(false)
+		await get_tree().create_timer(0.05).timeout
+		set_physics_process(true)
 	
 	can_get_hurt = false
 	hit_flash()

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Enemy
 class_name Rat
 
 @export var print_states : bool
@@ -24,12 +24,11 @@ var deceleration := 10.0
 
 var move_direction := 0
 
-var health := 3
-
 # Checks
 var player : Player
 
 func _ready():
+	super._ready()
 	states.init(self)
 
 func _physics_process(delta):
@@ -63,19 +62,9 @@ func _on_attack_range_body_entered(body):
 	if body.collision_layer == 2:
 		player = body
 
-
 func _on_attack_range_body_exited(body):
 	if body == player:
 		player = null
-
-
-func _on_hurtbox_area_entered(area):
-	if area.is_in_group("Player"):
-		health -= 1
-		
-		if health == 0:
-			call_deferred("queue_free")
-
 
 #func _on_camera_room_detector_area_exited(area):
 #	if area.get_collision_layer_value(5):

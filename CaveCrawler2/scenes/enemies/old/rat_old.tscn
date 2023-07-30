@@ -1,0 +1,209 @@
+[gd_scene load_steps=23 format=3 uid="uid://dpa5bd78ypift"]
+
+[ext_resource type="Script" path="res://scripts/enemies/rat/rat.gd" id="1_gburs"]
+[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/camera_room_detector.tscn" id="2_nb7qj"]
+[ext_resource type="Texture2D" uid="uid://bl8c4jartqik0" path="res://sprites/enemies/rat.png" id="3_54v0f"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="4_dxpc0"]
+[ext_resource type="Script" path="res://scripts/enemies/rat/states/idle.gd" id="5_elsu1"]
+[ext_resource type="Script" path="res://scripts/enemies/rat/states/anticipate.gd" id="6_kiat8"]
+[ext_resource type="Script" path="res://scripts/enemies/rat/states/jump.gd" id="7_m7bhr"]
+[ext_resource type="Script" path="res://scripts/enemies/rat/states/fall.gd" id="8_7g7e4"]
+[ext_resource type="Script" path="res://scripts/enemies/rat/states/land.gd" id="9_n6afq"]
+[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/hurtbox.tscn" id="10_g63wh"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="11_0bu8i"]
+
+[sub_resource type="Animation" id="Animation_g33s2"]
+resource_name = "Anticipate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_frodu"]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_tc5lb"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_a1p34"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_ga6ju"]
+resource_name = "Land"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tiw44"]
+resource_name = "Persue"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2qwgw"]
+_data = {
+"Anticipate": SubResource("Animation_g33s2"),
+"Fall": SubResource("Animation_frodu"),
+"Idle": SubResource("Animation_tc5lb"),
+"Jump": SubResource("Animation_a1p34"),
+"Land": SubResource("Animation_ga6ju"),
+"Persue": SubResource("Animation_tiw44")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0in3r"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0octu"]
+size = Vector2(64.0002, 208)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kvlvt"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gcf6"]
+radius = 5.0
+
+[node name="RatOld" type="CharacterBody2D"]
+light_mask = 4
+collision_layer = 4
+floor_constant_speed = true
+floor_max_angle = 0.872665
+floor_snap_length = 2.0
+safe_margin = 0.04
+script = ExtResource("1_gburs")
+max_health = 4
+
+[node name="CameraRoomDetector" parent="." instance=ExtResource("2_nb7qj")]
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2qwgw")
+}
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_0in3r")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("3_54v0f")
+hframes = 3
+vframes = 2
+frame = 2
+
+[node name="StateManager" type="Node" parent="."]
+script = ExtResource("4_dxpc0")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateManager"]
+script = ExtResource("5_elsu1")
+
+[node name="Anticipate" type="Node" parent="StateManager"]
+script = ExtResource("6_kiat8")
+
+[node name="Jump" type="Node" parent="StateManager"]
+script = ExtResource("7_m7bhr")
+
+[node name="Fall" type="Node" parent="StateManager"]
+script = ExtResource("8_7g7e4")
+
+[node name="Land" type="Node" parent="StateManager"]
+script = ExtResource("9_n6afq")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Collider" type="CollisionShape2D" parent="AttackRange"]
+visible = false
+position = Vector2(2.38773e-07, -16.0001)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_0octu")
+
+[node name="Hurtbox" parent="." instance=ExtResource("10_g63wh")]
+
+[node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, -6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_kvlvt")
+
+[node name="Hitbox" parent="." groups=["Enemy"] instance=ExtResource("11_0bu8i")]
+
+[node name="Collider" parent="Hitbox" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_3gcf6")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.7, 0.6)
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

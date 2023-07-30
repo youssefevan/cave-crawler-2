@@ -1,16 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://bqdrntg643p4m"]
+[gd_scene load_steps=21 format=3 uid="uid://bqdrntg643p4m"]
 
+[ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_e54y1"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/rat.gd" id="1_y6ss1"]
 [ext_resource type="Texture2D" uid="uid://bl8c4jartqik0" path="res://sprites/enemies/rat.png" id="2_qv7ne"]
-[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/camera_room_detector.tscn" id="2_r7n40"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="3_o26c8"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/idle.gd" id="4_kiy5e"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/anticipate.gd" id="6_o0fmc"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/jump.gd" id="7_a2g8n"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/fall.gd" id="7_tqq34"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/land.gd" id="8_m28nv"]
-[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/hurtbox.tscn" id="9_r0a47"]
-[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="10_t81aq"]
 
 [sub_resource type="Animation" id="Animation_g33s2"]
 resource_name = "Anticipate"
@@ -114,95 +112,82 @@ _data = {
 "Persue": SubResource("Animation_tiw44")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0in3r"]
-size = Vector2(10, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jevmv"]
+size = Vector2(10, 9)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0octu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0qj8"]
+size = Vector2(10, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1msxo"]
+size = Vector2(14, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lef2r"]
 size = Vector2(64.0002, 208)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kvlvt"]
-radius = 6.0
-height = 16.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_3gcf6"]
-radius = 5.0
-
-[node name="Rat" type="CharacterBody2D"]
-light_mask = 4
-collision_layer = 4
-floor_constant_speed = true
-floor_max_angle = 0.872665
-floor_snap_length = 2.0
-safe_margin = 0.04
+[node name="Rat" instance=ExtResource("1_e54y1")]
 script = ExtResource("1_y6ss1")
+print_states = false
+max_health = 4
 
-[node name="CameraRoomDetector" parent="." instance=ExtResource("2_r7n40")]
-
-[node name="Animator" type="AnimationPlayer" parent="."]
+[node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
 "": SubResource("AnimationLibrary_2qwgw")
 }
 
-[node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
-shape = SubResource("RectangleShape2D_0in3r")
+[node name="VisibleOnScreenEnabler2D" parent="." index="1"]
+position = Vector2(1.19209e-07, -7)
+scale = Vector2(0.8, 0.7)
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Collider" parent="." index="2"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_jevmv")
+
+[node name="Sprite" parent="." index="3"]
 position = Vector2(0, -8)
 texture = ExtResource("2_qv7ne")
 hframes = 3
 vframes = 2
 frame = 2
 
-[node name="StateManager" type="Node" parent="."]
-script = ExtResource("3_o26c8")
-starting_state = NodePath("Idle")
+[node name="Collider" parent="Hitbox" index="0"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_i0qj8")
 
-[node name="Idle" type="Node" parent="StateManager"]
-script = ExtResource("4_kiy5e")
+[node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_1msxo")
 
-[node name="Anticipate" type="Node" parent="StateManager"]
-script = ExtResource("6_o0fmc")
-
-[node name="Jump" type="Node" parent="StateManager"]
-script = ExtResource("7_a2g8n")
-
-[node name="Fall" type="Node" parent="StateManager"]
-script = ExtResource("7_tqq34")
-
-[node name="Land" type="Node" parent="StateManager"]
-script = ExtResource("8_m28nv")
-
-[node name="AttackRange" type="Area2D" parent="."]
+[node name="AttackRange" type="Area2D" parent="." index="6"]
 collision_layer = 4
 collision_mask = 2
 
-[node name="Collider" type="CollisionShape2D" parent="AttackRange"]
+[node name="Collider" type="CollisionShape2D" parent="AttackRange" index="0"]
 visible = false
 position = Vector2(2.38773e-07, -16.0001)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_0octu")
+shape = SubResource("RectangleShape2D_lef2r")
 
-[node name="Hurtbox" parent="." instance=ExtResource("9_r0a47")]
+[node name="StateManager" type="Node" parent="." index="7"]
+script = ExtResource("3_o26c8")
+starting_state = NodePath("Idle")
 
-[node name="Collider" parent="Hurtbox" index="0"]
-position = Vector2(0, -6)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_kvlvt")
+[node name="Idle" type="Node" parent="StateManager" index="0"]
+script = ExtResource("4_kiy5e")
 
-[node name="Hitbox" parent="." groups=["Enemy"] instance=ExtResource("10_t81aq")]
+[node name="Anticipate" type="Node" parent="StateManager" index="1"]
+script = ExtResource("6_o0fmc")
 
-[node name="Collider" parent="Hitbox" index="0"]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_3gcf6")
+[node name="Jump" type="Node" parent="StateManager" index="2"]
+script = ExtResource("7_a2g8n")
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(0, -6)
-scale = Vector2(0.7, 0.6)
+[node name="Fall" type="Node" parent="StateManager" index="3"]
+script = ExtResource("7_tqq34")
+
+[node name="Land" type="Node" parent="StateManager" index="4"]
+script = ExtResource("8_m28nv")
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
-[editable path="Hurtbox"]
 [editable path="Hitbox"]
+[editable path="Hurtbox"]

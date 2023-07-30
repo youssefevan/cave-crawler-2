@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://eoyn2tpchka2"]
+
+[ext_resource type="Script" path="res://scripts/enemies/bat.gd" id="1_guehj"]
+[ext_resource type="Texture2D" uid="uid://dhmynt1k5hq0f" path="res://sprites/enemies/bat.png" id="2_3r8ld"]
+[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/hurtbox.tscn" id="3_scpwq"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="4_1rkho"]
+
+[sub_resource type="Animation" id="Animation_wy22j"]
+resource_name = "Fly"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7yl60"]
+_data = {
+"Fly": SubResource("Animation_wy22j")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m58j6"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_usuc4"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_snhcp"]
+radius = 5.09902
+
+[node name="Bat" type="CharacterBody2D"]
+collision_layer = 4
+safe_margin = 0.04
+script = ExtResource("1_guehj")
+max_health = 1
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7yl60")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m58j6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_3r8ld")
+hframes = 2
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_scpwq")]
+
+[node name="Collider" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_usuc4")
+
+[node name="Hitbox" parent="." groups=["Enemy"] instance=ExtResource("4_1rkho")]
+
+[node name="Collider" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_snhcp")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(7.15256e-07, -0.5)
+scale = Vector2(0.7, 0.45)
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

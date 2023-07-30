@@ -1,10 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://6eklyp1v0thi"]
+[gd_scene load_steps=9 format=3 uid="uid://6eklyp1v0thi"]
 
 [ext_resource type="Script" path="res://scripts/enemies/crab.gd" id="1_2cxas"]
+[ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_jpmym"]
 [ext_resource type="Texture2D" uid="uid://dghn0gfmu6qon" path="res://sprites/enemies/crab.png" id="1_v0h3a"]
-[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/hurtbox.tscn" id="2_0fly8"]
-[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/camera_room_detector.tscn" id="2_u6wru"]
-[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="3_nswl4"]
 
 [sub_resource type="Animation" id="Animation_1nvwl"]
 resource_name = "Move"
@@ -27,73 +25,49 @@ _data = {
 "Move": SubResource("Animation_1nvwl")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3nr2"]
-size = Vector2(12, 8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hp7o"]
+size = Vector2(12, 10)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uymlt"]
-radius = 5.0
-height = 18.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mo8fv"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urqul"]
 radius = 4.0
-height = 12.0
+height = 20.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1lyv1"]
-radius = 3.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2e00y"]
+radius = 5.0
+height = 20.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_duent"]
-radius = 3.0
-
-[node name="Crab" type="CharacterBody2D"]
-collision_layer = 4
-floor_constant_speed = true
-floor_max_angle = 0.872665
-floor_snap_length = 2.0
+[node name="Crab" instance=ExtResource("1_jpmym")]
 script = ExtResource("1_2cxas")
+max_health = 3
 
-[node name="CameraRoomDetector" parent="." instance=ExtResource("2_u6wru")]
-
-[node name="Animator" type="AnimationPlayer" parent="."]
+[node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
 "": SubResource("AnimationLibrary_63ooq")
 }
 
-[node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_c3nr2")
+[node name="VisibleOnScreenEnabler2D" parent="." index="1"]
+position = Vector2(0, -5.5)
+scale = Vector2(1, 0.55)
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Collider" parent="." index="2"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_1hp7o")
+
+[node name="Sprite" parent="." index="3"]
 position = Vector2(0, -6)
 texture = ExtResource("1_v0h3a")
 hframes = 3
+frame = 1
 
-[node name="Hurtbox" parent="." instance=ExtResource("2_0fly8")]
+[node name="Collider" parent="Hitbox" index="0"]
+position = Vector2(0, -6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_urqul")
 
 [node name="Collider" parent="Hurtbox" index="0"]
 position = Vector2(0, -5)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_uymlt")
+shape = SubResource("CapsuleShape2D_2e00y")
 
-[node name="Hitbox" parent="." groups=["Enemy"] instance=ExtResource("3_nswl4")]
-
-[node name="Collider" parent="Hitbox" index="0"]
-position = Vector2(0, -4)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_mo8fv")
-
-[node name="ColliderClawRight" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(7, -7)
-shape = SubResource("CircleShape2D_1lyv1")
-
-[node name="ColliderClawLeft" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-7, -7)
-shape = SubResource("CircleShape2D_duent")
-
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(-8.34465e-07, -5.5)
-scale = Vector2(1, 0.55)
-
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-
-[editable path="Hurtbox"]
 [editable path="Hitbox"]
+[editable path="Hurtbox"]
