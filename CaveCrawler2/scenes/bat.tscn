@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdqqv88177tgm"]
+
+[ext_resource type="Texture2D" uid="uid://dhmynt1k5hq0f" path="res://sprites/enemies/bat.png" id="1_jdgse"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m58j6"]
+radius = 5.0
+
+[node name="Bat" type="CharacterBody2D"]
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m58j6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_jdgse")
+hframes = 2
