@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjlybt3rkrig1"
-path="res://.godot/imported/tiles-blue.png-74773ec508080ad6b3b59507c728a66d.ctex"
+uid="uid://36v4dc2jnu8h"
+path="res://.godot/imported/set3.png-721af7ac2a5b4ae45d2d3b418f5ad924.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/tiles-blue.png"
-dest_files=["res://.godot/imported/tiles-blue.png-74773ec508080ad6b3b59507c728a66d.ctex"]
+source_file="res://sprites/tilesets/set3.png"
+dest_files=["res://.godot/imported/set3.png-721af7ac2a5b4ae45d2d3b418f5ad924.ctex"]
 
 [params]
 

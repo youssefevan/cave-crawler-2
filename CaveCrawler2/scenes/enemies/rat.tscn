@@ -119,7 +119,7 @@ size = Vector2(10, 9)
 size = Vector2(10, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1msxo"]
-size = Vector2(14, 13)
+size = Vector2(14, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lef2r"]
 size = Vector2(64.0002, 208)
@@ -147,14 +147,13 @@ position = Vector2(0, -8)
 texture = ExtResource("2_qv7ne")
 hframes = 3
 vframes = 2
-frame = 2
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_i0qj8")
 
 [node name="Collider" parent="Hurtbox" index="0"]
-position = Vector2(0, -6.5)
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_1msxo")
 
 [node name="AttackRange" type="Area2D" parent="." index="6"]
