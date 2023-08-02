@@ -126,7 +126,10 @@ libraries = {
 position = Vector2(0, -6.5)
 
 [node name="Camera" type="Camera2D" parent="."]
-editor_draw_limits = true
+position_smoothing_speed = 8.0
+drag_vertical_enabled = true
+drag_top_margin = 0.65
+drag_bottom_margin = 0.1
 
 [node name="Sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_54jb2")

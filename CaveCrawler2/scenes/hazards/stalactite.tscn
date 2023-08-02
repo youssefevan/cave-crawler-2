@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="2_8pemx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vwrij"]
-radius = 2.23607
+radius = 4.12311
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ntpl5"]
-radius = 3.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7rn48"]
+radius = 2.0
+height = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umjnd"]
 size = Vector2(80, 144)
@@ -17,21 +18,22 @@ size = Vector2(80, 144)
 collision_layer = 128
 script = ExtResource("1_b6yq4")
 
-[node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_vwrij")
-
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, 8)
 texture = ExtResource("1_yvxls")
 
-[node name="Hitbox" parent="." groups=["Enemy"] instance=ExtResource("2_8pemx")]
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_vwrij")
+
+[node name="Hitbox" parent="." groups=["Hazard"] instance=ExtResource("2_8pemx")]
 
 [node name="Collider" parent="Hitbox" index="0"]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_ntpl5")
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_7rn48")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 2
 

@@ -57,6 +57,7 @@ shoot={
 2d_physics/layer_5="CameraRoom"
 2d_physics/layer_6="Hitbox"
 2d_physics/layer_7="Hurtbox"
+2d_physics/layer_8="Hazard"
 
 [rendering]
 

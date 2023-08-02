@@ -48,6 +48,9 @@ var invincibility_length := 2.0 # in seconds
 var can_fire : bool
 var fire_rate := 0.25
 
+# Camera things
+var large_y_limits : bool
+
 func _ready():
 	states.init(self)
 	can_fire = true
@@ -56,6 +59,7 @@ func _ready():
 func _physics_process(delta):
 	states.physics_update(delta)
 	jump_buffering()
+	handle_camera(delta)
 	
 	if Input.is_action_pressed("shoot") and can_fire:
 		shoot()
@@ -120,26 +124,60 @@ func _on_camera_room_detector_area_entered(area):
 		camera.limit_left = area.global_position.x
 		camera.limit_bottom = area.global_position.y + area.scale.y
 		camera.limit_right = area.global_position.x + area.scale.x
+		
+		if (camera.limit_bottom - camera.limit_top) > 144:
+			large_y_limits = true
+		else:
+			large_y_limits = false
+
+func handle_camera(delta):
+	camera.top_level = true
+	if large_y_limits:
+		camera.global_position.x = global_position.x
+		
+		if not is_on_floor():
+			camera.drag_vertical_enabled = true
+			
+			if velocity.y < 0:
+				camera.position_smoothing_enabled = true
+			else:
+				camera.position_smoothing_enabled = false
+			
+			camera.drag_top_margin = 0.65
+			camera.drag_bottom_margin = 0.1
+			
+			camera.global_position.y = global_position.y
+		else:
+			camera.drag_vertical_enabled = false
+			camera.position_smoothing_enabled = true
+	else:
+		camera.drag_vertical_enabled = false
+		camera.position_smoothing_enabled = false
+		
+		camera.global_position = global_position
 
 func _on_hurtbox_area_entered(area):
-	if area.is_in_group("Enemy"):
+	if area.is_in_group("Enemy") or area.is_in_group("Hazard"):
 		if can_get_hurt:
 			get_hurt()
 
 func get_hurt():
-	health -= 1
-	
-	if health == 0:
-		die()
-	else:
-		set_physics_process(false)
-		await get_tree().create_timer(0.05).timeout
-		set_physics_process(true)
-	
-	can_get_hurt = false
-	hit_flash()
-	await get_tree().create_timer(invincibility_length).timeout
-	can_get_hurt = true
+	if can_get_hurt:
+		can_get_hurt = false
+		
+		health -= 1
+		
+		if health == 0:
+			die()
+		else:
+			set_physics_process(false)
+			await get_tree().create_timer(0.05).timeout
+			if health != 0:
+				set_physics_process(true)
+		
+		hit_flash()
+		await get_tree().create_timer(invincibility_length).timeout
+		can_get_hurt = true
 
 func hit_flash():
 	while not can_get_hurt:
