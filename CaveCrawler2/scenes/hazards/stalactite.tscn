@@ -22,7 +22,7 @@ position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_vwrij")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 8)
 texture = ExtResource("1_yvxls")
 
 [node name="Hitbox" parent="." groups=["Enemy"] instance=ExtResource("2_8pemx")]
