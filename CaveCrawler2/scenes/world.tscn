@@ -19,6 +19,7 @@ position = Vector2(312, 112)
 texture = ExtResource("7_cd3ux")
 
 [node name="CameraRooms" type="Node2D" parent="."]
+visible = false
 
 [node name="CameraRoom" parent="CameraRooms" instance=ExtResource("4_k3fw4")]
 scale = Vector2(384, 144)

@@ -59,7 +59,7 @@ func _ready():
 func _physics_process(delta):
 	states.physics_update(delta)
 	jump_buffering()
-	handle_camera(delta)
+	#handle_camera(delta)
 	
 	if Input.is_action_pressed("shoot") and can_fire:
 		shoot()

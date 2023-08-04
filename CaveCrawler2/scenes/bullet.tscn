@@ -9,7 +9,7 @@ height = 6.0
 
 [node name="Bullet" type="Area2D" groups=["Player"]]
 collision_layer = 40
-collision_mask = 21
+collision_mask = 85
 script = ExtResource("1_4t6pc")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -19,5 +19,6 @@ texture = ExtResource("1_0tqmf")
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_boh06")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -126,7 +126,6 @@ libraries = {
 position = Vector2(0, -6.5)
 
 [node name="Camera" type="Camera2D" parent="."]
-offset = Vector2(0, -6)
 position_smoothing_speed = 8.0
 drag_top_margin = 0.4
 drag_bottom_margin = 0.1
@@ -163,7 +162,7 @@ script = ExtResource("6_w0w5j")
 [node name="Fall" type="Node" parent="StateManager"]
 script = ExtResource("7_7bu6j")
 
-[node name="Hurtbox" parent="." instance=ExtResource("9_i5i06")]
+[node name="Hurtbox" parent="." groups=["Player"] instance=ExtResource("9_i5i06")]
 
 [node name="Collider" parent="Hurtbox" index="0"]
 position = Vector2(0, -6.5)

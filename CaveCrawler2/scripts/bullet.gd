@@ -16,3 +16,8 @@ func _on_body_entered(body):
 func _on_area_exited(area):
 	if area.get_collision_layer_value(5):
 		call_deferred("queue_free")
+
+func _on_area_entered(area):
+	if area.get_collision_layer_value(7):
+		if area.is_in_group("Enemy"):
+			call_deferred("queue_free")
