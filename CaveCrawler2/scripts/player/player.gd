@@ -6,11 +6,10 @@ class_name Player
 # Nodes
 @onready var states = $StateManager
 @onready var animator = $Animator
+@onready var camera = $Camera
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
 @export var bullet : PackedScene
-
-@onready var camera = $Camera
 
 # States
 @onready var idle = $StateManager/Idle
@@ -48,8 +47,9 @@ var invincibility_length := 2.0 # in seconds
 var can_fire : bool
 var fire_rate := 0.25
 
-# Camera things
-var large_y_limits : bool
+# Camera variables
+var camera_speed := 6.0
+var large_y_limits := false
 
 func _ready():
 	states.init(self)
@@ -58,8 +58,9 @@ func _ready():
 
 func _physics_process(delta):
 	states.physics_update(delta)
+	
+	handle_camera(delta)
 	jump_buffering()
-	#handle_camera(delta)
 	
 	if Input.is_action_pressed("shoot") and can_fire:
 		shoot()
@@ -118,21 +119,6 @@ func shoot():
 	await get_tree().create_timer(fire_rate).timeout
 	can_fire = true
 
-func _on_camera_room_detector_area_entered(area):
-	if area.get_collision_layer_value(5):
-		camera.limit_top = area.global_position.y
-		camera.limit_left = area.global_position.x
-		camera.limit_bottom = area.global_position.y + area.scale.y
-		camera.limit_right = area.global_position.x + area.scale.x
-		
-		if (camera.limit_bottom - camera.limit_top) > 144:
-			large_y_limits = true
-		else:
-			large_y_limits = false
-
-func handle_camera(delta):
-	pass
-
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Enemy") or area.is_in_group("Hazard"):
 		if can_get_hurt:
@@ -166,3 +152,34 @@ func hit_flash():
 func die():
 	set_physics_process(false)
 	visible = false
+
+func _on_camera_room_detector_area_entered(area):
+	if area.get_collision_layer_value(5):
+		camera.limit_top = area.global_position.y
+		camera.limit_left = area.global_position.x
+		camera.limit_bottom = area.global_position.y + area.scale.y
+		camera.limit_right = area.global_position.x + area.scale.x
+		
+		if (camera.limit_bottom - camera.limit_top) > 144:
+			large_y_limits = true
+		else:
+			large_y_limits = false
+
+func handle_camera(delta):
+	# Since the player's center is offset 6 pixels up from it's pivot,
+	# the camera needs to be offset by the same amount in rooms with
+	# large y limits. However, the camera's built in offset property
+	# moves it up by 6 units at all times, making the floor of the room
+	# seem lower. To fix this, I manually apply the offset when lerping
+	# the camera's y position.
+	var offset_y := 6.0
+	
+	camera.top_level = true
+	
+	if large_y_limits == true:
+		camera.drag_vertical_enabled = true
+		camera.global_position.x = global_position.x
+		camera.global_position.y = lerp(camera.global_position.y, global_position.y - offset_y, camera_speed * delta)
+	else:
+		camera.drag_vertical_enabled = false
+		camera.global_position = global_position

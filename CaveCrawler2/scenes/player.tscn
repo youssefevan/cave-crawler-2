@@ -122,13 +122,14 @@ libraries = {
 "": SubResource("AnimationLibrary_5keib")
 }
 
+[node name="Camera" type="Camera2D" parent="."]
+drag_vertical_enabled = true
+drag_bottom_margin = 0.0
+editor_draw_drag_margin = true
+
 [node name="CameraRoomDetector" parent="." instance=ExtResource("3_q6n07")]
 position = Vector2(0, -6.5)
-
-[node name="Camera" type="Camera2D" parent="."]
-position_smoothing_speed = 8.0
-drag_top_margin = 0.4
-drag_bottom_margin = 0.1
+metadata/_edit_lock_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_54jb2")
@@ -136,6 +137,7 @@ position = Vector2(0, -8)
 texture = ExtResource("1_2wwr2")
 hframes = 5
 vframes = 4
+frame = 9
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6.5)
