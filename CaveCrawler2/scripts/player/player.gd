@@ -166,7 +166,7 @@ func _on_camera_room_detector_area_entered(area):
 			large_y_limits = false
 
 func handle_camera(delta):
-	# Since the player's center is offset 6 pixels up from it's pivot,
+	# Since the player's center is offset 6 units up from it's pivot,
 	# the camera needs to be offset by the same amount in rooms with
 	# large y limits. However, the camera's built in offset property
 	# moves it up by 6 units at all times, making the floor of the room

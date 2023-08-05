@@ -1,0 +1,73 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bs0txgabywvy3"]
+
+[ext_resource type="FontFile" uid="uid://cvfoc312yoi3p" path="res://fonts/Early GameBoy.ttf" id="1_4xf5q"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_12isa"]
+color = Color(0.498039, 1, 1, 1)
+grow_begin = 0.0
+grow_end = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgoit"]
+bg_color = Color(1, 1, 1, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig2ol"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_837dy"]
+bg_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feiy6"]
+bg_color = Color(0.0742188, 0.0742188, 0.0742188, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ojtg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20rua"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 1.0
+content_margin_bottom = 2.0
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lhtq"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 1.0
+content_margin_bottom = 2.0
+bg_color = Color(0.270588, 0.270588, 0.270588, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_634rl"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 1.0
+content_margin_bottom = 2.0
+bg_color = Color(0.0742188, 0.0742188, 0.0742188, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0i66"]
+bg_color = Color(0.0742188, 0.0742188, 0.0742188, 1)
+
+[resource]
+default_font = ExtResource("1_4xf5q")
+default_font_size = 4
+BoxContainer/constants/separation = 0
+Button/styles/focus = SubResource("StyleBoxLine_12isa")
+Button/styles/hover = SubResource("StyleBoxFlat_pgoit")
+Button/styles/normal = SubResource("StyleBoxFlat_ig2ol")
+Button/styles/pressed = SubResource("StyleBoxFlat_837dy")
+TabContainer/constants/side_margin = 0
+TabContainer/styles/panel = SubResource("StyleBoxFlat_feiy6")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxEmpty_3ojtg")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_20rua")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_2lhtq")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_634rl")
+TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_a0i66")

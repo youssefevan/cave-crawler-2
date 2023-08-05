@@ -1,0 +1,147 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgjuqby6d1rn4"]
+
+[ext_resource type="Script" path="res://scenes/level_editor.gd" id="1_400vv"]
+[ext_resource type="Script" path="res://scripts/level_editor_camera.gd" id="2_a1c03"]
+[ext_resource type="Texture2D" uid="uid://cx0swe8kipifa" path="res://sprites/level_editor_icons/enemies/rat.png" id="2_c7wra"]
+[ext_resource type="Texture2D" uid="uid://df51npckwo2wt" path="res://sprites/level_editor_icons/grid_bg.png" id="4_u6s76"]
+[ext_resource type="Theme" uid="uid://bs0txgabywvy3" path="res://themes/level_editor.tres" id="4_vhw0s"]
+[ext_resource type="Texture2D" uid="uid://cejv73yqx6rt6" path="res://sprites/level_editor_icons/terrains/terrain_1.png" id="5_yp46x"]
+[ext_resource type="Texture2D" uid="uid://d23303f7sqvgw" path="res://sprites/level_editor_icons/enemies/bat.png" id="6_6lexp"]
+[ext_resource type="Texture2D" uid="uid://fixs1gfhcuhw" path="res://sprites/level_editor_icons/hazards/spike.png" id="7_be2tf"]
+[ext_resource type="Texture2D" uid="uid://bolflx3c6btb1" path="res://sprites/level_editor_icons/hazards/stalactite.png" id="8_x5trv"]
+[ext_resource type="Texture2D" uid="uid://vnnv7e2hqub5" path="res://sprites/level_editor_icons/essentials/player.png" id="10_xpnd6"]
+[ext_resource type="Texture2D" uid="uid://bjrbyc21ry0p0" path="res://sprites/level_editor_icons/essentials/camera_room.png" id="11_pj7t4"]
+
+[node name="LevelEditor" type="Node2D"]
+script = ExtResource("1_400vv")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(128, 72)
+texture = ExtResource("4_u6s76")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(128, 72)
+script = ExtResource("2_a1c03")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ToolsMenu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 21.0
+theme = ExtResource("4_vhw0s")
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/ToolsMenu"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 21.0
+
+[node name="Terrains" type="TabBar" parent="CanvasLayer/ToolsMenu/TabContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Terrains"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 12.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer"]
+layout_mode = 2
+
+[node name="Terrain1" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("5_yp46x")
+icon_alignment = 1
+
+[node name="Bat" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("6_6lexp")
+icon_alignment = 1
+
+[node name="Enemies" type="TabBar" parent="CanvasLayer/ToolsMenu/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Enemies"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 12.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer"]
+layout_mode = 2
+
+[node name="Rat" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_c7wra")
+icon_alignment = 1
+
+[node name="Bat" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("6_6lexp")
+icon_alignment = 1
+
+[node name="Hazards" type="TabBar" parent="CanvasLayer/ToolsMenu/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Hazards"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 12.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer"]
+layout_mode = 2
+
+[node name="Spike" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("7_be2tf")
+icon_alignment = 1
+
+[node name="Stalactite" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("8_x5trv")
+icon_alignment = 1
+
+[node name="Pickups" type="TabBar" parent="CanvasLayer/ToolsMenu/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Pickups"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 12.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer"]
+layout_mode = 2
+
+[node name="Rat" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_c7wra")
+icon_alignment = 1
+
+[node name="Bat" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("6_6lexp")
+icon_alignment = 1
+
+[node name="Essentials" type="TabBar" parent="CanvasLayer/ToolsMenu/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Essentials"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 12.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer"]
+layout_mode = 2
+
+[node name="Player" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("10_xpnd6")
+icon_alignment = 1
+
+[node name="CameraRoom" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("11_pj7t4")
+icon_alignment = 1

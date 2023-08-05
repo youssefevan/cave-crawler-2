@@ -75,7 +75,7 @@ size = Vector2(48, 32)
 
 [node name="SkeletonHand" instance=ExtResource("1_qog6p")]
 script = ExtResource("2_7n62p")
-print_states = true
+print_states = false
 max_health = 2
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
