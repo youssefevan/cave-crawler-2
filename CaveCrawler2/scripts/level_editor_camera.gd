@@ -6,9 +6,6 @@ var zoom_max := 0.3
 var pan_sensitivity := 1.0
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
-		global_position -= event.relative * pan_sensitivity / zoom
-	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			zoom += Vector2(zoom_sensitivity, zoom_sensitivity)
@@ -17,3 +14,7 @@ func _unhandled_input(event):
 	
 	zoom.x = clamp(zoom.x, zoom_max, zoom_min)
 	zoom.y = clamp(zoom.y, zoom_max, zoom_min)
+
+func _input(event):
+	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
+		global_position -= event.relative * pan_sensitivity / zoom
