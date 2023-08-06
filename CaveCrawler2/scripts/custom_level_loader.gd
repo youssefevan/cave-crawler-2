@@ -10,13 +10,13 @@ extends Node2D
 
 # Enemy colors
 @export var rat := Vector2(0, 1)
-@export var crab : Color
-@export var bat : Color
-@export var skeleton_hand : Color
+@export var crab := Vector2(1, 1)
+@export var bat := Vector2(2, 1)
+@export var skeleton_hand := Vector2(3, 1)
 
 # Harard colors
-@export var spike : Color
-@export var stalactite : Color
+@export var spike := Vector2(0, 2)
+@export var stalactite := Vector2(1, 2)
 
 # Utility scenes
 @export var player_scene : PackedScene
@@ -109,6 +109,16 @@ func build_level():
 				spawn_entity(player_scene, cell_position)
 			rat:
 				spawn_entity(rat_scene, cell_position)
+			crab:
+				spawn_entity(crab_scene, cell_position)
+			bat:
+				spawn_entity(bat_scene, cell_position)
+			skeleton_hand:
+				spawn_entity(skeleton_hand_scene, cell_position)
+			spike:
+				spawn_entity(spike_scene, cell_position)
+			stalactite:
+				spawn_entity(stalactite_scene, cell_position)
 	
 	tiles.set_cells_terrain_connect(0, autotile_cells, 0, 2)
 	
