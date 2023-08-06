@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://rqqjm3rfv2w1" path="res://sprites/custom_level_1.png" id="2_lp3ph"]
 [ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="3_r8tj7"]
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="4_toqpu"]
-[ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/camera_room.tscn" id="5_cteni"]
+[ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/engine/camera_room.tscn" id="5_cteni"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="6_rsh01"]
 [ext_resource type="PackedScene" uid="uid://bdqqv88177tgm" path="res://scenes/enemies/bat.tscn" id="7_hvyjo"]
 [ext_resource type="PackedScene" uid="uid://bf7qonhrj13f0" path="res://scenes/enemies/skeleton_hand.tscn" id="8_gljx5"]

@@ -7,7 +7,7 @@ var pan_sensitivity := 1.0
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
-		position -= event.relative * pan_sensitivity / zoom
+		global_position -= event.relative * pan_sensitivity / zoom
 	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:

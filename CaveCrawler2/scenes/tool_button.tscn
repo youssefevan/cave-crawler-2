@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm1tb3aubfxdl"]
+
+[ext_resource type="Script" path="res://scripts/level_editor/tool_button.gd" id="1_oi617"]
+
+[node name="ToolButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_oi617")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

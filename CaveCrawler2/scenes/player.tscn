@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g2djs"]
 [ext_resource type="PackedScene" uid="uid://bjx44ncj1xgbb" path="res://scenes/bullet.tscn" id="2_jabw6"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="3_fwq1u"]
-[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/camera_room_detector.tscn" id="3_q6n07"]
+[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/engine/camera_room_detector.tscn" id="3_q6n07"]
 [ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="4_jb2gt"]
 [ext_resource type="Script" path="res://scripts/player/states/run.gd" id="5_xe08m"]
 [ext_resource type="Script" path="res://scripts/player/states/jump.gd" id="6_w0w5j"]
 [ext_resource type="Script" path="res://scripts/player/states/fall.gd" id="7_7bu6j"]
-[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/hurtbox.tscn" id="9_i5i06"]
+[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="9_i5i06"]
 
 [sub_resource type="VisualShader" id="VisualShader_r7p8m"]
 code = "shader_type canvas_item;

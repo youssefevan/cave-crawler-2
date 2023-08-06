@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxq2uyf68mxsy"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_cy1f6"]
-[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="2_nrbic"]
-[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/hurtbox.tscn" id="3_ohsqj"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/engine/hitbox.tscn" id="2_nrbic"]
+[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="3_ohsqj"]
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4

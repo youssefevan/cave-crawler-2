@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://bbkn85gsl8px"]
 
 [ext_resource type="Script" path="res://scripts/enemies/crab.gd" id="1_eu0s0"]
-[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/camera_room_detector.tscn" id="2_68lbt"]
+[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/engine/camera_room_detector.tscn" id="2_68lbt"]
 [ext_resource type="Texture2D" uid="uid://dghn0gfmu6qon" path="res://sprites/enemies/crab.png" id="3_p68c6"]
-[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/hurtbox.tscn" id="4_dqtxc"]
-[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="5_revs0"]
+[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="4_dqtxc"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/engine/hitbox.tscn" id="5_revs0"]
 
 [sub_resource type="Animation" id="Animation_1nvwl"]
 resource_name = "Move"

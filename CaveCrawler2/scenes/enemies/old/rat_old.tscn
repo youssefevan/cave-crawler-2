@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://dpa5bd78ypift"]
 
 [ext_resource type="Script" path="res://scripts/enemies/rat/rat.gd" id="1_gburs"]
-[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/camera_room_detector.tscn" id="2_nb7qj"]
+[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/engine/camera_room_detector.tscn" id="2_nb7qj"]
 [ext_resource type="Texture2D" uid="uid://bl8c4jartqik0" path="res://sprites/enemies/rat.png" id="3_54v0f"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="4_dxpc0"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/idle.gd" id="5_elsu1"]
@@ -9,8 +9,8 @@
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/jump.gd" id="7_m7bhr"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/fall.gd" id="8_7g7e4"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/land.gd" id="9_n6afq"]
-[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/hurtbox.tscn" id="10_g63wh"]
-[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="11_0bu8i"]
+[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="10_g63wh"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/engine/hitbox.tscn" id="11_0bu8i"]
 
 [sub_resource type="Animation" id="Animation_g33s2"]
 resource_name = "Anticipate"
