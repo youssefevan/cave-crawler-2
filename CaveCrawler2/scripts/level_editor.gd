@@ -66,8 +66,8 @@ func save():
 	for child in get_children():
 		if child is CameraRoomTool:
 			var cr_data = Vector4(child.global_position.x, child.global_position.y, child.size.x, child.size.y)
-			save_file.store_line(str("CR:", cr_data))
-			print(str("CR:", cr_data))
+			save_file.store_line(str(cr_data, ",CR"))
+			print(str(cr_data, ",CR"))
 	
 	save_file.close()
 

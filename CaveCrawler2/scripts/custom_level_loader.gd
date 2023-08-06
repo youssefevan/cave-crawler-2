@@ -19,18 +19,18 @@ extends Node2D
 @export var stalactite : Color
 
 # Utility scenes
-@export var player_instance : PackedScene
-@export var camera_room_instance : PackedScene
+@export var player_scene : PackedScene
+@export var camera_room_scene : PackedScene
 
 # Enemy scenes
-@export var rat_instance : PackedScene
-@export var crab_instance : PackedScene
-@export var bat_instance : PackedScene
-@export var skeleton_hand_instance : PackedScene
+@export var rat_scene : PackedScene
+@export var crab_scene : PackedScene
+@export var bat_scene : PackedScene
+@export var skeleton_hand_scene : PackedScene
 
 # Hazard scenes
-@export var spike_instance : PackedScene
-@export var stalactite_instance : PackedScene
+@export var spike_scene : PackedScene
+@export var stalactite_scene : PackedScene
 
 var player_in_level := false
 
@@ -41,6 +41,7 @@ var tileset_id := 2
 var level : String
 
 var lines : Array
+var camera_rooms : Array
 
 @onready var load_file_ui = $CanvasLayer/LoadFileUI
 @onready var load_file_text = $CanvasLayer/LoadFileUI/TextEdit
@@ -63,9 +64,13 @@ func load_file():
 	for line in file.get_as_text(false).split("\n"):
 		var count := 0
 		var line_vector : Vector4
+		var is_camera_room := false
 		for char in line.split(","):
 			count += 1
-			var char_to_int = char.to_int()
+			
+			var char_to_int
+			if char != "CR":
+				char_to_int = char.to_int()
 			
 			match count:
 				1:
@@ -76,8 +81,14 @@ func load_file():
 					line_vector.z = char_to_int
 				4:
 					line_vector.w = char_to_int
-				
-		lines.append(line_vector)
+				5:
+					is_camera_room = true
+			
+		if is_camera_room == true:
+			camera_rooms.append(line_vector)
+		else:
+			lines.append(line_vector)
+			
 	file.close()
 
 func build_level():
@@ -95,11 +106,20 @@ func build_level():
 			slope_right:
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(1,4))
 			player:
-				spawn_entity(player_instance, cell_position)
+				spawn_entity(player_scene, cell_position)
 			rat:
-				spawn_entity(rat_instance, cell_position)
+				spawn_entity(rat_scene, cell_position)
 	
 	tiles.set_cells_terrain_connect(0, autotile_cells, 0, 2)
+	
+	for room in camera_rooms:
+		spawn_camera_room(Vector2(room.x, room.y), Vector2(room.z, room.w))
+
+func spawn_camera_room(coordinates, size):
+	var c = camera_room_scene.instantiate()
+	add_child(c)
+	c.global_position = coordinates
+	c.scale = size
 
 func spawn_entity(entity, spawn_position):
 	var e = entity.instantiate()
