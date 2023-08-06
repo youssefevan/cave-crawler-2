@@ -21,15 +21,17 @@ func _on_tool_selected(tile_coordinates, tool_type):
 	tileset_coordinates = tile_coordinates
 
 func _unhandled_input(event):
+	var mouse_position_rounded = Vector2(floor(get_local_mouse_position() / tile_size))
+	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if tileset_coordinates != camera_room_tool_coordinates:
-			tiles.set_cell(0, get_global_mouse_position()/tile_size, 3, tileset_coordinates)
+			tiles.set_cell(0, mouse_position_rounded, 3, tileset_coordinates)
 	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		tiles.erase_cell(0, get_global_mouse_position()/tile_size)
+		tiles.erase_cell(0, mouse_position_rounded)
 	
 	if Input.is_action_just_pressed("place_tile"):
 		if tileset_coordinates == camera_room_tool_coordinates:
-			place_camera_room_tool(get_global_mouse_position())
+			place_camera_room_tool(mouse_position_rounded * tile_size)
 
 func place_camera_room_tool(coordinates):
 	var target_position = coordinates.snapped(Vector2(tile_size, tile_size))
