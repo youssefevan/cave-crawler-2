@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/custom_level_loader.gd" id="1_m6kmy"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_o6b1y"]
-[ext_resource type="Texture2D" uid="uid://rqqjm3rfv2w1" path="res://sprites/custom_level_1.png" id="2_lp3ph"]
 [ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="3_r8tj7"]
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="4_toqpu"]
 [ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/engine/camera_room.tscn" id="5_cteni"]
@@ -12,15 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/backgrounds/bg.png" id="8_hnsdk"]
 [ext_resource type="PackedScene" uid="uid://cgc2ryr7t78sm" path="res://scenes/hazards/spike.tscn" id="9_a7jqp"]
 [ext_resource type="PackedScene" uid="uid://cbne2o42871na" path="res://scenes/hazards/stalactite.tscn" id="10_8m8eu"]
+[ext_resource type="Theme" uid="uid://bs0txgabywvy3" path="res://themes/level_editor.tres" id="12_8nhei"]
 
 [node name="CustomLevelLoader" type="Node2D"]
 script = ExtResource("1_m6kmy")
-image = ExtResource("2_lp3ph")
-player = Color(0, 1, 0, 1)
-ground = Color(1, 1, 1, 1)
-slope_left = Color(0, 1, 1, 1)
-slope_right = Color(0, 0, 1, 1)
-rat = Color(1, 1, 0, 1)
 crab = Color(1, 0.498039, 0, 1)
 bat = Color(1, 0, 1, 1)
 skeleton_hand = Color(0.498039, 0, 1, 1)
@@ -34,6 +28,7 @@ bat_instance = ExtResource("7_hvyjo")
 skeleton_hand_instance = ExtResource("8_gljx5")
 spike_instance = ExtResource("9_a7jqp")
 stalactite_instance = ExtResource("10_8m8eu")
+level_name = "level1"
 
 [node name="TileMap" parent="." instance=ExtResource("1_o6b1y")]
 
@@ -51,3 +46,57 @@ texture = ExtResource("8_hnsdk")
 position = Vector2(128, 72)
 scale = Vector2(-1, -1)
 texture = ExtResource("8_hnsdk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LoadFileUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 56.0
+offset_right = 176.0
+offset_bottom = 88.0
+theme = ExtResource("12_8nhei")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/LoadFileUI"]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 32.0
+color = Color(0.0742188, 0.0742188, 0.0742188, 1)
+
+[node name="TextEdit" type="LineEdit" parent="CanvasLayer/LoadFileUI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 12.0
+offset_right = 88.0
+offset_bottom = 21.0
+placeholder_text = "exclude filetype"
+caret_blink = true
+caret_blink_interval = 0.4
+
+[node name="Label" type="Label" parent="CanvasLayer/LoadFileUI"]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 16.0
+text = "Enter file name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Load" type="Button" parent="CanvasLayer/LoadFileUI"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 23.0
+offset_right = 48.0
+offset_bottom = 32.0
+text = "Load"
+
+[node name="Back" type="Button" parent="CanvasLayer/LoadFileUI"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 23.0
+offset_right = 68.0
+offset_bottom = 32.0
+text = "Back"
+
+[connection signal="pressed" from="CanvasLayer/LoadFileUI/Load" to="." method="_on_load_pressed"]

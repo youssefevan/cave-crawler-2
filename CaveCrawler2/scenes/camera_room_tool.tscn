@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd4kgsl8xo6gi"]
+
+[ext_resource type="Texture2D" uid="uid://cq0bgbp8h6and" path="res://sprites/level_editor_icons/cr_tool_handle_top_left.png" id="1_ejbyw"]
+[ext_resource type="Texture2D" uid="uid://dujd23joy62an" path="res://sprites/level_editor_icons/cr_tool_handle_bottom_right.png" id="2_jncri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wepwx"]
+size = Vector2(8, 8)
+
+[node name="CameraRoomTool" type="Node2D"]
+
+[node name="TopLeft" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="TopLeft"]
+position = Vector2(4, 4)
+texture = ExtResource("1_ejbyw")
+
+[node name="Collider" type="CollisionShape2D" parent="TopLeft"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_wepwx")
+
+[node name="BottomRight" type="Area2D" parent="."]
+position = Vector2(16, 16)
+
+[node name="Sprite" type="Sprite2D" parent="BottomRight"]
+position = Vector2(-4, -4)
+texture = ExtResource("2_jncri")
+
+[node name="Collider" type="CollisionShape2D" parent="BottomRight"]
+position = Vector2(-4, -4)
+shape = SubResource("RectangleShape2D_wepwx")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=25 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/level_editor.gd" id="1_f2vqo"]
 [ext_resource type="Script" path="res://scripts/level_editor_camera.gd" id="2_a1c03"]
 [ext_resource type="Texture2D" uid="uid://cx0swe8kipifa" path="res://sprites/level_editor_icons/enemies/rat.png" id="2_c7wra"]
+[ext_resource type="PackedScene" uid="uid://dd4kgsl8xo6gi" path="res://scenes/camera_room_tool.tscn" id="2_gum10"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="3_y01m3"]
 [ext_resource type="Texture2D" uid="uid://df51npckwo2wt" path="res://sprites/level_editor_icons/grid_bg.png" id="4_u6s76"]
 [ext_resource type="Theme" uid="uid://bs0txgabywvy3" path="res://themes/level_editor.tres" id="4_vhw0s"]
@@ -10,18 +11,23 @@
 [ext_resource type="Texture2D" uid="uid://d23303f7sqvgw" path="res://sprites/level_editor_icons/enemies/bat.png" id="6_6lexp"]
 [ext_resource type="Script" path="res://scripts/level_editor/tool_button.gd" id="6_mg418"]
 [ext_resource type="Texture2D" uid="uid://fixs1gfhcuhw" path="res://sprites/level_editor_icons/hazards/spike.png" id="7_be2tf"]
+[ext_resource type="Texture2D" uid="uid://cr4rjlithoxxv" path="res://sprites/level_editor_icons/play.png" id="7_beg5p"]
 [ext_resource type="Texture2D" uid="uid://bolflx3c6btb1" path="res://sprites/level_editor_icons/hazards/stalactite.png" id="8_x5trv"]
 [ext_resource type="Texture2D" uid="uid://ce7kfekdkfd5a" path="res://sprites/level_editor_icons/enemies/crab.png" id="9_88cyv"]
+[ext_resource type="Texture2D" uid="uid://c1h0d22xf3ptr" path="res://sprites/level_editor_icons/terrains/slope_left.png" id="9_e5yac"]
 [ext_resource type="Texture2D" uid="uid://cei3yxb6ymjfc" path="res://sprites/level_editor_icons/enemies/skeleton_hand.png" id="10_0gwre"]
+[ext_resource type="Texture2D" uid="uid://kq7kejimmow6" path="res://sprites/level_editor_icons/terrains/slope_right.png" id="10_ahp0o"]
 [ext_resource type="Texture2D" uid="uid://vnnv7e2hqub5" path="res://sprites/level_editor_icons/essentials/player.png" id="10_xpnd6"]
 [ext_resource type="Texture2D" uid="uid://bjrbyc21ry0p0" path="res://sprites/level_editor_icons/essentials/camera_room.png" id="11_pj7t4"]
 [ext_resource type="Texture2D" uid="uid://c8ec7ytjdhwid" path="res://sprites/level_editor_icons/hazards/lava.png" id="13_cpxh4"]
 [ext_resource type="Texture2D" uid="uid://03jfchwsvkpq" path="res://sprites/level_editor_icons/pickups/health.png" id="14_2d0oq"]
 [ext_resource type="Texture2D" uid="uid://uy6ruds8n2ho" path="res://sprites/level_editor_icons/pickups/shield.png" id="15_iwpps"]
 [ext_resource type="Texture2D" uid="uid://nkkupbb33oo4" path="res://sprites/level_editor_icons/pickups/coin.png" id="16_m8s5m"]
+[ext_resource type="Texture2D" uid="uid://dag04y6cpg6lf" path="res://sprites/level_editor_icons/save.png" id="20_esaba"]
 
 [node name="LevelEditor" type="Node2D"]
 script = ExtResource("1_f2vqo")
+camera_room_tool_scene = ExtResource("2_gum10")
 
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(128, 72)
@@ -39,63 +45,97 @@ script = ExtResource("2_a1c03")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ToolsMenu" type="Control" parent="CanvasLayer"]
+[node name="Interface" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 132.0
+offset_right = 24.0
+offset_bottom = 144.0
+theme = ExtResource("4_vhw0s")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Interface"]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 12.0
+color = Color(0.0742188, 0.0742188, 0.0742188, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Interface"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 12.0
+
+[node name="Save" type="Button" parent="CanvasLayer/Interface/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("20_esaba")
+
+[node name="Run" type="Button" parent="CanvasLayer/Interface/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("7_beg5p")
+
+[node name="ToolBar" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 256.0
 offset_bottom = 21.0
 theme = ExtResource("4_vhw0s")
 
-[node name="TabContainer" type="TabContainer" parent="CanvasLayer/ToolsMenu"]
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/ToolBar"]
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 21.0
 
-[node name="Terrains" type="TabBar" parent="CanvasLayer/ToolsMenu/TabContainer"]
+[node name="Terrain" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Terrains"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolBar/TabContainer/Terrain"]
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 12.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer"]
 layout_mode = 2
 
-[node name="Terrain1" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer/HBoxContainer"]
+[node name="Terrain1" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("5_yp46x")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tile_coordinate_x = 1
 
-[node name="Terrain2" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer/HBoxContainer"]
+[node name="SlopeLeft" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("6_6lexp")
+icon = ExtResource("9_e5yac")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tile_coordinate_x = 2
 
-[node name="Enemies" type="TabBar" parent="CanvasLayer/ToolsMenu/TabContainer"]
+[node name="SlopeRight" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("10_ahp0o")
+icon_alignment = 1
+script = ExtResource("6_mg418")
+tile_coordinate_x = 3
+
+[node name="Enemies" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Enemies"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolBar/TabContainer/Enemies"]
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 12.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer"]
 layout_mode = 2
 
-[node name="Rat" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
+[node name="Rat" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("2_c7wra")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 1
 
-[node name="Crab" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
+[node name="Crab" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("9_88cyv")
 icon_alignment = 1
@@ -103,7 +143,7 @@ script = ExtResource("6_mg418")
 tool_type = 1
 tile_coordinate_x = 1
 
-[node name="Bat" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
+[node name="Bat" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("6_6lexp")
 icon_alignment = 1
@@ -111,7 +151,7 @@ script = ExtResource("6_mg418")
 tool_type = 1
 tile_coordinate_x = 2
 
-[node name="SkeletonHand" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
+[node name="SkeletonHand" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("10_0gwre")
 icon_alignment = 1
@@ -119,26 +159,26 @@ script = ExtResource("6_mg418")
 tool_type = 1
 tile_coordinate_x = 3
 
-[node name="Hazards" type="TabBar" parent="CanvasLayer/ToolsMenu/TabContainer"]
+[node name="Hazards" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Hazards"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolBar/TabContainer/Hazards"]
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 12.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer"]
 layout_mode = 2
 
-[node name="Spike" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
+[node name="Spike" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("7_be2tf")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 2
 
-[node name="Stalactite" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
+[node name="Stalactite" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("8_x5trv")
 icon_alignment = 1
@@ -146,7 +186,7 @@ script = ExtResource("6_mg418")
 tool_type = 2
 tile_coordinate_x = 1
 
-[node name="Lava" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
+[node name="Lava" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("13_cpxh4")
 icon_alignment = 1
@@ -154,26 +194,26 @@ script = ExtResource("6_mg418")
 tool_type = 2
 tile_coordinate_x = 2
 
-[node name="Pickups" type="TabBar" parent="CanvasLayer/ToolsMenu/TabContainer"]
+[node name="Pickups" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Pickups"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolBar/TabContainer/Pickups"]
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 12.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer"]
 layout_mode = 2
 
-[node name="Health" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
+[node name="Health" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("14_2d0oq")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 3
 
-[node name="Shield" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
+[node name="Shield" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("15_iwpps")
 icon_alignment = 1
@@ -181,7 +221,7 @@ script = ExtResource("6_mg418")
 tool_type = 3
 tile_coordinate_x = 1
 
-[node name="Coin" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
+[node name="Coin" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("16_m8s5m")
 icon_alignment = 1
@@ -189,26 +229,26 @@ script = ExtResource("6_mg418")
 tool_type = 3
 tile_coordinate_x = 2
 
-[node name="Essentials" type="TabBar" parent="CanvasLayer/ToolsMenu/TabContainer"]
+[node name="Essentials" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Essentials"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolBar/TabContainer/Essentials"]
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 12.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer"]
 layout_mode = 2
 
-[node name="Player" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer/HBoxContainer"]
+[node name="Player" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("10_xpnd6")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 4
 
-[node name="CameraRoom" type="Button" parent="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer/HBoxContainer"]
+[node name="CameraRoom" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("11_pj7t4")
 icon_alignment = 1
@@ -216,31 +256,87 @@ script = ExtResource("6_mg418")
 tool_type = 4
 tile_coordinate_x = 1
 
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer/HBoxContainer/Terrain1" to="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer/HBoxContainer/Terrain1" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer/HBoxContainer/Terrain1" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer/HBoxContainer/Terrain2" to="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer/HBoxContainer/Terrain2" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Terrains/ScrollContainer/HBoxContainer/Terrain2" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" to="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/Crab" to="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/Crab" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/Crab" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/Bat" to="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/Bat" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/Bat" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" to="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" to="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" to="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" to="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" to="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" to="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" to="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" to="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolsMenu/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" to="." method="_on_tool_selected"]
+[node name="NameFile" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 56.0
+offset_right = 176.0
+offset_bottom = 88.0
+theme = ExtResource("4_vhw0s")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/NameFile"]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 32.0
+color = Color(0.0742188, 0.0742188, 0.0742188, 1)
+
+[node name="TextEdit" type="LineEdit" parent="CanvasLayer/NameFile"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 12.0
+offset_right = 88.0
+offset_bottom = 21.0
+placeholder_text = "exclude filetype"
+caret_blink = true
+caret_blink_interval = 0.4
+
+[node name="Label" type="Label" parent="CanvasLayer/NameFile"]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 16.0
+text = "Name your level"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SaveFileName" type="Button" parent="CanvasLayer/NameFile"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 23.0
+offset_right = 44.0
+offset_bottom = 32.0
+text = "Save"
+
+[node name="CancelFileName" type="Button" parent="CanvasLayer/NameFile"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 23.0
+offset_right = 72.0
+offset_bottom = 32.0
+text = "Cancel"
+
+[connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeLeft" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeLeft" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeLeft" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeRight" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeRight" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeRight" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Crab" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Crab" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Crab" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Bat" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Bat" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Bat" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" to="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" to="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" to="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" to="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" to="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/NameFile/SaveFileName" to="." method="_on_save_file_name_pressed"]
+[connection signal="pressed" from="CanvasLayer/NameFile/CancelFileName" to="." method="_on_cancel_file_name_pressed"]
