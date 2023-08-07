@@ -50,13 +50,13 @@ anchors_preset = 0
 offset_left = 80.0
 offset_top = 56.0
 offset_right = 176.0
-offset_bottom = 88.0
+offset_bottom = 92.0
 theme = ExtResource("12_8nhei")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/LoadFileUI"]
 layout_mode = 0
 offset_right = 96.0
-offset_bottom = 32.0
+offset_bottom = 39.0
 color = Color(0.0742188, 0.0742188, 0.0742188, 1)
 
 [node name="TextEdit" type="LineEdit" parent="CanvasLayer/LoadFileUI"]
@@ -80,18 +80,18 @@ autowrap_mode = 3
 
 [node name="Load" type="Button" parent="CanvasLayer/LoadFileUI"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 23.0
+offset_left = 24.0
+offset_top = 27.0
 offset_right = 48.0
-offset_bottom = 32.0
+offset_bottom = 39.0
 text = "Load"
 
 [node name="Back" type="Button" parent="CanvasLayer/LoadFileUI"]
 layout_mode = 0
 offset_left = 48.0
-offset_top = 23.0
-offset_right = 68.0
-offset_bottom = 32.0
+offset_top = 27.0
+offset_right = 72.0
+offset_bottom = 39.0
 text = "Back"
 
 [connection signal="pressed" from="CanvasLayer/LoadFileUI/Load" to="." method="_on_load_pressed"]

@@ -39,6 +39,7 @@ offset_right = 257.0
 offset_bottom = 145.0
 texture = ExtResource("4_u6s76")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="TileMap" parent="." instance=ExtResource("3_y01m3")]
 
@@ -266,10 +267,10 @@ tile_coordinate_x = 1
 [node name="NameFile" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 80.0
-offset_top = 56.0
-offset_right = 176.0
-offset_bottom = 93.0
+offset_left = 81.0
+offset_top = 53.0
+offset_right = 177.0
+offset_bottom = 90.0
 theme = ExtResource("4_vhw0s")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/NameFile"]
