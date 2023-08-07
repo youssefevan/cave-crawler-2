@@ -45,7 +45,6 @@ texture = ExtResource("8_hnsdk")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LoadFileUI" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 80.0
@@ -58,7 +57,7 @@ theme = ExtResource("12_icb1k")
 layout_mode = 0
 offset_right = 96.0
 offset_bottom = 43.0
-color = Color(0.0742188, 0.0742188, 0.0742188, 1)
+color = Color(0.0862745, 0.0862745, 0.0862745, 1)
 
 [node name="TextEdit" type="LineEdit" parent="CanvasLayer/LoadFileUI"]
 layout_mode = 0

@@ -61,16 +61,11 @@ offset_right = 24.0
 offset_bottom = 144.0
 theme = ExtResource("9_5lcqo")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Interface"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Interface"]
 layout_mode = 0
 offset_right = 24.0
 offset_bottom = 12.0
-color = Color(0.0742188, 0.0742188, 0.0742188, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Interface"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 12.0
+theme_override_constants/separation = 0
 
 [node name="Save" type="Button" parent="CanvasLayer/Interface/HBoxContainer"]
 layout_mode = 2
@@ -277,7 +272,7 @@ theme = ExtResource("9_5lcqo")
 layout_mode = 0
 offset_right = 96.0
 offset_bottom = 43.0
-color = Color(0.0742188, 0.0742188, 0.0742188, 1)
+color = Color(0.0862745, 0.0862745, 0.0862745, 1)
 
 [node name="TextEdit" type="LineEdit" parent="CanvasLayer/NameFile"]
 layout_mode = 0
