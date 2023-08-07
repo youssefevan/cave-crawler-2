@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dd4kgsl8xo6gi"]
+[gd_scene load_steps=44 format=3 uid="uid://dd4kgsl8xo6gi"]
 
 [ext_resource type="Texture2D" uid="uid://cq0bgbp8h6and" path="res://sprites/level_editor_icons/cr_tool_handle_top_left.png" id="1_ejbyw"]
 [ext_resource type="Script" path="res://scripts/level_editor/camera_room_tool.gd" id="1_osmu5"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://4tfw4gq0g2dn" path="res://sprites/level_editor_icons/file_dialog/close.png" id="10_rx8nf"]
 [ext_resource type="Texture2D" uid="uid://b0l3nlfvdpkw1" path="res://sprites/level_editor_icons/file_dialog/close_pressed.png" id="11_140ig"]
 [ext_resource type="FontFile" uid="uid://cggqi2nq21vhh" path="res://fonts/CCFont.ttf" id="12_kd0ce"]
+[ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="14_f0t5j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7aauj"]
 bg_color = Color(0, 0, 0, 0)
@@ -213,7 +214,7 @@ suffix = "h"
 [node name="Button" type="Button" parent="."]
 offset_right = 12.0
 offset_bottom = 12.0
-theme = SubResource("Theme_kpkhv")
+theme = ExtResource("14_f0t5j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1aenk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8agrt")
 toggle_mode = true
