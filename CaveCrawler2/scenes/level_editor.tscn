@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=25 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/level_editor.gd" id="1_f2vqo"]
 [ext_resource type="Script" path="res://scripts/level_editor_camera.gd" id="2_a1c03"]
@@ -15,7 +15,6 @@
 [ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="9_5lcqo"]
 [ext_resource type="Texture2D" uid="uid://ce7kfekdkfd5a" path="res://sprites/level_editor_icons/enemies/crab.png" id="9_88cyv"]
 [ext_resource type="Texture2D" uid="uid://c1h0d22xf3ptr" path="res://sprites/level_editor_icons/terrains/slope_left.png" id="9_e5yac"]
-[ext_resource type="Theme" uid="uid://bs0txgabywvy3" path="res://themes/default.tres" id="9_tqoyr"]
 [ext_resource type="Texture2D" uid="uid://cei3yxb6ymjfc" path="res://sprites/level_editor_icons/enemies/skeleton_hand.png" id="10_0gwre"]
 [ext_resource type="Texture2D" uid="uid://kq7kejimmow6" path="res://sprites/level_editor_icons/terrains/slope_right.png" id="10_ahp0o"]
 [ext_resource type="Texture2D" uid="uid://vnnv7e2hqub5" path="res://sprites/level_editor_icons/essentials/player.png" id="10_xpnd6"]
@@ -85,7 +84,7 @@ icon = ExtResource("7_beg5p")
 layout_mode = 3
 anchors_preset = 0
 offset_right = 256.0
-offset_bottom = 24.0
+offset_bottom = 20.0
 theme = ExtResource("9_5lcqo")
 
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer/ToolBar"]
@@ -268,24 +267,23 @@ tile_coordinate_x = 1
 [node name="NameFile" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 81.0
+offset_left = 80.0
 offset_top = 53.0
-offset_right = 177.0
-offset_bottom = 90.0
-theme = ExtResource("9_tqoyr")
+offset_right = 176.0
+offset_bottom = 96.0
+theme = ExtResource("9_5lcqo")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/NameFile"]
 layout_mode = 0
-offset_left = -1.0
-offset_right = 95.0
-offset_bottom = 37.0
+offset_right = 96.0
+offset_bottom = 43.0
 color = Color(0.0742188, 0.0742188, 0.0742188, 1)
 
 [node name="TextEdit" type="LineEdit" parent="CanvasLayer/NameFile"]
 layout_mode = 0
-offset_left = 7.0
+offset_left = 8.0
 offset_top = 13.0
-offset_right = 87.0
+offset_right = 88.0
 offset_bottom = 25.0
 placeholder_text = "..."
 caret_blink = true
@@ -293,9 +291,8 @@ caret_blink_interval = 0.4
 
 [node name="Label" type="Label" parent="CanvasLayer/NameFile"]
 layout_mode = 0
-offset_left = -1.0
 offset_top = 2.0
-offset_right = 95.0
+offset_right = 96.0
 offset_bottom = 13.0
 text = "Name your level"
 horizontal_alignment = 1
@@ -304,18 +301,18 @@ autowrap_mode = 3
 
 [node name="SaveFileName" type="Button" parent="CanvasLayer/NameFile"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 29.0
-offset_right = 42.0
-offset_bottom = 37.0
+offset_left = 19.0
+offset_top = 31.0
+offset_right = 43.0
+offset_bottom = 43.0
 text = "Save"
 
 [node name="CancelFileName" type="Button" parent="CanvasLayer/NameFile"]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 29.0
-offset_right = 76.0
-offset_bottom = 37.0
+offset_left = 43.0
+offset_top = 31.0
+offset_right = 77.0
+offset_bottom = 43.0
 text = "Cancel"
 
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Save" to="." method="_on_save_pressed"]
