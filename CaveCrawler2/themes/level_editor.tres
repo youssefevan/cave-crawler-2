@@ -1,6 +1,16 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://bs0txgabywvy3"]
+[gd_resource type="Theme" load_steps=32 format=3 uid="uid://bs0txgabywvy3"]
 
-[ext_resource type="FontFile" uid="uid://cvfoc312yoi3p" path="res://fonts/Early GameBoy.ttf" id="1_4xf5q"]
+[ext_resource type="Texture2D" uid="uid://bddfd8edpybo8" path="res://sprites/level_editor_icons/file_dialog/back.png" id="1_es3qi"]
+[ext_resource type="Texture2D" uid="uid://cvinsrhw0u38j" path="res://sprites/level_editor_icons/file_dialog/file.png" id="2_c3ip8"]
+[ext_resource type="Texture2D" uid="uid://1w81utwlbt1n" path="res://sprites/level_editor_icons/file_dialog/folder.png" id="3_y3boc"]
+[ext_resource type="Texture2D" uid="uid://cppajcersdyp0" path="res://sprites/level_editor_icons/file_dialog/forward.png" id="4_f2dk8"]
+[ext_resource type="Texture2D" uid="uid://c3bawlm2vtfma" path="res://sprites/level_editor_icons/file_dialog/parent_folder.png" id="5_aet8w"]
+[ext_resource type="Texture2D" uid="uid://04pwt6drv7nj" path="res://sprites/level_editor_icons/file_dialog/refresh.png" id="6_cbsd4"]
+[ext_resource type="Texture2D" uid="uid://b746xowghu2e2" path="res://sprites/level_editor_icons/file_dialog/toggle_hidden.png" id="7_2bhto"]
+[ext_resource type="Texture2D" uid="uid://4tfw4gq0g2dn" path="res://sprites/level_editor_icons/file_dialog/close.png" id="8_148kj"]
+[ext_resource type="Texture2D" uid="uid://cwlxg267a0jy5" path="res://sprites/level_editor_icons/file_dialog/dropdown.png" id="8_hl40s"]
+[ext_resource type="Texture2D" uid="uid://b0l3nlfvdpkw1" path="res://sprites/level_editor_icons/file_dialog/close_pressed.png" id="9_eowcu"]
+[ext_resource type="FontFile" uid="uid://cggqi2nq21vhh" path="res://fonts/CCFont.ttf" id="11_mcte0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qps1f"]
 content_margin_left = 2.0
@@ -59,6 +69,9 @@ border_width_bottom = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtlgd"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at3y6"]
+bg_color = Color(0.0585938, 0.0585938, 0.0585938, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feiy6"]
 bg_color = Color(0.0742188, 0.0742188, 0.0742188, 1)
 
@@ -91,18 +104,46 @@ anti_aliasing = false
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0i66"]
 bg_color = Color(0.0742188, 0.0742188, 0.0742188, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kknox"]
+bg_color = Color(0.368627, 0.368627, 0.368627, 1)
+expand_margin_left = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_op884"]
+bg_color = Color(0.631373, 0.631373, 0.631373, 1)
+expand_margin_left = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtqde"]
+bg_color = Color(0.541176, 0.541176, 0.541176, 1)
+expand_margin_left = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lp0mb"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_shr4g"]
+
 [resource]
-default_font = ExtResource("1_4xf5q")
-default_font_size = 4
+default_font = ExtResource("11_mcte0")
+default_font_size = 8
 BoxContainer/constants/separation = 0
 Button/styles/disabled = SubResource("StyleBoxFlat_qps1f")
 Button/styles/focus = SubResource("StyleBoxFlat_hhrmr")
 Button/styles/hover = SubResource("StyleBoxFlat_pgoit")
 Button/styles/normal = SubResource("StyleBoxFlat_ig2ol")
 Button/styles/pressed = SubResource("StyleBoxFlat_837dy")
+FileDialog/icons/back_folder = ExtResource("1_es3qi")
+FileDialog/icons/file = ExtResource("2_c3ip8")
+FileDialog/icons/folder = ExtResource("3_y3boc")
+FileDialog/icons/forward_folder = ExtResource("4_f2dk8")
+FileDialog/icons/parent_folder = ExtResource("5_aet8w")
+FileDialog/icons/reload = ExtResource("6_cbsd4")
+FileDialog/icons/toggle_hidden = ExtResource("7_2bhto")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_d0frm")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_7nkbu")
 LineEdit/styles/read_only = SubResource("StyleBoxEmpty_qtlgd")
+OptionButton/icons/arrow = ExtResource("8_hl40s")
+Panel/styles/panel = SubResource("StyleBoxFlat_at3y6")
 TabContainer/constants/side_margin = 0
 TabContainer/styles/panel = SubResource("StyleBoxFlat_feiy6")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxEmpty_3ojtg")
@@ -110,3 +151,14 @@ TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_20rua")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_2lhtq")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_634rl")
 TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_a0i66")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_kknox")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_op884")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_jtqde")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_lp0mb")
+Window/constants/close_h_offset = 0
+Window/constants/close_v_offset = 0
+Window/constants/resize_margin = 0
+Window/constants/title_height = 0
+Window/icons/close = ExtResource("8_148kj")
+Window/icons/close_pressed = ExtResource("9_eowcu")
+Window/styles/embedded_border = SubResource("StyleBoxEmpty_shr4g")

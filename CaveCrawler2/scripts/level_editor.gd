@@ -92,3 +92,6 @@ func _process(delta):
 		$CanvasLayer/NameFile/SaveFileName.disabled = false
 	else:
 		$CanvasLayer/NameFile/SaveFileName.disabled = true
+
+func _on_load_pressed():
+	pass # Replace with function body.

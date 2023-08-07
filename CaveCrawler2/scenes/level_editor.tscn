@@ -29,9 +29,16 @@
 script = ExtResource("1_f2vqo")
 camera_room_tool_scene = ExtResource("2_gum10")
 
-[node name="BG" type="Sprite2D" parent="."]
-position = Vector2(128, 72)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(768, 432)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_right = 257.0
+offset_bottom = 145.0
 texture = ExtResource("4_u6s76")
+stretch_mode = 1
 
 [node name="TileMap" parent="." instance=ExtResource("3_y01m3")]
 
@@ -49,7 +56,7 @@ script = ExtResource("2_a1c03")
 layout_mode = 3
 anchors_preset = 0
 offset_top = 132.0
-offset_right = 24.0
+offset_right = 36.0
 offset_bottom = 144.0
 theme = ExtResource("4_vhw0s")
 
@@ -76,13 +83,13 @@ icon = ExtResource("7_beg5p")
 layout_mode = 3
 anchors_preset = 0
 offset_right = 256.0
-offset_bottom = 21.0
+offset_bottom = 23.0
 theme = ExtResource("4_vhw0s")
 
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer/ToolBar"]
 layout_mode = 0
 offset_right = 256.0
-offset_bottom = 21.0
+offset_bottom = 24.0
 
 [node name="Terrain" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 layout_mode = 2
@@ -262,13 +269,13 @@ anchors_preset = 0
 offset_left = 80.0
 offset_top = 56.0
 offset_right = 176.0
-offset_bottom = 88.0
+offset_bottom = 93.0
 theme = ExtResource("4_vhw0s")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/NameFile"]
 layout_mode = 0
 offset_right = 96.0
-offset_bottom = 32.0
+offset_bottom = 37.0
 color = Color(0.0742188, 0.0742188, 0.0742188, 1)
 
 [node name="TextEdit" type="LineEdit" parent="CanvasLayer/NameFile"]
@@ -276,8 +283,8 @@ layout_mode = 0
 offset_left = 8.0
 offset_top = 12.0
 offset_right = 88.0
-offset_bottom = 21.0
-placeholder_text = "exclude filetype"
+offset_bottom = 24.0
+placeholder_text = "..."
 caret_blink = true
 caret_blink_interval = 0.4
 
@@ -292,18 +299,18 @@ autowrap_mode = 3
 
 [node name="SaveFileName" type="Button" parent="CanvasLayer/NameFile"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 23.0
-offset_right = 44.0
-offset_bottom = 32.0
+offset_left = 19.0
+offset_top = 25.0
+offset_right = 43.0
+offset_bottom = 37.0
 text = "Save"
 
 [node name="CancelFileName" type="Button" parent="CanvasLayer/NameFile"]
 layout_mode = 0
-offset_left = 44.0
-offset_top = 23.0
-offset_right = 72.0
-offset_bottom = 32.0
+offset_left = 43.0
+offset_top = 25.0
+offset_right = 77.0
+offset_bottom = 37.0
 text = "Cancel"
 
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Save" to="." method="_on_save_pressed"]

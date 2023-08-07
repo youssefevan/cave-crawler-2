@@ -95,7 +95,6 @@ func build_level():
 	var autotile_cells : Array
 	
 	for cell in lines:
-		print(cell)
 		var cell_type = Vector2(cell.z, cell.w)
 		var cell_position = Vector2(cell.x, cell.y)
 		match cell_type:
