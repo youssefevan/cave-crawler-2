@@ -1,53 +1,33 @@
 [gd_resource type="Theme" load_steps=32 format=3 uid="uid://bs0txgabywvy3"]
 
-[ext_resource type="Texture2D" uid="uid://bddfd8edpybo8" path="res://sprites/level_editor_icons/file_dialog/back.png" id="1_es3qi"]
-[ext_resource type="Texture2D" uid="uid://cvinsrhw0u38j" path="res://sprites/level_editor_icons/file_dialog/file.png" id="2_c3ip8"]
-[ext_resource type="Texture2D" uid="uid://1w81utwlbt1n" path="res://sprites/level_editor_icons/file_dialog/folder.png" id="3_y3boc"]
-[ext_resource type="Texture2D" uid="uid://cppajcersdyp0" path="res://sprites/level_editor_icons/file_dialog/forward.png" id="4_f2dk8"]
-[ext_resource type="Texture2D" uid="uid://c3bawlm2vtfma" path="res://sprites/level_editor_icons/file_dialog/parent_folder.png" id="5_aet8w"]
-[ext_resource type="Texture2D" uid="uid://04pwt6drv7nj" path="res://sprites/level_editor_icons/file_dialog/refresh.png" id="6_cbsd4"]
-[ext_resource type="Texture2D" uid="uid://b746xowghu2e2" path="res://sprites/level_editor_icons/file_dialog/toggle_hidden.png" id="7_2bhto"]
-[ext_resource type="Texture2D" uid="uid://4tfw4gq0g2dn" path="res://sprites/level_editor_icons/file_dialog/close.png" id="8_148kj"]
-[ext_resource type="Texture2D" uid="uid://cwlxg267a0jy5" path="res://sprites/level_editor_icons/file_dialog/dropdown.png" id="8_hl40s"]
-[ext_resource type="Texture2D" uid="uid://b0l3nlfvdpkw1" path="res://sprites/level_editor_icons/file_dialog/close_pressed.png" id="9_eowcu"]
-[ext_resource type="FontFile" uid="uid://cggqi2nq21vhh" path="res://fonts/CCFont.ttf" id="11_mcte0"]
+[ext_resource type="Texture2D" uid="uid://bddfd8edpybo8" path="res://sprites/level_editor_icons/file_dialog/back.png" id="1_bsn28"]
+[ext_resource type="Texture2D" uid="uid://cvinsrhw0u38j" path="res://sprites/level_editor_icons/file_dialog/file.png" id="2_q3sdu"]
+[ext_resource type="Texture2D" uid="uid://1w81utwlbt1n" path="res://sprites/level_editor_icons/file_dialog/folder.png" id="3_bnlg6"]
+[ext_resource type="Texture2D" uid="uid://cppajcersdyp0" path="res://sprites/level_editor_icons/file_dialog/forward.png" id="4_vsn3c"]
+[ext_resource type="Texture2D" uid="uid://c3bawlm2vtfma" path="res://sprites/level_editor_icons/file_dialog/parent_folder.png" id="5_jfvl7"]
+[ext_resource type="Texture2D" uid="uid://04pwt6drv7nj" path="res://sprites/level_editor_icons/file_dialog/refresh.png" id="6_f8arl"]
+[ext_resource type="Texture2D" uid="uid://b746xowghu2e2" path="res://sprites/level_editor_icons/file_dialog/toggle_hidden.png" id="7_ltpco"]
+[ext_resource type="Texture2D" uid="uid://cwlxg267a0jy5" path="res://sprites/level_editor_icons/file_dialog/dropdown.png" id="8_xw1r8"]
+[ext_resource type="Texture2D" uid="uid://4tfw4gq0g2dn" path="res://sprites/level_editor_icons/file_dialog/close.png" id="9_ibdpt"]
+[ext_resource type="Texture2D" uid="uid://b0l3nlfvdpkw1" path="res://sprites/level_editor_icons/file_dialog/close_pressed.png" id="10_4gydf"]
+[ext_resource type="FontFile" uid="uid://cggqi2nq21vhh" path="res://fonts/CCFont.ttf" id="11_us8is"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qps1f"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
 bg_color = Color(0.054902, 0.054902, 0.054902, 1)
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhrmr"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
 bg_color = Color(0, 0, 0, 0)
 border_width_bottom = 1
 border_color = Color(0.498039, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgoit"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
 bg_color = Color(1, 1, 1, 0.498039)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig2ol"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_837dy"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
 bg_color = Color(1, 1, 1, 0.784314)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0frm"]
@@ -124,7 +104,7 @@ anti_aliasing = false
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_shr4g"]
 
 [resource]
-default_font = ExtResource("11_mcte0")
+default_font = ExtResource("11_us8is")
 default_font_size = 8
 BoxContainer/constants/separation = 0
 Button/styles/disabled = SubResource("StyleBoxFlat_qps1f")
@@ -132,17 +112,17 @@ Button/styles/focus = SubResource("StyleBoxFlat_hhrmr")
 Button/styles/hover = SubResource("StyleBoxFlat_pgoit")
 Button/styles/normal = SubResource("StyleBoxFlat_ig2ol")
 Button/styles/pressed = SubResource("StyleBoxFlat_837dy")
-FileDialog/icons/back_folder = ExtResource("1_es3qi")
-FileDialog/icons/file = ExtResource("2_c3ip8")
-FileDialog/icons/folder = ExtResource("3_y3boc")
-FileDialog/icons/forward_folder = ExtResource("4_f2dk8")
-FileDialog/icons/parent_folder = ExtResource("5_aet8w")
-FileDialog/icons/reload = ExtResource("6_cbsd4")
-FileDialog/icons/toggle_hidden = ExtResource("7_2bhto")
+FileDialog/icons/back_folder = ExtResource("1_bsn28")
+FileDialog/icons/file = ExtResource("2_q3sdu")
+FileDialog/icons/folder = ExtResource("3_bnlg6")
+FileDialog/icons/forward_folder = ExtResource("4_vsn3c")
+FileDialog/icons/parent_folder = ExtResource("5_jfvl7")
+FileDialog/icons/reload = ExtResource("6_f8arl")
+FileDialog/icons/toggle_hidden = ExtResource("7_ltpco")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_d0frm")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_7nkbu")
 LineEdit/styles/read_only = SubResource("StyleBoxEmpty_qtlgd")
-OptionButton/icons/arrow = ExtResource("8_hl40s")
+OptionButton/icons/arrow = ExtResource("8_xw1r8")
 Panel/styles/panel = SubResource("StyleBoxFlat_at3y6")
 TabContainer/constants/side_margin = 0
 TabContainer/styles/panel = SubResource("StyleBoxFlat_feiy6")
@@ -159,6 +139,6 @@ Window/constants/close_h_offset = 0
 Window/constants/close_v_offset = 0
 Window/constants/resize_margin = 0
 Window/constants/title_height = 0
-Window/icons/close = ExtResource("8_148kj")
-Window/icons/close_pressed = ExtResource("9_eowcu")
+Window/icons/close = ExtResource("9_ibdpt")
+Window/icons/close_pressed = ExtResource("10_4gydf")
 Window/styles/embedded_border = SubResource("StyleBoxEmpty_shr4g")
