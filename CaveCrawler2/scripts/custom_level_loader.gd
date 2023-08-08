@@ -37,29 +37,18 @@ var player_in_level := false
 var tile_size := 8
 var tileset_id := 2
 
-@export var level_name : String
-var level : String
+@export var level_path : String
 
 var lines : Array
 var camera_rooms : Array
 
-@onready var load_file_ui = $CanvasLayer/LoadFileUI
-@onready var load_file_text = $CanvasLayer/LoadFileUI/TextEdit
-
 func _ready():
-	load_file_ui.visible = false
+	print(level_path)
 	load_file()
 	build_level()
 
-func _process(delta):
-	if load_file_text.text != null and load_file_text.text != "":
-		$CanvasLayer/LoadFileUI/Load.disabled = false
-	else:
-		$CanvasLayer/LoadFileUI/Load.disabled = true
-
 func load_file():
-	var file_directory = str("res://", level_name, ".txt")
-	var file = FileAccess.open(file_directory, FileAccess.READ)
+	var file = FileAccess.open(level_path, FileAccess.READ)
 	
 	for line in file.get_as_text(false).split("\n"):
 		var count := 0
@@ -134,10 +123,3 @@ func spawn_entity(entity, spawn_position):
 	var e = entity.instantiate()
 	add_child(e)
 	e.global_position = spawn_position * tile_size
-
-func _on_load_pressed():
-	if load_file_text.text != null and load_file_text.text != "":
-		level_name = load_file_text.text
-		load_file_ui.visible = false
-		load_file()
-		build_level()

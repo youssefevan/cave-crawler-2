@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdwtpmwatgytk"]
+[gd_scene load_steps=12 format=3 uid="uid://bdwtpmwatgytk"]
 
 [ext_resource type="Script" path="res://scripts/custom_level_loader.gd" id="1_m6kmy"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_o6b1y"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/backgrounds/bg.png" id="8_hnsdk"]
 [ext_resource type="PackedScene" uid="uid://cgc2ryr7t78sm" path="res://scenes/hazards/spike.tscn" id="9_a7jqp"]
 [ext_resource type="PackedScene" uid="uid://cbne2o42871na" path="res://scenes/hazards/stalactite.tscn" id="10_8m8eu"]
-[ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="12_icb1k"]
 
 [node name="CustomLevelLoader" type="Node2D"]
 script = ExtResource("1_m6kmy")
@@ -23,9 +22,6 @@ bat_scene = ExtResource("7_hvyjo")
 skeleton_hand_scene = ExtResource("8_gljx5")
 spike_scene = ExtResource("9_a7jqp")
 stalactite_scene = ExtResource("10_8m8eu")
-level_name = "level1"
-
-[node name="TileMap" parent="." instance=ExtResource("1_o6b1y")]
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 
@@ -42,55 +38,4 @@ position = Vector2(128, 72)
 scale = Vector2(-1, -1)
 texture = ExtResource("8_hnsdk")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="LoadFileUI" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 80.0
-offset_top = 53.0
-offset_right = 176.0
-offset_bottom = 96.0
-theme = ExtResource("12_icb1k")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/LoadFileUI"]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 43.0
-color = Color(0.0862745, 0.0862745, 0.0862745, 1)
-
-[node name="TextEdit" type="LineEdit" parent="CanvasLayer/LoadFileUI"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 13.0
-offset_right = 88.0
-offset_bottom = 25.0
-placeholder_text = "..."
-caret_blink = true
-caret_blink_interval = 0.4
-
-[node name="Label" type="Label" parent="CanvasLayer/LoadFileUI"]
-layout_mode = 0
-offset_top = 2.0
-offset_right = 96.0
-offset_bottom = 13.0
-text = "Load Level"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Load" type="Button" parent="CanvasLayer/LoadFileUI"]
-offset_left = 24.0
-offset_top = 31.0
-offset_right = 48.0
-offset_bottom = 43.0
-text = "Load"
-
-[node name="Back" type="Button" parent="CanvasLayer/LoadFileUI"]
-offset_left = 48.0
-offset_top = 31.0
-offset_right = 72.0
-offset_bottom = 43.0
-text = "Back"
-
-[connection signal="pressed" from="CanvasLayer/LoadFileUI/Load" to="." method="_on_load_pressed"]
+[node name="TileMap" parent="." instance=ExtResource("1_o6b1y")]

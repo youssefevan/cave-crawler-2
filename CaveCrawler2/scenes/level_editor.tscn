@@ -97,6 +97,7 @@ offset_bottom = 12.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="Terrain1" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
 layout_mode = 2
@@ -259,57 +260,6 @@ script = ExtResource("6_mg418")
 tool_type = 4
 tile_coordinate_x = 1
 
-[node name="NameFile" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 80.0
-offset_top = 53.0
-offset_right = 176.0
-offset_bottom = 96.0
-theme = ExtResource("9_5lcqo")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/NameFile"]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 43.0
-color = Color(0.0862745, 0.0862745, 0.0862745, 1)
-
-[node name="TextEdit" type="LineEdit" parent="CanvasLayer/NameFile"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 13.0
-offset_right = 88.0
-offset_bottom = 25.0
-placeholder_text = "..."
-caret_blink = true
-caret_blink_interval = 0.4
-
-[node name="Label" type="Label" parent="CanvasLayer/NameFile"]
-layout_mode = 0
-offset_top = 2.0
-offset_right = 96.0
-offset_bottom = 13.0
-text = "Name your level"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="SaveFileName" type="Button" parent="CanvasLayer/NameFile"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 31.0
-offset_right = 43.0
-offset_bottom = 43.0
-text = "Save"
-
-[node name="CancelFileName" type="Button" parent="CanvasLayer/NameFile"]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 31.0
-offset_right = 77.0
-offset_bottom = 43.0
-text = "Cancel"
-
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Run" to="." method="_on_run_pressed"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" method="_on_pressed"]
@@ -342,5 +292,3 @@ text = "Cancel"
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" to="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/NameFile/SaveFileName" to="." method="_on_save_file_name_pressed"]
-[connection signal="pressed" from="CanvasLayer/NameFile/CancelFileName" to="." method="_on_cancel_file_name_pressed"]

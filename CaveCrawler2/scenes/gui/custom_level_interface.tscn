@@ -1,22 +1,141 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0v8bujg0pgxf"]
+[gd_scene load_steps=5 format=3 uid="uid://c0v8bujg0pgxf"]
 
 [ext_resource type="Script" path="res://scripts/gui/custom_level_interface.gd" id="1_85xm6"]
 [ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="2_ejw3j"]
+[ext_resource type="PackedScene" uid="uid://bdwtpmwatgytk" path="res://scenes/custom_level_loader.tscn" id="2_rxqpv"]
+[ext_resource type="PackedScene" uid="uid://bgjuqby6d1rn4" path="res://scenes/level_editor.tscn" id="3_1fy28"]
 
 [node name="CustomLevelInterface" type="Node2D"]
 script = ExtResource("1_85xm6")
+custom_level_loader = ExtResource("2_rxqpv")
+level_editor = ExtResource("3_1fy28")
 
-[node name="Control" type="Control" parent="."]
+[node name="Main" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 104.0
+offset_top = 54.0
+offset_right = 152.0
+offset_bottom = 90.0
+theme = ExtResource("2_ejw3j")
+
+[node name="Label" type="Label" parent="Main"]
+offset_left = -104.0
+offset_top = -22.0
+offset_right = 152.0
+offset_bottom = -14.0
+text = "Custom Levels"
+horizontal_alignment = 1
+
+[node name="FileTypeError" type="Label" parent="Main"]
+offset_left = -104.0
+offset_top = 82.0
+offset_right = 152.0
+offset_bottom = 90.0
+text = "Can only save/load \".cc2\" files"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="Main"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 8.0
+text = "Play"
+
+[node name="New" type="Button" parent="Main"]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 48.0
+offset_bottom = 24.0
+text = "new"
+
+[node name="Edit" type="Button" parent="Main"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 48.0
+offset_bottom = 36.0
+text = "Edit"
+
+[node name="FileSystem" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("2_ejw3j")
 
-[node name="FileDialog" type="FileDialog" parent="Control"]
+[node name="FileDialog" type="FileDialog" parent="FileSystem"]
 title = "Open a File"
 size = Vector2i(256, 144)
-visible = true
 borderless = true
 min_size = Vector2i(128, 72)
 max_size = Vector2i(256, 144)
 ok_button_text = "Open"
 file_mode = 0
+filters = PackedStringArray("*.cc2")
+
+[node name="SaveDialog" type="FileDialog" parent="FileSystem"]
+size = Vector2i(256, 144)
+borderless = true
+min_size = Vector2i(128, 72)
+max_size = Vector2i(256, 144)
+ok_button_text = "Save"
+filters = PackedStringArray("*.cc2")
+
+[node name="NameFile" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 53.0
+offset_right = 176.0
+offset_bottom = 96.0
+theme = ExtResource("2_ejw3j")
+
+[node name="ColorRect" type="ColorRect" parent="NameFile"]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 43.0
+color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+
+[node name="TextEdit" type="LineEdit" parent="NameFile"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 13.0
+offset_right = 88.0
+offset_bottom = 25.0
+placeholder_text = "..."
+caret_blink = true
+caret_blink_interval = 0.4
+
+[node name="Label" type="Label" parent="NameFile"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 96.0
+offset_bottom = 13.0
+text = "Name your level"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SaveFileName" type="Button" parent="NameFile"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 31.0
+offset_right = 43.0
+offset_bottom = 43.0
+text = "Save"
+
+[node name="CancelFileName" type="Button" parent="NameFile"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 31.0
+offset_right = 77.0
+offset_bottom = 43.0
+text = "Cancel"
+
+[connection signal="pressed" from="Main/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="Main/Edit" to="." method="_on_edit_pressed"]
+[connection signal="canceled" from="FileSystem/FileDialog" to="." method="_on_file_dialog_canceled"]
+[connection signal="confirmed" from="FileSystem/FileDialog" to="." method="_on_file_dialog_confirmed"]
+[connection signal="file_selected" from="FileSystem/FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="canceled" from="FileSystem/SaveDialog" to="." method="_on_save_dialog_canceled"]
+[connection signal="confirmed" from="FileSystem/SaveDialog" to="." method="_on_save_dialog_confirmed"]
