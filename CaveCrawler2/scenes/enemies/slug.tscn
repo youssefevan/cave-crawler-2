@@ -1,0 +1,118 @@
+[gd_scene load_steps=15 format=3 uid="uid://biogwmi8pccag"]
+
+[ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_puswo"]
+[ext_resource type="Texture2D" uid="uid://dm26f2uxynh0b" path="res://sprites/enemies/slug.png" id="2_m5u3f"]
+[ext_resource type="Script" path="res://scripts/enemies/slug/slug.gd" id="2_omgfc"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="4_fbd6w"]
+[ext_resource type="Script" path="res://scripts/enemies/slug/states/idle.gd" id="5_lliov"]
+[ext_resource type="Script" path="res://scripts/enemies/slug/states/move.gd" id="6_pwn6o"]
+[ext_resource type="Script" path="res://scripts/enemies/slug/states/shield.gd" id="7_tkx2l"]
+
+[sub_resource type="Animation" id="Animation_6q6i8"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5iush"]
+resource_name = "Move"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_wkhgv"]
+resource_name = "Shield"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1i3xe"]
+_data = {
+"Idle": SubResource("Animation_6q6i8"),
+"Move": SubResource("Animation_5iush"),
+"Shield": SubResource("Animation_wkhgv")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke4os"]
+size = Vector2(12, 6)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jouba"]
+radius = 3.5
+height = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0qkj"]
+size = Vector2(14, 8)
+
+[node name="Slug" instance=ExtResource("1_puswo")]
+script = ExtResource("2_omgfc")
+
+[node name="Animator" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_1i3xe")
+}
+
+[node name="VisibleOnScreenEnabler2D" parent="." index="1"]
+position = Vector2(-3.57628e-07, -4)
+scale = Vector2(0.8, 0.4)
+
+[node name="Collider" parent="." index="2"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_ke4os")
+
+[node name="Sprite" parent="." index="3"]
+position = Vector2(0, -8)
+texture = ExtResource("2_m5u3f")
+hframes = 3
+
+[node name="Collider" parent="Hitbox" index="0"]
+position = Vector2(0, -3.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jouba")
+
+[node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_k0qkj")
+
+[node name="StateMachine" type="Node" parent="." index="6"]
+script = ExtResource("4_fbd6w")
+
+[node name="Idle" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("5_lliov")
+
+[node name="Move" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("6_pwn6o")
+
+[node name="Shield" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("7_tkx2l")
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]

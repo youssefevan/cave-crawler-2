@@ -23,7 +23,7 @@ func _ready():
 func _physics_process(delta):
 	states.physics_update(delta)
 	if not is_on_floor():
-		velocity.y += 800.0 * delta
+		velocity.y += gravity * delta
 	
 	move_and_slide()
 

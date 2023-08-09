@@ -15,7 +15,6 @@ class_name Rat
 @onready var land = $StateManager/Land
 
 # Variables
-var gravity := 800.0
 var jump_velocity_x := 100.0
 var jump_velocity_y := 200.0
 var anticipate_length := 0.3 # in seconds

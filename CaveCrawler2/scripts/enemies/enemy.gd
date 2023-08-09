@@ -2,9 +2,9 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var max_health : int
+@export var gravity := 800.0
 
 var current_health : int
-
 var can_get_hurt : bool
 
 func _ready():

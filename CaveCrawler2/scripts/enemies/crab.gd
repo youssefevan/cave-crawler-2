@@ -2,7 +2,6 @@ extends Enemy
 class_name Crab
 
 var speed := 40.0
-var gravity := 800.0
 
 var move_direction := -1
 
