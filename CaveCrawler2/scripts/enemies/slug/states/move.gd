@@ -13,3 +13,6 @@ func physics_update(delta):
 		entity.move_direction *= -1
 	
 	entity.velocity.x = lerpf(entity.velocity.x, entity.speed * entity.move_direction, 100 * delta) # effectively no interpolation
+	
+	if entity.got_hit == true:
+		return entity.shield

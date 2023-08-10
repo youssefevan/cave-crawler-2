@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/hazards/stalactite.gd" id="1_b6yq4"]
 [ext_resource type="Texture2D" uid="uid://csjg1pv3m10io" path="res://sprites/hazards/stalactite.png" id="1_yvxls"]
-[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="2_8pemx"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/engine/hitbox.tscn" id="2_8pemx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vwrij"]
 radius = 4.12311
