@@ -102,16 +102,16 @@ shape = SubResource("CapsuleShape2D_jouba")
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_k0qkj")
 
-[node name="StateMachine" type="Node" parent="." index="6"]
+[node name="StateManager" type="Node" parent="." index="6"]
 script = ExtResource("4_fbd6w")
 
-[node name="Idle" type="Node" parent="StateMachine" index="0"]
+[node name="Idle" type="Node" parent="StateManager" index="0"]
 script = ExtResource("5_lliov")
 
-[node name="Move" type="Node" parent="StateMachine" index="1"]
+[node name="Move" type="Node" parent="StateManager" index="1"]
 script = ExtResource("6_pwn6o")
 
-[node name="Shield" type="Node" parent="StateMachine" index="2"]
+[node name="Shield" type="Node" parent="StateManager" index="2"]
 script = ExtResource("7_tkx2l")
 
 [editable path="Hitbox"]
