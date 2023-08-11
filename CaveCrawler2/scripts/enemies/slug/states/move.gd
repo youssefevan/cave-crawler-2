@@ -1,18 +1,20 @@
 extends State
 
+var end := false
+
+func enter():
+	super.enter()
+	end = false
+	entity.velocity.x = entity.speed * entity.move_direction
+	await get_tree().create_timer(entity.inch_time).timeout
+	end = true
+
 func physics_update(delta):
-	if not entity.is_on_floor():
-		entity.velocity.y += entity.gravity * delta
-	
-	if entity.is_on_floor():
-		entity.velocity.y = 1
-	
-	entity.velocity.y = clampf(entity.velocity.y, -250.0, 250.0)
+	if end == true and entity.is_on_floor():
+		return entity.idle
 	
 	if entity.is_on_wall():
 		entity.move_direction *= -1
-	
-	entity.velocity.x = lerpf(entity.velocity.x, entity.speed * entity.move_direction, 100 * delta) # effectively no interpolation
 	
 	if entity.got_hit == true:
 		return entity.shield

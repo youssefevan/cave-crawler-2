@@ -59,18 +59,33 @@ layer_0/tile_data = PackedInt32Array(1179648, 589826, 3, 1179679, 589826, 3, 111
 
 [node name="Rat" parent="Enemies" instance=ExtResource("3_pmbve")]
 position = Vector2(192, 64)
+floor_constant_speed = false
+floor_max_angle = 0.785398
+floor_snap_length = 1.0
 
 [node name="Bat" parent="Enemies" instance=ExtResource("9_6x0ol")]
 position = Vector2(272, 64)
+floor_constant_speed = false
+floor_max_angle = 0.785398
+floor_snap_length = 1.0
 
 [node name="Crab" parent="Enemies" instance=ExtResource("5_v0jx1")]
 position = Vector2(544, 80)
+floor_constant_speed = false
+floor_max_angle = 0.785398
+floor_snap_length = 1.0
 
 [node name="SkeletonHand" parent="Enemies" instance=ExtResource("8_008sm")]
 position = Vector2(232, 128)
+floor_constant_speed = false
+floor_max_angle = 0.785398
+floor_snap_length = 1.0
 
 [node name="Slug" parent="Enemies" instance=ExtResource("9_cl8pp")]
 position = Vector2(137, 100)
+floor_constant_speed = false
+floor_max_angle = 0.785398
+floor_snap_length = 1.0
 print_states = false
 
 [node name="Hazards" type="Node" parent="."]
