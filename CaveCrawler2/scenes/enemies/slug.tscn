@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://biogwmi8pccag"]
+[gd_scene load_steps=17 format=3 uid="uid://biogwmi8pccag"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_puswo"]
 [ext_resource type="Texture2D" uid="uid://dm26f2uxynh0b" path="res://sprites/enemies/slug.png" id="2_m5u3f"]
 [ext_resource type="Script" path="res://scripts/enemies/slug/slug.gd" id="2_omgfc"]
+[ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="3_xd5ol"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="4_fbd6w"]
 [ext_resource type="Script" path="res://scripts/enemies/slug/states/idle.gd" id="5_lliov"]
 [ext_resource type="Script" path="res://scripts/enemies/slug/states/move.gd" id="6_pwn6o"]
@@ -65,6 +66,12 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke4os"]
 size = Vector2(12, 6)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1c4go"]
+resource_local_to_scene = true
+shader = ExtResource("3_xd5ol")
+shader_parameter/enabled = false
+shader_parameter/Tint = Color(1, 0, 0, 1)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jouba"]
 radius = 3.5
 height = 12.0
@@ -90,6 +97,7 @@ position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_ke4os")
 
 [node name="Sprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_1c4go")
 position = Vector2(0, -8)
 texture = ExtResource("2_m5u3f")
 hframes = 3

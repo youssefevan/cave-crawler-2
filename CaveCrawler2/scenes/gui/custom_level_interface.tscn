@@ -29,6 +29,7 @@ text = "Custom Levels"
 horizontal_alignment = 1
 
 [node name="FileTypeError" type="Label" parent="Main"]
+visible = false
 layout_mode = 0
 offset_left = -104.0
 offset_top = 82.0

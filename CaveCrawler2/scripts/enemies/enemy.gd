@@ -8,6 +8,7 @@ var current_health : int
 var can_get_hurt : bool
 
 func _ready():
+	$Sprite.material.set_shader_parameter("enabled", false)
 	current_health = max_health
 	can_get_hurt = true
 
@@ -20,9 +21,11 @@ func get_hurt(hitstun_weight):
 		if current_health == 0:
 			die()
 		
+		$Sprite.material.set_shader_parameter("enabled", true)
 		set_physics_process(false)
 		await get_tree().create_timer(hitstun_weight).timeout
 		set_physics_process(true)
+		$Sprite.material.set_shader_parameter("enabled", false)
 		
 		can_get_hurt = true
 

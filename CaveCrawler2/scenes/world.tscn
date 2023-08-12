@@ -82,7 +82,7 @@ floor_max_angle = 0.785398
 floor_snap_length = 1.0
 
 [node name="Slug" parent="Enemies" instance=ExtResource("9_cl8pp")]
-position = Vector2(137, 100)
+position = Vector2(564, 53)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
