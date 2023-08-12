@@ -170,7 +170,6 @@ size = Vector2(14, 8)
 
 [node name="Slug" instance=ExtResource("1_puswo")]
 script = ExtResource("2_omgfc")
-print_states = true
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -190,6 +189,7 @@ material = SubResource("ShaderMaterial_1c4go")
 position = Vector2(0, -16)
 texture = ExtResource("2_m5u3f")
 hframes = 3
+frame = 1
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -3.5)

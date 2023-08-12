@@ -1,8 +1,6 @@
 extends CharacterBody2D
 class_name Player
 
-@export var print_states : bool
-
 # Nodes
 @onready var states = $StateManager
 @onready var animator = $Animator

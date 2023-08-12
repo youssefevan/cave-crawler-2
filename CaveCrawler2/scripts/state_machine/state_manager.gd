@@ -2,6 +2,7 @@ extends Node
 class_name StateManager
 
 @export var starting_state : NodePath
+@export var print_states := false
 
 var current_state : State
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://bqdrntg643p4m"]
+[gd_scene load_steps=23 format=3 uid="uid://bqdrntg643p4m"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_e54y1"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/rat.gd" id="1_y6ss1"]
 [ext_resource type="Texture2D" uid="uid://bl8c4jartqik0" path="res://sprites/enemies/rat.png" id="2_qv7ne"]
+[ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="3_ad0ie"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="3_o26c8"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/idle.gd" id="4_kiy5e"]
 [ext_resource type="Script" path="res://scripts/enemies/rat/states/anticipate.gd" id="6_o0fmc"]
@@ -115,6 +116,12 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jevmv"]
 size = Vector2(10, 9)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_crm28"]
+resource_local_to_scene = true
+shader = ExtResource("3_ad0ie")
+shader_parameter/enabled = false
+shader_parameter/Tint = Color(1, 0, 0, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0qj8"]
 size = Vector2(10, 9)
 
@@ -126,7 +133,6 @@ size = Vector2(64.0002, 208)
 
 [node name="Rat" instance=ExtResource("1_e54y1")]
 script = ExtResource("1_y6ss1")
-print_states = false
 max_health = 4
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
@@ -143,10 +149,12 @@ position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_jevmv")
 
 [node name="Sprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_crm28")
 position = Vector2(0, -8)
 texture = ExtResource("2_qv7ne")
 hframes = 3
 vframes = 2
+frame = 2
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -4.5)

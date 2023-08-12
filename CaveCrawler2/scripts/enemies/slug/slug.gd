@@ -7,8 +7,6 @@ extends Enemy
 @onready var move = $StateManager/Move
 @onready var shield = $StateManager/Shield
 
-@export var print_states := false
-
 var speed := 100.0
 var move_direction := -1
 var inch_time := 0.4 # in seconds

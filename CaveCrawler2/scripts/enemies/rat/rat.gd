@@ -1,8 +1,6 @@
 extends Enemy
 class_name Rat
 
-@export var print_states : bool
-
 # Nodes
 @onready var states = $StateManager
 @onready var animator = $Animator
