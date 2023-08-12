@@ -147,6 +147,12 @@ shape = SubResource("RectangleShape2D_vkv2b")
 [node name="Muzzle" type="Node2D" parent="Gun"]
 position = Vector2(11, -8)
 
+[node name="Hurtbox" parent="." groups=["Player"] instance=ExtResource("9_i5i06")]
+
+[node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, -6.5)
+shape = SubResource("CapsuleShape2D_j1jc8")
+
 [node name="StateManager" type="Node" parent="."]
 script = ExtResource("3_fwq1u")
 starting_state = NodePath("Idle")
@@ -163,13 +169,8 @@ script = ExtResource("6_w0w5j")
 [node name="Fall" type="Node" parent="StateManager"]
 script = ExtResource("7_7bu6j")
 
-[node name="Hurtbox" parent="." groups=["Player"] instance=ExtResource("9_i5i06")]
-
-[node name="Collider" parent="Hurtbox" index="0"]
-position = Vector2(0, -6.5)
-shape = SubResource("CapsuleShape2D_j1jc8")
-
 [connection signal="area_entered" from="CameraRoomDetector" to="." method="_on_camera_room_detector_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 
 [editable path="Hurtbox"]

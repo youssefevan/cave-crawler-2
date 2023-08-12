@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdwtpmwatgytk"]
+[gd_scene load_steps=13 format=3 uid="uid://bdwtpmwatgytk"]
 
 [ext_resource type="Script" path="res://scripts/custom_level_loader.gd" id="1_m6kmy"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_o6b1y"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bdqqv88177tgm" path="res://scenes/enemies/bat.tscn" id="7_hvyjo"]
 [ext_resource type="PackedScene" uid="uid://bf7qonhrj13f0" path="res://scenes/enemies/skeleton_hand.tscn" id="8_gljx5"]
 [ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/backgrounds/bg.png" id="8_hnsdk"]
+[ext_resource type="PackedScene" uid="uid://biogwmi8pccag" path="res://scenes/enemies/slug.tscn" id="8_jcnug"]
 [ext_resource type="PackedScene" uid="uid://cgc2ryr7t78sm" path="res://scenes/hazards/spike.tscn" id="9_a7jqp"]
 [ext_resource type="PackedScene" uid="uid://cbne2o42871na" path="res://scenes/hazards/stalactite.tscn" id="10_8m8eu"]
 
@@ -20,6 +21,7 @@ rat_scene = ExtResource("3_r8tj7")
 crab_scene = ExtResource("5_5vpvt")
 bat_scene = ExtResource("7_hvyjo")
 skeleton_hand_scene = ExtResource("8_gljx5")
+slug_scene = ExtResource("8_jcnug")
 spike_scene = ExtResource("9_a7jqp")
 stalactite_scene = ExtResource("10_8m8eu")
 

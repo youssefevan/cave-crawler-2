@@ -37,3 +37,8 @@ func _on_hurtbox_area_entered(area):
 		get_hurt(area.hitstun_weight)
 	elif area.is_in_group("Hazard"):
 		get_hurt(0.1)
+
+func _on_hurtbox_body_entered(body):
+	### NOTE: currently only used for killzones because tilemaps dont have get_collision_layer_value
+	current_health = 0
+	die()

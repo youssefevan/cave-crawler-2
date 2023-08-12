@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://biogwmi8pccag"]
+[gd_scene load_steps=18 format=3 uid="uid://biogwmi8pccag"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_puswo"]
 [ext_resource type="Texture2D" uid="uid://dm26f2uxynh0b" path="res://sprites/enemies/slug.png" id="2_m5u3f"]
@@ -23,6 +23,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -8)]
+}
 
 [sub_resource type="Animation" id="Animation_5iush"]
 resource_name = "Move"
@@ -40,9 +64,34 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -8)]
+}
 
 [sub_resource type="Animation" id="Animation_wkhgv"]
 resource_name = "Shield"
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -55,11 +104,51 @@ tracks/0/keys = {
 "update": 1,
 "values": [2]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.05, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.2, 1.5), Vector2(1.5, 0.2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(0, -12), Vector2(0, -1.666), Vector2(0, -8)]
+}
+
+[sub_resource type="Animation" id="Animation_r4khy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1i3xe"]
 _data = {
 "Idle": SubResource("Animation_6q6i8"),
 "Move": SubResource("Animation_5iush"),
+"RESET": SubResource("Animation_r4khy"),
 "Shield": SubResource("Animation_wkhgv")
 }
 
@@ -98,7 +187,7 @@ shape = SubResource("RectangleShape2D_ke4os")
 
 [node name="Sprite" parent="." index="3"]
 material = SubResource("ShaderMaterial_1c4go")
-position = Vector2(0, -8)
+position = Vector2(0, -16)
 texture = ExtResource("2_m5u3f")
 hframes = 3
 

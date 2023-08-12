@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=27 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/level_editor.gd" id="1_f2vqo"]
 [ext_resource type="Script" path="res://scripts/level_editor_camera.gd" id="2_a1c03"]
@@ -20,9 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://vnnv7e2hqub5" path="res://sprites/level_editor_icons/essentials/player.png" id="10_xpnd6"]
 [ext_resource type="Texture2D" uid="uid://bjrbyc21ry0p0" path="res://sprites/level_editor_icons/essentials/camera_room.png" id="11_pj7t4"]
 [ext_resource type="Texture2D" uid="uid://c8ec7ytjdhwid" path="res://sprites/level_editor_icons/hazards/lava.png" id="13_cpxh4"]
+[ext_resource type="Texture2D" uid="uid://cqbifw2rh5sp3" path="res://sprites/level_editor_icons/terrains/oneway.png" id="13_weqo8"]
 [ext_resource type="Texture2D" uid="uid://03jfchwsvkpq" path="res://sprites/level_editor_icons/pickups/health.png" id="14_2d0oq"]
 [ext_resource type="Texture2D" uid="uid://uy6ruds8n2ho" path="res://sprites/level_editor_icons/pickups/shield.png" id="15_iwpps"]
 [ext_resource type="Texture2D" uid="uid://nkkupbb33oo4" path="res://sprites/level_editor_icons/pickups/coin.png" id="16_m8s5m"]
+[ext_resource type="Texture2D" uid="uid://bkvqkisja6eq7" path="res://sprites/level_editor_icons/enemies/slug.png" id="18_17c3a"]
 [ext_resource type="Texture2D" uid="uid://dag04y6cpg6lf" path="res://sprites/level_editor_icons/save.png" id="20_esaba"]
 
 [node name="LevelEditor" type="Node2D"]
@@ -120,6 +122,13 @@ icon_alignment = 1
 script = ExtResource("6_mg418")
 tile_coordinate_x = 3
 
+[node name="OneWay" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("13_weqo8")
+icon_alignment = 1
+script = ExtResource("6_mg418")
+tile_coordinate_x = 4
+
 [node name="Enemies" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
 layout_mode = 2
@@ -162,6 +171,14 @@ icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 1
 tile_coordinate_x = 3
+
+[node name="Slug" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("18_17c3a")
+icon_alignment = 1
+script = ExtResource("6_mg418")
+tool_type = 1
+tile_coordinate_x = 4
 
 [node name="Hazards" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
@@ -268,6 +285,8 @@ tile_coordinate_x = 1
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeLeft" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeRight" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeRight" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeRight" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/OneWay" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/OneWay" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/OneWay" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Crab" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Crab" method="_on_pressed"]
@@ -276,6 +295,8 @@ tile_coordinate_x = 1
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Bat" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Slug" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Slug" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Slug" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" method="_on_pressed"]

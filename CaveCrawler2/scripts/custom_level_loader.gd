@@ -2,21 +2,26 @@ extends Node2D
 
 @onready var tiles = $TileMap
 
-# Utility colors
-@export var player := Vector2(0, 4)
+# Terrain Coordinates
 @export var ground := Vector2(1, 0)
 @export var slope_left := Vector2(2, 0)
 @export var slope_right := Vector2(3, 0)
+@export var one_way := Vector2(4, 0)
 
-# Enemy colors
+# Enemy Coordinates
 @export var rat := Vector2(0, 1)
 @export var crab := Vector2(1, 1)
 @export var bat := Vector2(2, 1)
 @export var skeleton_hand := Vector2(3, 1)
+@export var slug := Vector2(4, 1)
 
-# Harard colors
+# Hazard Coordinates
 @export var spike := Vector2(0, 2)
 @export var stalactite := Vector2(1, 2)
+@export var lava := Vector2(2, 2)
+
+# Utility Coordinates
+@export var player := Vector2(0, 4)
 
 # Utility scenes
 @export var player_scene : PackedScene
@@ -27,6 +32,7 @@ extends Node2D
 @export var crab_scene : PackedScene
 @export var bat_scene : PackedScene
 @export var skeleton_hand_scene : PackedScene
+@export var slug_scene : PackedScene
 
 # Hazard scenes
 @export var spike_scene : PackedScene
@@ -93,6 +99,8 @@ func build_level():
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(0,4))
 			slope_right:
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(1,4))
+			one_way:
+				tiles.set_cell(0, cell_position, tileset_id, Vector2(2,4))
 			player:
 				spawn_entity(player_scene, cell_position)
 			rat:
@@ -103,10 +111,14 @@ func build_level():
 				spawn_entity(bat_scene, cell_position)
 			skeleton_hand:
 				spawn_entity(skeleton_hand_scene, cell_position)
+			slug:
+				spawn_entity(slug_scene, cell_position)
 			spike:
 				spawn_entity(spike_scene, cell_position)
 			stalactite:
 				spawn_entity(stalactite_scene, cell_position)
+			lava:
+				tiles.set_cell(0, cell_position, 4, Vector2(0,0))
 	
 	tiles.set_cells_terrain_connect(0, autotile_cells, 0, 2)
 	

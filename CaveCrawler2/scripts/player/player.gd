@@ -124,6 +124,11 @@ func _on_hurtbox_area_entered(area):
 		if can_get_hurt:
 			get_hurt()
 
+func _on_hurtbox_body_entered(body):
+	### NOTE: currently only used for killzones because tilemaps dont have get_collision_layer_value
+	health = 0
+	die()
+
 func get_hurt():
 	if can_get_hurt:
 		can_get_hurt = false
@@ -150,6 +155,7 @@ func hit_flash():
 		await get_tree().create_timer(0.1).timeout
 
 func die():
+	can_get_hurt = false
 	set_physics_process(false)
 	visible = false
 

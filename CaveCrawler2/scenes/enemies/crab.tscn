@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://6eklyp1v0thi"]
+[gd_scene load_steps=11 format=3 uid="uid://6eklyp1v0thi"]
 
 [ext_resource type="Script" path="res://scripts/enemies/crab.gd" id="1_2cxas"]
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_jpmym"]
 [ext_resource type="Texture2D" uid="uid://dghn0gfmu6qon" path="res://sprites/enemies/crab.png" id="1_v0h3a"]
+[ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="3_5ioui"]
 
 [sub_resource type="Animation" id="Animation_1nvwl"]
 resource_name = "Move"
@@ -27,6 +28,12 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hp7o"]
 size = Vector2(12, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0x8c8"]
+resource_local_to_scene = true
+shader = ExtResource("3_5ioui")
+shader_parameter/enabled = false
+shader_parameter/Tint = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urqul"]
 radius = 4.0
@@ -54,6 +61,7 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_1hp7o")
 
 [node name="Sprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_0x8c8")
 position = Vector2(0, -6)
 texture = ExtResource("1_v0h3a")
 hframes = 3

@@ -31,6 +31,7 @@ material = SubResource("ShaderMaterial_gu8jq")
 [node name="Hurtbox" parent="." instance=ExtResource("3_ohsqj")]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]
