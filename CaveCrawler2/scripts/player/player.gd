@@ -136,8 +136,11 @@ func get_hurt():
 		if health == 0:
 			die()
 		else:
+			$Sprite.material.set_shader_parameter("enabled", true)
 			set_physics_process(false)
 			await get_tree().create_timer(0.05).timeout
+			$Sprite.material.set_shader_parameter("enabled", false)
+			
 			if health != 0:
 				set_physics_process(true)
 			

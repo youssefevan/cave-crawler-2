@@ -1,11 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://dsonrkjq8rlpg"]
+[gd_scene load_steps=22 format=3 uid="uid://dsonrkjq8rlpg"]
 
 [ext_resource type="Texture2D" uid="uid://c0ojv4t3ika0i" path="res://sprites/player.png" id="1_2wwr2"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g2djs"]
-[ext_resource type="PackedScene" uid="uid://bjx44ncj1xgbb" path="res://scenes/bullet.tscn" id="2_jabw6"]
+[ext_resource type="PackedScene" uid="uid://bjx44ncj1xgbb" path="res://scenes/bullets/bullet.tscn" id="2_wqhji"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="3_fwq1u"]
 [ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/engine/camera_room_detector.tscn" id="3_q6n07"]
 [ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="4_jb2gt"]
+[ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="4_pjpk1"]
 [ext_resource type="Script" path="res://scripts/player/states/run.gd" id="5_xe08m"]
 [ext_resource type="Script" path="res://scripts/player/states/jump.gd" id="6_w0w5j"]
 [ext_resource type="Script" path="res://scripts/player/states/fall.gd" id="7_7bu6j"]
@@ -97,6 +98,10 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54jb2"]
+resource_local_to_scene = true
+shader = ExtResource("4_pjpk1")
+shader_parameter/enabled = false
+shader_parameter/Tint = Color(1, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkv2b"]
 size = Vector2(6, 13)
@@ -114,7 +119,7 @@ floor_max_angle = 0.872665
 floor_snap_length = 2.0
 safe_margin = 0.02
 script = ExtResource("1_g2djs")
-bullet = ExtResource("2_jabw6")
+bullet = ExtResource("2_wqhji")
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {
