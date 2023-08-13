@@ -15,7 +15,7 @@ var player : Player
 func _physics_process(delta):
 	if player != null:
 		gun.look_at(Vector2(player.global_position.x, player.global_position.y - player_height_offset))
-		
+		$Animator.play("fire")
 		fire()
 
 func fire():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=28 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/level_editor.gd" id="1_f2vqo"]
 [ext_resource type="Script" path="res://scripts/level_editor_camera.gd" id="2_a1c03"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://uy6ruds8n2ho" path="res://sprites/level_editor_icons/pickups/shield.png" id="15_iwpps"]
 [ext_resource type="Texture2D" uid="uid://nkkupbb33oo4" path="res://sprites/level_editor_icons/pickups/coin.png" id="16_m8s5m"]
 [ext_resource type="Texture2D" uid="uid://bkvqkisja6eq7" path="res://sprites/level_editor_icons/enemies/slug.png" id="18_17c3a"]
+[ext_resource type="Texture2D" uid="uid://c7e5s7x0athqk" path="res://sprites/level_editor_icons/enemies/turret.png" id="19_6cula"]
 [ext_resource type="Texture2D" uid="uid://dag04y6cpg6lf" path="res://sprites/level_editor_icons/save.png" id="20_esaba"]
 
 [node name="LevelEditor" type="Node2D"]
@@ -180,6 +181,14 @@ script = ExtResource("6_mg418")
 tool_type = 1
 tile_coordinate_x = 4
 
+[node name="Turret" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("19_6cula")
+icon_alignment = 1
+script = ExtResource("6_mg418")
+tool_type = 1
+tile_coordinate_x = 5
+
 [node name="Hazards" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
 layout_mode = 2
@@ -297,6 +306,8 @@ tile_coordinate_x = 1
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Slug" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Slug" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Slug" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Turret" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Turret" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Turret" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" method="_on_pressed"]
