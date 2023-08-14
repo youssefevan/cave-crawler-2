@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var fall := false
+var level_editor_offset := Vector2(4, 0)
 
 func _physics_process(delta):
 	if fall == true:
@@ -18,3 +19,6 @@ func _on_player_detection_body_entered(body):
 func _on_hitbox_area_entered(area):
 	if area.get_collision_layer_value(7):
 		call_deferred("queue_free")
+
+func get_level_editor_offset() -> Vector2:
+	return level_editor_offset

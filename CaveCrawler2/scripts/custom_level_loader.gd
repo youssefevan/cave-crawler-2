@@ -138,4 +138,7 @@ func spawn_camera_room(coordinates, size):
 func spawn_entity(entity, spawn_position):
 	var e = entity.instantiate()
 	add_child(e)
-	e.global_position = spawn_position * tile_size
+	if e.has_method("get_level_editor_offset"):
+		e.global_position = (spawn_position * tile_size) + e.get_level_editor_offset()
+	else:
+		e.global_position = spawn_position * tile_size

@@ -3,6 +3,7 @@ class_name Enemy
 
 @export var max_health : int
 @export var gravity := 800.0
+@export var level_editor_offset := Vector2(4, -8)
 
 var current_health : int
 var can_get_hurt : bool
@@ -42,3 +43,6 @@ func _on_hurtbox_body_entered(body):
 	### NOTE: currently only used for killzones because tilemaps dont have get_collision_layer_value
 	current_health = 0
 	die()
+
+func get_level_editor_offset() -> Vector2:
+	return level_editor_offset

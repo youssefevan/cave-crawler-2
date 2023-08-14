@@ -49,6 +49,8 @@ var fire_rate := 0.25
 var camera_speed := 6.0
 var large_y_limits := false
 
+var level_editor_offset := Vector2(4, -8)
+
 func _ready():
 	states.init(self)
 	can_fire = true
@@ -190,3 +192,6 @@ func handle_camera(delta):
 	else:
 		camera.drag_vertical_enabled = false
 		camera.global_position = global_position
+
+func get_level_editor_offset() -> Vector2:
+	return level_editor_offset

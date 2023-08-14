@@ -59,13 +59,13 @@ layer_0/tile_data = PackedInt32Array(1179648, 589826, 3, 1179679, 589826, 3, 104
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Rat" parent="Enemies" instance=ExtResource("3_pmbve")]
-position = Vector2(349, 120)
+position = Vector2(348, 120)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
 
 [node name="Bat" parent="Enemies" instance=ExtResource("9_6x0ol")]
-position = Vector2(498, 30)
+position = Vector2(500, 28)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0

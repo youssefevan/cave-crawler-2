@@ -9,7 +9,6 @@ var fire_rate := 0.4
 var can_fire := true
 
 var player_height_offset := 10.0
-
 var player : Player
 
 func _physics_process(delta):

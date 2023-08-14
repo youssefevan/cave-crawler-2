@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdqqv88177tgm"]
+[gd_scene load_steps=11 format=3 uid="uid://bdqqv88177tgm"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bat.gd" id="1_jnp7r"]
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_w3qdo"]
 [ext_resource type="Texture2D" uid="uid://dhmynt1k5hq0f" path="res://sprites/enemies/bat.png" id="2_h0y8q"]
+[ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="3_0kwb5"]
 
 [sub_resource type="Animation" id="Animation_wy22j"]
 resource_name = "Fly"
@@ -29,6 +30,12 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnjaa"]
 radius = 5.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_npxsf"]
+resource_local_to_scene = true
+shader = ExtResource("3_0kwb5")
+shader_parameter/enabled = false
+shader_parameter/Tint = Color(1, 0, 0, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_bc4k2"]
 radius = 5.0
 
@@ -38,6 +45,7 @@ radius = 6.0
 [node name="Bat" instance=ExtResource("1_w3qdo")]
 script = ExtResource("1_jnp7r")
 max_health = 1
+level_editor_offset = Vector2(4, -4)
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -45,13 +53,14 @@ libraries = {
 }
 
 [node name="VisibleOnScreenEnabler2D" parent="." index="1"]
-position = Vector2(7.15256e-07, -0.5)
+position = Vector2(0, 0.5)
 scale = Vector2(0.7, 0.45)
 
 [node name="Collider" parent="." index="2"]
 shape = SubResource("CircleShape2D_lnjaa")
 
 [node name="Sprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_npxsf")
 texture = ExtResource("2_h0y8q")
 hframes = 2
 
