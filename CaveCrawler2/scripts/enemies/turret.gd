@@ -17,6 +17,8 @@ func _physics_process(delta):
 		gun.look_at(Vector2(player.global_position.x, player.global_position.y - player_height_offset))
 		$Animator.play("fire")
 		fire()
+	else:
+		$Animator.stop()
 
 func fire():
 	if can_fire == true:

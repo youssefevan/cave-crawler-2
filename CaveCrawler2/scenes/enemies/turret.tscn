@@ -50,6 +50,7 @@ script = ExtResource("2_dm4x7")
 bullet_scene = ExtResource("3_d08ya")
 max_health = 4
 gravity = 0.0
+metadata/_edit_group_ = true
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -83,7 +84,6 @@ position = Vector2(0, -9)
 position = Vector2(5, 0)
 texture = ExtResource("4_pe8o4")
 hframes = 2
-frame = 1
 
 [node name="Muzzle" type="Marker2D" parent="Gun" index="1"]
 position = Vector2(7, 0)
