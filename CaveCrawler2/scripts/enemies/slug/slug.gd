@@ -23,7 +23,7 @@ func _ready():
 func _physics_process(delta):
 	states.physics_update(delta)
 	
-	handle_gravity(delta)
+	apply_gravity(delta)
 	apply_friction(delta)
 	
 	if velocity.x > 0:
@@ -33,7 +33,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func handle_gravity(delta):
+func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	

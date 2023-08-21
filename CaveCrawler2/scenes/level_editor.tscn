@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=29 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/level_editor.gd" id="1_f2vqo"]
 [ext_resource type="Script" path="res://scripts/level_editor_camera.gd" id="2_a1c03"]
 [ext_resource type="Texture2D" uid="uid://cx0swe8kipifa" path="res://sprites/level_editor_icons/enemies/rat.png" id="2_c7wra"]
 [ext_resource type="PackedScene" uid="uid://dd4kgsl8xo6gi" path="res://scenes/camera_room_tool.tscn" id="2_gum10"]
+[ext_resource type="PackedScene" uid="uid://bdwtpmwatgytk" path="res://scenes/custom_level_loader.tscn" id="2_rkwl3"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="3_y01m3"]
 [ext_resource type="Texture2D" uid="uid://df51npckwo2wt" path="res://sprites/level_editor_icons/grid_bg.png" id="4_u6s76"]
 [ext_resource type="Texture2D" uid="uid://cejv73yqx6rt6" path="res://sprites/level_editor_icons/terrains/terrain_1.png" id="5_yp46x"]
@@ -30,6 +31,7 @@
 
 [node name="LevelEditor" type="Node2D"]
 script = ExtResource("1_f2vqo")
+custom_level_loader = ExtResource("2_rkwl3")
 camera_room_tool_scene = ExtResource("2_gum10")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

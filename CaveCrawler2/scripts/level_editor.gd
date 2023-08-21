@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var custom_level_loader : PackedScene
+
 @onready var tiles = $TileMap
 
 var tile_size = 8
@@ -81,6 +83,14 @@ func _on_run_pressed():
 	save()
 	var read_file = FileAccess.open(level_path, FileAccess.READ)
 	read_file.close()
+	
+	load_level()
+
+func load_level():
+	var cll = custom_level_loader.instantiate()
+	cll.level_path = level_path
+	get_tree().get_root().add_child(cll)
+	call_deferred("queue_free")
 
 func load_existing_level():
 	var file = FileAccess.open(level_path, FileAccess.READ)

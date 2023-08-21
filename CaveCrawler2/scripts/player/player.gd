@@ -60,6 +60,7 @@ func _physics_process(delta):
 	states.physics_update(delta)
 	
 	handle_camera(delta)
+	handle_oneway_collision()
 	jump_buffering()
 	
 	if Input.is_action_pressed("shoot") and can_fire:
@@ -195,3 +196,9 @@ func handle_camera(delta):
 
 func get_level_editor_offset() -> Vector2:
 	return level_editor_offset
+
+func handle_oneway_collision():
+	if is_on_floor() and Input.is_action_pressed("drop_through"):
+		set_collision_mask_value(10, false)
+		await get_tree().create_timer(0.1).timeout
+		set_collision_mask_value(10, true)
