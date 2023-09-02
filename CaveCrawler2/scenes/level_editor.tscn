@@ -143,6 +143,7 @@ offset_bottom = 12.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="Rat" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
@@ -202,6 +203,7 @@ offset_bottom = 12.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="Spike" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
 layout_mode = 2
@@ -237,6 +239,7 @@ offset_bottom = 12.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="Health" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
 layout_mode = 2
@@ -272,6 +275,7 @@ offset_bottom = 12.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="Player" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer"]
 layout_mode = 2
