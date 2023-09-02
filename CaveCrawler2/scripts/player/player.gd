@@ -131,11 +131,12 @@ func _on_hurtbox_body_entered(body):
 	die()
 
 func get_hurt():
-	if can_get_hurt:
+	if can_get_hurt == true:
 		can_get_hurt = false
 		
 		health -= 1
 		print(health)
+		
 		if health == 0:
 			die()
 		else:
