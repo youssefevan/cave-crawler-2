@@ -58,6 +58,7 @@ func _ready():
 
 func _physics_process(delta):
 	states.physics_update(delta)
+	print(velocity)
 	
 	handle_camera(delta)
 	handle_oneway_collision()
