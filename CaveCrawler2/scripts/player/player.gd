@@ -17,6 +17,8 @@ class_name Player
 
 # Horizontal movement variables
 var speed := 85.0
+var normal_speed := 85.0
+var slope_speed := 120.0 #normal_speed * (1*sqrt(2))
 var acceleration_ground := 14.0
 var acceleration_air := 7.0
 var deceleration_ground := 13.5
@@ -58,7 +60,6 @@ func _ready():
 
 func _physics_process(delta):
 	states.physics_update(delta)
-	print(velocity)
 	
 	handle_camera(delta)
 	handle_oneway_collision()
@@ -79,6 +80,14 @@ func handle_input():
 		$Gun.scale.x = -1
 
 func apply_movement(delta):
+	if is_on_floor():
+		if get_floor_normal() != Vector2(0, -1):
+			speed = slope_speed
+		else:
+			speed = normal_speed
+	else:
+		speed = normal_speed
+	
 	if movement_input != 0:
 		var acceleration
 		if is_on_floor():
