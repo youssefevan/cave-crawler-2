@@ -13,7 +13,7 @@ var player : Player
 
 func _physics_process(delta):
 #	apply_gravity(delta)
-#	move_and_slide()s
+#	move_and_slide()
 	
 	if player != null:
 		gun.look_at(Vector2(player.global_position.x, player.global_position.y - player_height_offset))

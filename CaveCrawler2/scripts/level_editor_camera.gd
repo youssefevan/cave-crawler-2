@@ -1,8 +1,8 @@
 extends Camera2D
 
 var zoom_sensitivity := 0.05
-var zoom_min := 1.5
-var zoom_max := 0.3
+var zoom_min := 2.0
+var zoom_max := 0.2
 var pan_sensitivity := 1.0
 
 func _unhandled_input(event):
