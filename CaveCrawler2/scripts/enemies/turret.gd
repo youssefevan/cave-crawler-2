@@ -5,7 +5,7 @@ extends Enemy
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
 
-var fire_rate := 0.4
+@export var fire_rate := 0.4
 var can_fire := true
 
 var player_height_offset := 10.0

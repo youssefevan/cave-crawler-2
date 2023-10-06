@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://c3rbt2aurg2hi" path="res://sprites/bullet.png" id="2_5mo8b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boh06"]
-radius = 2.0
-height = 6.0
+radius = 1.0
+height = 4.0
 
 [node name="TurretBullet" type="Area2D" groups=["Enemy"]]
 collision_layer = 40
-collision_mask = 83
+collision_mask = 81
 script = ExtResource("1_l20ss")
 speed = 150.0
 

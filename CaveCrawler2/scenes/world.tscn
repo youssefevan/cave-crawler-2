@@ -90,6 +90,7 @@ floor_snap_length = 1.0
 
 [node name="Turret" parent="Enemies" instance=ExtResource("10_xkdhl")]
 position = Vector2(264, 128)
+fire_rate = 0.4
 
 [node name="Hazards" type="Node" parent="."]
 

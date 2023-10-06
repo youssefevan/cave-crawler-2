@@ -36,7 +36,7 @@ var gravity_down := 1400.0
 var max_fall_speed := 250.0
 
 # Health
-var max_health := 4
+@export var max_health := 4
 var health : int
 
 # Hurt
