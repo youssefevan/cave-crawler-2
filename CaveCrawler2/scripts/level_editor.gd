@@ -31,7 +31,7 @@ func _input(event):
 
 func _process(delta):
 	$ToolPreview.frame_coords = tileset_coordinates
-	$ToolPreview.global_position = (Vector2(floor(get_local_mouse_position() / tile_size) + Vector2(.5, .5)) * tile_size
+	$ToolPreview.global_position = Vector2(floor(get_local_mouse_position() / tile_size) + Vector2(.5, .5)) * tile_size
 
 func _unhandled_input(event):
 	var mouse_position_rounded = Vector2(floor(get_local_mouse_position() / tile_size))
