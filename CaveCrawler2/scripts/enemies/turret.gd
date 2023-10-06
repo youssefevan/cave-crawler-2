@@ -5,6 +5,11 @@ extends Enemy
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
 
+@export var level_editor_offset_up : Vector2
+@export var level_editor_offset_down : Vector2
+@export var level_editor_offset_left : Vector2
+@export var level_editor_offset_right : Vector2
+
 @export var fire_rate := 0.4
 var can_fire := true
 

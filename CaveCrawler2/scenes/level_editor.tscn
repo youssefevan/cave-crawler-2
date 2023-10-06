@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=30 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/level_editor.gd" id="1_f2vqo"]
 [ext_resource type="Script" path="res://scripts/level_editor_camera.gd" id="2_a1c03"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://df51npckwo2wt" path="res://sprites/level_editor_icons/grid_bg.png" id="4_u6s76"]
 [ext_resource type="Texture2D" uid="uid://cejv73yqx6rt6" path="res://sprites/level_editor_icons/terrains/terrain_1.png" id="5_yp46x"]
 [ext_resource type="Texture2D" uid="uid://d23303f7sqvgw" path="res://sprites/level_editor_icons/enemies/bat.png" id="6_6lexp"]
+[ext_resource type="Texture2D" uid="uid://d243if60go3yc" path="res://sprites/level_editor_icons/level_editor_tileset.png" id="6_k7iae"]
 [ext_resource type="Script" path="res://scripts/level_editor/tool_button.gd" id="6_mg418"]
 [ext_resource type="Texture2D" uid="uid://fixs1gfhcuhw" path="res://sprites/level_editor_icons/hazards/spike.png" id="7_be2tf"]
 [ext_resource type="Texture2D" uid="uid://cr4rjlithoxxv" path="res://sprites/level_editor_icons/play.png" id="7_beg5p"]
@@ -47,6 +48,12 @@ stretch_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="TileMap" parent="." instance=ExtResource("3_y01m3")]
+
+[node name="ToolPreview" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+texture = ExtResource("6_k7iae")
+hframes = 16
+vframes = 8
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(128, 72)

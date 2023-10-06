@@ -116,7 +116,7 @@ func build_level():
 			slug:
 				spawn_entity(slug_scene, cell_position)
 			turret:
-				spawn_entity(turret_scene, cell_position)
+				spawn_turret(turret_scene, cell_position)
 			spike:
 				spawn_entity(spike_scene, cell_position)
 			stalactite:
@@ -138,6 +138,17 @@ func spawn_camera_room(coordinates, size):
 func spawn_entity(entity, spawn_position):
 	var e = entity.instantiate()
 	add_child(e)
+	if e.has_method("get_level_editor_offset"):
+		e.global_position = (spawn_position * tile_size) + e.get_level_editor_offset()
+	else:
+		e.global_position = spawn_position * tile_size
+
+func spawn_turret(entity, spawn_position):
+	var e = entity.instantiate()
+	add_child(e)
+	
+	#e.rotation_degrees = turret_rotation
+	
 	if e.has_method("get_level_editor_offset"):
 		e.global_position = (spawn_position * tile_size) + e.get_level_editor_offset()
 	else:

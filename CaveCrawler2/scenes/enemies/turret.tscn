@@ -48,6 +48,11 @@ size = Vector2(208, 160)
 [node name="Turret" instance=ExtResource("1_mkv1u")]
 script = ExtResource("2_dm4x7")
 bullet_scene = ExtResource("3_d08ya")
+level_editor_offset_up = Vector2(0, 0)
+level_editor_offset_down = Vector2(0, 0)
+level_editor_offset_left = Vector2(0, 0)
+level_editor_offset_right = Vector2(0, 0)
+fire_rate = 0.4
 max_health = 4
 gravity = 0.0
 level_editor_offset = Vector2(4, 8)
@@ -60,6 +65,7 @@ libraries = {
 [node name="VisibleOnScreenEnabler2D" parent="." index="1"]
 position = Vector2(0, -8)
 scale = Vector2(0.7, 0.8)
+metadata/_edit_lock_ = true
 
 [node name="Collider" parent="." index="2"]
 position = Vector2(0, -5.5)
@@ -70,8 +76,14 @@ material = SubResource("ShaderMaterial_bf1jh")
 position = Vector2(0, -8)
 texture = ExtResource("3_2uula")
 
+[node name="Hitbox" parent="." index="4"]
+metadata/_edit_lock_ = true
+
 [node name="Collider" parent="Hitbox" index="0"]
 disabled = true
+
+[node name="Hurtbox" parent="." index="5"]
+metadata/_edit_lock_ = true
 
 [node name="Collider" parent="Hurtbox" index="0"]
 position = Vector2(0, -6)
@@ -79,6 +91,7 @@ shape = SubResource("RectangleShape2D_id4be")
 
 [node name="Gun" type="Node2D" parent="." index="6"]
 position = Vector2(0, -9)
+metadata/_edit_lock_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Gun" index="0"]
 position = Vector2(5, 0)
