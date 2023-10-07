@@ -9,9 +9,9 @@
 
 [sub_resource type="Animation" id="Animation_ekogg"]
 resource_name = "fire"
-length = 0.4
+length = 0.7
 loop_mode = 1
-step = 0.2
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -19,7 +19,7 @@ tracks/0/path = NodePath("Gun/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -31,7 +31,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lieys"]
-size = Vector2(6, 11)
+size = Vector2(8, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bf1jh"]
 resource_local_to_scene = true
@@ -40,10 +40,10 @@ shader_parameter/enabled = false
 shader_parameter/Tint = Color(1, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id4be"]
-size = Vector2(8, 12)
+size = Vector2(8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evqhl"]
-size = Vector2(208, 160)
+size = Vector2(208, 183)
 
 [node name="Turret" instance=ExtResource("1_mkv1u")]
 script = ExtResource("2_dm4x7")
@@ -52,7 +52,7 @@ level_editor_offset_up = Vector2(0, 0)
 level_editor_offset_down = Vector2(0, 0)
 level_editor_offset_left = Vector2(0, 0)
 level_editor_offset_right = Vector2(0, 0)
-fire_rate = 0.4
+fire_rate = 0.7
 max_health = 4
 gravity = 0.0
 level_editor_offset = Vector2(4, 8)
@@ -63,17 +63,16 @@ libraries = {
 }
 
 [node name="VisibleOnScreenEnabler2D" parent="." index="1"]
-position = Vector2(0, -8)
-scale = Vector2(0.7, 0.8)
-metadata/_edit_lock_ = true
+position = Vector2(-1.19209e-07, -4)
+scale = Vector2(0.8, 0.8)
 
 [node name="Collider" parent="." index="2"]
-position = Vector2(0, -5.5)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_lieys")
 
 [node name="Sprite" parent="." index="3"]
 material = SubResource("ShaderMaterial_bf1jh")
-position = Vector2(0, -8)
+position = Vector2(0, -4)
 texture = ExtResource("3_2uula")
 
 [node name="Hitbox" parent="." index="4"]
@@ -82,32 +81,27 @@ metadata/_edit_lock_ = true
 [node name="Collider" parent="Hitbox" index="0"]
 disabled = true
 
-[node name="Hurtbox" parent="." index="5"]
-metadata/_edit_lock_ = true
-
 [node name="Collider" parent="Hurtbox" index="0"]
-position = Vector2(0, -6)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_id4be")
 
 [node name="Gun" type="Node2D" parent="." index="6"]
-position = Vector2(0, -9)
-metadata/_edit_lock_ = true
+position = Vector2(0, -5)
 
 [node name="Sprite" type="Sprite2D" parent="Gun" index="0"]
-position = Vector2(5, 0)
+position = Vector2(6, 0)
 texture = ExtResource("4_pe8o4")
 hframes = 2
 
 [node name="Muzzle" type="Marker2D" parent="Gun" index="1"]
-position = Vector2(7, 0)
+position = Vector2(8, 0)
 
 [node name="PlayerDetection" type="Area2D" parent="." index="7"]
 collision_layer = 4
 collision_mask = 2
 
 [node name="Collider" type="CollisionShape2D" parent="PlayerDetection" index="0"]
-visible = false
-position = Vector2(0, -48)
+position = Vector2(0, 36.5)
 shape = SubResource("RectangleShape2D_evqhl")
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
