@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bhgqfbo01g2pt"]
+
+[ext_resource type="FontFile" uid="uid://cvfoc312yoi3p" path="res://fonts/Early GameBoy.ttf" id="1_lpd04"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1038c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1q7er"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.705882, 0.854902, 0.878431, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t5du"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c26s1"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0, 0, 1)
+anti_aliasing = false
+
+[resource]
+default_font = ExtResource("1_lpd04")
+default_font_size = 8
+Button/styles/focus = SubResource("StyleBoxEmpty_1038c")
+Button/styles/hover = SubResource("StyleBoxFlat_1q7er")
+Button/styles/normal = SubResource("StyleBoxFlat_0t5du")
+Button/styles/pressed = SubResource("StyleBoxFlat_c26s1")
