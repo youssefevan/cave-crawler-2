@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0v8bujg0pgxf"]
+[gd_scene load_steps=6 format=3 uid="uid://c0v8bujg0pgxf"]
 
 [ext_resource type="Script" path="res://scripts/gui/custom_level_interface.gd" id="1_85xm6"]
 [ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="2_ejw3j"]
 [ext_resource type="PackedScene" uid="uid://bdwtpmwatgytk" path="res://scenes/custom_level_loader.tscn" id="2_rxqpv"]
 [ext_resource type="PackedScene" uid="uid://bgjuqby6d1rn4" path="res://scenes/level_editor.tscn" id="3_1fy28"]
+[ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="4_g6yfl"]
 
 [node name="CustomLevelInterface" type="Node2D"]
 script = ExtResource("1_85xm6")
@@ -17,7 +18,7 @@ offset_left = 104.0
 offset_top = 54.0
 offset_right = 152.0
 offset_bottom = 90.0
-theme = ExtResource("2_ejw3j")
+theme = ExtResource("4_g6yfl")
 
 [node name="Label" type="Label" parent="Main"]
 layout_mode = 0
@@ -38,24 +39,21 @@ offset_bottom = 90.0
 text = "Can only save/load \".cc2\" files"
 horizontal_alignment = 1
 
-[node name="Play" type="Button" parent="Main"]
+[node name="Items" type="VBoxContainer" parent="Main"]
 layout_mode = 0
 offset_right = 48.0
-offset_bottom = 8.0
+offset_bottom = 40.0
+
+[node name="Play" type="Button" parent="Main/Items"]
+layout_mode = 2
 text = "Play"
 
-[node name="New" type="Button" parent="Main"]
-layout_mode = 0
-offset_top = 12.0
-offset_right = 48.0
-offset_bottom = 24.0
+[node name="New" type="Button" parent="Main/Items"]
+layout_mode = 2
 text = "new"
 
-[node name="Edit" type="Button" parent="Main"]
-layout_mode = 0
-offset_top = 24.0
-offset_right = 48.0
-offset_bottom = 36.0
+[node name="Edit" type="Button" parent="Main/Items"]
+layout_mode = 2
 text = "Edit"
 
 [node name="FileSystem" type="Control" parent="."]
@@ -134,9 +132,9 @@ offset_right = 77.0
 offset_bottom = 43.0
 text = "Cancel"
 
-[connection signal="pressed" from="Main/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Main/New" to="." method="_on_new_pressed"]
-[connection signal="pressed" from="Main/Edit" to="." method="_on_edit_pressed"]
+[connection signal="pressed" from="Main/Items/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/Items/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="Main/Items/Edit" to="." method="_on_edit_pressed"]
 [connection signal="canceled" from="FileSystem/FileDialog" to="." method="_on_file_dialog_canceled"]
 [connection signal="confirmed" from="FileSystem/FileDialog" to="." method="_on_file_dialog_confirmed"]
 [connection signal="file_selected" from="FileSystem/FileDialog" to="." method="_on_file_dialog_file_selected"]

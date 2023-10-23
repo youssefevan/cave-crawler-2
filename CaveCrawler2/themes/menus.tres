@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://bhgqfbo01g2pt"]
 
-[ext_resource type="FontFile" uid="uid://cvfoc312yoi3p" path="res://fonts/Early GameBoy.ttf" id="1_lpd04"]
+[ext_resource type="FontFile" uid="uid://cggqi2nq21vhh" path="res://fonts/CCFont.ttf" id="1_pjrgx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1038c"]
 
@@ -32,7 +32,7 @@ border_color = Color(1, 0, 0, 1)
 anti_aliasing = false
 
 [resource]
-default_font = ExtResource("1_lpd04")
+default_font = ExtResource("1_pjrgx")
 default_font_size = 8
 Button/styles/focus = SubResource("StyleBoxEmpty_1038c")
 Button/styles/hover = SubResource("StyleBoxFlat_1q7er")
