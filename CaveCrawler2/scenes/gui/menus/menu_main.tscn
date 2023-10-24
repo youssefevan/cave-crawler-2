@@ -29,10 +29,10 @@ vertical_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 40.0
-offset_right = 160.0
-offset_bottom = 120.0
+offset_left = 16.0
+offset_top = 76.0
+offset_right = 80.0
+offset_bottom = 128.0
 
 [node name="Play" type="Button" parent="Buttons"]
 layout_mode = 2
