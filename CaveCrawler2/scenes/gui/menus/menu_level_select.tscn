@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://bckw6h4d2naaj"]
+
+[ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_hkc8s"]
+[ext_resource type="Texture2D" uid="uid://dnnftlhh7he3d" path="res://sprites/level_select/world1.png" id="2_fex6p"]
+
+[node name="MenuLevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_hkc8s")
+
+[node name="LevelSelect" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 23.0
+offset_right = 184.0
+offset_bottom = 34.0
+text = "Level Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Worlds" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 104.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="World1" type="VBoxContainer" parent="Worlds"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Worlds/World1"]
+layout_mode = 2
+text = "World 1
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="TextureButton" parent="Worlds/World1"]
+layout_mode = 2
+texture_normal = ExtResource("2_fex6p")
+
+[node name="World2" type="VBoxContainer" parent="Worlds"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Worlds/World2"]
+layout_mode = 2
+text = "World 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="TextureButton" parent="Worlds/World2"]
+layout_mode = 2
+texture_normal = ExtResource("2_fex6p")
+
+[node name="World3" type="VBoxContainer" parent="Worlds"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Worlds/World3"]
+layout_mode = 2
+text = "World 3
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="TextureButton" parent="Worlds/World3"]
+layout_mode = 2
+texture_normal = ExtResource("2_fex6p")
