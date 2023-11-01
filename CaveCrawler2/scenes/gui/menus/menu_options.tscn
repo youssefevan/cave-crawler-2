@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1s5eoqoaidik"]
+[gd_scene load_steps=2 format=3 uid="uid://c2xqosjs6klvm"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_om4m8"]
 
@@ -12,6 +12,7 @@ grow_vertical = 2
 theme = ExtResource("1_om4m8")
 
 [node name="Title" type="Label" parent="."]
+layout_mode = 0
 offset_right = 256.0
 offset_bottom = 16.0
 text = "Options"
@@ -22,29 +23,142 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 48.0
 offset_top = 16.0
-offset_right = 208.0
-offset_bottom = 104.0
+offset_right = 216.0
+offset_bottom = 128.0
+horizontal_scroll_mode = 0
 
-[node name="Options" type="GridContainer" parent="ScrollContainer"]
+[node name="Options" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
-columns = 2
+size_flags_horizontal = 6
 
-[node name="Fullscreen" type="Label" parent="ScrollContainer/Options"]
+[node name="Graphics" type="Label" parent="ScrollContainer/Options"]
 layout_mode = 2
-text = "Fullscreen"
+text = "Graphics"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ToggleFullscreen" type="CheckBox" parent="ScrollContainer/Options"]
 layout_mode = 2
-size_flags_horizontal = 4
-flat = true
+text = "Fullscreen"
+alignment = 2
+icon_alignment = 2
 
-[node name="Bloom" type="Label" parent="ScrollContainer/Options"]
+[node name="ToggleCursor" type="CheckBox" parent="ScrollContainer/Options"]
 layout_mode = 2
-text = "Bloom"
-vertical_alignment = 1
+text = "Cursor"
+alignment = 2
+icon_alignment = 2
 
 [node name="ToggleBloom" type="CheckBox" parent="ScrollContainer/Options"]
 layout_mode = 2
-size_flags_horizontal = 4
-flat = true
+text = "Bloom"
+alignment = 2
+icon_alignment = 2
+
+[node name="ToggleParticles" type="CheckBox" parent="ScrollContainer/Options"]
+layout_mode = 2
+text = "Particles"
+alignment = 2
+icon_alignment = 2
+
+[node name="Audio" type="Label" parent="ScrollContainer/Options"]
+layout_mode = 2
+text = "Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSounds" type="HSlider" parent="ScrollContainer/Options"]
+layout_mode = 2
+
+[node name="VolumeMusic" type="HSlider" parent="ScrollContainer/Options"]
+layout_mode = 2
+
+[node name="Controls" type="Label" parent="ScrollContainer/Options"]
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoveRight" type="HBoxContainer" parent="ScrollContainer/Options"]
+layout_mode = 2
+
+[node name="Prompt" type="Label" parent="ScrollContainer/Options/MoveRight"]
+layout_mode = 2
+text = "Move Right"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/MoveRight"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 1
+max_length = 1
+
+[node name="MoveLeft" type="HBoxContainer" parent="ScrollContainer/Options"]
+layout_mode = 2
+
+[node name="Prompt" type="Label" parent="ScrollContainer/Options/MoveLeft"]
+layout_mode = 2
+text = "Move Left"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/MoveLeft"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 1
+max_length = 1
+
+[node name="Jump" type="HBoxContainer" parent="ScrollContainer/Options"]
+layout_mode = 2
+
+[node name="Prompt" type="Label" parent="ScrollContainer/Options/Jump"]
+layout_mode = 2
+text = "Jump"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/Jump"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 1
+max_length = 1
+
+[node name="FallThrough" type="HBoxContainer" parent="ScrollContainer/Options"]
+layout_mode = 2
+
+[node name="Prompt" type="Label" parent="ScrollContainer/Options/FallThrough"]
+layout_mode = 2
+text = "Fall Through"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/FallThrough"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 1
+max_length = 1
+
+[node name="Shoot" type="HBoxContainer" parent="ScrollContainer/Options"]
+layout_mode = 2
+
+[node name="Prompt" type="Label" parent="ScrollContainer/Options/Shoot"]
+layout_mode = 2
+text = "Shoot"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/Shoot"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 1
+max_length = 1
+
+[node name="Pause" type="HBoxContainer" parent="ScrollContainer/Options"]
+layout_mode = 2
+
+[node name="Prompt" type="Label" parent="ScrollContainer/Options/Pause"]
+layout_mode = 2
+text = "Pause"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/Pause"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 1
+max_length = 1
