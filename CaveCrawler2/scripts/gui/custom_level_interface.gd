@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var main_menu : PackedScene
 @export var custom_level_loader : PackedScene
 @export var level_editor : PackedScene
 
@@ -66,3 +67,7 @@ func _on_save_dialog_confirmed():
 
 func _on_save_dialog_canceled():
 	save_dialog.visible = false
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://scenes/gui/menus/menu_main.tscn")
+	call_deferred("queue_free")

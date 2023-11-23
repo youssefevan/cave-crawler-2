@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0v8bujg0pgxf"]
+[gd_scene load_steps=7 format=3 uid="uid://c0v8bujg0pgxf"]
 
 [ext_resource type="Script" path="res://scripts/gui/custom_level_interface.gd" id="1_85xm6"]
+[ext_resource type="PackedScene" uid="uid://dac0e0pa16hb3" path="res://scenes/gui/menus/menu_main.tscn" id="2_44nbu"]
 [ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="2_ejw3j"]
 [ext_resource type="PackedScene" uid="uid://bdwtpmwatgytk" path="res://scenes/custom_level_loader.tscn" id="2_rxqpv"]
 [ext_resource type="PackedScene" uid="uid://bgjuqby6d1rn4" path="res://scenes/level_editor.tscn" id="3_1fy28"]
@@ -8,6 +9,7 @@
 
 [node name="CustomLevelInterface" type="Node2D"]
 script = ExtResource("1_85xm6")
+main_menu = ExtResource("2_44nbu")
 custom_level_loader = ExtResource("2_rxqpv")
 level_editor = ExtResource("3_1fy28")
 
@@ -41,8 +43,9 @@ horizontal_alignment = 1
 
 [node name="Items" type="VBoxContainer" parent="Main"]
 layout_mode = 0
+offset_top = -6.0
 offset_right = 48.0
-offset_bottom = 40.0
+offset_bottom = 46.0
 
 [node name="Play" type="Button" parent="Main/Items"]
 layout_mode = 2
@@ -55,6 +58,10 @@ text = "new"
 [node name="Edit" type="Button" parent="Main/Items"]
 layout_mode = 2
 text = "Edit"
+
+[node name="Back" type="Button" parent="Main/Items"]
+layout_mode = 2
+text = "Back"
 
 [node name="FileSystem" type="Control" parent="."]
 visible = false
@@ -135,6 +142,7 @@ text = "Cancel"
 [connection signal="pressed" from="Main/Items/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main/Items/New" to="." method="_on_new_pressed"]
 [connection signal="pressed" from="Main/Items/Edit" to="." method="_on_edit_pressed"]
+[connection signal="pressed" from="Main/Items/Back" to="." method="_on_back_pressed"]
 [connection signal="canceled" from="FileSystem/FileDialog" to="." method="_on_file_dialog_canceled"]
 [connection signal="confirmed" from="FileSystem/FileDialog" to="." method="_on_file_dialog_confirmed"]
 [connection signal="file_selected" from="FileSystem/FileDialog" to="." method="_on_file_dialog_file_selected"]

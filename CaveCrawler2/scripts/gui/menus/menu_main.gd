@@ -20,4 +20,3 @@ func _on_quit_pressed():
 func _on_options_pressed():
 	var o = options_scene.instantiate()
 	get_tree().get_root().add_child(o)
-	visible = false
