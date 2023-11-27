@@ -69,6 +69,5 @@ func _on_save_dialog_canceled():
 	save_dialog.visible = false
 
 func _on_back_pressed():
-	var mm = main_menu.instantiate()
-	get_tree().get_root().add_child(mm)
+	get_tree().change_scene_to_file("res://scenes/gui/menus/menu_main.tscn")
 	call_deferred("queue_free")

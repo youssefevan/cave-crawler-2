@@ -18,7 +18,7 @@ class_name Player
 # Horizontal movement variables
 var speed := 85.0
 var normal_speed := 85.0
-var slope_speed := 118.5 # normal_speed * (1*sqrt(2))
+var slope_speed := 120.0 #normal_speed * (1*sqrt(2))
 var acceleration_ground := 14.0
 var acceleration_air := 7.0
 var deceleration_ground := 13.5
