@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2xqosjs6klvm"]
+[gd_scene load_steps=3 format=3 uid="uid://c2xqosjs6klvm"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_om4m8"]
+[ext_resource type="Script" path="res://scripts/gui/menus/menu_options.gd" id="2_7t8px"]
 
 [node name="MenuOptions" type="Control"]
 layout_mode = 3
@@ -10,10 +11,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_om4m8")
+script = ExtResource("2_7t8px")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 257.0
+offset_bottom = 145.0
+color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_right = 256.0
+offset_left = 8.0
+offset_right = 48.0
 offset_bottom = 16.0
 text = "Options"
 horizontal_alignment = 1
@@ -21,9 +32,9 @@ vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = 48.0
+offset_left = 12.0
 offset_top = 16.0
-offset_right = 216.0
+offset_right = 248.0
 offset_bottom = 128.0
 horizontal_scroll_mode = 0
 
@@ -162,3 +173,13 @@ layout_mode = 2
 size_flags_horizontal = 10
 alignment = 1
 max_length = 1
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 128.0
+offset_right = 48.0
+offset_bottom = 138.0
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

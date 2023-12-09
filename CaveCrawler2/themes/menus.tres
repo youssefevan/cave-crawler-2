@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bhgqfbo01g2pt"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://bhgqfbo01g2pt"]
 
 [ext_resource type="Texture2D" uid="uid://nvn1nyhqrmqn" path="res://sprites/menus/checkbox_unchecked.png" id="1_i0d12"]
 [ext_resource type="Texture2D" uid="uid://bnaapxrgiuddf" path="res://sprites/menus/checkbox_checked.png" id="1_ol1yn"]
@@ -76,6 +76,19 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvpcg"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4yq7"]
+bg_color = Color(0.705882, 0.854902, 0.878431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iutad"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvolo"]
+content_margin_left = 4.0
+bg_color = Color(0.156863, 0.156863, 0.156863, 1)
+
 [resource]
 default_font = ExtResource("1_pjrgx")
 default_font_size = 8
@@ -90,3 +103,7 @@ CheckBox/styles/hover = SubResource("StyleBoxFlat_hhspk")
 CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_ljc3w")
 CheckBox/styles/normal = SubResource("StyleBoxFlat_bu5le")
 CheckBox/styles/pressed = SubResource("StyleBoxFlat_hpjca")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_nvpcg")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_m4yq7")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_iutad")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_kvolo")
