@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var main_menu : PackedScene
 @export var custom_level_loader : PackedScene
 @export var level_editor : PackedScene
 
@@ -67,8 +66,11 @@ func _on_save_dialog_confirmed():
 
 func _on_save_dialog_canceled():
 	save_dialog.visible = false
+<<<<<<< HEAD
 
 func _on_back_pressed():
 	var mm = main_menu.instantiate()
 	get_tree().get_root().add_child(mm)
 	call_deferred("queue_free")
+=======
+>>>>>>> parent of 9c77b00 (Options menu visual changes)
