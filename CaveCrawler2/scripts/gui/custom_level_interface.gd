@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @export var main_menu : PackedScene
 @export var custom_level_loader : PackedScene

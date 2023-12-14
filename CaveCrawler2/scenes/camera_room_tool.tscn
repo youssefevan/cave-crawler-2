@@ -23,13 +23,13 @@ bg_color = Color(0.498039, 1, 1, 0.294118)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8agrt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d72xg"]
-bg_color = Color(0, 0, 0, 0)
+bg_color = Color(0.0859375, 0.0859375, 0.0859375, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2y5h"]
-bg_color = Color(1, 1, 1, 0.498039)
+bg_color = Color(0.156863, 0.156863, 0.156863, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vdcb"]
-bg_color = Color(1, 1, 1, 0.784314)
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr8lo"]
 bg_color = Color(0, 0, 0, 0)

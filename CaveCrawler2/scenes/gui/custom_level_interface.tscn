@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bgjuqby6d1rn4" path="res://scenes/level_editor.tscn" id="3_1fy28"]
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="4_g6yfl"]
 
-[node name="CustomLevelInterface" type="Node2D"]
+[node name="CustomLevelInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("4_g6yfl")
 script = ExtResource("1_85xm6")
 custom_level_loader = ExtResource("2_rxqpv")
 level_editor = ExtResource("3_1fy28")
@@ -65,6 +68,7 @@ theme = ExtResource("2_ejw3j")
 [node name="FileDialog" type="FileDialog" parent="FileSystem"]
 title = "Open a File"
 size = Vector2i(256, 144)
+unresizable = true
 borderless = true
 min_size = Vector2i(128, 72)
 max_size = Vector2i(256, 144)
@@ -131,6 +135,22 @@ offset_top = 31.0
 offset_right = 77.0
 offset_bottom = 43.0
 text = "Cancel"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 126.0
+offset_right = 49.0
+offset_bottom = 136.0
+text = "back"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 126.0
+offset_right = 248.0
+offset_bottom = 136.0
+text = "Options"
 
 [connection signal="pressed" from="Main/Items/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main/Items/New" to="." method="_on_new_pressed"]

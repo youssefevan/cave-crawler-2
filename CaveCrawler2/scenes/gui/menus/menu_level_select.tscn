@@ -79,3 +79,19 @@ vertical_alignment = 1
 [node name="Button" type="TextureButton" parent="Worlds/World3"]
 layout_mode = 2
 texture_normal = ExtResource("2_fex6p")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 126.0
+offset_right = 49.0
+offset_bottom = 136.0
+text = "back"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 126.0
+offset_right = 248.0
+offset_bottom = 136.0
+text = "Options"
