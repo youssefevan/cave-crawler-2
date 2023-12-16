@@ -1,6 +1,5 @@
 extends Control
 
-@export var main_menu : PackedScene
 @export var custom_level_loader : PackedScene
 @export var level_editor : PackedScene
 
@@ -30,6 +29,8 @@ func _on_file_dialog_canceled():
 
 func play_level():
 	if selected_level.get_extension() == "cc2":
+		get_tree().get_root().get_node("MenuMain").call_deferred("queue_free")
+		
 		var cll = custom_level_loader.instantiate()
 		cll.level_path = selected_level
 		get_tree().get_root().add_child(cll)
@@ -43,6 +44,8 @@ func _on_edit_pressed():
 
 func load_level():
 	if selected_level.get_extension() == "cc2":
+		get_tree().get_root().get_node("MenuMain").call_deferred("queue_free")
+		
 		var le = level_editor.instantiate()
 		le.new_level = false
 		le.level_path = selected_level
@@ -69,6 +72,4 @@ func _on_save_dialog_canceled():
 	save_dialog.visible = false
 
 func _on_back_pressed():
-	var mm = main_menu.instantiate()
-	get_tree().get_root().add_child(mm)
 	call_deferred("queue_free")

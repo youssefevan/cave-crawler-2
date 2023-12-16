@@ -7,12 +7,10 @@ extends Control
 func _on_play_pressed():
 	var ls = level_select_scene.instantiate()
 	get_tree().get_root().add_child(ls)
-	call_deferred("queue_free")
 
 func _on_editor_pressed():
 	var cli = custom_level_interface_scene.instantiate()
 	get_tree().get_root().add_child(cli)
-	call_deferred("queue_free")
 
 func _on_quit_pressed():
 	get_tree().quit()
