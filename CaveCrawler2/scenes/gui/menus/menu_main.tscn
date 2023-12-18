@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dac0e0pa16hb3"]
+[gd_scene load_steps=4 format=3 uid="uid://dac0e0pa16hb3"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_d0ld2"]
 [ext_resource type="Script" path="res://scripts/gui/menus/menu_main.gd" id="2_0p0fq"]
-[ext_resource type="PackedScene" uid="uid://bckw6h4d2naaj" path="res://scenes/gui/menus/menu_level_select.tscn" id="3_nnw0a"]
-[ext_resource type="PackedScene" uid="uid://c0v8bujg0pgxf" path="res://scenes/gui/custom_level_interface.tscn" id="4_1c2de"]
 [ext_resource type="PackedScene" uid="uid://c2xqosjs6klvm" path="res://scenes/gui/menus/menu_options.tscn" id="5_cn0pn"]
 
 [node name="MenuMain" type="Control"]
@@ -15,8 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_d0ld2")
 script = ExtResource("2_0p0fq")
-level_select_scene = ExtResource("3_nnw0a")
-custom_level_interface_scene = ExtResource("4_1c2de")
 options_scene = ExtResource("5_cn0pn")
 
 [node name="Background" type="ColorRect" parent="."]

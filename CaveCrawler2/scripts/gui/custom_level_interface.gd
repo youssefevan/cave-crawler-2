@@ -1,8 +1,5 @@
 extends Control
 
-@export var custom_level_loader : PackedScene
-@export var level_editor : PackedScene
-
 @onready var file_dialog = $FileSystem/FileDialog
 @onready var save_dialog = $FileSystem/SaveDialog
 
@@ -31,7 +28,7 @@ func play_level():
 	if selected_level.get_extension() == "cc2":
 		get_tree().get_root().get_node("MenuMain").call_deferred("queue_free")
 		
-		var cll = custom_level_loader.instantiate()
+		var cll = Global.custom_level_loader.instantiate()
 		cll.level_path = selected_level
 		get_tree().get_root().add_child(cll)
 		visible = false
@@ -46,7 +43,7 @@ func load_level():
 	if selected_level.get_extension() == "cc2":
 		get_tree().get_root().get_node("MenuMain").call_deferred("queue_free")
 		
-		var le = level_editor.instantiate()
+		var le = Global.level_editor.instantiate()
 		le.new_level = false
 		le.level_path = selected_level
 		get_tree().get_root().add_child(le)

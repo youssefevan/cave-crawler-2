@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bdwtpmwatgytk"]
 
-[ext_resource type="Script" path="res://scripts/custom_level_loader.gd" id="1_m6kmy"]
+[ext_resource type="Script" path="res://scripts/editor/custom_level_loader.gd" id="1_m6kmy"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_o6b1y"]
 [ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="3_r8tj7"]
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="4_toqpu"]
