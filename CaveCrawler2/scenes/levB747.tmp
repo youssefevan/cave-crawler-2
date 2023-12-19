@@ -1,6 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://bgjuqby6d1rn4"]
 
-[ext_resource type="Script" path="res://scripts/level_editor/level_editor.gd" id="1_utpvh"]
+[ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_f2vqo"]
+[ext_resource type="Script" path="res://scripts/editor/level_editor_camera.gd" id="2_a1c03"]
 [ext_resource type="Texture2D" uid="uid://cx0swe8kipifa" path="res://sprites/level_editor_icons/enemies/rat.png" id="2_c7wra"]
 [ext_resource type="PackedScene" uid="uid://dd4kgsl8xo6gi" path="res://scenes/camera_room_tool.tscn" id="2_gum10"]
 [ext_resource type="PackedScene" uid="uid://1ecri6e0h56a" path="res://scenes/custom_level_loader.tscn" id="2_rkwl3"]
@@ -9,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cejv73yqx6rt6" path="res://sprites/level_editor_icons/terrains/terrain_1.png" id="5_yp46x"]
 [ext_resource type="Texture2D" uid="uid://d23303f7sqvgw" path="res://sprites/level_editor_icons/enemies/bat.png" id="6_6lexp"]
 [ext_resource type="Texture2D" uid="uid://d243if60go3yc" path="res://sprites/level_editor_icons/level_editor_tileset.png" id="6_k7iae"]
-[ext_resource type="Script" path="res://scripts/level_editor/level_editor_camera.gd" id="7_7j3ng"]
 [ext_resource type="Texture2D" uid="uid://fixs1gfhcuhw" path="res://sprites/level_editor_icons/hazards/spike.png" id="7_be2tf"]
 [ext_resource type="Texture2D" uid="uid://cr4rjlithoxxv" path="res://sprites/level_editor_icons/play.png" id="7_beg5p"]
 [ext_resource type="Texture2D" uid="uid://bolflx3c6btb1" path="res://sprites/level_editor_icons/hazards/stalactite.png" id="8_x5trv"]
@@ -48,7 +48,7 @@ func _on_pressed():
 "
 
 [node name="LevelEditor" type="Node2D"]
-script = ExtResource("1_utpvh")
+script = ExtResource("1_f2vqo")
 custom_level_loader = ExtResource("2_rkwl3")
 camera_room_tool_scene = ExtResource("2_gum10")
 
@@ -78,7 +78,7 @@ limit_left = -8192
 limit_top = -4608
 limit_right = 8192
 limit_bottom = 4608
-script = ExtResource("7_7j3ng")
+script = ExtResource("2_a1c03")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -319,20 +319,38 @@ tile_coordinate_x = 1
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Run" to="." method="_on_run_pressed"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeLeft" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeLeft" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeLeft" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeRight" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeRight" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeRight" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/OneWay" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/OneWay" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/OneWay" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Rat" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Crab" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Crab" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Crab" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Bat" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Bat" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Bat" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SkeletonHand" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Slug" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Slug" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Slug" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Turret" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Turret" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Turret" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" to="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" to="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" to="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" to="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" to="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" to="." method="_on_tool_selected"]

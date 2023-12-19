@@ -44,7 +44,7 @@ func _on_edit_pressed():
 func load_level():
 	if selected_level.get_extension() == "cc2":
 		
-		var le = Global.level_editor_scnene.instantiate()
+		var le = Global.level_editor_scene.instantiate()
 		le.new_level = false
 		le.level_path = selected_level
 		get_tree().get_root().add_child(le)
