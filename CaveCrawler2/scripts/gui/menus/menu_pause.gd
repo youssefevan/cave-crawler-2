@@ -31,4 +31,11 @@ func _on_options_pressed():
 
 func _on_main_menu_pressed():
 	unpause()
-	get_tree().change_scene_to_packed(Global.main_menu_scene)
+	if Global.level_type == "game":
+		get_tree().change_scene_to_packed(Global.main_menu_scene)
+	elif Global.level_type == "custom":
+		get_tree().change_scene_to_packed(Global.custom_level_interface_scene)
+
+func _on_restart_pressed():
+	unpause()
+	get_tree().reload_current_scene()
