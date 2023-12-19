@@ -7,8 +7,7 @@ func _on_options_pressed():
 	get_tree().get_root().add_child(o)
 
 func _on_back_pressed():
-	call_deferred("queue_free")
+	get_tree().change_scene_to_packed(Global.main_menu_scene)
 
 func _on_world_1_btn_pressed():
-	var level = level1.instantiate()
-	get_tree().get_root().add_child(level)
+	get_tree().change_scene_to_packed(level1)

@@ -27,8 +27,8 @@ func _on_continue_pressed():
 
 func _on_options_pressed():
 	var o = Global.options_scene.instantiate()
-	get_tree().get_root().add_child(o)
+	get_parent().add_child(o)
 
 func _on_main_menu_pressed():
-	var mm = Global.main_menu_scene.instantiate()
-	Global.permanent_nodes.get_node("Menus").add_child(mm)
+	unpause()
+	get_tree().change_scene_to_packed(Global.main_menu_scene)

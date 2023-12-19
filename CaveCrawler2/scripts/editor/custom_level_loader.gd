@@ -1,4 +1,4 @@
-extends Level
+extends Node2D
 
 @onready var tiles = $TileMap
 

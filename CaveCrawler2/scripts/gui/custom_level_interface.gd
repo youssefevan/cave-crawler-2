@@ -69,4 +69,4 @@ func _on_save_dialog_canceled():
 	save_dialog.visible = false
 
 func _on_back_pressed():
-	call_deferred("queue_free")
+	get_tree().change_scene_to_packed(Global.main_menu_scene)

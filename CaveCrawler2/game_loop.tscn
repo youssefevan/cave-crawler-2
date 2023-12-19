@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ojmwh2whk1iy"]
-
-[ext_resource type="Script" path="res://scripts/game_loop.gd" id="1_xhvq3"]
-[ext_resource type="PackedScene" uid="uid://dac0e0pa16hb3" path="res://scenes/gui/menus/menu_main.tscn" id="2_vnagt"]
-
-[node name="GameLoop" type="Node"]
-script = ExtResource("1_xhvq3")
-opening_scene = ExtResource("2_vnagt")

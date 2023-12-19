@@ -1,17 +1,13 @@
 extends Control
 
-@export var options_scene : PackedScene
-
 func _ready():
 	clear_tree()
 
 func _on_play_pressed():
-	var ls = Global.level_select_scene.instantiate()
-	get_tree().get_root().add_child(ls)
+	get_tree().change_scene_to_packed(Global.level_select_scene)
 
 func _on_editor_pressed():
-	var cli = Global.custom_level_interface_scene.instantiate()
-	get_tree().get_root().add_child(cli)
+	get_tree().change_scene_to_packed(Global.custom_level_interface_scene)
 
 func _on_quit_pressed():
 	get_tree().quit()
