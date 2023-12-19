@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dd4kgsl8xo6gi"]
 
-[ext_resource type="Script" path="res://scripts/level_editor/camera_room_tool.gd" id="1_224xr"]
 [ext_resource type="Texture2D" uid="uid://cq0bgbp8h6and" path="res://sprites/level_editor_icons/cr_tool_handle_top_left.png" id="1_ejbyw"]
+[ext_resource type="Script" path="res://scripts/level_editor/camera_room_tool.gd" id="1_osmu5"]
 [ext_resource type="Texture2D" uid="uid://bgpadio4mj5p3" path="res://sprites/level_editor_icons/updown_arrows.png" id="3_tfpvt"]
 [ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="14_f0t5j"]
 
@@ -37,7 +37,7 @@ border_width_bottom = 1
 border_color = Color(0.498039, 1, 1, 1)
 
 [node name="CameraRoomTool" type="Node2D"]
-script = ExtResource("1_224xr")
+script = ExtResource("1_osmu5")
 
 [node name="Outline" type="Panel" parent="."]
 offset_right = 256.0

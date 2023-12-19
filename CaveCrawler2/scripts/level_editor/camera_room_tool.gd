@@ -1,6 +1,7 @@
 extends Node2D
 class_name CameraRoomTool
 
+
 @onready var button = $Button
 @onready var outline = $Outline
 @onready var width = $Width

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdwtpmwatgytk"]
+[gd_scene load_steps=15 format=3 uid="uid://bdwtpmwatgytk"]
 
 [ext_resource type="Script" path="res://scripts/editor/custom_level_loader.gd" id="1_m6kmy"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_o6b1y"]
 [ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="3_r8tj7"]
+[ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="4_toqpu"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="5_5vpvt"]
 [ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/engine/camera_room.tscn" id="5_cteni"]
 [ext_resource type="PackedScene" uid="uid://bdqqv88177tgm" path="res://scenes/enemies/bat.tscn" id="7_hvyjo"]
@@ -12,9 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://cgc2ryr7t78sm" path="res://scenes/hazards/spike.tscn" id="9_a7jqp"]
 [ext_resource type="PackedScene" uid="uid://dhj58pmo05pej" path="res://scenes/enemies/turret.tscn" id="9_eyrh3"]
 [ext_resource type="PackedScene" uid="uid://cbne2o42871na" path="res://scenes/hazards/stalactite.tscn" id="10_8m8eu"]
+[ext_resource type="PackedScene" uid="uid://dki3dw7r3sgem" path="res://scenes/gui/menus/menu_pause.tscn" id="12_6s50u"]
 
 [node name="CustomLevelLoader" type="Node2D"]
 script = ExtResource("1_m6kmy")
+player_scene = ExtResource("4_toqpu")
 camera_room_scene = ExtResource("5_cteni")
 rat_scene = ExtResource("3_r8tj7")
 crab_scene = ExtResource("5_5vpvt")
@@ -24,6 +27,10 @@ slug_scene = ExtResource("8_jcnug")
 turret_scene = ExtResource("9_eyrh3")
 spike_scene = ExtResource("9_a7jqp")
 stalactite_scene = ExtResource("10_8m8eu")
+
+[node name="Menus" type="CanvasLayer" parent="."]
+
+[node name="MenuPause" parent="Menus" instance=ExtResource("12_6s50u")]
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 
