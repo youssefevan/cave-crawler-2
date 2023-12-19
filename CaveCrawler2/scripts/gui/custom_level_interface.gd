@@ -7,9 +7,6 @@ var selected_level
 
 var playing := false
 
-func _ready():
-	Global.level_type = "custom"
-
 func _on_play_pressed():
 	file_dialog.visible = true
 	playing = true
@@ -29,6 +26,7 @@ func _on_file_dialog_canceled():
 
 func play_level():
 	if selected_level.get_extension() == "cc2":
+		get_tree().get_root().get_node("MenuMain").call_deferred("queue_free")
 		
 		var cll = Global.custom_level_loader_scene.instantiate()
 		cll.level_path = selected_level
@@ -43,8 +41,9 @@ func _on_edit_pressed():
 
 func load_level():
 	if selected_level.get_extension() == "cc2":
+		get_tree().get_root().get_node("MenuMain").call_deferred("queue_free")
 		
-		var le = Global.level_editor_scnene.instantiate()
+		var le = Global.level_editor.instantiate()
 		le.new_level = false
 		le.level_path = selected_level
 		get_tree().get_root().add_child(le)
