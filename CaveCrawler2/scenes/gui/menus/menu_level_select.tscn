@@ -51,7 +51,7 @@ text = "World 1
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="TextureButton" parent="Worlds/World1"]
+[node name="World1Btn" type="TextureButton" parent="Worlds/World1"]
 layout_mode = 2
 texture_normal = ExtResource("2_fex6p")
 texture_hover = ExtResource("3_x7scr")
@@ -69,7 +69,7 @@ text = "World 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="TextureButton" parent="Worlds/World2"]
+[node name="World2Btn" type="TextureButton" parent="Worlds/World2"]
 layout_mode = 2
 texture_normal = ExtResource("2_fex6p")
 
@@ -86,7 +86,7 @@ text = "World 3
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="TextureButton" parent="Worlds/World3"]
+[node name="World3" type="TextureButton" parent="Worlds/World3"]
 layout_mode = 2
 texture_normal = ExtResource("2_fex6p")
 
@@ -98,4 +98,5 @@ offset_right = 49.0
 offset_bottom = 136.0
 text = "back"
 
+[connection signal="pressed" from="Worlds/World1/World1Btn" to="." method="_on_world_1_btn_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

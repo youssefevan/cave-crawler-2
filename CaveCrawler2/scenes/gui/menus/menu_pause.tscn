@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dki3dw7r3sgem"]
+[gd_scene load_steps=3 format=3 uid="uid://dki3dw7r3sgem"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_5657d"]
 [ext_resource type="Script" path="res://scripts/gui/menus/menu_pause.gd" id="2_rmfrn"]
-[ext_resource type="PackedScene" uid="uid://c2xqosjs6klvm" path="res://scenes/gui/menus/menu_options.tscn" id="3_eutay"]
 
 [node name="MenuPause" type="Control"]
 process_mode = 3
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5657d")
 script = ExtResource("2_rmfrn")
-options_scene = ExtResource("3_eutay")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -65,3 +64,4 @@ text = "Main Menu"
 
 [connection signal="pressed" from="Buttons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/Main Menu" to="." method="_on_main_menu_pressed"]

@@ -1,7 +1,9 @@
 extends Control
 
-
 @export var options_scene : PackedScene
+
+func _ready():
+	clear_tree()
 
 func _on_play_pressed():
 	var ls = Global.level_select_scene.instantiate()
@@ -17,3 +19,6 @@ func _on_quit_pressed():
 func _on_options_pressed():
 	var o = Global.options_scene.instantiate()
 	get_tree().get_root().add_child(o)
+
+func clear_tree():
+	pass

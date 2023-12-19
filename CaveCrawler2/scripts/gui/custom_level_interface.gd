@@ -28,7 +28,7 @@ func play_level():
 	if selected_level.get_extension() == "cc2":
 		get_tree().get_root().get_node("MenuMain").call_deferred("queue_free")
 		
-		var cll = Global.custom_level_loader.instantiate()
+		var cll = Global.custom_level_loader_scene.instantiate()
 		cll.level_path = selected_level
 		get_tree().get_root().add_child(cll)
 		visible = false
