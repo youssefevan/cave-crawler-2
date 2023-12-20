@@ -84,6 +84,7 @@ pause={
 2d_physics/layer_8="Hazard"
 2d_physics/layer_9="Killzone"
 2d_physics/layer_10="Oneway"
+2d_physics/layer_11="Pickup"
 
 [rendering]
 

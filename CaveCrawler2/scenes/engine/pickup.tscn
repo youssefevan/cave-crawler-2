@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dodde7njjiq71"]
+
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="1_m40vx"]
+
+[node name="Pickup" type="Node2D"]
+script = ExtResource("1_m40vx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 1024
+collision_mask = 2
+
+[node name="Collider" type="CollisionShape2D" parent="Area"]
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

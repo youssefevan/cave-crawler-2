@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds5v1s0jyogv8"]
+
+[ext_resource type="PackedScene" uid="uid://dodde7njjiq71" path="res://scenes/engine/pickup.tscn" id="1_mhlxm"]
+[ext_resource type="Script" path="res://scripts/pickups/health.gd" id="2_l40pa"]
+[ext_resource type="Texture2D" uid="uid://b2jwgsk6wpygy" path="res://sprites/pickups/health.png" id="2_ll6e0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sc1g"]
+radius = 4.0
+
+[node name="Health" instance=ExtResource("1_mhlxm")]
+script = ExtResource("2_l40pa")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ll6e0")
+
+[node name="Collider" parent="Area" index="0"]
+shape = SubResource("CircleShape2D_6sc1g")

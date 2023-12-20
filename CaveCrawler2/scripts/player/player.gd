@@ -68,6 +68,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("shoot") and can_fire:
 		shoot()
 	
+	
+	$GUI/HealthBar.frame = health
 	move_and_slide()
 
 func handle_input():
@@ -146,7 +148,6 @@ func get_hurt():
 		can_get_hurt = false
 		
 		health -= 1
-		$GUI/HealthBar.frame = health
 		#print(health)
 		
 		if health == 0:
