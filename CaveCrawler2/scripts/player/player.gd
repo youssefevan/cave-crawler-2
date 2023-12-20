@@ -171,10 +171,12 @@ func hit_flash():
 		await get_tree().create_timer(0.1).timeout
 
 func die():
-	print("dead")
 	can_get_hurt = false
 	set_physics_process(false)
 	visible = false
+	
+	$GUI/MenuDeath.visible = true
+	get_tree().paused = true
 
 func _on_camera_room_detector_area_entered(area):
 	if area.get_collision_layer_value(5):

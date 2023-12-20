@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dsonrkjq8rlpg"]
+[gd_scene load_steps=24 format=3 uid="uid://dsonrkjq8rlpg"]
 
 [ext_resource type="Texture2D" uid="uid://c0ojv4t3ika0i" path="res://sprites/player.png" id="1_2wwr2"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g2djs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dki3dw7r3sgem" path="res://scenes/gui/menus/menu_pause.tscn" id="3_m31ia"]
 [ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/engine/camera_room_detector.tscn" id="3_q6n07"]
 [ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="4_jb2gt"]
+[ext_resource type="PackedScene" uid="uid://dnprs334j37fu" path="res://scenes/gui/menus/menu_death.tscn" id="4_k7iyl"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="4_pjpk1"]
 [ext_resource type="Script" path="res://scripts/player/states/run.gd" id="5_xe08m"]
 [ext_resource type="Script" path="res://scripts/player/states/jump.gd" id="6_w0w5j"]
@@ -126,6 +127,8 @@ bullet = ExtResource("2_wqhji")
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="MenuPause" parent="GUI" instance=ExtResource("3_m31ia")]
+
+[node name="MenuDeath" parent="GUI" instance=ExtResource("4_k7iyl")]
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {

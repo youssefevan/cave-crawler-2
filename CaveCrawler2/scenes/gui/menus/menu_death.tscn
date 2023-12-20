@@ -1,56 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://dki3dw7r3sgem"]
+[gd_scene load_steps=3 format=3 uid="uid://dnprs334j37fu"]
 
-[ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_5657d"]
-[ext_resource type="Script" path="res://scripts/gui/menus/menu_pause.gd" id="2_rmfrn"]
+[ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_usmv7"]
+[ext_resource type="Script" path="res://scripts/gui/menus/menu_death.gd" id="2_de4rb"]
 
-[node name="MenuPause" type="Control"]
+[node name="MenuDeath" type="Control"]
 process_mode = 3
-z_index = 4
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_5657d")
-script = ExtResource("2_rmfrn")
+theme = ExtResource("1_usmv7")
+script = ExtResource("2_de4rb")
 
 [node name="Background" type="ColorRect" parent="."]
-layout_mode = 0
 offset_right = 256.0
 offset_bottom = 144.0
 color = Color(0, 0, 0, 0.352941)
 metadata/_edit_lock_ = true
 
 [node name="TextBG" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 110.0
+offset_left = 107.0
 offset_top = 35.0
-offset_right = 144.0
+offset_right = 148.0
 offset_bottom = 45.0
 color = Color(0, 0, 0, 1)
 
-[node name="Pause" type="Label" parent="."]
-layout_mode = 0
+[node name="YouDied" type="Label" parent="."]
 offset_top = 35.0
 offset_right = 256.0
 offset_bottom = 46.0
-text = "PAUSE"
+text = "YOU DIED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="."]
-layout_mode = 0
 offset_left = 96.0
 offset_top = 48.0
 offset_right = 160.0
 offset_bottom = 128.0
 
-[node name="Continue" type="Button" parent="Buttons"]
-layout_mode = 2
-text = "Continue"
-
-[node name="Restart" type="Button" parent="Buttons"]
+[node name="Retry" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "restart"
 
@@ -62,7 +54,6 @@ text = "Options"
 layout_mode = 2
 text = "Main Menu"
 
-[connection signal="pressed" from="Buttons/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Buttons/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Buttons/Main Menu" to="." method="_on_main_menu_pressed"]
