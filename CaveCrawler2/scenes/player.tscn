@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dsonrkjq8rlpg"]
+[gd_scene load_steps=25 format=3 uid="uid://dsonrkjq8rlpg"]
 
 [ext_resource type="Texture2D" uid="uid://c0ojv4t3ika0i" path="res://sprites/player.png" id="1_2wwr2"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g2djs"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dnprs334j37fu" path="res://scenes/gui/menus/menu_death.tscn" id="4_k7iyl"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="4_pjpk1"]
 [ext_resource type="Script" path="res://scripts/player/states/run.gd" id="5_xe08m"]
+[ext_resource type="Texture2D" uid="uid://dcujevinxw3ro" path="res://sprites/gui/health_bar.png" id="5_xselh"]
 [ext_resource type="Script" path="res://scripts/player/states/jump.gd" id="6_w0w5j"]
 [ext_resource type="Script" path="res://scripts/player/states/fall.gd" id="7_7bu6j"]
 [ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="9_i5i06"]
@@ -126,9 +127,19 @@ bullet = ExtResource("2_wqhji")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="MenuPause" parent="GUI" instance=ExtResource("3_m31ia")]
+[node name="MenuPause" parent="GUI" node_paths=PackedStringArray("player") instance=ExtResource("3_m31ia")]
+visible = false
+player = NodePath("../..")
 
 [node name="MenuDeath" parent="GUI" instance=ExtResource("4_k7iyl")]
+visible = false
+
+[node name="HealthBar" type="Sprite2D" parent="GUI"]
+z_index = 3
+position = Vector2(24, 9)
+texture = ExtResource("5_xselh")
+vframes = 5
+frame = 4
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {

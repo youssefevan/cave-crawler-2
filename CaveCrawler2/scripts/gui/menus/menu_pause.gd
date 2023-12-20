@@ -2,15 +2,18 @@ extends Control
 
 var paused = false
 
+@export var player : Player
+
 func _ready():
 	visible = false
 
 func _input(event):
-	if Input.is_action_just_pressed("pause"):
-		if paused == false:
-			pause()
-		else:
-			unpause()
+	if player.health > 0:
+		if Input.is_action_just_pressed("pause"):
+			if paused == false:
+				pause()
+			else:
+				unpause()
 
 func pause():
 	paused = true

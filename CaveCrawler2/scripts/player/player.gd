@@ -146,7 +146,8 @@ func get_hurt():
 		can_get_hurt = false
 		
 		health -= 1
-		print(health)
+		$GUI/HealthBar.frame = health
+		#print(health)
 		
 		if health == 0:
 			die()
