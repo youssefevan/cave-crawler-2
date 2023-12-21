@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dsonrkjq8rlpg"]
+[gd_scene load_steps=26 format=3 uid="uid://dsonrkjq8rlpg"]
 
 [ext_resource type="Texture2D" uid="uid://c0ojv4t3ika0i" path="res://sprites/player.png" id="1_2wwr2"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g2djs"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="4_jb2gt"]
 [ext_resource type="PackedScene" uid="uid://dnprs334j37fu" path="res://scenes/gui/menus/menu_death.tscn" id="4_k7iyl"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="4_pjpk1"]
+[ext_resource type="PackedScene" uid="uid://dxu7q2rap3i0t" path="res://scenes/gui/menus/menu_level_end.tscn" id="5_sa3x3"]
 [ext_resource type="Script" path="res://scripts/player/states/run.gd" id="5_xe08m"]
 [ext_resource type="Texture2D" uid="uid://dcujevinxw3ro" path="res://sprites/gui/health_bar.png" id="5_xselh"]
 [ext_resource type="Script" path="res://scripts/player/states/jump.gd" id="6_w0w5j"]
@@ -133,6 +134,8 @@ player = NodePath("../..")
 
 [node name="MenuDeath" parent="GUI" instance=ExtResource("4_k7iyl")]
 visible = false
+
+[node name="MenuLevelEnd" parent="GUI" instance=ExtResource("5_sa3x3")]
 
 [node name="HealthBar" type="Sprite2D" parent="GUI"]
 z_index = 3

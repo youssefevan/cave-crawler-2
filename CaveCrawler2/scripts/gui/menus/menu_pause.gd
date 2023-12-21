@@ -8,7 +8,7 @@ func _ready():
 	visible = false
 
 func _input(event):
-	if player.health > 0:
+	if player.health > 0 and player.level_end == false:
 		if Input.is_action_just_pressed("pause"):
 			if paused == false:
 				pause()

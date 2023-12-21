@@ -53,6 +53,8 @@ var large_y_limits := false
 
 var level_editor_offset := Vector2(4, -8)
 
+var level_end := false
+
 func _ready():
 	states.init(self)
 	can_fire = true
@@ -219,3 +221,8 @@ func handle_oneway_collision():
 		set_collision_mask_value(10, false)
 		await get_tree().create_timer(0.1).timeout
 		set_collision_mask_value(10, true)
+
+func end_level():
+	level_end = true
+	$GUI/MenuLevelEnd.visible = true
+	get_tree().paused = true

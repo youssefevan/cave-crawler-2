@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh37x3k406xt"]
+
+[ext_resource type="PackedScene" uid="uid://dodde7njjiq71" path="res://scenes/engine/pickup.tscn" id="1_d3ls5"]
+[ext_resource type="Script" path="res://scripts/pickups/flagpole.gd" id="2_jjul0"]
+[ext_resource type="Texture2D" uid="uid://b017u1jhp2i47" path="res://sprites/pickups/flagpole.png" id="2_n6o0u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1wtk6"]
+radius = 5.0
+height = 16.0
+
+[node name="Flagpole" instance=ExtResource("1_d3ls5")]
+script = ExtResource("2_jjul0")
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_n6o0u")
+hframes = 2
+
+[node name="Collider" parent="Area" index="0"]
+shape = SubResource("CapsuleShape2D_1wtk6")

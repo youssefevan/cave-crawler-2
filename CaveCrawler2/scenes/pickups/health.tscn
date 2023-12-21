@@ -10,7 +10,7 @@ radius = 4.0
 [node name="Health" instance=ExtResource("1_mhlxm")]
 script = ExtResource("2_l40pa")
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_ll6e0")
 
 [node name="Collider" parent="Area" index="0"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxu7q2rap3i0t"]
+
+[ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_bq2kv"]
+[ext_resource type="Script" path="res://scripts/gui/menus/menu_level_end.gd" id="2_qtwks"]
+
+[node name="MenuLevelEnd" type="Control"]
+process_mode = 3
+z_index = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bq2kv")
+script = ExtResource("2_qtwks")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 256.0
+offset_bottom = 144.0
+color = Color(0, 0, 0, 0.352941)
+metadata/_edit_lock_ = true
+
+[node name="TextBG" type="ColorRect" parent="."]
+offset_left = 88.0
+offset_top = 35.0
+offset_right = 166.0
+offset_bottom = 45.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="."]
+offset_top = 35.0
+offset_right = 256.0
+offset_bottom = 46.0
+text = "LEVEL COMPLETE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+offset_left = 96.0
+offset_top = 48.0
+offset_right = 160.0
+offset_bottom = 128.0
+
+[node name="Next" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Next Level"
+
+[node name="Replay" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "replay"
+
+[node name="Options" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Options"
+
+[node name="Main Menu" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="Buttons/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Buttons/Replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/Main Menu" to="." method="_on_main_menu_pressed"]
