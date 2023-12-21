@@ -271,27 +271,27 @@ script = ExtResource("6_mg418")
 tool_type = 3
 tile_coordinate_x = 2
 
-[node name="Essentials" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
+[node name="Utilities" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolBar/TabContainer/Essentials"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ToolBar/TabContainer/Utilities"]
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 12.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Player" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer"]
+[node name="Player" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("10_xpnd6")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 4
 
-[node name="CameraRoom" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer"]
+[node name="CameraRoom" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("11_pj7t4")
 icon_alignment = 1
@@ -333,7 +333,7 @@ tile_coordinate_x = 1
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" to="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Coin" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" to="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/Player" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" to="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Essentials/ScrollContainer/HBoxContainer/CameraRoom" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Player" to="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Player" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Player" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/CameraRoom" to="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/CameraRoom" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/CameraRoom" to="." method="_on_tool_selected"]

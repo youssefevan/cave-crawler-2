@@ -1,7 +1,7 @@
 extends Button
 class_name ToolButton
 
-@export_enum("Terrain", "Enemy", "Hazard", "Pickup", "Essential") var tool_type : int
+@export_enum("Terrain", "Enemy", "Hazard", "Pickup", "Utility") var tool_type : int
 @export var tile_coordinate_x : int
 
 var tile_coordinate : Vector2
