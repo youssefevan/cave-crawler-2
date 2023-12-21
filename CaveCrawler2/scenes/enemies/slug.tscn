@@ -168,8 +168,9 @@ height = 12.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0qkj"]
 size = Vector2(14, 8)
 
-[node name="Slug" instance=ExtResource("1_puswo")]
+[node name="Slug" node_paths=PackedStringArray("shield_state") instance=ExtResource("1_puswo")]
 script = ExtResource("2_omgfc")
+shield_state = NodePath("StateManager/Shield")
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -212,6 +213,8 @@ script = ExtResource("6_pwn6o")
 
 [node name="Shield" type="Node" parent="StateManager" index="2"]
 script = ExtResource("7_tkx2l")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

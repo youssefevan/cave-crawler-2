@@ -2,10 +2,7 @@ extends State
 
 func enter():
 	super.enter()
-	entity.velocity.y = -entity.jump_velocity
-	
-	if Input.is_action_just_released("jump"):
-		entity.velocity.y = -entity.release_jump_velocity
+	entity.velocity.y = -entity.bounce_force
 
 func physics_update(delta):
 	super.physics_update(delta)
@@ -25,10 +22,11 @@ func physics_update(delta):
 	
 	if entity.velocity.y > 0:
 		return entity.fall
-	
-	if entity.bouncing:
-		return entity.bounce
 
 func apply_gravity(delta):
 	entity.velocity.y = clampf(entity.velocity.y, -entity.max_fall_speed, entity.max_fall_speed)
 	entity.velocity.y += entity.gravity_up * delta
+
+func exit():
+	super.exit()
+	entity.bouncing = false

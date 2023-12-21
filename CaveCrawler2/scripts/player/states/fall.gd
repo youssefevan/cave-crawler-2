@@ -14,6 +14,9 @@ func physics_update(delta):
 	
 	if entity.can_coyote_jump and entity.jump_was_pressed:
 		return entity.jump
+	
+	if entity.bouncing:
+		return entity.bounce
 
 func apply_gravity(delta):
 		entity.velocity.y = clampf(entity.velocity.y, -entity.max_fall_speed, entity.max_fall_speed)

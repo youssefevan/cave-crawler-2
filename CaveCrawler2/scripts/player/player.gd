@@ -14,6 +14,7 @@ class_name Player
 @onready var run = $StateManager/Run
 @onready var jump = $StateManager/Jump
 @onready var fall = $StateManager/Fall
+@onready var bounce = $StateManager/Bounce
 
 # Horizontal movement variables
 var speed := 85.0
@@ -34,6 +35,8 @@ var can_coyote_jump := false
 var gravity_up := 600.0
 var gravity_down := 1400.0
 var max_fall_speed := 250.0
+var bouncing := false
+var bounce_force
 
 # Health
 @export var max_health := 4
@@ -226,3 +229,7 @@ func end_level():
 	level_end = true
 	$GUI/MenuLevelEnd.visible = true
 	get_tree().paused = true
+
+func enter_bounce(bf):
+	bouncing = true
+	bounce_force = bf

@@ -12,9 +12,11 @@ var move_direction := -1
 var inch_time := 0.4 # in seconds
 var shield_time := 3.0 # in seconds
 
+var bounce_force := 400.0
 var deceleration := 8.0
 
 var got_hit := false
+@export var shield_state : State
 
 func _ready():
 	super._ready()
@@ -22,7 +24,6 @@ func _ready():
 
 func _physics_process(delta):
 	states.physics_update(delta)
-	
 	apply_gravity(delta)
 	apply_friction(delta)
 	
@@ -48,3 +49,8 @@ func apply_friction(delta):
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Player"):
 		got_hit = true
+
+func _on_hitbox_area_entered(area):
+	if area.is_in_group("Player"):
+		if states.current_state == shield_state:
+			area.get_parent().enter_bounce(bounce_force)

@@ -23,6 +23,9 @@ func physics_update(delta):
 	
 	if entity.jump_was_pressed:
 		return entity.jump
+	
+	if entity.bouncing:
+		return entity.bounce
 
 func exit():
 	super.exit()
