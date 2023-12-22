@@ -139,7 +139,10 @@ func shoot():
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Enemy") or area.is_in_group("Hazard"):
-		if can_get_hurt:
+		# Make sure player doesn't get hurt by the slug when its in the shield state (bounce mode thing)
+		if area.get_parent() is Slug and area.get_parent().states.current_state == area.get_parent().shield_state:
+			pass
+		elif can_get_hurt:
 			get_hurt()
 
 func _on_hurtbox_body_entered(body):

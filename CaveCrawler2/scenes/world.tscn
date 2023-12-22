@@ -101,10 +101,11 @@ floor_max_angle = 0.785398
 floor_snap_length = 1.0
 
 [node name="Slug" parent="Enemies" instance=ExtResource("9_cl8pp")]
-position = Vector2(544, 85)
-floor_constant_speed = false
-floor_max_angle = 0.785398
-floor_snap_length = 1.0
+position = Vector2(112, 126)
+
+[node name="Slug2" parent="Enemies" node_paths=PackedStringArray("shield_state") instance=ExtResource("9_cl8pp")]
+position = Vector2(88, 126)
+shield_state = NodePath("../Slug/StateManager/Shield")
 
 [node name="Hazards" type="Node" parent="."]
 

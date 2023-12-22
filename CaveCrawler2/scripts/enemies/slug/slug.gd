@@ -1,4 +1,5 @@
 extends Enemy
+class_name Slug
 
 @onready var animator = $Animator
 @onready var states = $StateManager
@@ -53,4 +54,5 @@ func _on_hurtbox_area_entered(area):
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Player"):
 		if states.current_state == shield_state:
+			animator.play("Shield")
 			area.get_parent().enter_bounce(bounce_force)

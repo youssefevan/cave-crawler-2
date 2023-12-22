@@ -106,6 +106,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_wkhgv"]
 resource_name = "Shield"
+length = 0.3
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
