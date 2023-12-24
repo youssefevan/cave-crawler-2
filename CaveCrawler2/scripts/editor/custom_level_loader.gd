@@ -24,6 +24,9 @@ extends Node2D
 # Utility Coordinates
 @export var player := Vector2(0, 4)
 
+# Pickup Coordinates
+@export var health := Vector2(0, 3)
+
 # Utility scenes
 @export var player_scene : PackedScene
 @export var camera_room_scene : PackedScene
@@ -39,6 +42,9 @@ extends Node2D
 # Hazard scenes
 @export var spike_scene : PackedScene
 @export var stalactite_scene : PackedScene
+
+# Pickup scnes
+@export var health_scene : PackedScene
 
 var player_in_level := false
 
@@ -121,6 +127,8 @@ func build_level():
 				spawn_entity(spike_scene, cell_position)
 			stalactite:
 				spawn_entity(stalactite_scene, cell_position)
+			health:
+				spawn_entity(health_scene, cell_position)
 			lava:
 				tiles.set_cell(0, cell_position, 4, Vector2(0,0))
 	

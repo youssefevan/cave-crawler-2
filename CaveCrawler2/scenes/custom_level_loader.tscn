@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bdwtpmwatgytk"]
+[gd_scene load_steps=15 format=3 uid="uid://bdwtpmwatgytk"]
 
 [ext_resource type="Script" path="res://scripts/editor/custom_level_loader.gd" id="1_m6kmy"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_o6b1y"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cgc2ryr7t78sm" path="res://scenes/hazards/spike.tscn" id="9_a7jqp"]
 [ext_resource type="PackedScene" uid="uid://dhj58pmo05pej" path="res://scenes/enemies/turret.tscn" id="9_eyrh3"]
 [ext_resource type="PackedScene" uid="uid://cbne2o42871na" path="res://scenes/hazards/stalactite.tscn" id="10_8m8eu"]
+[ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="12_nk4f0"]
 
 [node name="CustomLevelLoader" type="Node2D"]
 script = ExtResource("1_m6kmy")
@@ -26,6 +27,7 @@ slug_scene = ExtResource("8_jcnug")
 turret_scene = ExtResource("9_eyrh3")
 spike_scene = ExtResource("9_a7jqp")
 stalactite_scene = ExtResource("10_8m8eu")
+health_scene = ExtResource("12_nk4f0")
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 
