@@ -23,6 +23,7 @@ extends Node2D
 
 # Utility Coordinates
 @export var player := Vector2(0, 4)
+@export var flagpole := Vector2(3, 4)
 
 # Pickup Coordinates
 @export var health := Vector2(0, 3)
@@ -30,6 +31,7 @@ extends Node2D
 # Utility scenes
 @export var player_scene : PackedScene
 @export var camera_room_scene : PackedScene
+@export var flagpole_scene : PackedScene
 
 # Enemy scenes
 @export var rat_scene : PackedScene
@@ -129,6 +131,8 @@ func build_level():
 				spawn_entity(stalactite_scene, cell_position)
 			health:
 				spawn_entity(health_scene, cell_position)
+			flagpole:
+				spawn_entity(flagpole_scene, cell_position)
 			lava:
 				tiles.set_cell(0, cell_position, 4, Vector2(0,0))
 	

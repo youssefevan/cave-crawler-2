@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdwtpmwatgytk"]
+[gd_scene load_steps=16 format=3 uid="uid://bdwtpmwatgytk"]
 
 [ext_resource type="Script" path="res://scripts/editor/custom_level_loader.gd" id="1_m6kmy"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_o6b1y"]
 [ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="3_r8tj7"]
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="4_toqpu"]
+[ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="4_umlyi"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="5_5vpvt"]
 [ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/engine/camera_room.tscn" id="5_cteni"]
 [ext_resource type="PackedScene" uid="uid://bdqqv88177tgm" path="res://scenes/enemies/bat.tscn" id="7_hvyjo"]
@@ -19,6 +20,7 @@
 script = ExtResource("1_m6kmy")
 player_scene = ExtResource("4_toqpu")
 camera_room_scene = ExtResource("5_cteni")
+flagpole_scene = ExtResource("4_umlyi")
 rat_scene = ExtResource("3_r8tj7")
 crab_scene = ExtResource("5_5vpvt")
 bat_scene = ExtResource("7_hvyjo")
