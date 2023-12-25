@@ -18,6 +18,7 @@ var camera_room_tool_coordinates := Vector2(1, 4)
 @export var camera_room_tool_scene : PackedScene
 
 func _ready():
+	level_path = Global.level_to_load
 	if new_level != true:
 		load_existing_level()
 
@@ -91,10 +92,8 @@ func _on_run_pressed():
 	load_level()
 
 func load_level():
-	var cll = custom_level_loader.instantiate()
-	cll.level_path = level_path
-	get_tree().get_root().add_child(cll)
-	call_deferred("queue_free")
+	Global.level_to_load = level_path
+	get_tree().change_scene_to_packed(Global.custom_level_loader_scene)
 
 func load_existing_level():
 	var file = FileAccess.open(level_path, FileAccess.READ)

@@ -27,9 +27,8 @@ func _on_file_dialog_canceled():
 func play_level():
 	if selected_level.get_extension() == "cc2":
 		
-		var cll = Global.custom_level_loader_scene.instantiate()
-		cll.level_path = selected_level
-		get_tree().get_root().add_child(cll)
+		Global.level_to_load = selected_level
+		get_tree().change_scene_to_packed(Global.custom_level_loader_scene)
 		visible = false
 	else:
 		$Main/FileTypeError.visible = true
@@ -41,10 +40,9 @@ func _on_edit_pressed():
 func load_level():
 	if selected_level.get_extension() == "cc2":
 		
-		var le = Global.level_editor_scene.instantiate()
-		le.new_level = false
-		le.level_path = selected_level
-		get_tree().get_root().add_child(le)
+		Global.creating_new_level = false
+		Global.level_to_load = selected_level
+		get_tree().change_scene_to_packed(Global.level_editor_scene)
 		visible = false
 	else:
 		$Main/FileTypeError.visible = true

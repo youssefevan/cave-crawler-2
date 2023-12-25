@@ -60,6 +60,7 @@ var camera_rooms : Array
 
 func _ready():
 	print(level_path)
+	level_path = Global.level_to_load
 	load_file()
 	build_level()
 
