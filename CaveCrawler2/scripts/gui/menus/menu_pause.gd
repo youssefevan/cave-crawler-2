@@ -5,6 +5,10 @@ var paused = false
 @export var player : Player
 
 func _ready():
+	if Global.custom_level == false:
+		$Buttons/Edit.visible = false
+	else:
+		$Buttons/Edit.visible = true
 	visible = false
 
 func _input(event):

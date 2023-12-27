@@ -50,6 +50,10 @@ offset_bottom = 128.0
 layout_mode = 2
 text = "Next Level"
 
+[node name="Edit" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Edit"
+
 [node name="Replay" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "replay"

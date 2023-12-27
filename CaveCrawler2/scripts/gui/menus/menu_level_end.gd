@@ -1,6 +1,10 @@
 extends Control
 
 func _ready():
+	if Global.custom_level == false:
+		$Buttons/Edit.visible = false
+	else:
+		$Buttons/Edit.visible = true
 	visible = false
 
 func _on_options_pressed():

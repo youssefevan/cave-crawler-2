@@ -4,9 +4,11 @@ func _ready():
 	clear_tree()
 
 func _on_play_pressed():
+	Global.custom_level = false
 	get_tree().change_scene_to_packed(Global.level_select_scene)
 
 func _on_editor_pressed():
+	Global.custom_level = true
 	get_tree().change_scene_to_packed(Global.custom_level_interface_scene)
 
 func _on_quit_pressed():

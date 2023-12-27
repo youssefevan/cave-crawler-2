@@ -10,3 +10,5 @@ var pause_scene = preload("res://scenes/gui/menus/menu_pause.tscn")
 
 var level_to_load : String
 var creating_new_level : bool
+
+var custom_level : bool
