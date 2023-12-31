@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var custom_level_loader : PackedScene
-
 @onready var tiles = $TileMap
 
 var tile_size = 8
