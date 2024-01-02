@@ -78,6 +78,7 @@ min_size = Vector2i(128, 72)
 max_size = Vector2i(256, 144)
 ok_button_text = "Open"
 file_mode = 0
+access = 2
 filters = PackedStringArray("*.cc2")
 
 [node name="SaveDialog" type="FileDialog" parent="FileSystem"]
@@ -86,6 +87,7 @@ borderless = true
 min_size = Vector2i(128, 72)
 max_size = Vector2i(256, 144)
 ok_button_text = "Save"
+access = 2
 filters = PackedStringArray("*.cc2")
 
 [node name="NameFile" type="Control" parent="."]
