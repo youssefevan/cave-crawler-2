@@ -2,9 +2,10 @@ extends Control
 
 var paused = false
 
-@export var player : Player
+var player
 
 func _ready():
+	player = get_parent().get_parent()
 	if Global.custom_level == false:
 		$Buttons/Edit.visible = false
 	else:
@@ -43,3 +44,7 @@ func _on_main_menu_pressed():
 func _on_restart_pressed():
 	unpause()
 	get_tree().reload_current_scene()
+
+func _on_edit_pressed():
+	unpause()
+	get_tree().change_scene_to_packed(Global.level_editor_scene)

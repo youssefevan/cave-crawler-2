@@ -145,9 +145,8 @@ bullet = ExtResource("2_wqhji")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="MenuPause" parent="GUI" node_paths=PackedStringArray("player") instance=ExtResource("3_m31ia")]
+[node name="MenuPause" parent="GUI" instance=ExtResource("3_m31ia")]
 visible = false
-player = NodePath("../..")
 
 [node name="MenuDeath" parent="GUI" instance=ExtResource("4_k7iyl")]
 visible = false

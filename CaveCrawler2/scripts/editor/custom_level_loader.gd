@@ -29,7 +29,7 @@ extends Node2D
 @export var health := Vector2(0, 3)
 
 # Utility scenes
-@export var player_scene : PackedScene
+var player_scene = Global.player_scene
 @export var camera_room_scene : PackedScene
 @export var flagpole_scene : PackedScene
 

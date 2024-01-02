@@ -16,12 +16,14 @@ theme = ExtResource("1_usmv7")
 script = ExtResource("2_de4rb")
 
 [node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 256.0
 offset_bottom = 144.0
 color = Color(0, 0, 0, 0.352941)
 metadata/_edit_lock_ = true
 
 [node name="TextBG" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 107.0
 offset_top = 35.0
 offset_right = 148.0
@@ -29,6 +31,7 @@ offset_bottom = 45.0
 color = Color(0, 0, 0, 1)
 
 [node name="YouDied" type="Label" parent="."]
+layout_mode = 0
 offset_top = 35.0
 offset_right = 256.0
 offset_bottom = 46.0
@@ -37,6 +40,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 96.0
 offset_top = 48.0
 offset_right = 160.0
@@ -44,7 +48,11 @@ offset_bottom = 128.0
 
 [node name="Retry" type="Button" parent="Buttons"]
 layout_mode = 2
-text = "restart"
+text = "Retry"
+
+[node name="Edit" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Edit"
 
 [node name="Options" type="Button" parent="Buttons"]
 layout_mode = 2
@@ -55,5 +63,7 @@ layout_mode = 2
 text = "Main Menu"
 
 [connection signal="pressed" from="Buttons/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Buttons/Edit" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Buttons/Edit" to="." method="_on_edit_pressed"]
 [connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Buttons/Main Menu" to="." method="_on_main_menu_pressed"]
