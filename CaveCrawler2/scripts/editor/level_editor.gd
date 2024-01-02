@@ -12,11 +12,16 @@ var new_level : bool
 var lines : Array
 var camera_rooms : Array
 
+var player_in_level := false
+
 var camera_room_tool_coordinates := Vector2(1, 4)
 @export var camera_room_tool_scene : PackedScene
 
 func _ready():
 	level_path = Global.level_to_load
+	
+	$CanvasLayer/Error.visible = false
+	
 	if new_level != true:
 		load_existing_level()
 
@@ -71,6 +76,10 @@ func save():
 		var cell_coords = used_cells[cell]
 		var cell_type = tiles.get_cell_atlas_coords(0, used_cells[cell])
 		var cell_data = Vector4(cell_coords.x, cell_coords.y, cell_type.x, cell_type.y)
+		
+		if cell_type == Global.player_cell_type:
+			player_in_level = true
+		
 		save_file.store_line(str(cell_data))
 #		print(cell_data)
 	
@@ -84,6 +93,11 @@ func save():
 
 func _on_run_pressed():
 	save()
+	
+	if player_in_level == false:
+		display_error()
+		return
+	
 	var read_file = FileAccess.open(level_path, FileAccess.READ)
 	read_file.close()
 	
@@ -142,3 +156,6 @@ func build_camera_room_tool(coordinates, size):
 	c.global_position = coordinates
 	c.width.value = size.x / tile_size
 	c.height.value = size.y / tile_size
+
+func display_error():
+	$CanvasLayer/Error.visible = true

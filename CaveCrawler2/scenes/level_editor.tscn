@@ -64,6 +64,31 @@ script = ExtResource("2_a1c03")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Error" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ErrorBG" type="ColorRect" parent="CanvasLayer/Error"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 135.0
+offset_right = 208.0
+offset_bottom = 143.0
+color = Color(0, 0, 0, 1)
+
+[node name="ErrorMsg" type="Label" parent="CanvasLayer/Error"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 135.0
+offset_right = 208.0
+offset_bottom = 143.0
+theme = ExtResource("9_5lcqo")
+text = "Cannot run level: missing player"
+horizontal_alignment = 1
+
 [node name="Interface" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0

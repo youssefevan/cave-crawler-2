@@ -48,7 +48,7 @@ var player_scene = Global.player_scene
 # Pickup scnes
 @export var health_scene : PackedScene
 
-var player_in_level := false
+#var player_in_level := false
 
 var tile_size := 8
 var tileset_id := 2
@@ -114,6 +114,7 @@ func build_level():
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(2,4))
 			player:
 				spawn_entity(player_scene, cell_position)
+				#player_in_level = true
 			rat:
 				spawn_entity(rat_scene, cell_position)
 			crab:

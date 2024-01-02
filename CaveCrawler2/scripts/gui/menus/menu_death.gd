@@ -18,10 +18,12 @@ func _on_main_menu_pressed():
 
 func _on_retry_pressed():
 	visible = false
+	print(get_tree())
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _on_edit_pressed():
 	visible = false
+	print(get_tree())
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(Global.level_editor_scene)
