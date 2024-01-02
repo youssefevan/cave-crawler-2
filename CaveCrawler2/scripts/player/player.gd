@@ -58,12 +58,12 @@ var level_editor_offset := Vector2(4, -8)
 
 var level_end := false
 
-func _ready():
+func _ready() -> void:
 	states.init(self)
 	can_fire = true
 	health = max_health
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	states.physics_update(delta)
 	
 	handle_camera(delta)
@@ -77,7 +77,7 @@ func _physics_process(delta):
 	$GUI/HealthBar.frame = health
 	move_and_slide()
 
-func handle_input():
+func handle_input() -> void:
 	movement_input = Input.get_action_strength("right") - Input.get_action_strength("left")
 	if movement_input > 0:
 		$Sprite.flip_h = false
@@ -86,7 +86,7 @@ func handle_input():
 		$Sprite.flip_h = true
 		$Gun.scale.x = -1
 
-func apply_movement(delta):
+func apply_movement(delta) -> void:
 	if is_on_floor():
 		if get_floor_normal() != Vector2(0, -1):
 			speed = slope_speed
@@ -115,18 +115,18 @@ func apply_movement(delta):
 		if abs(velocity.x) < 0.05:
 			velocity.x = 0
 
-func jump_buffering():
+func jump_buffering() -> void:
 	if Input.is_action_just_pressed("jump"):
 		jump_was_pressed = true
 		await get_tree().create_timer(jump_buffer).timeout
 		jump_was_pressed = false
 
-func coyote_time():
+func coyote_time() -> void:
 	can_coyote_jump = true
 	await get_tree().create_timer(jump_buffer).timeout
 	can_coyote_jump = false
 
-func shoot():
+func shoot() -> void:
 	var b = bullet.instantiate()
 	get_tree().get_root().add_child(b)
 	b.position = muzzle.global_position
@@ -151,7 +151,7 @@ func _on_hurtbox_body_entered(body):
 		health = 0
 		die()
 
-func get_hurt():
+func get_hurt() -> void:
 	if can_get_hurt == true:
 		can_get_hurt = false
 		
@@ -173,14 +173,14 @@ func get_hurt():
 			await get_tree().create_timer(invincibility_length).timeout
 			can_get_hurt = true
 
-func hit_flash():
+func hit_flash() -> void:
 	while not can_get_hurt:
 		$Sprite.visible = false
 		await get_tree().create_timer(0.1).timeout
 		$Sprite.visible = true
 		await get_tree().create_timer(0.1).timeout
 
-func die():
+func die() -> void:
 	can_get_hurt = false
 	set_physics_process(false)
 	visible = false
@@ -200,7 +200,7 @@ func _on_camera_room_detector_area_entered(area):
 		else:
 			large_y_limits = false
 
-func handle_camera(delta):
+func handle_camera(delta) -> void:
 	# Since the player's center is offset 6 units up from it's pivot,
 	# the camera needs to be offset by the same amount in rooms with
 	# large y limits. However, the camera's built in offset property
@@ -222,17 +222,17 @@ func handle_camera(delta):
 func get_level_editor_offset() -> Vector2:
 	return level_editor_offset
 
-func handle_oneway_collision():
+func handle_oneway_collision() -> void:
 	if is_on_floor() and Input.is_action_pressed("drop_through"):
 		set_collision_mask_value(10, false)
 		await get_tree().create_timer(0.1).timeout
 		set_collision_mask_value(10, true)
 
-func end_level():
+func end_level() -> void:
 	level_end = true
 	$GUI/MenuLevelEnd.visible = true
 	get_tree().paused = true
 
-func enter_bounce(bf):
+func enter_bounce(bf) -> void:
 	bouncing = true
 	bounce_force = bf

@@ -48,6 +48,7 @@ func apply_friction(delta):
 	velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
 
 func _on_hurtbox_area_entered(area):
+	super._on_hurtbox_area_entered(area)
 	if area.is_in_group("Player"):
 		got_hit = true
 

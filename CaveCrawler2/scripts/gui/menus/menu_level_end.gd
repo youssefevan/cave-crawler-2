@@ -1,6 +1,6 @@
 extends Control
 
-func _ready():
+func _ready() -> void:
 	if Global.custom_level == false:
 		$Buttons/Edit.visible = false
 		$Buttons/Next.visible = true

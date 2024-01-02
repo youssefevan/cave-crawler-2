@@ -4,7 +4,7 @@ var paused = false
 
 var player
 
-func _ready():
+func _ready() -> void:
 	player = get_parent().get_parent()
 	if Global.custom_level == false:
 		$Buttons/Edit.visible = false
