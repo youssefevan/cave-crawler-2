@@ -11,14 +11,14 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.498039, 1, 1, 0.498039)
+border_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1aenk"]
 content_margin_left = 2.0
 content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
-bg_color = Color(0.498039, 1, 1, 0.294118)
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8agrt"]
 
@@ -58,9 +58,9 @@ suffix = "w"
 
 [node name="Height" type="SpinBox" parent="."]
 offset_left = 5.0
-offset_top = 24.0
-offset_right = 35.0
-offset_bottom = 33.0
+offset_top = 27.0
+offset_right = 41.0
+offset_bottom = 39.0
 theme = ExtResource("14_f0t5j")
 theme_override_icons/updown = ExtResource("3_tfpvt")
 min_value = 18.0
@@ -72,6 +72,7 @@ suffix = "h"
 offset_right = 12.0
 offset_bottom = 12.0
 theme = ExtResource("14_f0t5j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1aenk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1aenk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8agrt")
 toggle_mode = true

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=42 format=3 uid="uid://bc6wyrum3duwh"]
+[gd_resource type="Theme" load_steps=44 format=3 uid="uid://bc6wyrum3duwh"]
 
 [ext_resource type="Texture2D" uid="uid://bddfd8edpybo8" path="res://sprites/level_editor_icons/file_dialog/back.png" id="1_cho4s"]
 [ext_resource type="Texture2D" uid="uid://cvinsrhw0u38j" path="res://sprites/level_editor_icons/file_dialog/file.png" id="2_4xkje"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://br27nuidtlxxg" path="res://sprites/level_editor_icons/file_dialog/radio_checked.png" id="9_wf3bi"]
 [ext_resource type="Texture2D" uid="uid://b0l3nlfvdpkw1" path="res://sprites/level_editor_icons/file_dialog/close_pressed.png" id="10_1dqt4"]
 [ext_resource type="Texture2D" uid="uid://bqcjkvtnpiy65" path="res://sprites/level_editor_icons/file_dialog/radio_unchecked.png" id="10_dptdc"]
+[ext_resource type="Texture2D" uid="uid://bgpadio4mj5p3" path="res://sprites/level_editor_icons/updown_arrows.png" id="11_lqjc5"]
 [ext_resource type="FontFile" uid="uid://cggqi2nq21vhh" path="res://fonts/CCFont.ttf" id="11_uehqq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjdk3"]
@@ -94,6 +95,8 @@ bg_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ojtg"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2vkc"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20rua"]
 content_margin_left = 2.0
 content_margin_right = 2.0
@@ -174,9 +177,11 @@ PopupMenu/icons/radio_unchecked = ExtResource("10_dptdc")
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_h2n2g")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_34x0w")
 PopupMenu/styles/panel_disabled = SubResource("StyleBoxEmpty_3l5he")
+SpinBox/icons/updown = ExtResource("11_lqjc5")
 TabContainer/constants/side_margin = 0
 TabContainer/styles/panel = SubResource("StyleBoxFlat_feiy6")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxEmpty_3ojtg")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_d2vkc")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_20rua")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_2lhtq")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_634rl")
