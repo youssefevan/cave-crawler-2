@@ -99,7 +99,7 @@ theme = ExtResource("9_5lcqo")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Interface"]
 layout_mode = 0
-offset_right = 24.0
+offset_right = 36.0
 offset_bottom = 12.0
 theme_override_constants/separation = 0
 

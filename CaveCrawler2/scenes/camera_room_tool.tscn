@@ -42,6 +42,7 @@ script = ExtResource("1_osmu5")
 [node name="Outline" type="Panel" parent="."]
 offset_right = 256.0
 offset_bottom = 144.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7aauj")
 
 [node name="Width" type="SpinBox" parent="."]
@@ -76,6 +77,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1aenk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1aenk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8agrt")
 toggle_mode = true
+keep_pressed_outside = true
 icon = ExtResource("1_ejbyw")
 
 [node name="Delete" type="Button" parent="."]
