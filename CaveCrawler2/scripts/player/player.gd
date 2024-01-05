@@ -73,7 +73,6 @@ func _physics_process(delta) -> void:
 	if Input.is_action_pressed("shoot") and can_fire:
 		shoot()
 	
-	
 	$GUI/HealthBar.frame = health
 	move_and_slide()
 
@@ -159,6 +158,7 @@ func get_hurt() -> void:
 		#print(health)
 		
 		if health == 0:
+			$GUI/HealthBar.frame = 0
 			die()
 		else:
 			$Sprite.material.set_shader_parameter("enabled", true)

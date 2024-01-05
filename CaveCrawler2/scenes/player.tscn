@@ -144,6 +144,7 @@ script = ExtResource("1_g2djs")
 bullet = ExtResource("2_wqhji")
 
 [node name="GUI" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="MenuPause" parent="GUI" instance=ExtResource("3_m31ia")]
 visible = false
