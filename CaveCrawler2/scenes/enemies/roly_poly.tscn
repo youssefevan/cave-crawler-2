@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://bpks5orrmydww"]
+
+[ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_omprq"]
+[ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_mn110"]
+[ext_resource type="Script" path="res://scripts/enemies/roly_poly.gd" id="2_p6lwg"]
+[ext_resource type="Texture2D" uid="uid://cbap6i5s6i4q5" path="res://sprites/enemies/roly_poly.png" id="3_3oukc"]
+
+[sub_resource type="Animation" id="Animation_mpkf2"]
+resource_name = "Roll"
+length = 0.18
+loop_mode = 1
+step = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2uv03"]
+_data = {
+"Roll": SubResource("Animation_mpkf2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqms7"]
+size = Vector2(6, 6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwp03"]
+resource_local_to_scene = true
+shader = ExtResource("2_mn110")
+shader_parameter/enabled = false
+shader_parameter/Tint = Color(1, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_krqwl"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vmpr"]
+radius = 3.0
+
+[node name="RolyPoly" instance=ExtResource("1_omprq")]
+script = ExtResource("2_p6lwg")
+max_health = 6
+
+[node name="Animator" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_2uv03")
+}
+
+[node name="VisibleOnScreenEnabler2D" parent="." index="1"]
+position = Vector2(0, -3.5)
+scale = Vector2(0.4, 0.35)
+
+[node name="Collider" parent="." index="2"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_bqms7")
+
+[node name="Sprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_uwp03")
+position = Vector2(0, -4)
+texture = ExtResource("3_3oukc")
+hframes = 3
+
+[node name="Collider" parent="Hitbox" index="0"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_krqwl")
+
+[node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_2vmpr")
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]

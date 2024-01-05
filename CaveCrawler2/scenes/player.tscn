@@ -131,7 +131,7 @@ size = Vector2(6, 13)
 radius = 3.0
 height = 13.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 material = SubResource("ShaderMaterial_xhmht")
 collision_layer = 2
 collision_mask = 1537

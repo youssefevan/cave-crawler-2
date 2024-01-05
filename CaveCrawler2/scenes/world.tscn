@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmcygxcgpgtdt"]
+[gd_scene load_steps=17 format=3 uid="uid://cmcygxcgpgtdt"]
 
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="1_1tsot"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_tsine"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://biogwmi8pccag" path="res://scenes/enemies/slug.tscn" id="9_cl8pp"]
 [ext_resource type="PackedScene" uid="uid://cgc2ryr7t78sm" path="res://scenes/hazards/spike.tscn" id="10_8royg"]
 [ext_resource type="PackedScene" uid="uid://dhj58pmo05pej" path="res://scenes/enemies/turret.tscn" id="10_xkdhl"]
+[ext_resource type="PackedScene" uid="uid://bpks5orrmydww" path="res://scenes/enemies/roly_poly.tscn" id="11_aygi1"]
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="14_8fabe"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="15_wjdkq"]
 
@@ -77,13 +78,13 @@ layer_0/tile_data = PackedInt32Array(1179648, 589826, 3, 1179679, 589826, 3, 104
 position = Vector2(396, 16)
 
 [node name="Rat" parent="Enemies" instance=ExtResource("3_pmbve")]
-position = Vector2(304, 126)
+position = Vector2(485, 49)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
 
 [node name="Bat" parent="Enemies" instance=ExtResource("9_6x0ol")]
-position = Vector2(279, 69)
+position = Vector2(515, 26)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
@@ -95,13 +96,16 @@ floor_max_angle = 0.785398
 floor_snap_length = 1.0
 
 [node name="SkeletonHand" parent="Enemies" instance=ExtResource("8_008sm")]
-position = Vector2(200, 128)
+position = Vector2(568, 120)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
 
 [node name="Slug" parent="Enemies" instance=ExtResource("9_cl8pp")]
-position = Vector2(136, 88)
+position = Vector2(460, 52)
+
+[node name="RolyPoly" parent="Enemies" instance=ExtResource("11_aygi1")]
+position = Vector2(200, 120)
 
 [node name="Hazards" type="Node" parent="."]
 
