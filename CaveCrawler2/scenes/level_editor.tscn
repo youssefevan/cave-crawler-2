@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bkvqkisja6eq7" path="res://sprites/level_editor_icons/enemies/slug.png" id="18_17c3a"]
 [ext_resource type="Texture2D" uid="uid://c7e5s7x0athqk" path="res://sprites/level_editor_icons/enemies/turret.png" id="19_6cula"]
 [ext_resource type="Texture2D" uid="uid://dag04y6cpg6lf" path="res://sprites/level_editor_icons/save.png" id="20_esaba"]
-[ext_resource type="Texture2D" uid="uid://rigjyanwvmtr" path="res://sprites/level_editor_icons/enemies/roy_poly.png" id="21_c1vox"]
+[ext_resource type="Texture2D" uid="uid://rigjyanwvmtr" path="res://sprites/level_editor_icons/enemies/roly_poly.png" id="21_c1vox"]
 [ext_resource type="Texture2D" uid="uid://dwjf36yb8qj6s" path="res://sprites/level_editor_icons/essentials/flagpole.png" id="30_dawkp"]
 
 [node name="LevelEditor" type="Node2D"]

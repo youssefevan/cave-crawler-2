@@ -170,15 +170,15 @@ func get_hurt() -> void:
 				set_physics_process(true)
 			
 			hit_flash()
-			await get_tree().create_timer(invincibility_length).timeout
+			await get_tree().create_timer(invincibility_length, false).timeout
 			can_get_hurt = true
 
 func hit_flash() -> void:
 	while not can_get_hurt:
 		$Sprite.visible = false
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.1, false).timeout
 		$Sprite.visible = true
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.1, false).timeout
 
 func die() -> void:
 	can_get_hurt = false

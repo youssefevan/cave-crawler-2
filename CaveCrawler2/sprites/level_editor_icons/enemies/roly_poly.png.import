@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rigjyanwvmtr"
-path="res://.godot/imported/roy_poly.png-ff0d3f2f0480b40e9845a240ae1ef0f4.ctex"
+path="res://.godot/imported/roly_poly.png-a313fe980368c2107e66e8d2686fdb89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/level_editor_icons/enemies/roy_poly.png"
-dest_files=["res://.godot/imported/roy_poly.png-ff0d3f2f0480b40e9845a240ae1ef0f4.ctex"]
+source_file="res://sprites/level_editor_icons/enemies/roly_poly.png"
+dest_files=["res://.godot/imported/roly_poly.png-a313fe980368c2107e66e8d2686fdb89.ctex"]
 
 [params]
 
