@@ -90,7 +90,7 @@ floor_max_angle = 0.785398
 floor_snap_length = 1.0
 
 [node name="Crab" parent="Enemies" instance=ExtResource("5_v0jx1")]
-position = Vector2(536, 53)
+position = Vector2(532, 49)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
@@ -105,7 +105,7 @@ floor_snap_length = 1.0
 position = Vector2(460, 52)
 
 [node name="RolyPoly" parent="Enemies" instance=ExtResource("11_aygi1")]
-position = Vector2(446, 54)
+position = Vector2(507, 51)
 
 [node name="Hazards" type="Node" parent="."]
 

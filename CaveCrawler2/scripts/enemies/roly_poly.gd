@@ -29,7 +29,7 @@ func _physics_process(delta):
 			move_direction = 1
 			$Sprite.flip_h = true
 	
-	velocity.x = lerpf(velocity.x, speed * move_direction, acceleration * delta)
+	velocity.x = lerpf(velocity.x, speed * speed_modifier * move_direction, acceleration * delta)
 	
 	$Animator.play("Roll")
 	

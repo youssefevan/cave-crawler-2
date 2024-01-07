@@ -5,6 +5,8 @@ class_name Enemy
 @export var gravity := 800.0
 @export var level_editor_offset := Vector2(4, -8)
 
+var speed_modifier := 1.0
+
 var current_health : int
 var can_get_hurt : bool
 
@@ -47,7 +49,11 @@ func _on_hurtbox_body_entered(body):
 			current_health = 0
 			die()
 		else:
-			print(cell_data.get_custom_data("accel_modifier"))
+			speed_modifier = cell_data.get_custom_data("speed_modifier")
+
+func _on_hurtbox_body_exited(body):
+	if body is TileMap:
+		speed_modifier = 1.0
 
 func get_level_editor_offset() -> Vector2:
 	return level_editor_offset

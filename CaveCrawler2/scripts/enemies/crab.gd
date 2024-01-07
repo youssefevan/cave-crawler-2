@@ -17,7 +17,7 @@ func _physics_process(delta):
 	if is_on_wall():
 		move_direction *= -1
 	
-	velocity.x = lerpf(velocity.x, speed * move_direction, 100 * delta) # effectively no interpolation
+	velocity.x = lerpf(velocity.x, speed * speed_modifier * move_direction, 100 * delta) # effectively no interpolation
 	
 	$Animator.play("Move")
 	

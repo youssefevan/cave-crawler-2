@@ -3,7 +3,7 @@ extends State
 func enter():
 	super.enter()
 	
-	entity.velocity.x = entity.jump_velocity_x * entity.move_direction
+	entity.velocity.x = entity.jump_velocity_x * entity.move_direction * entity.speed_modifier
 	entity.velocity.y = -entity.jump_velocity_y
 
 func physics_update(delta):
