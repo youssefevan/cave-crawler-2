@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=32 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_f2vqo"]
 [ext_resource type="Script" path="res://scripts/editor/level_editor_camera.gd" id="2_a1c03"]
@@ -28,7 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://bkvqkisja6eq7" path="res://sprites/level_editor_icons/enemies/slug.png" id="18_17c3a"]
 [ext_resource type="Texture2D" uid="uid://c7e5s7x0athqk" path="res://sprites/level_editor_icons/enemies/turret.png" id="19_6cula"]
 [ext_resource type="Texture2D" uid="uid://dag04y6cpg6lf" path="res://sprites/level_editor_icons/save.png" id="20_esaba"]
-[ext_resource type="Texture2D" uid="uid://rigjyanwvmtr" path="res://sprites/level_editor_icons/enemies/roly_poly.png" id="21_c1vox"]
+[ext_resource type="Texture2D" uid="uid://rigjyanwvmtr" path="res://sprites/level_editor_icons/enemies/roly_poly.png" id="21_bkdj6"]
+[ext_resource type="Texture2D" uid="uid://1sd77cjpmhut" path="res://sprites/level_editor_icons/hazards/sludge.png" id="25_wbaa6"]
 [ext_resource type="Texture2D" uid="uid://dwjf36yb8qj6s" path="res://sprites/level_editor_icons/essentials/flagpole.png" id="30_dawkp"]
 
 [node name="LevelEditor" type="Node2D"]
@@ -226,7 +227,7 @@ tile_coordinate_x = 5
 
 [node name="RolyPoly" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("21_c1vox")
+icon = ExtResource("21_bkdj6")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 1
@@ -267,6 +268,14 @@ icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 2
 tile_coordinate_x = 2
+
+[node name="Sludge" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("25_wbaa6")
+icon_alignment = 1
+script = ExtResource("6_mg418")
+tool_type = 2
+tile_coordinate_x = 3
 
 [node name="Pickups" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
@@ -371,6 +380,8 @@ tile_coordinate_x = 3
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Sludge" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Sludge" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Sludge" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" to="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" to="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" method="_on_pressed"]

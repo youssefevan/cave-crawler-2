@@ -21,6 +21,7 @@ extends Node2D
 @export var spike := Vector2(0, 2)
 @export var stalactite := Vector2(1, 2)
 @export var lava := Vector2(2, 2)
+@export var sludge := Vector2(3, 2)
 
 # Utility Coordinates
 @export var player := Vector2(0, 4)
@@ -140,6 +141,8 @@ func build_level():
 				spawn_entity(flagpole_scene, cell_position)
 			lava:
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(2,5))
+			sludge:
+				tiles.set_cell(0, cell_position, tileset_id, Vector2(3,5))
 	
 	tiles.set_cells_terrain_connect(0, autotile_cells, 0, 2)
 	
