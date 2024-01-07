@@ -40,9 +40,14 @@ func _on_hurtbox_area_entered(area):
 		get_hurt(0.1)
 
 func _on_hurtbox_body_entered(body):
-	### NOTE: currently only used for killzones because tilemaps dont have get_collision_layer_value
-	current_health = 0
-	die()
+	if body is TileMap:
+		var cell_pos = body.local_to_map(global_position)
+		var cell_data = body.get_cell_tile_data(0, cell_pos)
+		if cell_data.get_custom_data("killzone") == true:
+			current_health = 0
+			die()
+		else:
+			print(cell_data.get_custom_data("accel_modifier"))
 
 func get_level_editor_offset() -> Vector2:
 	return level_editor_offset

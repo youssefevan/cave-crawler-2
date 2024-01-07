@@ -139,7 +139,7 @@ func build_level():
 			flagpole:
 				spawn_entity(flagpole_scene, cell_position)
 			lava:
-				tiles.set_cell(0, cell_position, 4, Vector2(0,0))
+				tiles.set_cell(0, cell_position, tileset_id, Vector2(2,5))
 	
 	tiles.set_cells_terrain_connect(0, autotile_cells, 0, 2)
 	

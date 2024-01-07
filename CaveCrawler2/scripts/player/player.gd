@@ -25,6 +25,7 @@ var acceleration_air := 7.0
 var deceleration_ground := 13.5
 var deceleration_air := 1.4
 var movement_input : float
+var speed_modifier := 1.0
 
 # Vertical movement variables
 var jump_velocity := 208.0
@@ -88,11 +89,11 @@ func handle_input() -> void:
 func apply_movement(delta) -> void:
 	if is_on_floor():
 		if get_floor_normal() != Vector2(0, -1):
-			speed = slope_speed
+			speed = slope_speed * speed_modifier
 		else:
-			speed = normal_speed
+			speed = normal_speed * speed_modifier
 	else:
-		speed = normal_speed
+		speed = normal_speed * speed_modifier
 	
 	if movement_input != 0:
 		var acceleration
@@ -145,10 +146,18 @@ func _on_hurtbox_area_entered(area):
 			get_hurt()
 
 func _on_hurtbox_body_entered(body):
-	### NOTE: currently only used for killzones because tilemaps dont have get_collision_layer_value
 	if body is TileMap:
-		health = 0
-		die()
+		var cell_pos = body.local_to_map(global_position)
+		var cell_data = body.get_cell_tile_data(0, cell_pos)
+		if cell_data.get_custom_data("killzone") == true:
+			health = 0
+			die()
+		else:
+			speed_modifier = cell_data.get_custom_data("speed_modifier")
+
+func _on_hurtbox_body_exited(body):
+	if body is TileMap:
+		speed_modifier = 1.0
 
 func get_hurt() -> void:
 	if can_get_hurt == true:

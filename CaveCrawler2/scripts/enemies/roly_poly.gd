@@ -21,12 +21,13 @@ func _physics_process(delta):
 	
 	velocity.y = clampf(velocity.y, -250.0, 250.0)
 	
-	if (global_position.x - player.global_position.x) > 0:
-		move_direction = -1
-		$Sprite.flip_h = false
-	else:
-		move_direction = 1
-		$Sprite.flip_h = true
+	if player:
+		if (global_position.x - player.global_position.x) > 0:
+			move_direction = -1
+			$Sprite.flip_h = false
+		else:
+			move_direction = 1
+			$Sprite.flip_h = true
 	
 	velocity.x = lerpf(velocity.x, speed * move_direction, acceleration * delta)
 	

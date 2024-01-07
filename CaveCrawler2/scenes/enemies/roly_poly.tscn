@@ -41,7 +41,7 @@ shader_parameter/Tint = Color(1, 0, 0, 1)
 radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2vmpr"]
-radius = 5.0
+radius = 4.5
 
 [node name="RolyPoly" instance=ExtResource("1_omprq")]
 script = ExtResource("2_p6lwg")
