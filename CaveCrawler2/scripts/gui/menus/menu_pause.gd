@@ -42,6 +42,7 @@ func _on_main_menu_pressed():
 	get_tree().change_scene_to_packed(Global.main_menu_scene)
 
 func _on_restart_pressed():
+	Global.checkpoint_passed = false
 	unpause()
 	get_tree().reload_current_scene()
 

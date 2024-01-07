@@ -19,6 +19,7 @@ func _on_main_menu_pressed():
 	get_tree().change_scene_to_packed(Global.main_menu_scene)
 
 func _on_replay_pressed():
+	Global.checkpoint_passed = false
 	visible = false
 	get_tree().paused = false
 	get_tree().reload_current_scene()
