@@ -25,6 +25,7 @@ extends Node2D
 
 # Utility Coordinates
 @export var player := Vector2(0, 4)
+@export var checkpoint := Vector2(2, 4)
 @export var flagpole := Vector2(3, 4)
 
 # Pickup Coordinates
@@ -33,6 +34,7 @@ extends Node2D
 # Utility scenes
 var player_scene = Global.player_scene
 @export var camera_room_scene : PackedScene
+@export var checkpoint_scene : PackedScene
 @export var flagpole_scene : PackedScene
 
 # Enemy scenes
@@ -134,6 +136,8 @@ func build_level():
 				spawn_entity(stalactite_scene, cell_position)
 			health:
 				spawn_entity(health_scene, cell_position)
+			checkpoint:
+				spawn_entity(checkpoint_scene, cell_position)
 			flagpole:
 				spawn_entity(flagpole_scene, cell_position)
 			spike:
@@ -157,7 +161,11 @@ func spawn_camera_room(coordinates, size):
 func spawn_entity(entity, spawn_position):
 	var e = entity.instantiate()
 	add_child(e)
-	if e.has_method("get_level_editor_offset"):
-		e.global_position = (spawn_position * tile_size) + e.get_level_editor_offset()
+	
+	if entity == player_scene and Global.checkpoint_passed:
+		e.global_position = Global.checkpoint_position
 	else:
-		e.global_position = spawn_position * tile_size
+		if e.has_method("get_level_editor_offset"):
+			e.global_position = (spawn_position * tile_size) + e.get_level_editor_offset()
+		else:
+			e.global_position = spawn_position * tile_size

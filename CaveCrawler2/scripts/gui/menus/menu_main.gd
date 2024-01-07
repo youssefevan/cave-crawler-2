@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	clear_tree()
+	Global.checkpoint_passed = false
 
 func _on_play_pressed():
 	Global.custom_level = false
@@ -17,6 +17,3 @@ func _on_quit_pressed():
 func _on_options_pressed():
 	var o = Global.options_scene.instantiate()
 	get_tree().get_root().add_child(o)
-
-func clear_tree():
-	pass

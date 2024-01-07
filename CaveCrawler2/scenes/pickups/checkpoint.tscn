@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc06aufbhrujy"]
+
+[ext_resource type="PackedScene" uid="uid://dodde7njjiq71" path="res://scenes/engine/pickup.tscn" id="1_d80ow"]
+[ext_resource type="Texture2D" uid="uid://473h36jfhmjn" path="res://sprites/pickups/checkpoint.png" id="2_1dowr"]
+[ext_resource type="Script" path="res://scripts/pickups/checkpoint.gd" id="2_hhoq8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63ugg"]
+size = Vector2(8, 9)
+
+[node name="Checkpoint" instance=ExtResource("1_d80ow")]
+position = Vector2(0, 4)
+script = ExtResource("2_hhoq8")
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_1dowr")
+hframes = 2
+
+[node name="Collider" parent="Area" index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_63ugg")

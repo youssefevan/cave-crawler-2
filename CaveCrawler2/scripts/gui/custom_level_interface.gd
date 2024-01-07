@@ -7,6 +7,9 @@ var selected_level
 
 var playing := false
 
+func _ready():
+	Global.checkpoint_passed = false
+
 func _on_play_pressed():
 	file_dialog.visible = true
 	playing = true

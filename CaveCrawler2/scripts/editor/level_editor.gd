@@ -18,6 +18,8 @@ var camera_room_tool_coordinates := Vector2(1, 4)
 @export var camera_room_tool_scene : PackedScene
 
 func _ready():
+	Global.checkpoint_passed = false
+	
 	level_path = Global.level_to_load
 	
 	$CanvasLayer/Error.visible = false

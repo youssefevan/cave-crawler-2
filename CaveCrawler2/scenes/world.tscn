@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmcygxcgpgtdt"]
+[gd_scene load_steps=17 format=3 uid="uid://cmcygxcgpgtdt"]
 
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="1_1tsot"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_tsine"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dhj58pmo05pej" path="res://scenes/enemies/turret.tscn" id="10_xkdhl"]
 [ext_resource type="PackedScene" uid="uid://bpks5orrmydww" path="res://scenes/enemies/roly_poly.tscn" id="11_aygi1"]
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="14_8fabe"]
+[ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="15_hwnha"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="15_wjdkq"]
 
 [node name="World" type="Node2D"]
@@ -118,6 +119,9 @@ position = Vector2(267, 117)
 
 [node name="Flagpole" parent="Pickups" instance=ExtResource("15_wjdkq")]
 position = Vector2(1096, 64)
+
+[node name="Checkpoint" parent="Pickups" instance=ExtResource("15_hwnha")]
+position = Vector2(688, 124)
 
 [node name="Player" parent="." instance=ExtResource("1_1tsot")]
 position = Vector2(24, 120)

@@ -63,6 +63,9 @@ func _ready() -> void:
 	states.init(self)
 	can_fire = true
 	health = max_health
+	
+	if Global.checkpoint_passed == true:
+		global_position = Global.checkpoint_position
 
 func _physics_process(delta) -> void:
 	states.physics_update(delta)

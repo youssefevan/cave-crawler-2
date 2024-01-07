@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=33 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_f2vqo"]
 [ext_resource type="Script" path="res://scripts/editor/level_editor_camera.gd" id="2_a1c03"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://rigjyanwvmtr" path="res://sprites/level_editor_icons/enemies/roly_poly.png" id="21_bkdj6"]
 [ext_resource type="Texture2D" uid="uid://1sd77cjpmhut" path="res://sprites/level_editor_icons/hazards/sludge.png" id="25_wbaa6"]
 [ext_resource type="Texture2D" uid="uid://dwjf36yb8qj6s" path="res://sprites/level_editor_icons/essentials/flagpole.png" id="30_dawkp"]
+[ext_resource type="Texture2D" uid="uid://glj16bcb1ui5" path="res://sprites/level_editor_icons/essentials/checkpoint.png" id="31_ujwyd"]
 
 [node name="LevelEditor" type="Node2D"]
 script = ExtResource("1_f2vqo")
@@ -341,6 +342,14 @@ script = ExtResource("6_mg418")
 tool_type = 4
 tile_coordinate_x = 1
 
+[node name="Checkpoint" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("31_ujwyd")
+icon_alignment = 1
+script = ExtResource("6_mg418")
+tool_type = 4
+tile_coordinate_x = 2
+
 [node name="Flagpole" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("30_dawkp")
@@ -392,5 +401,7 @@ tile_coordinate_x = 3
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Player" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/CameraRoom" to="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/CameraRoom" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/CameraRoom" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Checkpoint" to="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Checkpoint" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Checkpoint" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Flagpole" to="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Flagpole" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Flagpole" to="." method="_on_tool_selected"]

@@ -2,6 +2,9 @@ extends Control
 
 var level1 = preload("res://scenes/world.tscn")
 
+func _ready():
+	Global.checkpoint_passed = false
+
 func _on_options_pressed():
 	var o = Global.options_scene.instantiate()
 	get_tree().get_root().add_child(o)
