@@ -145,17 +145,21 @@ func _on_hurtbox_area_entered(area):
 		elif can_get_hurt:
 			get_hurt()
 
-func _on_hurtbox_body_entered(body):
+func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body is TileMap:
-		var cell_pos = body.local_to_map(global_position)
+		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
+			
 		if cell_data.get_custom_data("killzone") == true:
 			health = 0
 			die()
-		else:
+		elif cell_data.get_custom_data("does_damage") == true:
+			get_hurt()
+			
+		if cell_data.get_custom_data("speed_modifier") != 0.0:
 			speed_modifier = cell_data.get_custom_data("speed_modifier")
 
-func _on_hurtbox_body_exited(body):
+func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	if body is TileMap:
 		speed_modifier = 1.0
 

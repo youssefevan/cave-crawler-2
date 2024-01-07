@@ -41,19 +41,23 @@ func _on_hurtbox_area_entered(area):
 	elif area.is_in_group("Hazard"):
 		get_hurt(0.1)
 
-func _on_hurtbox_body_entered(body):
+func get_level_editor_offset() -> Vector2:
+	return level_editor_offset
+
+func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body is TileMap:
-		var cell_pos = body.local_to_map(global_position)
+		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
+			
 		if cell_data.get_custom_data("killzone") == true:
 			current_health = 0
 			die()
-		else:
+		elif cell_data.get_custom_data("does_damage") == true:
+			get_hurt(0.1)
+			
+		if cell_data.get_custom_data("speed_modifier") != 0.0:
 			speed_modifier = cell_data.get_custom_data("speed_modifier")
 
-func _on_hurtbox_body_exited(body):
+func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	if body is TileMap:
 		speed_modifier = 1.0
-
-func get_level_editor_offset() -> Vector2:
-	return level_editor_offset

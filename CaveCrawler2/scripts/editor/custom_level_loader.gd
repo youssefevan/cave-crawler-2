@@ -45,7 +45,6 @@ var player_scene = Global.player_scene
 @export var roly_poly_scene : PackedScene
 
 # Hazard scenes
-@export var spike_scene : PackedScene
 @export var stalactite_scene : PackedScene
 
 # Pickup scnes
@@ -131,14 +130,14 @@ func build_level():
 				spawn_entity(turret_scene, cell_position)
 			roly_poly:
 				spawn_entity(roly_poly_scene, cell_position)
-			spike:
-				spawn_entity(spike_scene, cell_position)
 			stalactite:
 				spawn_entity(stalactite_scene, cell_position)
 			health:
 				spawn_entity(health_scene, cell_position)
 			flagpole:
 				spawn_entity(flagpole_scene, cell_position)
+			spike:
+				tiles.set_cell(0, cell_position, tileset_id, Vector2(3,4))
 			lava:
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(2,5))
 			sludge:

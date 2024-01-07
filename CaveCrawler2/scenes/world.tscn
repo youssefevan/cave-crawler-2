@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cmcygxcgpgtdt"]
+[gd_scene load_steps=16 format=3 uid="uid://cmcygxcgpgtdt"]
 
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="1_1tsot"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_tsine"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cbne2o42871na" path="res://scenes/hazards/stalactite.tscn" id="8_dnuif"]
 [ext_resource type="PackedScene" uid="uid://bdqqv88177tgm" path="res://scenes/enemies/bat.tscn" id="9_6x0ol"]
 [ext_resource type="PackedScene" uid="uid://biogwmi8pccag" path="res://scenes/enemies/slug.tscn" id="9_cl8pp"]
-[ext_resource type="PackedScene" uid="uid://cgc2ryr7t78sm" path="res://scenes/hazards/spike.tscn" id="10_8royg"]
 [ext_resource type="PackedScene" uid="uid://dhj58pmo05pej" path="res://scenes/enemies/turret.tscn" id="10_xkdhl"]
 [ext_resource type="PackedScene" uid="uid://bpks5orrmydww" path="res://scenes/enemies/roly_poly.tscn" id="11_aygi1"]
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="14_8fabe"]
@@ -29,7 +28,7 @@ position = Vector2(344, 112)
 texture = ExtResource("7_cd3ux")
 
 [node name="Crystal3" type="Sprite2D" parent="."]
-position = Vector2(176, 112)
+position = Vector2(200, 112)
 scale = Vector2(-1, 1)
 texture = ExtResource("7_cd3ux")
 
@@ -111,17 +110,6 @@ position = Vector2(507, 51)
 
 [node name="Stalactite" parent="Hazards" instance=ExtResource("8_dnuif")]
 position = Vector2(312, 24)
-
-[node name="Spikes" type="Node" parent="Hazards"]
-
-[node name="Spike" parent="Hazards/Spikes" instance=ExtResource("10_8royg")]
-position = Vector2(512, 104)
-
-[node name="Spike3" parent="Hazards/Spikes" instance=ExtResource("10_8royg")]
-position = Vector2(504, 104)
-
-[node name="Spike2" parent="Hazards/Spikes" instance=ExtResource("10_8royg")]
-position = Vector2(520, 104)
 
 [node name="Pickups" type="Node" parent="."]
 
