@@ -161,3 +161,7 @@ func build_camera_room_tool(coordinates, size):
 
 func display_error():
 	$CanvasLayer/Error.visible = true
+
+func _on_main_menu_pressed():
+	save()
+	get_tree().change_scene_to_packed(Global.main_menu_scene)
