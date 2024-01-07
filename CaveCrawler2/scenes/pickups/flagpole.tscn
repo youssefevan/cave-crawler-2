@@ -4,9 +4,8 @@
 [ext_resource type="Script" path="res://scripts/pickups/flagpole.gd" id="2_jjul0"]
 [ext_resource type="Texture2D" uid="uid://b017u1jhp2i47" path="res://sprites/pickups/flagpole.png" id="2_n6o0u"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1wtk6"]
-radius = 5.0
-height = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n60l0"]
+size = Vector2(10, 15)
 
 [node name="Flagpole" instance=ExtResource("1_d3ls5")]
 script = ExtResource("2_jjul0")
@@ -16,4 +15,5 @@ texture = ExtResource("2_n6o0u")
 hframes = 2
 
 [node name="Collider" parent="Area" index="0"]
-shape = SubResource("CapsuleShape2D_1wtk6")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_n60l0")
