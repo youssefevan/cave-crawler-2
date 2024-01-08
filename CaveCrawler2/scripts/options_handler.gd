@@ -2,7 +2,7 @@ extends Node
 
 var fullscreen_enabled : bool
 var cursor_visible := true
-var particles_enabled : bool
+var particles_enabled := true
 var bloom_intensity
 
 func save_options():
@@ -30,3 +30,10 @@ func show_cursor():
 func hide_cursor():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	cursor_visible = false
+
+
+func enable_particles():
+	particles_enabled = true
+
+func disable_particles():
+	particles_enabled = false

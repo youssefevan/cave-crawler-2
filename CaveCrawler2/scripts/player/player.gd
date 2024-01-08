@@ -8,6 +8,7 @@ class_name Player
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
 @export var bullet : PackedScene
+@export var muzzle_flash : PackedScene
 
 # States
 @onready var idle = $StateManager/Idle
@@ -130,6 +131,10 @@ func coyote_time() -> void:
 	can_coyote_jump = false
 
 func shoot() -> void:
+	if OptionsHandler.particles_enabled == true:
+		var mf = muzzle_flash.instantiate()
+		muzzle.add_child(mf)
+	
 	var b = bullet.instantiate()
 	get_tree().get_root().add_child(b)
 	b.position = muzzle.global_position

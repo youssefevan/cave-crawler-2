@@ -133,4 +133,5 @@ vertical_alignment = 1
 
 [connection signal="toggled" from="Options/Graphics/ToggleFullscreen" to="." method="_on_toggle_fullscreen_toggled"]
 [connection signal="toggled" from="Options/Graphics/ToggleCursor" to="." method="_on_toggle_cursor_toggled"]
+[connection signal="toggled" from="Options/Graphics/ToggleParticles" to="." method="_on_toggle_particles_toggled"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

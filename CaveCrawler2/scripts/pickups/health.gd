@@ -1,7 +1,24 @@
 extends Pickup
 
+var health_particles = load("res://scenes/particles/health_picked.tscn")
+
+func _ready():
+	$Animator.play("Bob")
+
 func picked(body):
 	super.picked(body)
 	if body.health != body.max_health:
 		body.health += 1
+		picked_anim()
+
+func picked_anim():
+	if OptionsHandler.particles_enabled == true:
+		var hp = health_particles.instantiate()
+		get_tree().get_root().add_child(hp)
+		hp.position = global_position
+	
+	$Animator.play("Picked")
+
+func _on_animator_animation_finished(anim_name):
+	if anim_name == "Picked":
 		call_deferred("queue_free")

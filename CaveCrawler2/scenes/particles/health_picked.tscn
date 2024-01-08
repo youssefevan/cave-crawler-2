@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://urefukvjmxqo"]
+
+[ext_resource type="Script" path="res://scripts/particles.gd" id="1_vdp6r"]
+
+[sub_resource type="Gradient" id="Gradient_ust15"]
+offsets = PackedFloat32Array(0, 0.739884, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0.294798, 1, 0, 0, 0)
+
+[node name="HealthPicked" type="CPUParticles2D"]
+emitting = false
+amount = 12
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 24.0
+damping_min = 2.0
+damping_max = 10.0
+scale_amount_min = 1.5
+scale_amount_max = 1.75
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("Gradient_ust15")
+script = ExtResource("1_vdp6r")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

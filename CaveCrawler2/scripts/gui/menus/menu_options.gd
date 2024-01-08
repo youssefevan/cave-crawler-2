@@ -33,9 +33,16 @@ func _on_toggle_cursor_toggled(toggled_on):
 	else:
 		OptionsHandler.hide_cursor()
 
+func _on_toggle_particles_toggled(toggled_on):
+	if toggled_on == true:
+		OptionsHandler.enable_particles()
+	else:
+		OptionsHandler.disable_particles()
+
 func load_options():
 	btn_fullscreen.button_pressed = OptionsHandler.fullscreen_enabled
 	btn_cursor.button_pressed = OptionsHandler.cursor_visible
+	btn_particles.button_pressed = OptionsHandler.particles_enabled
 
 func exit():
 	Global.exiting_sub_menu()
