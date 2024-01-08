@@ -6,6 +6,7 @@ var player
 
 func _ready() -> void:
 	player = get_parent().get_parent()
+	
 	if Global.custom_level == false:
 		$Buttons/Edit.visible = false
 	else:
@@ -23,6 +24,10 @@ func _input(event):
 func pause():
 	paused = true
 	visible = true
+	
+	if OptionsHandler.cursor_visible == false:
+		$Buttons/Continue.grab_focus()
+	
 	get_tree().paused = true
 
 func unpause():
@@ -34,6 +39,7 @@ func _on_continue_pressed():
 	unpause()
 
 func _on_options_pressed():
+	Global.entering_sub_menu()
 	var o = Global.options_scene.instantiate()
 	get_parent().add_child(o)
 

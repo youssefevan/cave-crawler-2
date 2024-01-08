@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2xqosjs6klvm"]
+[gd_scene load_steps=5 format=3 uid="uid://c2xqosjs6klvm"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_om4m8"]
 [ext_resource type="Script" path="res://scripts/gui/menus/menu_options.gd" id="2_7t8px"]
+[ext_resource type="Texture2D" uid="uid://d3fy1obshol5d" path="res://sprites/gui/music_slider_grabber.png" id="3_t2do4"]
+[ext_resource type="Texture2D" uid="uid://dd7y4crcphk2k" path="res://sprites/gui/music_slider_grabber_highlight.png" id="4_sxc2m"]
 
-[node name="MenuOptions" type="Control"]
+[node name="MenuOptions" type="Control" node_paths=PackedStringArray("slider_sfx", "sldier_music", "btn_fullscreen", "btn_cursor", "btn_bloom", "btn_particles", "btn_back")]
 process_mode = 3
 z_index = 6
 layout_mode = 3
@@ -14,6 +16,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_om4m8")
 script = ExtResource("2_7t8px")
+slider_sfx = NodePath("Options/Audio/Sliders/VolumeSounds")
+sldier_music = NodePath("Options/Audio/Sliders/VolumeMusic")
+btn_fullscreen = NodePath("Options/Graphics/ToggleFullscreen")
+btn_cursor = NodePath("Options/Graphics/ToggleCursor")
+btn_bloom = NodePath("Options/Graphics/ToggleBloom")
+btn_particles = NodePath("Options/Graphics/ToggleParticles")
+btn_back = NodePath("Back")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -23,167 +32,96 @@ offset_right = 257.0
 offset_bottom = 145.0
 color = Color(0, 0, 0, 1)
 
-[node name="Title" type="Label" parent="."]
+[node name="Contents" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 216.0
-offset_right = 256.0
-offset_bottom = 16.0
-text = "Options"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="Options" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 16.0
-offset_right = 248.0
-offset_bottom = 128.0
-horizontal_scroll_mode = 0
+offset_left = 65.0
+offset_top = 20.0
+offset_right = 190.0
+offset_bottom = 108.0
 
-[node name="Options" type="VBoxContainer" parent="ScrollContainer"]
+[node name="Audio" type="VBoxContainer" parent="Options"]
+custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
-size_flags_horizontal = 6
 
-[node name="Graphics" type="Label" parent="ScrollContainer/Options"]
-layout_mode = 2
-text = "Graphics"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ToggleFullscreen" type="CheckBox" parent="ScrollContainer/Options"]
-layout_mode = 2
-text = "Fullscreen"
-alignment = 2
-icon_alignment = 2
-
-[node name="ToggleCursor" type="CheckBox" parent="ScrollContainer/Options"]
-layout_mode = 2
-text = "Cursor"
-alignment = 2
-icon_alignment = 2
-
-[node name="ToggleBloom" type="CheckBox" parent="ScrollContainer/Options"]
-layout_mode = 2
-text = "Bloom"
-alignment = 2
-icon_alignment = 2
-
-[node name="ToggleParticles" type="CheckBox" parent="ScrollContainer/Options"]
-layout_mode = 2
-text = "Particles"
-alignment = 2
-icon_alignment = 2
-
-[node name="Audio" type="Label" parent="ScrollContainer/Options"]
+[node name="Label" type="Label" parent="Options/Audio"]
 layout_mode = 2
 text = "Audio"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VolumeSounds" type="HSlider" parent="ScrollContainer/Options"]
+[node name="Sliders" type="HBoxContainer" parent="Options/Audio"]
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="VolumeMusic" type="HSlider" parent="ScrollContainer/Options"]
+[node name="VolumeSounds" type="VSlider" parent="Options/Audio/Sliders"]
+custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
+max_value = 10.0
 
-[node name="Controls" type="Label" parent="ScrollContainer/Options"]
+[node name="VolumeMusic" type="VSlider" parent="Options/Audio/Sliders"]
+custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
-text = "Controls"
+theme_override_icons/grabber = ExtResource("3_t2do4")
+theme_override_icons/grabber_highlight = ExtResource("4_sxc2m")
+max_value = 10.0
+
+[node name="Graphics" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Label" type="Label" parent="Options/Graphics"]
+layout_mode = 2
+text = "Graphics"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MoveRight" type="HBoxContainer" parent="ScrollContainer/Options"]
+[node name="ToggleFullscreen" type="CheckBox" parent="Options/Graphics"]
 layout_mode = 2
+text = "Fullscreen"
+alignment = 2
+icon_alignment = 2
 
-[node name="Prompt" type="Label" parent="ScrollContainer/Options/MoveRight"]
+[node name="ToggleCursor" type="CheckBox" parent="Options/Graphics"]
 layout_mode = 2
-text = "Move Right"
-vertical_alignment = 1
+text = "Cursor"
+alignment = 2
+icon_alignment = 2
 
-[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/MoveRight"]
+[node name="ToggleBloom" type="CheckBox" parent="Options/Graphics"]
 layout_mode = 2
-size_flags_horizontal = 10
-alignment = 1
-max_length = 1
+text = "Bloom"
+alignment = 2
+icon_alignment = 2
 
-[node name="MoveLeft" type="HBoxContainer" parent="ScrollContainer/Options"]
+[node name="ToggleParticles" type="CheckBox" parent="Options/Graphics"]
 layout_mode = 2
-
-[node name="Prompt" type="Label" parent="ScrollContainer/Options/MoveLeft"]
-layout_mode = 2
-text = "Move Left"
-vertical_alignment = 1
-
-[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/MoveLeft"]
-layout_mode = 2
-size_flags_horizontal = 10
-alignment = 1
-max_length = 1
-
-[node name="Jump" type="HBoxContainer" parent="ScrollContainer/Options"]
-layout_mode = 2
-
-[node name="Prompt" type="Label" parent="ScrollContainer/Options/Jump"]
-layout_mode = 2
-text = "Jump"
-vertical_alignment = 1
-
-[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/Jump"]
-layout_mode = 2
-size_flags_horizontal = 10
-alignment = 1
-max_length = 1
-
-[node name="FallThrough" type="HBoxContainer" parent="ScrollContainer/Options"]
-layout_mode = 2
-
-[node name="Prompt" type="Label" parent="ScrollContainer/Options/FallThrough"]
-layout_mode = 2
-text = "Fall Through"
-vertical_alignment = 1
-
-[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/FallThrough"]
-layout_mode = 2
-size_flags_horizontal = 10
-alignment = 1
-max_length = 1
-
-[node name="Shoot" type="HBoxContainer" parent="ScrollContainer/Options"]
-layout_mode = 2
-
-[node name="Prompt" type="Label" parent="ScrollContainer/Options/Shoot"]
-layout_mode = 2
-text = "Shoot"
-vertical_alignment = 1
-
-[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/Shoot"]
-layout_mode = 2
-size_flags_horizontal = 10
-alignment = 1
-max_length = 1
-
-[node name="Pause" type="HBoxContainer" parent="ScrollContainer/Options"]
-layout_mode = 2
-
-[node name="Prompt" type="Label" parent="ScrollContainer/Options/Pause"]
-layout_mode = 2
-text = "Pause"
-vertical_alignment = 1
-
-[node name="LineEdit" type="LineEdit" parent="ScrollContainer/Options/Pause"]
-layout_mode = 2
-size_flags_horizontal = 10
-alignment = 1
-max_length = 1
+text = "Particles"
+alignment = 2
+icon_alignment = 2
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 128.0
-offset_right = 48.0
-offset_bottom = 138.0
+offset_left = 116.0
+offset_top = 123.0
+offset_right = 156.0
+offset_bottom = 133.0
+mouse_filter = 1
 text = "Back"
 
-[connection signal="pressed" from="ScrollContainer/Options/ToggleFullscreen" to="." method="_on_toggle_fullscreen_pressed"]
-[connection signal="toggled" from="ScrollContainer/Options/ToggleFullscreen" to="." method="_on_toggle_fullscreen_toggled"]
+[node name="Label" type="Label" parent="."]
+offset_top = 4.0
+offset_right = 256.0
+offset_bottom = 12.0
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="toggled" from="Options/Graphics/ToggleFullscreen" to="." method="_on_toggle_fullscreen_toggled"]
+[connection signal="toggled" from="Options/Graphics/ToggleCursor" to="." method="_on_toggle_cursor_toggled"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

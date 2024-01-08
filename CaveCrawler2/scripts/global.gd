@@ -18,3 +18,13 @@ var custom_level : bool
 
 var checkpoint_passed = false
 var checkpoint_position : Vector2
+
+var last_focused_node
+
+func entering_sub_menu():
+	last_focused_node = get_viewport().gui_get_focus_owner()
+
+func exiting_sub_menu():
+	if OptionsHandler.cursor_visible == false:
+		if last_focused_node != null:
+			last_focused_node.grab_focus()

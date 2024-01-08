@@ -2,6 +2,9 @@ extends Control
 
 func _ready():
 	Global.checkpoint_passed = false
+	
+	if OptionsHandler.cursor_visible == false:
+		$Buttons/Play.grab_focus()
 
 func _on_play_pressed():
 	Global.custom_level = false
@@ -15,5 +18,6 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_options_pressed():
+	Global.entering_sub_menu()
 	var o = Global.options_scene.instantiate()
 	get_tree().get_root().add_child(o)

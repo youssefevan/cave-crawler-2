@@ -1,5 +1,7 @@
 extends Control
 
+@onready var focus_button = $Buttons/Retry
+
 func _ready() -> void:
 	if Global.custom_level == false:
 		$Buttons/Edit.visible = false
@@ -8,6 +10,7 @@ func _ready() -> void:
 	visible = false
 
 func _on_options_pressed():
+	Global.entering_sub_menu()
 	var o = Global.options_scene.instantiate()
 	get_parent().add_child(o)
 

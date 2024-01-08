@@ -8,9 +8,12 @@ var selected_level
 var playing := false
 
 func _ready():
+	if OptionsHandler.cursor_visible == false:
+		$Main/Items/Play.grab_focus()
 	Global.checkpoint_passed = false
 
 func _on_play_pressed():
+	OptionsHandler.show_cursor()
 	file_dialog.visible = true
 	playing = true
 
@@ -37,6 +40,7 @@ func play_level():
 		$Main/FileTypeError.visible = true
 
 func _on_edit_pressed():
+	OptionsHandler.show_cursor()
 	playing = false
 	file_dialog.visible = true
 
@@ -51,6 +55,7 @@ func load_level():
 		$Main/FileTypeError.visible = true
 
 func _on_new_pressed():
+	OptionsHandler.show_cursor()
 	save_dialog.visible = true
 	file_dialog.visible = false
 
