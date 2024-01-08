@@ -1,6 +1,8 @@
 extends Control
 
 func _ready():
+	OptionsHandler.load_options()
+	
 	Global.checkpoint_passed = false
 	
 	if OptionsHandler.cursor_visible == false:

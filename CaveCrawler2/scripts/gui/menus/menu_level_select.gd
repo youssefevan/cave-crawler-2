@@ -3,7 +3,8 @@ extends Control
 var level1 = preload("res://scenes/world.tscn")
 
 func _ready():
-	$Worlds/World1/World1Btn.grab_focus()
+	if OptionsHandler.cursor_visible == false:
+		$Worlds/World1/World1Btn.grab_focus()
 	
 	Global.checkpoint_passed = false
 

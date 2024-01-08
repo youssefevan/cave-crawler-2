@@ -26,18 +26,24 @@ func _on_toggle_fullscreen_toggled(toggled_on):
 		OptionsHandler.enable_fullscreen()
 	else:
 		OptionsHandler.disable_fullscreen()
+	
+	OptionsHandler.save_options()
 
 func _on_toggle_cursor_toggled(toggled_on):
 	if toggled_on == true:
 		OptionsHandler.show_cursor()
 	else:
 		OptionsHandler.hide_cursor()
+	
+	OptionsHandler.save_options()
 
 func _on_toggle_particles_toggled(toggled_on):
 	if toggled_on == true:
 		OptionsHandler.enable_particles()
 	else:
 		OptionsHandler.disable_particles()
+	
+	OptionsHandler.save_options()
 
 func load_options():
 	btn_fullscreen.button_pressed = OptionsHandler.fullscreen_enabled
@@ -45,6 +51,7 @@ func load_options():
 	btn_particles.button_pressed = OptionsHandler.particles_enabled
 
 func exit():
+	OptionsHandler.save_options()
 	Global.exiting_sub_menu()
 	call_deferred("queue_free")
 
