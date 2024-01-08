@@ -1,10 +1,12 @@
-[gd_resource type="Theme" load_steps=25 format=3 uid="uid://bhgqfbo01g2pt"]
+[gd_resource type="Theme" load_steps=27 format=3 uid="uid://bhgqfbo01g2pt"]
 
 [ext_resource type="Texture2D" uid="uid://nvn1nyhqrmqn" path="res://sprites/menus/checkbox_unchecked.png" id="1_i0d12"]
 [ext_resource type="Texture2D" uid="uid://bnaapxrgiuddf" path="res://sprites/menus/checkbox_checked.png" id="1_ol1yn"]
 [ext_resource type="FontFile" uid="uid://cggqi2nq21vhh" path="res://fonts/CCFont.ttf" id="1_pjrgx"]
 [ext_resource type="Texture2D" uid="uid://cws145p6snhw3" path="res://sprites/gui/sfx_slider_grabber.png" id="3_mpsp4"]
+[ext_resource type="Texture2D" uid="uid://dk6nr3mmgkjx1" path="res://sprites/gui/slider_grabber.png" id="3_whv7h"]
 [ext_resource type="Texture2D" uid="uid://brndiscah5dbu" path="res://sprites/gui/sfx_slider_grabber_highlight.png" id="4_dre0r"]
+[ext_resource type="Texture2D" uid="uid://d4jwlglcuqd82" path="res://sprites/gui/slider_grabber_highlight.png" id="4_ssgt7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mqbl"]
 bg_color = Color(0, 0, 0, 1)
@@ -82,13 +84,13 @@ border_color = Color(1, 0, 0, 1)
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iwaw"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ardwj"]
 bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_oc357"]
-color = Color(0.705882, 0.854902, 0.878431, 1)
+color = Color(1, 1, 1, 1)
 grow_begin = 0.0
 grow_end = 0.0
 thickness = 2
@@ -107,13 +109,13 @@ content_margin_left = 4.0
 bg_color = Color(0.156863, 0.156863, 0.156863, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hej14"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdfot"]
 bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_s3ylt"]
-color = Color(0.705882, 0.854902, 0.878431, 1)
+color = Color(1, 1, 1, 1)
 grow_begin = 0.0
 grow_end = 0.0
 thickness = 2
@@ -138,8 +140,8 @@ CheckBox/styles/hover = SubResource("StyleBoxFlat_hhspk")
 CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_o6lfh")
 CheckBox/styles/normal = SubResource("StyleBoxFlat_bu5le")
 CheckBox/styles/pressed = SubResource("StyleBoxFlat_hpjca")
-HSlider/icons/grabber = ExtResource("3_mpsp4")
-HSlider/icons/grabber_highlight = ExtResource("4_dre0r")
+HSlider/icons/grabber = ExtResource("3_whv7h")
+HSlider/icons/grabber_highlight = ExtResource("4_ssgt7")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_2iwaw")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_ardwj")
 HSlider/styles/slider = SubResource("StyleBoxLine_oc357")

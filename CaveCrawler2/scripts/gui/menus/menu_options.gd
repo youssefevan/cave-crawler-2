@@ -1,12 +1,12 @@
 extends Control
 
 @export var slider_sfx : VSlider
-@export var sldier_music : VSlider
+@export var slider_music : VSlider
 
 @export var btn_fullscreen : Button
 @export var btn_cursor : Button
-@export var btn_bloom : Button
 @export var btn_particles : Button
+@export var slider_bloom : HSlider
 
 @export var btn_back : Button
 

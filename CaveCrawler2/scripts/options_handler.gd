@@ -3,7 +3,7 @@ extends Node
 var fullscreen_enabled : bool
 var cursor_visible := true
 var particles_enabled : bool
-var bloom_enabled : bool
+var bloom_intensity
 
 func save_options():
 	pass

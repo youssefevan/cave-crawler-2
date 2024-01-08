@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d3fy1obshol5d" path="res://sprites/gui/music_slider_grabber.png" id="3_t2do4"]
 [ext_resource type="Texture2D" uid="uid://dd7y4crcphk2k" path="res://sprites/gui/music_slider_grabber_highlight.png" id="4_sxc2m"]
 
-[node name="MenuOptions" type="Control" node_paths=PackedStringArray("slider_sfx", "sldier_music", "btn_fullscreen", "btn_cursor", "btn_bloom", "btn_particles", "btn_back")]
+[node name="MenuOptions" type="Control" node_paths=PackedStringArray("slider_sfx", "slider_music", "btn_fullscreen", "btn_cursor", "btn_particles", "slider_bloom", "btn_back")]
 process_mode = 3
 z_index = 6
 layout_mode = 3
@@ -17,11 +17,11 @@ grow_vertical = 2
 theme = ExtResource("1_om4m8")
 script = ExtResource("2_7t8px")
 slider_sfx = NodePath("Options/Audio/Sliders/VolumeSounds")
-sldier_music = NodePath("Options/Audio/Sliders/VolumeMusic")
+slider_music = NodePath("Options/Audio/Sliders/VolumeMusic")
 btn_fullscreen = NodePath("Options/Graphics/ToggleFullscreen")
 btn_cursor = NodePath("Options/Graphics/ToggleCursor")
-btn_bloom = NodePath("Options/Graphics/ToggleBloom")
 btn_particles = NodePath("Options/Graphics/ToggleParticles")
+slider_bloom = NodePath("Options/Graphics/Bloom/BloomIntensity")
 btn_back = NodePath("Back")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -93,28 +93,37 @@ text = "Cursor"
 alignment = 2
 icon_alignment = 2
 
-[node name="ToggleBloom" type="CheckBox" parent="Options/Graphics"]
-layout_mode = 2
-text = "Bloom"
-alignment = 2
-icon_alignment = 2
-
 [node name="ToggleParticles" type="CheckBox" parent="Options/Graphics"]
 layout_mode = 2
 text = "Particles"
 alignment = 2
 icon_alignment = 2
 
+[node name="Bloom" type="HBoxContainer" parent="Options/Graphics"]
+layout_mode = 2
+
+[node name="BloomIntensity" type="HSlider" parent="Options/Graphics/Bloom"]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+max_value = 6.0
+
+[node name="Label" type="Label" parent="Options/Graphics/Bloom"]
+layout_mode = 2
+text = "Bloom"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
-offset_left = 116.0
+offset_left = 108.0
 offset_top = 123.0
-offset_right = 156.0
+offset_right = 148.0
 offset_bottom = 133.0
 mouse_filter = 1
 text = "Back"
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_top = 4.0
 offset_right = 256.0
 offset_bottom = 12.0
