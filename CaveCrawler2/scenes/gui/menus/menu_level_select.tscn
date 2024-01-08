@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bckw6h4d2naaj"]
+[gd_scene load_steps=6 format=3 uid="uid://bckw6h4d2naaj"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_hkc8s"]
 [ext_resource type="Texture2D" uid="uid://dnnftlhh7he3d" path="res://sprites/level_select/world1.png" id="2_fex6p"]
 [ext_resource type="Script" path="res://scripts/gui/menus/menu_level_select.gd" id="2_vmneo"]
 [ext_resource type="Texture2D" uid="uid://h1aqvn7pnosm" path="res://sprites/level_select/world1_hover.png" id="3_x7scr"]
+[ext_resource type="Texture2D" uid="uid://epgs1qjaj17f" path="res://sprites/level_select/world1_focus.png" id="5_6dh5w"]
 
 [node name="MenuLevelSelect" type="Control"]
 layout_mode = 3
@@ -55,6 +56,7 @@ vertical_alignment = 1
 layout_mode = 2
 texture_normal = ExtResource("2_fex6p")
 texture_hover = ExtResource("3_x7scr")
+texture_focused = ExtResource("5_6dh5w")
 
 [node name="World2" type="VBoxContainer" parent="Worlds"]
 layout_mode = 2
