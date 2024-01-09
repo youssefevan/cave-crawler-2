@@ -1,6 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cmcygxcgpgtdt"]
 
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="1_1tsot"]
+[ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_tbda8"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_tsine"]
 [ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/backgrounds/bg.png" id="3_75wql"]
 [ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="3_pmbve"]
@@ -17,16 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="15_hwnha"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="15_wjdkq"]
 
-[sub_resource type="Environment" id="Environment_qliec"]
-background_mode = 3
-glow_enabled = true
-glow_blend_mode = 4
-adjustment_enabled = true
-
 [node name="World" type="Node2D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qliec")
+[node name="WorldEnv" parent="." instance=ExtResource("1_tbda8")]
 
 [node name="Crystal1" type="Sprite2D" parent="."]
 position = Vector2(241, 24)

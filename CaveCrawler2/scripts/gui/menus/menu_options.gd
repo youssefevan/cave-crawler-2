@@ -14,7 +14,7 @@ func _ready():
 	if OptionsHandler.cursor_visible == false:
 		slider_sfx.grab_focus()
 	
-	load_options()
+	sync_options()
 
 func _on_back_pressed():
 	exit()
@@ -22,33 +22,26 @@ func _on_back_pressed():
 	call_deferred("queue_free")
 
 func _on_toggle_fullscreen_toggled(toggled_on):
-	if toggled_on == true:
-		OptionsHandler.enable_fullscreen()
-	else:
-		OptionsHandler.disable_fullscreen()
-	
+	OptionsHandler.set_fullscreen(toggled_on)
 	OptionsHandler.save_options()
 
 func _on_toggle_cursor_toggled(toggled_on):
-	if toggled_on == true:
-		OptionsHandler.show_cursor()
-	else:
-		OptionsHandler.hide_cursor()
-	
+	OptionsHandler.set_cursor(toggled_on)
 	OptionsHandler.save_options()
 
 func _on_toggle_particles_toggled(toggled_on):
-	if toggled_on == true:
-		OptionsHandler.enable_particles()
-	else:
-		OptionsHandler.disable_particles()
-	
+	OptionsHandler.set_particles(toggled_on)
 	OptionsHandler.save_options()
 
-func load_options():
+func _on_bloom_intensity_value_changed(value):
+	OptionsHandler.set_bloom((1/slider_bloom.max_value) * value)
+	OptionsHandler.save_options()
+
+func sync_options():
 	btn_fullscreen.button_pressed = OptionsHandler.fullscreen_enabled
 	btn_cursor.button_pressed = OptionsHandler.cursor_visible
 	btn_particles.button_pressed = OptionsHandler.particles_enabled
+	slider_bloom.value = (OptionsHandler.bloom_intensity*slider_bloom.max_value)
 
 func exit():
 	OptionsHandler.save_options()

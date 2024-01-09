@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwxc1qlgje0kg"]
+
+[ext_resource type="Script" path="res://scripts/worldenv.gd" id="1_yhuoc"]
+
+[sub_resource type="Environment" id="Environment_qliec"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 4
+glow_hdr_threshold = 0.5
+adjustment_enabled = true
+
+[node name="WorldEnv" type="WorldEnvironment"]
+environment = SubResource("Environment_qliec")
+script = ExtResource("1_yhuoc")

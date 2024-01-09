@@ -3,24 +3,13 @@ extends Node
 var fullscreen_enabled : bool
 var cursor_visible := true
 var particles_enabled := true
-var bloom_intensity
+var bloom_intensity := 0.5
 
 func _ready():
 	load_options()
-	if fullscreen_enabled == true:
-		enable_fullscreen()
-	else:
-		disable_fullscreen()
-	
-	if cursor_visible == true:
-		show_cursor()
-	else:
-		hide_cursor()
-	
-	if particles_enabled == true:
-		enable_particles()
-	else:
-		disable_particles()
+	set_fullscreen(fullscreen_enabled)
+	set_cursor(cursor_visible)
+	set_particles(particles_enabled)
 
 func save_options():
 	var file = FileAccess.open(Global.save_path, FileAccess.WRITE)
@@ -35,28 +24,26 @@ func load_options():
 		cursor_visible = file.get_var(cursor_visible)
 		particles_enabled = file.get_var(particles_enabled)
 
-func enable_fullscreen():
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	fullscreen_enabled = true
+func set_fullscreen(setting : bool):
+	fullscreen_enabled = setting
+	
+	if setting == true:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
-func disable_fullscreen():
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	fullscreen_enabled = false
+func set_cursor(setting : bool):
+	cursor_visible = setting
+	
+	if setting == true:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if get_viewport().gui_get_focus_owner() != null:
+			get_viewport().gui_get_focus_owner().release_focus()
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func set_particles(setting : bool):
+	particles_enabled = setting
 
-func show_cursor():
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if get_viewport().gui_get_focus_owner() != null:
-		get_viewport().gui_get_focus_owner().release_focus()
-	cursor_visible = true
-
-func hide_cursor():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	cursor_visible = false
-
-
-func enable_particles():
-	particles_enabled = true
-
-func disable_particles():
-	particles_enabled = false
+func set_bloom(setting):
+	bloom_intensity = setting
