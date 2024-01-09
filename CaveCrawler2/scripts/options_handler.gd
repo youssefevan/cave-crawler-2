@@ -1,5 +1,7 @@
 extends Node
 
+signal bloom_changed
+
 var fullscreen_enabled : bool
 var cursor_visible := true
 var particles_enabled := true
@@ -10,6 +12,7 @@ func _ready():
 	set_fullscreen(fullscreen_enabled)
 	set_cursor(cursor_visible)
 	set_particles(particles_enabled)
+	set_bloom(bloom_intensity)
 
 func save_options():
 	var file = FileAccess.open(Global.save_path, FileAccess.WRITE)
@@ -47,3 +50,4 @@ func set_particles(setting : bool):
 
 func set_bloom(setting):
 	bloom_intensity = setting
+	emit_signal("bloom_changed")

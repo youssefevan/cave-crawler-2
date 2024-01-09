@@ -106,6 +106,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(42, 0)
 layout_mode = 2
 max_value = 6.0
+scrollable = false
 
 [node name="Label" type="Label" parent="Options/Graphics/Bloom"]
 layout_mode = 2

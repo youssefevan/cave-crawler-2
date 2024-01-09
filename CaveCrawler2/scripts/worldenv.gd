@@ -1,8 +1,8 @@
 extends WorldEnvironment
 
 func _ready():
-	if OptionsHandler.bloom_intensity > 0.0:
-		environment.glow_enabled = true
-		environment.glow_hdr_threshold = OptionsHandler.bloom_intensity
-	else:
-		environment.glow_enabled = true
+	OptionsHandler.connect("bloom_changed", change_bloom)
+	environment.glow_hdr_threshold = -OptionsHandler.bloom_intensity + 1
+
+func change_bloom():
+	environment.glow_hdr_threshold = -OptionsHandler.bloom_intensity + 1
