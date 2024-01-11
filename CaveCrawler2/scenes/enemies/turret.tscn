@@ -39,11 +39,11 @@ shader = ExtResource("2_sckho")
 shader_parameter/enabled = false
 shader_parameter/Tint = Color(1, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_id4be"]
-size = Vector2(8, 8)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evqhl"]
 size = Vector2(208, 183)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_id4be"]
+size = Vector2(8, 8)
 
 [node name="Turret" instance=ExtResource("1_mkv1u")]
 script = ExtResource("2_dm4x7")
@@ -62,28 +62,24 @@ libraries = {
 "": SubResource("AnimationLibrary_72qy4")
 }
 
-[node name="VisibleOnScreenEnabler2D" parent="." index="1"]
+[node name="VisibleOnScreenEnabler2D" parent="." index="2"]
 position = Vector2(-1.19209e-07, -4)
 scale = Vector2(0.8, 0.8)
 
-[node name="Collider" parent="." index="2"]
+[node name="Collider" parent="." index="3"]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_lieys")
 
-[node name="Sprite" parent="." index="3"]
+[node name="Sprite" parent="." index="4"]
 material = SubResource("ShaderMaterial_bf1jh")
 position = Vector2(0, -4)
 texture = ExtResource("3_2uula")
 
-[node name="Hitbox" parent="." index="4"]
+[node name="Hitbox" parent="." index="5"]
 metadata/_edit_lock_ = true
 
 [node name="Collider" parent="Hitbox" index="0"]
 disabled = true
-
-[node name="Collider" parent="Hurtbox" index="0"]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_id4be")
 
 [node name="Gun" type="Node2D" parent="." index="6"]
 position = Vector2(0, -5)
@@ -104,6 +100,10 @@ collision_mask = 2
 visible = false
 position = Vector2(0, 36.5)
 shape = SubResource("RectangleShape2D_evqhl")
+
+[node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_id4be")
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

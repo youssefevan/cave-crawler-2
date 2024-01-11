@@ -131,6 +131,8 @@ func coyote_time() -> void:
 	can_coyote_jump = false
 
 func shoot() -> void:
+	play_sound(sfx_shoot)
+	
 	if OptionsHandler.particles_enabled == true:
 		var mf = muzzle_flash.instantiate()
 		muzzle.add_child(mf)

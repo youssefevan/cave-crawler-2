@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dsonrkjq8rlpg"]
+[gd_scene load_steps=33 format=3 uid="uid://dsonrkjq8rlpg"]
 
 [ext_resource type="Texture2D" uid="uid://c0ojv4t3ika0i" path="res://sprites/player.png" id="1_2wwr2"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g2djs"]
@@ -9,10 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dovcr8w3gsm5w" path="res://scenes/particles/muzzle_flash.tscn" id="3_s6cts"]
 [ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="4_jb2gt"]
 [ext_resource type="PackedScene" uid="uid://dnprs334j37fu" path="res://scenes/gui/menus/menu_death.tscn" id="4_k7iyl"]
+[ext_resource type="AudioStream" uid="uid://dmyfn8gltoob3" path="res://audio/sfx/player/player_jump.ogg" id="4_mflhd"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="4_pjpk1"]
+[ext_resource type="AudioStream" uid="uid://2dtc8dnvxbyi" path="res://audio/sfx/player/player_shoot.ogg" id="5_pd7ci"]
 [ext_resource type="PackedScene" uid="uid://dxu7q2rap3i0t" path="res://scenes/gui/menus/menu_level_end.tscn" id="5_sa3x3"]
 [ext_resource type="Script" path="res://scripts/player/states/run.gd" id="5_xe08m"]
 [ext_resource type="Texture2D" uid="uid://dcujevinxw3ro" path="res://sprites/gui/health_bar.png" id="5_xselh"]
+[ext_resource type="AudioStream" uid="uid://mx6y8p7d1qwe" path="res://audio/sfx/player/player_hit.ogg" id="6_87rsd"]
 [ext_resource type="Script" path="res://scripts/player/states/jump.gd" id="6_w0w5j"]
 [ext_resource type="Script" path="res://scripts/player/states/fall.gd" id="7_7bu6j"]
 [ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="9_i5i06"]
@@ -119,6 +122,8 @@ _data = {
 "Run": SubResource("Animation_2yccq")
 }
 
+[sub_resource type="AudioStream" id="AudioStream_medit"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54jb2"]
 resource_local_to_scene = true
 shader = ExtResource("4_pjpk1")
@@ -144,6 +149,19 @@ safe_margin = 0.02
 script = ExtResource("1_g2djs")
 bullet = ExtResource("2_wqhji")
 muzzle_flash = ExtResource("3_s6cts")
+sfx_jump = ExtResource("4_mflhd")
+sfx_shoot = ExtResource("5_pd7ci")
+sfx_hit = ExtResource("6_87rsd")
+max_health = null
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5keib")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_medit")
+bus = &"SFX"
 
 [node name="GUI" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -163,11 +181,6 @@ position = Vector2(24, 9)
 texture = ExtResource("5_xselh")
 vframes = 5
 frame = 4
-
-[node name="Animator" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_5keib")
-}
 
 [node name="Camera" type="Camera2D" parent="."]
 drag_vertical_enabled = true

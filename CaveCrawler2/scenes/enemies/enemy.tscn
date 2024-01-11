@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxq2uyf68mxsy"]
+[gd_scene load_steps=8 format=3 uid="uid://dxq2uyf68mxsy"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_cy1f6"]
+[ext_resource type="AudioStream" uid="uid://dve6ofenymh0y" path="res://audio/sfx/enemy_death.ogg" id="2_agrn3"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_bwg03"]
 [ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/engine/hitbox.tscn" id="2_nrbic"]
 [ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="3_ohsqj"]
+
+[sub_resource type="AudioStream" id="AudioStream_wqdmk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gu8jq"]
 resource_local_to_scene = true
@@ -19,6 +22,14 @@ floor_max_angle = 0.872665
 floor_snap_length = 2.0
 safe_margin = 0.04
 script = ExtResource("1_cy1f6")
+max_health = null
+gravity = null
+level_editor_offset = null
+sfx_death = ExtResource("2_agrn3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_wqdmk")
+bus = &"SFX"
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 

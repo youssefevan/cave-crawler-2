@@ -2,6 +2,7 @@ extends State
 
 func enter():
 	super.enter()
+	
 	entity.velocity.y = -entity.bounce_force
 
 func physics_update(delta):
