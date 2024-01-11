@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxu7q2rap3i0t"]
+[gd_scene load_steps=4 format=3 uid="uid://dxu7q2rap3i0t"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_bq2kv"]
 [ext_resource type="Script" path="res://scripts/gui/menus/menu_level_end.gd" id="2_qtwks"]
+[ext_resource type="Script" path="res://scripts/gui/interactable_gui.gd" id="3_5mw2n"]
 
 [node name="MenuLevelEnd" type="Control"]
 process_mode = 3
@@ -49,22 +50,27 @@ offset_bottom = 128.0
 [node name="Next" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "Next Level"
+script = ExtResource("3_5mw2n")
 
 [node name="Edit" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "Edit"
+script = ExtResource("3_5mw2n")
 
 [node name="Replay" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "replay"
+script = ExtResource("3_5mw2n")
 
 [node name="Options" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "Options"
+script = ExtResource("3_5mw2n")
 
 [node name="Main Menu" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "Main Menu"
+script = ExtResource("3_5mw2n")
 
 [connection signal="pressed" from="Buttons/Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Buttons/Edit" to="." method="_on_edit_pressed"]

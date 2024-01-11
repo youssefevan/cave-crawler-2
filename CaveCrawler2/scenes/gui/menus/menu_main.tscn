@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dac0e0pa16hb3"]
+[gd_scene load_steps=4 format=3 uid="uid://dac0e0pa16hb3"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_d0ld2"]
 [ext_resource type="Script" path="res://scripts/gui/menus/menu_main.gd" id="2_0p0fq"]
+[ext_resource type="Script" path="res://scripts/gui/interactable_gui.gd" id="3_lk6dm"]
 
 [node name="MenuMain" type="Control"]
 layout_mode = 3
@@ -39,18 +40,22 @@ offset_bottom = 128.0
 [node name="Play" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "Play"
+script = ExtResource("3_lk6dm")
 
 [node name="Editor" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "Editor"
+script = ExtResource("3_lk6dm")
 
 [node name="Options" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "Options"
+script = ExtResource("3_lk6dm")
 
 [node name="Quit" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "Quit"
+script = ExtResource("3_lk6dm")
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Buttons/Editor" to="." method="_on_editor_pressed"]

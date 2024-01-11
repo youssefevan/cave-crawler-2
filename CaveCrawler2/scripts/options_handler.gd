@@ -1,6 +1,7 @@
 extends Node
 
 signal bloom_changed
+signal cursor_changed
 
 var fullscreen_enabled : bool
 var cursor_visible := true
@@ -37,6 +38,7 @@ func set_fullscreen(setting : bool):
 
 func set_cursor(setting : bool):
 	cursor_visible = setting
+	emit_signal("cursor_changed")
 	
 	if setting == true:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

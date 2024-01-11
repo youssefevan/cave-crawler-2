@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0v8bujg0pgxf"]
+[gd_scene load_steps=5 format=3 uid="uid://c0v8bujg0pgxf"]
 
 [ext_resource type="Script" path="res://scripts/gui/custom_level_interface.gd" id="1_85xm6"]
 [ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="2_ejw3j"]
+[ext_resource type="Script" path="res://scripts/gui/interactable_gui.gd" id="3_dpp15"]
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="4_g6yfl"]
 
 [node name="CustomLevelInterface" type="Control"]
@@ -54,14 +55,17 @@ offset_bottom = 40.0
 [node name="Play" type="Button" parent="Main/Items"]
 layout_mode = 2
 text = "Play"
+script = ExtResource("3_dpp15")
 
 [node name="New" type="Button" parent="Main/Items"]
 layout_mode = 2
 text = "new"
+script = ExtResource("3_dpp15")
 
 [node name="Edit" type="Button" parent="Main/Items"]
 layout_mode = 2
 text = "Edit"
+script = ExtResource("3_dpp15")
 
 [node name="FileSystem" type="Control" parent="."]
 visible = false
