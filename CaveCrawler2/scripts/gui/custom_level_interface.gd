@@ -13,7 +13,7 @@ func _ready():
 	Global.checkpoint_passed = false
 
 func _on_play_pressed():
-	OptionsHandler.show_cursor()
+	OptionsHandler.set_cursor(true)
 	file_dialog.visible = true
 	playing = true
 

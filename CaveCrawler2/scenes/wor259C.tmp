@@ -85,30 +85,44 @@ position = Vector2(485, 49)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
+gravity = 800.0
+level_editor_offset = Vector2(4, -8)
 
 [node name="Bat" parent="Enemies" instance=ExtResource("9_6x0ol")]
 position = Vector2(515, 26)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
+gravity = 800.0
 
 [node name="Crab" parent="Enemies" instance=ExtResource("5_v0jx1")]
 position = Vector2(368, 120)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
+gravity = 800.0
+level_editor_offset = Vector2(4, -8)
 
 [node name="SkeletonHand" parent="Enemies" instance=ExtResource("8_008sm")]
 position = Vector2(568, 120)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
+gravity = 800.0
+level_editor_offset = Vector2(4, -8)
+
+[node name="Slug" parent="Enemies" instance=ExtResource("9_cl8pp")]
+position = Vector2(460, 52)
+max_health = 0
+gravity = 800.0
+level_editor_offset = Vector2(4, -8)
+shield_state = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":Resource("res://scripts/enemies/slug/states/shield.gd"))
+
 
 [node name="RolyPoly" parent="Enemies" instance=ExtResource("11_aygi1")]
 position = Vector2(507, 51)
-
-[node name="Slug" parent="Enemies" instance=ExtResource("9_cl8pp")]
-position = Vector2(80, 127)
+gravity = 800.0
+level_editor_offset = Vector2(4, -8)
 
 [node name="Hazards" type="Node" parent="."]
 
@@ -128,3 +142,4 @@ position = Vector2(136, 92)
 
 [node name="Player" parent="." instance=ExtResource("1_1tsot")]
 position = Vector2(24, 120)
+max_health = 4

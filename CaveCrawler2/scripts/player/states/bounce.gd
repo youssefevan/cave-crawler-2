@@ -4,6 +4,8 @@ func enter():
 	super.enter()
 	
 	entity.velocity.y = -entity.bounce_force
+	
+	AudioHandler.play_sfx(entity.sfx_jump)
 
 func physics_update(delta):
 	super.physics_update(delta)

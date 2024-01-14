@@ -33,7 +33,6 @@ func get_hurt(hitstun_weight):
 		can_get_hurt = true
 
 func die():
-	play_sound(sfx_death)
 	call_deferred("queue_free")
 
 func _on_hurtbox_area_entered(area):

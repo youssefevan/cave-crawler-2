@@ -47,15 +47,15 @@ size = Vector2(8, 8)
 
 [node name="Turret" instance=ExtResource("1_mkv1u")]
 script = ExtResource("2_dm4x7")
+max_health = 4
+gravity = 0.0
+level_editor_offset = Vector2(4, 8)
 bullet_scene = ExtResource("3_d08ya")
 level_editor_offset_up = Vector2(0, 0)
 level_editor_offset_down = Vector2(0, 0)
 level_editor_offset_left = Vector2(0, 0)
 level_editor_offset_right = Vector2(0, 0)
 fire_rate = 0.7
-max_health = 4
-gravity = 0.0
-level_editor_offset = Vector2(4, 8)
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {

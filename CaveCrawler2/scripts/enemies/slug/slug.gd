@@ -57,3 +57,4 @@ func _on_hitbox_area_entered(area):
 		if states.current_state == shield_state:
 			animator.play("Shield")
 			area.get_parent().enter_bounce(bounce_force)
+

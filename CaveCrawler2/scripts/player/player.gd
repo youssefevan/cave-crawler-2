@@ -17,6 +17,11 @@ class_name Player
 @onready var fall = $StateManager/Fall
 @onready var bounce = $StateManager/Bounce
 
+# Sounds
+var sfx_jump = preload("res://audio/sfx/player/player_jump.ogg")
+var sfx_hit = preload("res://audio/sfx/player/player_hit.ogg")
+var sfx_shoot = preload("res://audio/sfx/player/player_shoot.ogg")
+
 # Horizontal movement variables
 var speed := 85.0
 var normal_speed := 85.0
@@ -131,7 +136,6 @@ func coyote_time() -> void:
 	can_coyote_jump = false
 
 func shoot() -> void:
-	play_sound(sfx_shoot)
 	
 	if OptionsHandler.particles_enabled == true:
 		var mf = muzzle_flash.instantiate()
@@ -143,6 +147,8 @@ func shoot() -> void:
 	if gun.scale.x == -1:
 		b.speed = -b.speed
 	
+	AudioHandler.play_sfx(sfx_shoot)
+	
 	can_fire = false
 	await get_tree().create_timer(fire_rate).timeout
 	can_fire = true
@@ -152,7 +158,7 @@ func _on_hurtbox_area_entered(area):
 		# Make sure player doesn't get hurt by the slug when its in the shield state (bounce mode thing)
 		if area.get_parent() is Slug and area.get_parent().states.current_state == area.get_parent().shield_state:
 			pass
-		elif can_get_hurt:
+		else:
 			get_hurt()
 
 func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
@@ -178,7 +184,8 @@ func get_hurt() -> void:
 		can_get_hurt = false
 		
 		health -= 1
-		#print(health)
+		
+		AudioHandler.play_sfx(sfx_hit)
 		
 		if health == 0:
 			$GUI/HealthBar.frame = 0
