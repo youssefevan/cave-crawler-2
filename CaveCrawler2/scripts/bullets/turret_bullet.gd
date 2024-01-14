@@ -5,5 +5,5 @@ func _physics_process(delta):
 
 func _on_area_entered(area):
 	if area.get_collision_layer_value(7):
-		if area.is_in_group("Player"):
-			call_deferred("queue_free")
+		if area.get_parent().is_in_group("Player"):
+			explode()
