@@ -8,7 +8,10 @@ class_name Player
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
 @export var bullet : PackedScene
+
+# Particles
 @export var muzzle_flash : PackedScene
+@export var particles_death : PackedScene
 
 # States
 @onready var idle = $StateManager/Idle
@@ -211,6 +214,11 @@ func hit_flash() -> void:
 		await get_tree().create_timer(0.1, false).timeout
 
 func die() -> void:
+	if OptionsHandler.particles_enabled == true:
+		var particles = particles_death.instantiate()
+		get_tree().get_root().add_child(particles)
+		particles.position = global_position
+	
 	can_get_hurt = false
 	set_physics_process(false)
 	visible = false

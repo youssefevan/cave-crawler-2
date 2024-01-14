@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dsonrkjq8rlpg"]
+[gd_scene load_steps=31 format=3 uid="uid://dsonrkjq8rlpg"]
 
 [ext_resource type="Texture2D" uid="uid://c0ojv4t3ika0i" path="res://sprites/player.png" id="1_2wwr2"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g2djs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dki3dw7r3sgem" path="res://scenes/gui/menus/menu_pause.tscn" id="3_m31ia"]
 [ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/engine/camera_room_detector.tscn" id="3_q6n07"]
 [ext_resource type="PackedScene" uid="uid://dovcr8w3gsm5w" path="res://scenes/particles/muzzle_flash.tscn" id="3_s6cts"]
+[ext_resource type="PackedScene" uid="uid://b3egaqkkp50mv" path="res://scenes/particles/player_death.tscn" id="4_2n17x"]
 [ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="4_jb2gt"]
 [ext_resource type="PackedScene" uid="uid://dnprs334j37fu" path="res://scenes/gui/menus/menu_death.tscn" id="4_k7iyl"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="4_pjpk1"]
@@ -146,6 +147,7 @@ safe_margin = 0.02
 script = ExtResource("1_g2djs")
 bullet = ExtResource("2_wqhji")
 muzzle_flash = ExtResource("3_s6cts")
+particles_death = ExtResource("4_2n17x")
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {

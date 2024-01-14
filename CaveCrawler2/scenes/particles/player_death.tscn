@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3egaqkkp50mv"]
+
+[ext_resource type="Script" path="res://scripts/particles.gd" id="1_rfxgn"]
+
+[sub_resource type="Curve" id="Curve_oerud"]
+max_value = 15.0
+_data = [Vector2(0, 14.5055), 0.0, 0.0, 0, 0, Vector2(1, 10.5494), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_2kq04"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.731343, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.351648), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_fvvbh"]
+offsets = PackedFloat32Array(0, 0.705202, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0)
+
+[node name="PlayerDeath" type="CPUParticles2D"]
+emitting = false
+amount = 36
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+angular_velocity_max = 15.0
+angular_velocity_curve = SubResource("Curve_oerud")
+damping_min = 2.0
+damping_max = 4.0
+scale_amount_min = 1.7
+scale_amount_max = 2.3
+scale_amount_curve = SubResource("Curve_2kq04")
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("Gradient_fvvbh")
+script = ExtResource("1_rfxgn")
