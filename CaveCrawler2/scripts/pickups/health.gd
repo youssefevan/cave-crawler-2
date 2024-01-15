@@ -1,6 +1,7 @@
 extends Pickup
 
 var health_particles = load("res://scenes/particles/health_picked.tscn")
+var sfx_pickup = preload("res://audio/sfx/health_pickup.ogg")
 
 func _ready():
 	$Animator.play("Bob")
@@ -10,6 +11,7 @@ func picked(body):
 	if body.health != body.max_health:
 		body.health += 1
 		picked_anim()
+		AudioHandler.play_sfx(sfx_pickup)
 
 func picked_anim():
 	if OptionsHandler.particles_enabled == true:

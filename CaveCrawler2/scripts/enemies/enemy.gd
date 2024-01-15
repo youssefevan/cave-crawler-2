@@ -5,6 +5,8 @@ class_name Enemy
 @export var gravity := 800.0
 @export var level_editor_offset := Vector2(4, -8)
 
+var sfx_death = preload("res://audio/sfx/enemy_death.ogg")
+
 var speed_modifier := 1.0
 
 var current_health : int
@@ -33,6 +35,7 @@ func get_hurt(hitstun_weight):
 		can_get_hurt = true
 
 func die():
+	AudioHandler.play_sfx(sfx_death)
 	call_deferred("queue_free")
 
 func _on_hurtbox_area_entered(area):
