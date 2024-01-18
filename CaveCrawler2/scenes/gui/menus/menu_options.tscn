@@ -135,6 +135,7 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="value_changed" from="Options/Audio/Sliders/VolumeSounds" to="." method="_on_volume_sounds_value_changed"]
 [connection signal="toggled" from="Options/Graphics/ToggleFullscreen" to="." method="_on_toggle_fullscreen_toggled"]
 [connection signal="toggled" from="Options/Graphics/ToggleCursor" to="." method="_on_toggle_cursor_toggled"]
 [connection signal="toggled" from="Options/Graphics/ToggleParticles" to="." method="_on_toggle_particles_toggled"]

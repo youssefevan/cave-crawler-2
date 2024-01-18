@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/global.gd"
-OptionsHandler="*res://scripts/options_handler.gd"
 AudioHandler="*res://scenes/audio_handler.tscn"
+OptionsHandler="*res://scenes/options_handler.tscn"
 
 [display]
 

@@ -34,7 +34,11 @@ func _on_toggle_particles_toggled(toggled_on):
 	OptionsHandler.save_options()
 
 func _on_bloom_intensity_value_changed(value):
-	OptionsHandler.set_bloom((1/slider_bloom.max_value) * value)
+	OptionsHandler.set_bloom(value/slider_bloom.max_value)
+	OptionsHandler.save_options()
+
+func _on_volume_sounds_value_changed(value):
+	OptionsHandler.set_volume_sfx(value)
 	OptionsHandler.save_options()
 
 func sync_options():
@@ -42,6 +46,8 @@ func sync_options():
 	btn_cursor.button_pressed = OptionsHandler.cursor_visible
 	btn_particles.button_pressed = OptionsHandler.particles_enabled
 	slider_bloom.value = (OptionsHandler.bloom_intensity*slider_bloom.max_value)
+	slider_sfx.value = OptionsHandler.volume_sfx
+	#print("?: ", slider_sfx.value)
 
 func exit():
 	OptionsHandler.save_options()

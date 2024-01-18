@@ -2,11 +2,13 @@ extends Node
 
 signal bloom_changed
 signal cursor_changed
+signal volume_sfx_changed
 
 var fullscreen_enabled : bool
 var cursor_visible := true
 var particles_enabled := true
 var bloom_intensity := 0.5
+var volume_sfx := 5
 
 func _ready():
 	load_options()
@@ -53,3 +55,8 @@ func set_particles(setting : bool):
 func set_bloom(setting):
 	bloom_intensity = setting
 	emit_signal("bloom_changed")
+
+func set_volume_sfx(setting):
+	#print("S ", setting)
+	volume_sfx = setting
+	emit_signal("volume_sfx_changed")
