@@ -40,7 +40,7 @@ func play_level():
 		$Main/FileTypeError.visible = true
 
 func _on_edit_pressed():
-	OptionsHandler.show_cursor()
+	OptionsHandler.set_cursor(true)
 	playing = false
 	file_dialog.visible = true
 

@@ -144,9 +144,9 @@ func build_level():
 			spike:
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(3,4))
 			lava:
-				tiles.set_cell(0, cell_position, tileset_id, Vector2(2,5))
+				tiles.set_cell(0, cell_position, tileset_id, Vector2(4,4))
 			sludge:
-				tiles.set_cell(0, cell_position, tileset_id, Vector2(3,5))
+				tiles.set_cell(0, cell_position, tileset_id, Vector2(4,5))
 	
 	tiles.set_cells_terrain_connect(0, autotile_cells, 0, 2)
 	

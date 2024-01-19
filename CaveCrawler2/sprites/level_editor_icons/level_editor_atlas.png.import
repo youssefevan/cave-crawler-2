@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vnnv7e2hqub5"
-path="res://.godot/imported/player.png-ffedac2da484680e3cd18d31f7c04cf7.ctex"
+uid="uid://d243if60go3yc"
+path="res://.godot/imported/level_editor_atlas.png-b95c532db98e67af2a2b15e9144c22fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/level_editor_icons/essentials/player.png"
-dest_files=["res://.godot/imported/player.png-ffedac2da484680e3cd18d31f7c04cf7.ctex"]
+source_file="res://sprites/level_editor_icons/level_editor_atlas.png"
+dest_files=["res://.godot/imported/level_editor_atlas.png-b95c532db98e67af2a2b15e9144c22fe.ctex"]
 
 [params]
 

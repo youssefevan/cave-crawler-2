@@ -1,38 +1,107 @@
-[gd_scene load_steps=34 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=36 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_f2vqo"]
 [ext_resource type="Script" path="res://scripts/editor/level_editor_camera.gd" id="2_a1c03"]
-[ext_resource type="Texture2D" uid="uid://cx0swe8kipifa" path="res://sprites/level_editor_icons/enemies/rat.png" id="2_c7wra"]
 [ext_resource type="PackedScene" uid="uid://dd4kgsl8xo6gi" path="res://scenes/camera_room_tool.tscn" id="2_gum10"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="3_y01m3"]
 [ext_resource type="Texture2D" uid="uid://df51npckwo2wt" path="res://sprites/level_editor_icons/grid_bg.png" id="4_u6s76"]
-[ext_resource type="Texture2D" uid="uid://cejv73yqx6rt6" path="res://sprites/level_editor_icons/terrains/terrain_1.png" id="5_yp46x"]
-[ext_resource type="Texture2D" uid="uid://d23303f7sqvgw" path="res://sprites/level_editor_icons/enemies/bat.png" id="6_6lexp"]
-[ext_resource type="Texture2D" uid="uid://d243if60go3yc" path="res://sprites/level_editor_icons/level_editor_tileset.png" id="6_k7iae"]
+[ext_resource type="Texture2D" uid="uid://d243if60go3yc" path="res://sprites/level_editor_icons/level_editor_atlas.png" id="5_56hnm"]
 [ext_resource type="Script" path="res://scripts/level_editor/tool_button.gd" id="6_mg418"]
-[ext_resource type="Texture2D" uid="uid://fixs1gfhcuhw" path="res://sprites/level_editor_icons/hazards/spike.png" id="7_be2tf"]
 [ext_resource type="Texture2D" uid="uid://cr4rjlithoxxv" path="res://sprites/level_editor_icons/play.png" id="7_beg5p"]
-[ext_resource type="Texture2D" uid="uid://bolflx3c6btb1" path="res://sprites/level_editor_icons/hazards/stalactite.png" id="8_x5trv"]
 [ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="9_5lcqo"]
-[ext_resource type="Texture2D" uid="uid://ce7kfekdkfd5a" path="res://sprites/level_editor_icons/enemies/crab.png" id="9_88cyv"]
-[ext_resource type="Texture2D" uid="uid://c1h0d22xf3ptr" path="res://sprites/level_editor_icons/terrains/slope_left.png" id="9_e5yac"]
-[ext_resource type="Texture2D" uid="uid://cei3yxb6ymjfc" path="res://sprites/level_editor_icons/enemies/skeleton_hand.png" id="10_0gwre"]
-[ext_resource type="Texture2D" uid="uid://kq7kejimmow6" path="res://sprites/level_editor_icons/terrains/slope_right.png" id="10_ahp0o"]
 [ext_resource type="Texture2D" uid="uid://beygbsbrc776m" path="res://sprites/level_editor_icons/home.png" id="10_dpill"]
-[ext_resource type="Texture2D" uid="uid://vnnv7e2hqub5" path="res://sprites/level_editor_icons/essentials/player.png" id="10_xpnd6"]
-[ext_resource type="Texture2D" uid="uid://bjrbyc21ry0p0" path="res://sprites/level_editor_icons/essentials/camera_room.png" id="11_pj7t4"]
-[ext_resource type="Texture2D" uid="uid://c8ec7ytjdhwid" path="res://sprites/level_editor_icons/hazards/lava.png" id="13_cpxh4"]
-[ext_resource type="Texture2D" uid="uid://cqbifw2rh5sp3" path="res://sprites/level_editor_icons/terrains/oneway.png" id="13_weqo8"]
-[ext_resource type="Texture2D" uid="uid://03jfchwsvkpq" path="res://sprites/level_editor_icons/pickups/health.png" id="14_2d0oq"]
-[ext_resource type="Texture2D" uid="uid://uy6ruds8n2ho" path="res://sprites/level_editor_icons/pickups/shield.png" id="15_iwpps"]
-[ext_resource type="Texture2D" uid="uid://nkkupbb33oo4" path="res://sprites/level_editor_icons/pickups/coin.png" id="16_m8s5m"]
-[ext_resource type="Texture2D" uid="uid://bkvqkisja6eq7" path="res://sprites/level_editor_icons/enemies/slug.png" id="18_17c3a"]
-[ext_resource type="Texture2D" uid="uid://c7e5s7x0athqk" path="res://sprites/level_editor_icons/enemies/turret.png" id="19_6cula"]
+[ext_resource type="Texture2D" uid="uid://bgty7fw6d5dlk" path="res://sprites/level_editor_icons/le_atlas.atlastex" id="12_05v2x"]
 [ext_resource type="Texture2D" uid="uid://dag04y6cpg6lf" path="res://sprites/level_editor_icons/save.png" id="20_esaba"]
-[ext_resource type="Texture2D" uid="uid://rigjyanwvmtr" path="res://sprites/level_editor_icons/enemies/roly_poly.png" id="21_bkdj6"]
-[ext_resource type="Texture2D" uid="uid://1sd77cjpmhut" path="res://sprites/level_editor_icons/hazards/sludge.png" id="25_wbaa6"]
-[ext_resource type="Texture2D" uid="uid://dwjf36yb8qj6s" path="res://sprites/level_editor_icons/essentials/flagpole.png" id="30_dawkp"]
-[ext_resource type="Texture2D" uid="uid://glj16bcb1ui5" path="res://sprites/level_editor_icons/essentials/checkpoint.png" id="31_ujwyd"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_plt8p"]
+load_path = "res://.godot/imported/level_editor_atlas.png-b95c532db98e67af2a2b15e9144c22fe.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7ra6"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmfxb"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id2b8"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8xwce"]
+load_path = "res://.godot/imported/level_editor_atlas.png-b95c532db98e67af2a2b15e9144c22fe.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lqu0"]
+atlas = SubResource("CompressedTexture2D_8xwce")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe661"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1krn"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxsj2"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agjwc"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(32, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm7m8"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(40, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_063vg"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(48, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8iqj"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(0, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4xin"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(8, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_646h1"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(16, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_150ph"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(24, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1wij"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(0, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4cll"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(8, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pyln"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(16, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxhgi"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(0, 32, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nju82"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(8, 32, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf0st"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(16, 32, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jenl4"]
+atlas = SubResource("CompressedTexture2D_plt8p")
+region = Rect2(24, 32, 8, 8)
 
 [node name="LevelEditor" type="Node2D"]
 script = ExtResource("1_f2vqo")
@@ -54,7 +123,7 @@ metadata/_edit_lock_ = true
 
 [node name="ToolPreview" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
-texture = ExtResource("6_k7iae")
+texture = ExtResource("5_56hnm")
 hframes = 16
 vframes = 8
 
@@ -152,28 +221,28 @@ theme_override_constants/separation = 0
 
 [node name="Terrain1" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("5_yp46x")
+icon = ExtResource("12_05v2x")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tile_coordinate_x = 1
 
 [node name="SlopeLeft" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("9_e5yac")
+icon = SubResource("AtlasTexture_f7ra6")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tile_coordinate_x = 2
 
 [node name="SlopeRight" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("10_ahp0o")
+icon = SubResource("AtlasTexture_xmfxb")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tile_coordinate_x = 3
 
 [node name="OneWay" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("13_weqo8")
+icon = SubResource("AtlasTexture_id2b8")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tile_coordinate_x = 4
@@ -193,14 +262,14 @@ theme_override_constants/separation = 0
 
 [node name="Rat" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("2_c7wra")
+icon = SubResource("AtlasTexture_6lqu0")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 1
 
 [node name="Crab" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("9_88cyv")
+icon = SubResource("AtlasTexture_xe661")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 1
@@ -208,7 +277,7 @@ tile_coordinate_x = 1
 
 [node name="Bat" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("6_6lexp")
+icon = SubResource("AtlasTexture_f1krn")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 1
@@ -216,7 +285,7 @@ tile_coordinate_x = 2
 
 [node name="SkeletonHand" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("10_0gwre")
+icon = SubResource("AtlasTexture_fxsj2")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 1
@@ -224,7 +293,7 @@ tile_coordinate_x = 3
 
 [node name="Slug" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("18_17c3a")
+icon = SubResource("AtlasTexture_agjwc")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 1
@@ -232,7 +301,7 @@ tile_coordinate_x = 4
 
 [node name="Turret" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("19_6cula")
+icon = SubResource("AtlasTexture_tm7m8")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 1
@@ -240,7 +309,7 @@ tile_coordinate_x = 5
 
 [node name="RolyPoly" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("21_bkdj6")
+icon = SubResource("AtlasTexture_063vg")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 1
@@ -261,14 +330,14 @@ theme_override_constants/separation = 0
 
 [node name="Spike" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("7_be2tf")
+icon = SubResource("AtlasTexture_k8iqj")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 2
 
 [node name="Stalactite" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("8_x5trv")
+icon = SubResource("AtlasTexture_k4xin")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 2
@@ -276,7 +345,7 @@ tile_coordinate_x = 1
 
 [node name="Lava" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("13_cpxh4")
+icon = SubResource("AtlasTexture_646h1")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 2
@@ -284,7 +353,7 @@ tile_coordinate_x = 2
 
 [node name="Sludge" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("25_wbaa6")
+icon = SubResource("AtlasTexture_150ph")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 2
@@ -305,14 +374,14 @@ theme_override_constants/separation = 0
 
 [node name="Health" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("14_2d0oq")
+icon = SubResource("AtlasTexture_u1wij")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 3
 
 [node name="Shield" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("15_iwpps")
+icon = SubResource("AtlasTexture_o4cll")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 3
@@ -320,7 +389,7 @@ tile_coordinate_x = 1
 
 [node name="Coin" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("16_m8s5m")
+icon = SubResource("AtlasTexture_1pyln")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 3
@@ -341,14 +410,14 @@ theme_override_constants/separation = 0
 
 [node name="Player" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("10_xpnd6")
+icon = SubResource("AtlasTexture_vxhgi")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 4
 
 [node name="CameraRoom" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("11_pj7t4")
+icon = SubResource("AtlasTexture_nju82")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 4
@@ -356,7 +425,7 @@ tile_coordinate_x = 1
 
 [node name="Checkpoint" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("31_ujwyd")
+icon = SubResource("AtlasTexture_bf0st")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 4
@@ -364,7 +433,7 @@ tile_coordinate_x = 2
 
 [node name="Flagpole" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("30_dawkp")
+icon = SubResource("AtlasTexture_jenl4")
 icon_alignment = 1
 script = ExtResource("6_mg418")
 tool_type = 4
