@@ -8,6 +8,8 @@ class_name Slug
 @onready var move = $StateManager/Move
 @onready var shield = $StateManager/Shield
 
+@onready var shield_timer = $ShieldTimer
+
 var speed := 100.0
 var move_direction := -1
 var inch_time := 0.4 # in seconds
@@ -21,6 +23,7 @@ var got_hit := false
 
 func _ready():
 	super._ready()
+	shield_timer.wait_time = shield_time
 	states.init(self)
 
 func _physics_process(delta):
@@ -55,6 +58,5 @@ func _on_hurtbox_area_entered(area):
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Player"):
 		if states.current_state == shield_state:
-			animator.play("Shield")
 			area.get_parent().enter_bounce(bounce_force)
 

@@ -178,15 +178,17 @@ libraries = {
 "": SubResource("AnimationLibrary_1i3xe")
 }
 
-[node name="VisibleOnScreenEnabler2D" parent="." index="1"]
+[node name="ShieldTimer" type="Timer" parent="." index="1"]
+
+[node name="VisibleOnScreenEnabler2D" parent="." index="2"]
 position = Vector2(-3.57628e-07, -4)
 scale = Vector2(0.8, 0.4)
 
-[node name="Collider" parent="." index="2"]
+[node name="Collider" parent="." index="3"]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_ke4os")
 
-[node name="Sprite" parent="." index="3"]
+[node name="Sprite" parent="." index="4"]
 material = SubResource("ShaderMaterial_1c4go")
 position = Vector2(0, -16)
 texture = ExtResource("2_m5u3f")
@@ -202,7 +204,7 @@ shape = SubResource("CapsuleShape2D_jouba")
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_k0qkj")
 
-[node name="StateManager" type="Node" parent="." index="6"]
+[node name="StateManager" type="Node" parent="." index="7"]
 script = ExtResource("4_fbd6w")
 starting_state = NodePath("Idle")
 

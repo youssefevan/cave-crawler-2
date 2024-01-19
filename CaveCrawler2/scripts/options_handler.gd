@@ -8,7 +8,7 @@ var fullscreen_enabled : bool
 var cursor_visible := true
 var particles_enabled := true
 var bloom_intensity := 0.5
-var volume_sfx := 5
+var volume_sfx := 5.0
 
 func _ready():
 	load_options()

@@ -19,6 +19,8 @@ func play_sfx(sound: AudioStream, parent := get_tree().current_scene):
 
 func volume_sfx_changed():
 	# 10 steps on slider
+	#print("O ", OptionsHandler.volume_sfx)
 	var vol = (OptionsHandler.volume_sfx/10) * 2
 	#print("V ", vol)
 	AudioServer.set_bus_volume_db(bus_index_sfx, linear_to_db(vol))
+	#print("B ", linear_to_db(vol))
