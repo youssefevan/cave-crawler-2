@@ -30,7 +30,7 @@ func _on_replay_pressed():
 func _on_next_pressed():
 	visible = false
 	get_tree().paused = false
-	#get_tree().change_scene_to_packed(Global.next_level)
+	get_tree().change_scene_to_packed(Global.next_level)
 
 func _on_edit_pressed():
 	visible = false

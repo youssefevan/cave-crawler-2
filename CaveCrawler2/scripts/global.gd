@@ -23,6 +23,8 @@ var checkpoint_position : Vector2
 
 var last_focused_node
 
+var next_level
+
 func entering_sub_menu():
 	last_focused_node = get_viewport().gui_get_focus_owner()
 
