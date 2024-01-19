@@ -5,7 +5,7 @@ var bus_index_music
 
 func _ready():
 	OptionsHandler.connect("volume_sfx_changed", volume_sfx_changed)
-	AudioServer.set_bus_volume_db(bus_index_sfx, OptionsHandler.volume_sfx)
+	volume_sfx_changed()
 
 func play_sfx(sound: AudioStream, parent := get_tree().current_scene):
 	var stream = AudioStreamPlayer.new()

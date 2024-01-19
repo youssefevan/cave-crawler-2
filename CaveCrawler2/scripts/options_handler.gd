@@ -16,12 +16,15 @@ func _ready():
 	set_cursor(cursor_visible)
 	set_particles(particles_enabled)
 	set_bloom(bloom_intensity)
+	set_volume_sfx(volume_sfx)
 
 func save_options():
 	var file = FileAccess.open(Global.save_path, FileAccess.WRITE)
 	file.store_var(fullscreen_enabled)
 	file.store_var(cursor_visible)
 	file.store_var(particles_enabled)
+	file.store_var(bloom_intensity)
+	file.store_var(volume_sfx)
 
 func load_options():
 	if FileAccess.file_exists(Global.save_path):
@@ -29,6 +32,8 @@ func load_options():
 		fullscreen_enabled = file.get_var(fullscreen_enabled)
 		cursor_visible = file.get_var(cursor_visible)
 		particles_enabled = file.get_var(particles_enabled)
+		bloom_intensity = file.get_var(bloom_intensity)
+		volume_sfx = file.get_var(volume_sfx)
 
 func set_fullscreen(setting : bool):
 	fullscreen_enabled = setting
