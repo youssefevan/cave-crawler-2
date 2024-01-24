@@ -16,11 +16,15 @@ var can_fire := true
 var player_height_offset := 10.0
 var player : Player
 
+func _ready():
+	super._ready()
+	player = get_tree().get_first_node_in_group("Player")
+
 func _physics_process(delta):
 #	apply_gravity(delta)
 #	move_and_slide()
 	
-	if player != null:
+	if player:
 		gun.look_at(Vector2(player.global_position.x, player.global_position.y - player_height_offset))
 		$Animator.play("fire")
 		fire()
@@ -46,11 +50,3 @@ func fire():
 		can_fire = false
 		await get_tree().create_timer(fire_rate).timeout
 		can_fire = true
-
-func _on_player_detection_body_entered(body):
-	if body is Player:
-		player = body
-
-func _on_player_detection_body_exited(body):
-	if body is Player:
-		player = null

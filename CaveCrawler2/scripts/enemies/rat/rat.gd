@@ -27,6 +27,7 @@ var player : Player
 func _ready():
 	super._ready()
 	states.init(self)
+	player = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(delta):
 	states.physics_update(delta)
@@ -53,15 +54,6 @@ func apply_gravity(delta):
 func apply_friction(delta):
 	if is_on_floor():
 		velocity.x = lerpf(velocity.x, 0, deceleration * delta)
-
-
-func _on_attack_range_body_entered(body):
-	if body.collision_layer == 2:
-		player = body
-
-func _on_attack_range_body_exited(body):
-	if body == player:
-		player = null
 
 #func _on_camera_room_detector_area_exited(area):
 #	if area.get_collision_layer_value(5):
