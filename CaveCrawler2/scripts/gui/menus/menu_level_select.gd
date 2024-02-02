@@ -1,6 +1,6 @@
 extends Control
 
-var level1 = preload("res://scenes/levels/world1/level_1_1.tscn")
+var level1 = preload("res://scenes/world.tscn")
 
 func _ready():
 	if OptionsHandler.cursor_visible == false:
