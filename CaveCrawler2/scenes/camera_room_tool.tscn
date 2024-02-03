@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dd4kgsl8xo6gi"]
+[gd_scene load_steps=13 format=3 uid="uid://dd4kgsl8xo6gi"]
 
 [ext_resource type="Texture2D" uid="uid://cq0bgbp8h6and" path="res://sprites/level_editor_icons/cr_tool_handle_top_left.png" id="1_ejbyw"]
 [ext_resource type="Script" path="res://scripts/level_editor/camera_room_tool.gd" id="1_osmu5"]
 [ext_resource type="Texture2D" uid="uid://bgpadio4mj5p3" path="res://sprites/level_editor_icons/updown_arrows.png" id="3_tfpvt"]
+[ext_resource type="Script" path="res://scripts/editor/camera_room_tool_scaler.gd" id="5_70tew"]
 [ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="14_f0t5j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7aauj"]
@@ -92,7 +93,17 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5vdcb")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rr8lo")
 text = "Delete"
 
+[node name="Scaler" type="Button" parent="."]
+offset_left = 248.0
+offset_top = 136.0
+offset_right = 256.0
+offset_bottom = 144.0
+theme = ExtResource("14_f0t5j")
+script = ExtResource("5_70tew")
+
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="toggled" from="Button" to="." method="_on_button_toggled"]
 [connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]
+[connection signal="button_down" from="Scaler" to="Scaler" method="_on_button_down"]
+[connection signal="button_up" from="Scaler" to="Scaler" method="_on_button_up"]
