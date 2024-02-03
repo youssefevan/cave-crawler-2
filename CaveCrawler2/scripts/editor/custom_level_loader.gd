@@ -148,7 +148,7 @@ func build_level():
 			sludge:
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(4,5))
 	
-	tiles.set_cells_terrain_connect(0, autotile_cells, 0, 2)
+	tiles.set_cells_terrain_connect(0, autotile_cells, 0, 0)
 	
 	for room in camera_rooms:
 		spawn_camera_room(Vector2(room.x, room.y), Vector2(room.z, room.w))
