@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="6_ci8kq"]
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="7_e3np3"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="8_5lto3"]
-[ext_resource type="PackedScene" uid="uid://dac0e0pa16hb3" path="res://scenes/gui/menus/menu_main.tscn" id="9_s3kbm"]
+[ext_resource type="PackedScene" uid="uid://bxvqi5nt65yki" path="res://scenes/levels/world1/level_1_2.tscn" id="9_0fan3"]
 
 [node name="Level1-1" type="Node2D"]
 
@@ -85,7 +85,7 @@ position = Vector2(1328, 268)
 
 [node name="Flagpole" parent="Pickups" instance=ExtResource("8_5lto3")]
 position = Vector2(1760, 264)
-next_level = ExtResource("9_s3kbm")
+next_level = ExtResource("9_0fan3")
 
 [node name="Player" parent="." instance=ExtResource("4_1q840")]
 position = Vector2(32, 112)

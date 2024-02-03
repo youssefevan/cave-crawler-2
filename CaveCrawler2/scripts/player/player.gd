@@ -97,6 +97,14 @@ func handle_input() -> void:
 	if movement_input < 0:
 		$Sprite.flip_h = true
 		$Gun.scale.x = -1
+	
+	if Input.is_action_pressed("look_up"):
+		if $Sprite.flip_h == false:
+			gun.rotation_degrees = -90
+		else:
+			gun.rotation_degrees = 90
+	else:
+		gun.rotation_degrees = 0
 
 func apply_movement(delta) -> void:
 	if is_on_floor():
@@ -139,7 +147,6 @@ func coyote_time() -> void:
 	can_coyote_jump = false
 
 func shoot() -> void:
-	
 	if OptionsHandler.particles_enabled == true:
 		var mf = muzzle_flash.instantiate()
 		muzzle.add_child(mf)
@@ -147,6 +154,7 @@ func shoot() -> void:
 	var b = bullet.instantiate()
 	get_tree().get_root().add_child(b)
 	b.position = muzzle.global_position
+	b.rotation = gun.rotation
 	if gun.scale.x == -1:
 		b.speed = -b.speed
 	

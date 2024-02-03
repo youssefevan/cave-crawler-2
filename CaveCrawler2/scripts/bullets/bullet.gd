@@ -9,7 +9,7 @@ var is_on_screen := true
 var sfx_hit = preload("res://audio/sfx/bullet_hit.ogg")
 
 func _physics_process(delta):
-	position.x += speed * delta
+	global_position += Vector2(speed * delta, 0).rotated(rotation)
 
 func _on_body_entered(body):
 	if body is TileMap:
