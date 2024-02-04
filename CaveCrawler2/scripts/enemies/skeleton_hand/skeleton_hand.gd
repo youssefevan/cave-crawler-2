@@ -11,25 +11,27 @@ class_name SkeletonHand
 @onready var idle = $StateManager/Idle
 @onready var jump = $StateManager/Jump
 
-var player_detected := false
-var grab := false
 
+var grab := false
 var jump_velocity := 150.0
+
+var player
+var player_detected := false
 
 func _ready():
 	super._ready()
 	states.init(self)
+	player = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(delta):
 	states.physics_update(delta)
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	move_and_slide()
-
-func _on_player_detection_body_entered(body):
-	if body.get_collision_layer_value(2):
+	if abs(player.global_position.x - global_position.x) < 24:
 		player_detected = true
+	
+	move_and_slide()
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Player"):

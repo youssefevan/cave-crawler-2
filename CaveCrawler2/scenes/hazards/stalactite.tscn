@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbne2o42871na"]
+[gd_scene load_steps=6 format=3 uid="uid://cbne2o42871na"]
 
 [ext_resource type="Script" path="res://scripts/hazards/stalactite.gd" id="1_b6yq4"]
 [ext_resource type="Texture2D" uid="uid://csjg1pv3m10io" path="res://sprites/hazards/stalactite.png" id="1_yvxls"]
@@ -10,9 +10,6 @@ size = Vector2(8, 8)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7rn48"]
 radius = 2.0
 height = 8.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_umjnd"]
-size = Vector2(80, 144)
 
 [node name="Stalactite" type="CharacterBody2D"]
 collision_layer = 128
@@ -32,16 +29,6 @@ shape = SubResource("RectangleShape2D_2nkn0")
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_7rn48")
 
-[node name="PlayerDetection" type="Area2D" parent="."]
-visible = false
-collision_layer = 4
-collision_mask = 2
-
-[node name="Collider" type="CollisionShape2D" parent="PlayerDetection"]
-position = Vector2(0, 72)
-shape = SubResource("RectangleShape2D_umjnd")
-
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 
 [editable path="Hitbox"]
