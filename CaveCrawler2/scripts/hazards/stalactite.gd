@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var fall := false
 var level_editor_offset := Vector2(4, 0)
+var on_screen := false
 
 var player
 
@@ -26,3 +27,10 @@ func _on_hitbox_area_entered(area):
 
 func get_level_editor_offset() -> Vector2:
 	return level_editor_offset
+
+
+func _on_visible_on_screen_enabler_2d_screen_entered():
+	on_screen = true
+
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	on_screen = false
