@@ -1,8 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6vhmhq40kty2"]
+[gd_scene load_steps=9 format=3 uid="uid://b6vhmhq40kty2"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_oqdsm"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_nv2hh"]
 [ext_resource type="Texture2D" uid="uid://dg1lu47087dpj" path="res://sprites/enemies/slime_cluster.png" id="3_61cg5"]
+
+[sub_resource type="Animation" id="Animation_0oov0"]
+resource_name = "Move"
+length = 0.8
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eel08"]
+_data = {
+"Move": SubResource("Animation_0oov0")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7x0mr"]
 resource_local_to_scene = true
@@ -17,8 +40,12 @@ radius = 6.0
 radius = 7.0
 
 [node name="Enemy" instance=ExtResource("1_oqdsm")]
+script = null
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_eel08")
+}
 
 [node name="VisibleOnScreenEnabler2D" parent="." index="1"]
 position = Vector2(1.19209e-07, -7)
@@ -28,8 +55,9 @@ scale = Vector2(0.7, 0.7)
 material = SubResource("ShaderMaterial_7x0mr")
 position = Vector2(0, -8)
 texture = ExtResource("3_61cg5")
-hframes = 3
-vframes = 2
+hframes = 4
+vframes = 4
+frame = 13
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -7)
