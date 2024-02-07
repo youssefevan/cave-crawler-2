@@ -22,14 +22,13 @@ var deceleration := 10.0
 var move_direction := 0
 
 # Checks
-var player : Player
 
 func _ready():
 	super._ready()
 	states.init(self)
-	player = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(delta):
+	super._physics_process(delta)
 	states.physics_update(delta)
 	
 	apply_gravity(delta)

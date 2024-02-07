@@ -5,22 +5,16 @@ extends Enemy
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
 
-@export var level_editor_offset_up : Vector2
-@export var level_editor_offset_down : Vector2
-@export var level_editor_offset_left : Vector2
-@export var level_editor_offset_right : Vector2
-
 @export var fire_rate := 0.4
 var can_fire := true
 
-var player_height_offset := 10.0
-var player : Player
+var player_height_offset := 4
 
 func _ready():
 	super._ready()
-	player = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(delta):
+	super._physics_process(delta)
 #	apply_gravity(delta)
 #	move_and_slide()
 	
@@ -30,6 +24,15 @@ func _physics_process(delta):
 		fire()
 	else:
 		$Animator.stop()
+	
+	if $Rays/Down.is_colliding():
+		$Sprite.rotation_degrees = 0
+	elif $Rays/Up.is_colliding():
+		$Sprite.rotation_degrees = 180
+	elif $Rays/Left.is_colliding():
+		$Sprite.rotation_degrees = 90
+	elif $Rays/Right.is_colliding():
+		$Sprite.rotation_degrees = -90
 
 func apply_gravity(delta):
 	if not is_on_floor():

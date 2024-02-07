@@ -15,15 +15,14 @@ class_name SkeletonHand
 var grab := false
 var jump_velocity := 150.0
 
-var player
 var player_detected := false
 
 func _ready():
 	super._ready()
 	states.init(self)
-	player = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(delta):
+	super._physics_process(delta)
 	states.physics_update(delta)
 	if not is_on_floor():
 		velocity.y += gravity * delta

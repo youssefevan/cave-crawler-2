@@ -5,6 +5,8 @@ class_name Enemy
 @export var gravity := 800.0
 @export var level_editor_offset := Vector2(4, -8)
 
+var player : Player
+
 var sfx_death = preload("res://audio/sfx/enemy_death.ogg")
 
 var speed_modifier := 1.0
@@ -16,6 +18,12 @@ func _ready():
 	$Sprite.material.set_shader_parameter("enabled", false)
 	current_health = max_health
 	can_get_hurt = true
+	
+	player = get_tree().get_first_node_in_group("Player")
+
+func _physics_process(delta):
+	if player == null:
+		player = get_tree().get_first_node_in_group("Player")
 
 func get_hurt(hitstun_weight):
 	if can_get_hurt:

@@ -27,6 +27,7 @@ func _ready():
 	states.init(self)
 
 func _physics_process(delta):
+	super._physics_process(delta)
 	states.physics_update(delta)
 	apply_gravity(delta)
 	apply_friction(delta)
