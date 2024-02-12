@@ -6,7 +6,7 @@ func enter():
 	entity.velocity.y = -entity.jump_velocity * entity.speed_modifier
 	
 	if Input.is_action_just_released("jump"):
-		entity.velocity.y = -entity.release_jump_velocity
+		entity.velocity.y = -entity.release_jump_velocity * entity.speed_modifier
 	
 	AudioHandler.play_sfx(entity.sfx_jump)
 	
