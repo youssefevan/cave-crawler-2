@@ -3,7 +3,7 @@ extends State
 func enter():
 	super.enter()
 	
-	entity.velocity.y = -entity.bounce_force
+	entity.velocity.y = -entity.bounce_force * entity.speed_modifier
 	
 	AudioHandler.play_sfx(entity.sfx_jump)
 	
@@ -32,8 +32,12 @@ func physics_update(delta):
 		return entity.fall
 
 func apply_gravity(delta):
-	entity.velocity.y = clampf(entity.velocity.y, -entity.max_fall_speed, entity.max_fall_speed)
-	entity.velocity.y += entity.gravity_up * delta
+	entity.velocity.y = clampf(
+		entity.velocity.y,
+		-entity.max_fall_speed * entity.speed_modifier,
+		entity.max_fall_speed * entity.speed_modifier
+	)
+	entity.velocity.y += entity.gravity_up * entity.speed_modifier * delta
 
 func exit():
 	super.exit()

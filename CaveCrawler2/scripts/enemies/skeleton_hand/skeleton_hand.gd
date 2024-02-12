@@ -25,7 +25,7 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	states.physics_update(delta)
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += gravity * speed_modifier * delta
 	
 	if abs(player.global_position.x - global_position.x) < 24:
 		player_detected = true

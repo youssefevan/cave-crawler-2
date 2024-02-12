@@ -3,15 +3,12 @@ extends State
 func enter():
 	super.enter()
 	
-	entity.velocity.y = -entity.jump_velocity
+	entity.velocity.y = -entity.jump_velocity * entity.speed_modifier
 	
 	if Input.is_action_just_released("jump"):
 		entity.velocity.y = -entity.release_jump_velocity
 	
-	
-	
 	AudioHandler.play_sfx(entity.sfx_jump)
-	
 	
 	if OptionsHandler.particles_enabled == true:
 		var j = entity.jump_dust.instantiate()
@@ -42,4 +39,4 @@ func physics_update(delta):
 
 func apply_gravity(delta):
 	entity.velocity.y = clampf(entity.velocity.y, -entity.max_fall_speed, entity.max_fall_speed)
-	entity.velocity.y += entity.gravity_up * delta
+	entity.velocity.y += entity.gravity_up * entity.speed_modifier * delta

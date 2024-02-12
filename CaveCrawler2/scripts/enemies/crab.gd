@@ -12,7 +12,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		velocity.y = 1
 	
-	velocity.y = clampf(velocity.y, -250.0, 250.0)
+	velocity.y = clampf(velocity.y, -250.0 * speed_modifier, 250.0 * speed_modifier)
 	
 	if is_on_wall():
 		move_direction *= -1

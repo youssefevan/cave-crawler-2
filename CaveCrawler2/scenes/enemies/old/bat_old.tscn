@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://eoyn2tpchka2"]
 
-[ext_resource type="Script" path="res://scripts/enemies/bat.gd" id="1_guehj"]
+[ext_resource type="Script" path="res://scripts/enemies/bat/bat.gd" id="1_guehj"]
 [ext_resource type="Texture2D" uid="uid://dhmynt1k5hq0f" path="res://sprites/enemies/bat.png" id="2_3r8ld"]
-[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/hurtbox.tscn" id="3_scpwq"]
-[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/hitbox.tscn" id="4_1rkho"]
+[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="3_scpwq"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/engine/hitbox.tscn" id="4_1rkho"]
 
 [sub_resource type="Animation" id="Animation_wy22j"]
 resource_name = "Fly"

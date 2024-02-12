@@ -1,14 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdqqv88177tgm"]
+[gd_scene load_steps=15 format=3 uid="uid://bdqqv88177tgm"]
 
-[ext_resource type="Script" path="res://scripts/enemies/bat.gd" id="1_jnp7r"]
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_w3qdo"]
+[ext_resource type="Script" path="res://scripts/enemies/bat/bat.gd" id="2_56jhm"]
 [ext_resource type="Texture2D" uid="uid://dhmynt1k5hq0f" path="res://sprites/enemies/bat.png" id="2_h0y8q"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="3_0kwb5"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="5_e3vb8"]
+[ext_resource type="Script" path="res://scripts/enemies/bat/states/hang.gd" id="6_jyeiq"]
+[ext_resource type="Script" path="res://scripts/enemies/bat/fly.gd" id="7_ualhh"]
 
 [sub_resource type="Animation" id="Animation_wy22j"]
 resource_name = "Fly"
-length = 0.2
+length = 0.3
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16,15 +20,31 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_whqs6"]
+resource_name = "Hang"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7yl60"]
 _data = {
-"Fly": SubResource("Animation_wy22j")
+"Fly": SubResource("Animation_wy22j"),
+"Hang": SubResource("Animation_whqs6")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnjaa"]
@@ -40,12 +60,12 @@ shader_parameter/Tint = Color(1, 0, 0, 1)
 radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_haykd"]
-radius = 6.0
+radius = 5.0
 
 [node name="Bat" instance=ExtResource("1_w3qdo")]
-script = ExtResource("1_jnp7r")
-max_health = 1
-level_editor_offset = Vector2(4, -4)
+script = ExtResource("2_56jhm")
+max_health = 2
+level_editor_offset = Vector2(4, 0)
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -53,22 +73,37 @@ libraries = {
 }
 
 [node name="VisibleOnScreenEnabler2D" parent="." index="1"]
-position = Vector2(0, 0.5)
+position = Vector2(0, 8)
 scale = Vector2(0.7, 0.45)
 
 [node name="Collider" parent="." index="2"]
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_lnjaa")
 
 [node name="Sprite" parent="." index="3"]
 material = SubResource("ShaderMaterial_npxsf")
+position = Vector2(0, 8)
 texture = ExtResource("2_h0y8q")
 hframes = 2
+vframes = 2
 
 [node name="Collider" parent="Hitbox" index="0"]
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_bc4k2")
 
 [node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_haykd")
+
+[node name="StateManager" type="Node" parent="." index="6"]
+script = ExtResource("5_e3vb8")
+starting_state = NodePath("Hang")
+
+[node name="Hang" type="Node" parent="StateManager" index="0"]
+script = ExtResource("6_jyeiq")
+
+[node name="Fly" type="Node" parent="StateManager" index="1"]
+script = ExtResource("7_ualhh")
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

@@ -41,12 +41,12 @@ func _physics_process(delta):
 
 func apply_gravity(delta):
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += gravity * speed_modifier * delta
 	
 	if is_on_floor():
 		velocity.y = 1
 	
-	velocity.y = clampf(velocity.y, -250.0, 250.0)
+	velocity.y = clampf(velocity.y, -250.0 * speed_modifier, 250.0 * speed_modifier)
 
 func apply_friction(delta):
 	velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
