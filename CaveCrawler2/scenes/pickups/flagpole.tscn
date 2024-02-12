@@ -9,6 +9,7 @@ size = Vector2(10, 15)
 
 [node name="Flagpole" instance=ExtResource("1_d3ls5")]
 script = ExtResource("2_jjul0")
+next_level = null
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_n6o0u")

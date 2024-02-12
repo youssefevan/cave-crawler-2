@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dsonrkjq8rlpg"]
+[gd_scene load_steps=38 format=3 uid="uid://dsonrkjq8rlpg"]
 
 [ext_resource type="Texture2D" uid="uid://c0ojv4t3ika0i" path="res://sprites/player.png" id="1_2wwr2"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g2djs"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dnprs334j37fu" path="res://scenes/gui/menus/menu_death.tscn" id="4_k7iyl"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="4_pjpk1"]
 [ext_resource type="PackedScene" uid="uid://dxu7q2rap3i0t" path="res://scenes/gui/menus/menu_level_end.tscn" id="5_sa3x3"]
+[ext_resource type="PackedScene" uid="uid://dpc8jd3jq24u7" path="res://scenes/particles/jump.tscn" id="5_ufqjq"]
 [ext_resource type="Script" path="res://scripts/player/states/run.gd" id="5_xe08m"]
 [ext_resource type="Texture2D" uid="uid://dcujevinxw3ro" path="res://sprites/gui/health_bar.png" id="5_xselh"]
 [ext_resource type="Script" path="res://scripts/player/states/jump.gd" id="6_w0w5j"]
@@ -233,6 +234,7 @@ script = ExtResource("1_g2djs")
 bullet = ExtResource("2_wqhji")
 muzzle_flash = ExtResource("3_s6cts")
 particles_death = ExtResource("4_2n17x")
+jump_dust = ExtResource("5_ufqjq")
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -277,7 +279,7 @@ position = Vector2(0, -8)
 texture = ExtResource("1_2wwr2")
 hframes = 5
 vframes = 4
-frame = 10
+frame = 13
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)

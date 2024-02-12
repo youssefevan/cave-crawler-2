@@ -2,12 +2,21 @@ extends State
 
 func enter():
 	super.enter()
-	entity.velocity.y = -entity.jump_velocity
 	
-	AudioHandler.play_sfx(entity.sfx_jump)
+	entity.velocity.y = -entity.jump_velocity
 	
 	if Input.is_action_just_released("jump"):
 		entity.velocity.y = -entity.release_jump_velocity
+	
+	
+	
+	AudioHandler.play_sfx(entity.sfx_jump)
+	
+	
+	if OptionsHandler.particles_enabled == true:
+		var j = entity.jump_dust.instantiate()
+		entity.add_child(j)
+		j.global_position.y = entity.global_position.y + 4
 
 func physics_update(delta):
 	super.physics_update(delta)

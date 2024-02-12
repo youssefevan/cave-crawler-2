@@ -12,6 +12,7 @@ class_name Player
 # Particles
 @export var muzzle_flash : PackedScene
 @export var particles_death : PackedScene
+@export var jump_dust : PackedScene
 
 # States
 @onready var idle = $StateManager/Idle
@@ -281,6 +282,8 @@ func end_level() -> void:
 	$GUI/MenuLevelEnd.visible = true
 	if OptionsHandler.cursor_visible == false:
 		$GUI/MenuLevelEnd.focus_button.grab_focus()
+	
+	Global.checkpoint_passed = false
 	get_tree().paused = true
 
 func enter_bounce(bf) -> void:

@@ -12,6 +12,8 @@ class_name Rat
 @onready var fall = $StateManager/Fall
 @onready var land = $StateManager/Land
 
+@onready var jump_dust = preload("res://scenes/particles/jump.tscn")
+
 # Variables
 var jump_velocity_x := 100.0
 var jump_velocity_y := 200.0
