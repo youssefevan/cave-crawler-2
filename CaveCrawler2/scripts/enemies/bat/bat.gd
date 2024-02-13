@@ -1,7 +1,7 @@
 extends Enemy
 class_name Bat
 
-var speed := 33.0
+var speed := 50.0
 var movement_direction : Vector2
 
 @onready var animator = $Animator
