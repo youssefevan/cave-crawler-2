@@ -64,10 +64,15 @@ var fire_rate := 0.25
 # Camera variables
 var camera_speed := 6.0
 var large_y_limits := false
+var max_camera_shake_strength := 3.0
+var current_camera_shake_strength : float
+var camera_shake_fade := 15.0
 
+# Misc
 var level_editor_offset := Vector2(4, -8)
-
 var level_end := false
+
+var random = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	states.init(self)
@@ -196,8 +201,8 @@ func get_hurt() -> void:
 		can_get_hurt = false
 		
 		health -= 1
-		
 		AudioHandler.play_sfx(sfx_hit)
+		apply_camera_shake()
 		
 		if health == 0:
 			$GUI/HealthBar.frame = 0
@@ -250,12 +255,7 @@ func _on_camera_room_detector_area_entered(area):
 			large_y_limits = false
 
 func handle_camera(delta) -> void:
-	# Since the player's center is offset 6 units up from it's pivot,
-	# the camera needs to be offset by the same amount in rooms with
-	# large y limits. However, the camera's built in offset property
-	# moves it up by 6 units at all times, making the floor of the room
-	# seem lower. To fix this, I manually apply the offset when lerping
-	# the camera's y position.
+	# offset camera to match sprite origin instead of actual origin
 	var offset_y := 6.0
 	
 	camera.top_level = true
@@ -267,6 +267,17 @@ func handle_camera(delta) -> void:
 	else:
 		camera.drag_vertical_enabled = false
 		camera.global_position = global_position
+	
+	if current_camera_shake_strength > 0:
+		current_camera_shake_strength = lerpf(current_camera_shake_strength, 0, camera_shake_fade * delta)
+		camera.offset = get_random_camera_offset()
+
+func apply_camera_shake():
+	current_camera_shake_strength = max_camera_shake_strength
+
+func get_random_camera_offset():
+	var shake = random.randf_range(-current_camera_shake_strength, current_camera_shake_strength)
+	return Vector2(-shake, shake)
 
 func get_level_editor_offset() -> Vector2:
 	return level_editor_offset
