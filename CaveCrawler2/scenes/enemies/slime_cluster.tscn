@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6vhmhq40kty2"]
+[gd_scene load_steps=12 format=3 uid="uid://b6vhmhq40kty2"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_oqdsm"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_nv2hh"]
@@ -46,6 +46,9 @@ _data = {
 "Move": SubResource("Animation_0oov0")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7i71"]
+size = Vector2(12, 13)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7x0mr"]
 resource_local_to_scene = true
 shader = ExtResource("2_nv2hh")
@@ -69,6 +72,10 @@ libraries = {
 [node name="VisibleOnScreenEnabler2D" parent="." index="1"]
 position = Vector2(1.19209e-07, -7)
 scale = Vector2(0.7, 0.7)
+
+[node name="Collider" parent="." index="2"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_i7i71")
 
 [node name="Sprite" parent="." index="3"]
 material = SubResource("ShaderMaterial_7x0mr")
