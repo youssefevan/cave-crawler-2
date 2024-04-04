@@ -1,4 +1,4 @@
-extends CPUParticles2D
+extends GPUParticles2D
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
