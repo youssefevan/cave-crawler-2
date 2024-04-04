@@ -206,14 +206,13 @@ text = "add detructable
 blocks here"
 
 [node name="Label5" type="Label" parent="."]
-offset_left = 4291.0
-offset_top = 337.0
-offset_right = 4374.0
-offset_bottom = 367.0
+offset_left = 4455.0
+offset_top = 626.0
+offset_right = 4538.0
+offset_bottom = 656.0
 theme = ExtResource("10_khqh8")
-text = "drill down to
-bottom; end level;
-next boss"
+text = "introduce turrets
+in next room"
 
 [node name="Player" parent="." instance=ExtResource("6_6xli3")]
 position = Vector2(40, 112)
