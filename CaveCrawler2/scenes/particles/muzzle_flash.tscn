@@ -2,26 +2,27 @@
 
 [ext_resource type="Script" path="res://scripts/particles.gd" id="1_3qwdd"]
 
-[sub_resource type="Gradient" id="Gradient_br15n"]
-offsets = PackedFloat32Array(0, 0.716763, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0.578035, 1, 0, 0, 0)
+[sub_resource type="Gradient" id="Gradient_mgfpx"]
+offsets = PackedFloat32Array(0, 0.64881, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0.0166664, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_q4bri"]
-gradient = SubResource("Gradient_br15n")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h36oy"]
+gradient = SubResource("Gradient_mgfpx")
+width = 4
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nvxxe"]
 particle_flag_disable_z = true
-initial_velocity_min = 12.0
-initial_velocity_max = 24.0
+spread = 30.0
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
 gravity = Vector3(0, 0, 0)
 damping_min = 2.0
 damping_max = 10.0
-color = Color(1, 0, 0, 1)
-color_ramp = SubResource("GradientTexture1D_q4bri")
+color_ramp = SubResource("GradientTexture1D_h36oy")
 
 [node name="MuzzleFlash" type="GPUParticles2D"]
 emitting = false
-amount = 5
+amount = 3
 process_material = SubResource("ParticleProcessMaterial_nvxxe")
 lifetime = 0.25
 one_shot = true

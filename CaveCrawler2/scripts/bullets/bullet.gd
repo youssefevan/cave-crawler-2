@@ -4,6 +4,8 @@ class_name Bullet
 @export var speed := 200.0
 @export var hitstun_weight := 0.1
 
+@export var hit_flash : PackedScene
+
 var is_on_screen := true
 
 var sfx_hit = preload("res://audio/sfx/bullet_hit.ogg")
@@ -30,6 +32,11 @@ func _on_area_entered(area):
 func explode():
 	if is_on_screen:
 		AudioHandler.play_sfx(sfx_hit)
+	
+	var flash = hit_flash.instantiate()
+	get_tree().get_root().add_child(flash)
+	flash.position = position
+	
 	call_deferred("queue_free")
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
