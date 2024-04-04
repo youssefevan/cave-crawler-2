@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7g2negqj3n8a"]
+[gd_scene load_steps=5 format=3 uid="uid://c7g2negqj3n8a"]
 
 [ext_resource type="Script" path="res://scripts/bullets/turret_bullet.gd" id="1_l20ss"]
 [ext_resource type="Texture2D" uid="uid://c3rbt2aurg2hi" path="res://sprites/bullet.png" id="2_5mo8b"]
+[ext_resource type="PackedScene" uid="uid://bkhosm25ser2" path="res://sprites/particles/hit_flash.tscn" id="2_o5al5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boh06"]
 radius = 1.0
@@ -12,6 +13,7 @@ collision_layer = 40
 collision_mask = 81
 script = ExtResource("1_l20ss")
 speed = 150.0
+hit_flash = ExtResource("2_o5al5")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_5mo8b")
