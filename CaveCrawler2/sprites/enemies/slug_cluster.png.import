@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg1lu47087dpj"
-path="res://.godot/imported/slime_cluster.png-7fbf6a10cc6c038afa51ca9788f54910.ctex"
+path="res://.godot/imported/slug_cluster.png-6055787b118272c98dab4caf494c3c72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/slime_cluster.png"
-dest_files=["res://.godot/imported/slime_cluster.png-7fbf6a10cc6c038afa51ca9788f54910.ctex"]
+source_file="res://sprites/enemies/slug_cluster.png"
+dest_files=["res://.godot/imported/slug_cluster.png-6055787b118272c98dab4caf494c3c72.ctex"]
 
 [params]
 

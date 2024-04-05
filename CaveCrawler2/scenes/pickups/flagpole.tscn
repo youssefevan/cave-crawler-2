@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b017u1jhp2i47" path="res://sprites/pickups/flagpole.png" id="2_n6o0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n60l0"]
-size = Vector2(10, 15)
+size = Vector2(14, 15)
 
 [node name="Flagpole" instance=ExtResource("1_d3ls5")]
 script = ExtResource("2_jjul0")
