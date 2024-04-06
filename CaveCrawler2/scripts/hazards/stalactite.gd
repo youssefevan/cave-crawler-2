@@ -5,13 +5,14 @@ var level_editor_offset := Vector2(4, 0)
 var on_screen := false
 
 var player
+var gravity = 500.0
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(delta):
 	if fall == true:
-		velocity.y += 800.0 * delta
+		velocity.y += gravity * delta
 		
 		if is_on_floor():
 			call_deferred("queue_free")

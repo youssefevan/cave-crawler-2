@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="11_cwsf0"]
 [ext_resource type="Texture2D" uid="uid://pb6r7vo857w4" path="res://sprites/chain.png" id="11_ufy3t"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="12_30an1"]
-[ext_resource type="PackedScene" uid="uid://cdhnumpij4qen" path="res://scenes/levels/world1/level_1_5.tscn" id="14_875yr"]
+[ext_resource type="PackedScene" uid="uid://bw4glxewqp7ky" path="res://scenes/levels/world1/level_1_5.tscn" id="14_875yr"]
 
 [node name="Level1-4" type="Node2D"]
 
