@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://bdqqv88177tgm" path="res://scenes/enemies/bat.tscn" id="7_rvwc5"]
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="9_1qr2k"]
 [ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="9_13lr1"]
-[ext_resource type="PackedScene" uid="uid://dhj58pmo05pej" path="res://scenes/enemies/turret.tscn" id="10_jid1t"]
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="10_khqh8"]
 [ext_resource type="Texture2D" uid="uid://cb7s2eu856d8v" path="res://sprites/machine.png" id="10_o0an6"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="11_cwsf0"]
 [ext_resource type="Texture2D" uid="uid://pb6r7vo857w4" path="res://sprites/chain.png" id="11_ufy3t"]
+[ext_resource type="PackedScene" uid="uid://bf7qonhrj13f0" path="res://scenes/enemies/skeleton_hand.tscn" id="11_x0whm"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="12_30an1"]
 [ext_resource type="PackedScene" uid="uid://bw4glxewqp7ky" path="res://scenes/levels/world1/level_1_5.tscn" id="14_875yr"]
 
@@ -158,23 +158,26 @@ position = Vector2(1424, 96)
 [node name="Rat2" parent="Enemies" instance=ExtResource("9_13lr1")]
 position = Vector2(3728, 344)
 
-[node name="Turret" parent="Enemies" instance=ExtResource("10_jid1t")]
-position = Vector2(4936, 556)
-
-[node name="Turret2" parent="Enemies" instance=ExtResource("10_jid1t")]
-position = Vector2(5248, 604)
-
-[node name="Turret4" parent="Enemies" instance=ExtResource("10_jid1t")]
-position = Vector2(5512, 652)
-
-[node name="Turret3" parent="Enemies" instance=ExtResource("10_jid1t")]
-position = Vector2(5664, 572)
-
 [node name="Crab" parent="Enemies" instance=ExtResource("11_cwsf0")]
 position = Vector2(5392, 656)
 
 [node name="Crab2" parent="Enemies" instance=ExtResource("11_cwsf0")]
 position = Vector2(5368, 656)
+
+[node name="SkeletonHand" parent="Enemies" instance=ExtResource("11_x0whm")]
+position = Vector2(4716, 624)
+
+[node name="SkeletonHand2" parent="Enemies" instance=ExtResource("11_x0whm")]
+position = Vector2(4860, 656)
+
+[node name="SkeletonHand3" parent="Enemies" instance=ExtResource("11_x0whm")]
+position = Vector2(5196, 632)
+
+[node name="SkeletonHand4" parent="Enemies" instance=ExtResource("11_x0whm")]
+position = Vector2(5291, 584)
+
+[node name="SkeletonHand5" parent="Enemies" instance=ExtResource("11_x0whm")]
+position = Vector2(5616, 632)
 
 [node name="Checkpoints" type="Node" parent="."]
 
