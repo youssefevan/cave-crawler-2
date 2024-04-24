@@ -30,6 +30,14 @@ window/size/window_width_override=1024
 window/size/window_height_override=576
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://scenes/": "blue",
+"res://scripts/": "yellow",
+"res://sprites/": "red"
+}
+
 [input]
 
 ui_accept={
