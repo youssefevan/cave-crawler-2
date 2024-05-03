@@ -3,6 +3,7 @@ class_name StateManager
 
 @export var starting_state : NodePath
 @export var print_states := false
+@export var auto_animate := true
 
 var current_state : State
 
