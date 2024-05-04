@@ -42,11 +42,11 @@ scale = Vector2(296, 144)
 
 [node name="CameraRoom2" parent="CameraRooms" instance=ExtResource("5_s4xvb")]
 position = Vector2(296, 0)
-scale = Vector2(576, 144)
+scale = Vector2(256, 144)
 
 [node name="Player" parent="." instance=ExtResource("5_pfi3k")]
 position = Vector2(32, 112)
 
 [node name="Boss1" parent="." instance=ExtResource("7_skxj2")]
-position = Vector2(705, 36)
+position = Vector2(514, 36)
 max_health = 100

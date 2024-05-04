@@ -6,7 +6,6 @@ func enter():
 	super.enter()
 	frame = 0
 	entity.velocity.x = 0
-	entity.velocity.y = -100
 
 func physics_update(delta):
 	frame += 1
@@ -14,4 +13,4 @@ func physics_update(delta):
 	entity.velocity.y += entity.gravity * delta
 	
 	if frame >= 60 * 1.5:
-		return entity.idle
+		return entity.swoop

@@ -10,6 +10,7 @@ var movement_direction : Vector2
 @onready var idle = $StateManager/Idle
 @onready var adjust = $StateManager/Adjust
 @onready var slam = $StateManager/Slam
+@onready var swoop = $StateManager/Swoop
 
 var reset_position : Vector2
 
