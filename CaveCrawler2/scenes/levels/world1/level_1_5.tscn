@@ -45,7 +45,7 @@ scale = Vector2(1024, 144)
 position = Vector2(32, 112)
 
 [node name="Boss1" parent="." instance=ExtResource("7_skxj2")]
-position = Vector2(474, 71)
+position = Vector2(496, 40)
 max_health = 100
 
 [node name="Label" type="Label" parent="."]
