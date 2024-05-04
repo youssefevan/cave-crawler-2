@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djmayij4alpbc"]
+[gd_scene load_steps=15 format=3 uid="uid://djmayij4alpbc"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_4jgkh"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/boss1.gd" id="2_0l4ph"]
@@ -9,9 +9,10 @@
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/adjust.gd" id="7_1yt20"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/swoop.gd" id="8_ql2vq"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/slam.gd" id="9_vfhde"]
+[ext_resource type="Script" path="res://scripts/enemies/boss1/states/chase.gd" id="10_b86wr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5y5g1"]
-radius = 28.0179
+radius = 26.0192
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7rp3d"]
 resource_local_to_scene = true
@@ -27,14 +28,15 @@ radius = 17.2589
 height = 54.0
 
 [node name="Boss1" instance=ExtResource("1_4jgkh")]
+collision_mask = 1
 script = ExtResource("2_0l4ph")
-max_health = 30
+max_health = 200
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 
 [node name="VisibleOnScreenEnabler2D" parent="." index="1"]
-position = Vector2(3.8147e-06, 1.90735e-06)
-scale = Vector2(3.2, 3.2)
+position = Vector2(-4.76837e-07, 1.90735e-06)
+scale = Vector2(4, 3.2)
 
 [node name="Collider" parent="." index="2"]
 shape = SubResource("CircleShape2D_5y5g1")
@@ -75,6 +77,9 @@ script = ExtResource("8_ql2vq")
 
 [node name="Slam" type="Node" parent="StateManager" index="3"]
 script = ExtResource("9_vfhde")
+
+[node name="Chase" type="Node" parent="StateManager" index="4"]
+script = ExtResource("10_b86wr")
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

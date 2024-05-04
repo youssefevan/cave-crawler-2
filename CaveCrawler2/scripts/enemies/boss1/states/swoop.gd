@@ -16,6 +16,8 @@ func enter():
 func physics_update(delta):
 	frame += 1
 	
+	entity.velocity.y += entity.gravity * delta
+	
 	if frame <= 60 * .25:
 		entity.velocity.x = lerpf(entity.velocity.x, 500 * entity.speed_modifier * move_dir, 5 * delta)
 	elif frame >= (60 * .25) and frame < (60 * .7):

@@ -11,6 +11,7 @@ var movement_direction : Vector2
 @onready var adjust = $StateManager/Adjust
 @onready var slam = $StateManager/Slam
 @onready var swoop = $StateManager/Swoop
+@onready var chase = $StateManager/Chase
 
 var reset_position : Vector2
 
