@@ -14,5 +14,5 @@ func physics_update(delta):
 		entity.velocity.y, entity.speed * entity.speed_modifier * entity.movement_direction.y, 5 * delta
 	)
 	
-	if abs(entity.global_position - entity.reset_position) < Vector2(5,5):
+	if abs(entity.global_position - entity.reset_position) < Vector2(.1,.1):
 		return entity.adjust

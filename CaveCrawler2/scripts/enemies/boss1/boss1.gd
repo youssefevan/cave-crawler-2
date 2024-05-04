@@ -1,7 +1,7 @@
 extends Enemy
 class_name Boss1
 
-var speed := 50.0
+var speed := 200.0
 var movement_direction : Vector2
 
 @onready var animator = $Animator
@@ -9,6 +9,7 @@ var movement_direction : Vector2
 @onready var states = $StateManager
 @onready var idle = $StateManager/Idle
 @onready var adjust = $StateManager/Adjust
+@onready var slam = $StateManager/Slam
 
 var reset_position : Vector2
 
