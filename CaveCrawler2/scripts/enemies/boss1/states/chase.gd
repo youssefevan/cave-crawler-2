@@ -5,7 +5,7 @@ var end := false
 func enter():
 	super.enter()
 	end = false
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(3).timeout
 	end = true
 
 func physics_update(delta):

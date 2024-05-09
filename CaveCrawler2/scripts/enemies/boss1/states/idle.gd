@@ -22,5 +22,6 @@ func physics_update(delta):
 			
 	else:
 		entity.movement_direction = (entity.reset_position - entity.global_position).normalized()
-		entity.velocity.x = lerpf(entity.velocity.y, 0.0, 5 * delta)
+		var player_direction = (entity.player.position - entity.global_position).normalized()
+		entity.velocity.x = lerpf(entity.velocity.x, entity.speed * entity.speed_modifier * player_direction.x, 5 * delta)
 		entity.velocity.y = lerpf(entity.velocity.y, entity.speed * entity.speed_modifier * entity.movement_direction.y, 5 * delta)
