@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://c272xrhclf508"]
+
+[sub_resource type="Gradient" id="Gradient_sv4fr"]
+offsets = PackedFloat32Array(0.752294, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x5lnr"]
+gradient = SubResource("Gradient_sv4fr")
+
+[sub_resource type="Curve" id="Curve_xb64r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.32967), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_176l2"]
+curve = SubResource("Curve_xb64r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_41bnx"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 98, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_176l2")
+color_ramp = SubResource("GradientTexture1D_x5lnr")
+
+[node name="Blood2" type="GPUParticles2D"]
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_41bnx")
+lifetime = 3.0

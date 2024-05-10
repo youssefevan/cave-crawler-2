@@ -4,6 +4,9 @@ class_name Boss1
 var speed := 200.0
 var movement_direction : Vector2
 
+@export var blood_particles1 : PackedScene
+@export var blood_particles2 : PackedScene
+
 @onready var animator = $Animator
 
 @onready var states = $StateManager
@@ -14,12 +17,13 @@ var movement_direction : Vector2
 @onready var chase = $StateManager/Chase
 
 var reset_position : Vector2
+var phase := 0
 
 func _ready():
 	super._ready()
 	reset_position = global_position
 	$Sprite.frame = 0
-	
+	phase = 0
 	states.init(self)
 
 func _physics_process(delta):
@@ -42,7 +46,13 @@ func face_player():
 func get_hurt(hitstun_weight):
 	super.get_hurt(hitstun_weight)
 	
-	if current_health < (.66 * max_health) and current_health > (.33 * max_health):
+	if current_health == snapped(.66 * max_health, 1):
 		$Sprite.frame = 1
-	elif current_health < (.33 * max_health):
+		var blood1 = blood_particles1.instantiate()
+		add_child(blood1)
+		blood1.position = $PartclesSpawnPosition.position
+	elif current_health == snapped(.33 * max_health, 1):
 		$Sprite.frame = 2
+		var blood2 = blood_particles2.instantiate()
+		add_child(blood2)
+		blood2.position = $PartclesSpawnPosition.position
