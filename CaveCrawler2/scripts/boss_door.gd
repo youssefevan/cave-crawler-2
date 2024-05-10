@@ -1,30 +1,48 @@
 extends Area2D
 class_name BossDoor
 
-@export_enum("entrance", "exit") var type
+@export var boss : CharacterBody2D
 
-var open
+@export var open := false
+@export var locked := true 
+
+@onready var open_position = $OpenPosition.position
+
 
 func _ready():
-	if type == 0:
-		open = true
+	if open == true:
+		$Sprite.position = open_position
 	else:
-		open = false
+		$Sprite.position = Vector2.ZERO
+	
+	if boss == null:
+		locked = false
 
 func _physics_process(delta):
+	if boss == null:
+		locked = false
+	
 	if open:
 		$Wall/Collider.disabled = true
 	else:
 		$Wall/Collider.disabled = false
+	
+	if locked == true:
+		$Sprite.frame = 0
+	else:
+		$Sprite.frame = 1
 
 func _on_body_entered(body):
-	if body is Player:
-		if type == 0:
-			if open == true:
-				open = false
-				animate(0)
+	if body is Player and not locked:
+		if open == true:
+			open = false
+			locked = true
+			animate(Vector2.ZERO)
+		else:
+			open = true
+			animate(open_position)
 
-func animate(dir):
+func animate(pos):
 	var sprite = $Sprite
 	var tween = get_tree().create_tween()
-	tween.tween_property(sprite, "position", Vector2(0, dir), .5).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(sprite, "position", pos, .5).set_trans(Tween.TRANS_LINEAR)

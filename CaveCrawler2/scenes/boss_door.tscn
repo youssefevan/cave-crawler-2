@@ -12,12 +12,11 @@ size = Vector2(10, 32)
 [node name="BossDoor" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_88yx4")
-type = 0
 
 [node name="Sprite" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(0, -32)
 texture = ExtResource("2_5pyub")
+hframes = 2
 
 [node name="Trigger" type="CollisionShape2D" parent="."]
 position = Vector2(13, 0)
@@ -31,5 +30,8 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_jwxbs")
 disabled = true
 debug_color = Color(0, 0.305882, 0.701961, 0.419608)
+
+[node name="OpenPosition" type="Node2D" parent="."]
+position = Vector2(0, -32)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

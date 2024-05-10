@@ -31,8 +31,12 @@ func _physics_process(delta):
 
 func face_player():
 	if (global_position.x - player.global_position.x) > 0:
+		$Hitbox.scale.x = 1
+		$Hurtbox.scale.x = 1
 		$Sprite.flip_h = false
 	else:
+		$Hitbox.scale.x = -1
+		$Hurtbox.scale.x = -1
 		$Sprite.flip_h = true
 
 func get_hurt(hitstun_weight):

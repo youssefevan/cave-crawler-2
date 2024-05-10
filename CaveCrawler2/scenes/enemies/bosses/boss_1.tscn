@@ -20,8 +20,9 @@ shader = ExtResource("3_oya1n")
 shader_parameter/enabled = false
 shader_parameter/Tint = Color(1, 0, 0, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ewurl"]
-radius = 26.0192
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4wie0"]
+radius = 17.2589
+height = 54.1174
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hwiac"]
 radius = 17.2589
@@ -47,8 +48,9 @@ texture = ExtResource("4_dkdxd")
 hframes = 3
 
 [node name="Collider" parent="Hitbox" index="0"]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_ewurl")
+position = Vector2(-6, 2)
+rotation = -0.195477
+shape = SubResource("CapsuleShape2D_4wie0")
 
 [node name="Collider" parent="Hurtbox" index="0"]
 position = Vector2(-7, 3)
