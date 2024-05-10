@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcvtfkkcuh0mh"]
+
+[ext_resource type="Script" path="res://scripts/boss_door.gd" id="1_88yx4"]
+[ext_resource type="Texture2D" uid="uid://rga8nqe6g5nj" path="res://sprites/boss_door.png" id="2_5pyub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8em6"]
+size = Vector2(8, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwxbs"]
+size = Vector2(10, 32)
+
+[node name="BossDoor" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_88yx4")
+type = 0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -32)
+texture = ExtResource("2_5pyub")
+
+[node name="Trigger" type="CollisionShape2D" parent="."]
+position = Vector2(13, 0)
+shape = SubResource("RectangleShape2D_a8em6")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+collision_mask = 15
+metadata/_edit_group_ = true
+
+[node name="Collider" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("RectangleShape2D_jwxbs")
+disabled = true
+debug_color = Color(0, 0.305882, 0.701961, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
