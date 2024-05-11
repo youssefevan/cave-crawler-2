@@ -11,12 +11,15 @@ var sfx_hit = preload("res://audio/sfx/bullet_hit.ogg")
 func _physics_process(delta):
 	global_position += Vector2(speed * delta, 0).rotated(rotation)
 
-func _on_body_entered(body):
+func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body is TileMap:
-		explode()
+		var cell_pos = body.get_coords_for_body_rid(body_rid)
+		var cell_data = body.get_cell_tile_data(0, cell_pos)
 		
-	#elif body.get_collision_layer_value(2) or body.get_collision_layer_value(3):
-		#call_deferred("queue_free")
+		if cell_data.get_custom_data("does_damage") == true:
+			pass
+		else:
+			explode()
 
 func _on_area_exited(area):
 	if area.get_collision_layer_value(5):
