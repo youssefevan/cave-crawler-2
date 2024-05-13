@@ -176,7 +176,7 @@ position = Vector2(2736, 264)
 position = Vector2(1628, 92)
 
 [node name="Checkpoint2" parent="Pickups" instance=ExtResource("9_yb7f0")]
-position = Vector2(2856, 412)
+position = Vector2(2480, 116)
 
 [node name="Flagpole" parent="Pickups" instance=ExtResource("11_n036p")]
 position = Vector2(3504, 376)
