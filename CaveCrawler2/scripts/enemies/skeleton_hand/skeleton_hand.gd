@@ -13,7 +13,7 @@ class_name SkeletonHand
 
 
 var grab := false
-var jump_velocity := 150.0
+var jump_velocity := 180.0
 
 var player_detected := false
 
@@ -27,7 +27,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * speed_modifier * delta
 	
-	if abs(player.global_position.x - global_position.x) < 32:
+	if abs(player.global_position.x - global_position.x) < 40:
 		player_detected = true
 	
 	move_and_slide()

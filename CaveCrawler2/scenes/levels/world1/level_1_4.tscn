@@ -137,26 +137,26 @@ position = Vector2(1164, 16)
 [node name="Bat5" parent="Enemies" instance=ExtResource("7_rvwc5")]
 position = Vector2(1180, 16)
 
-[node name="Bat6" parent="Enemies" instance=ExtResource("7_rvwc5")]
-position = Vector2(2752, 8)
-
 [node name="Bat8" parent="Enemies" instance=ExtResource("7_rvwc5")]
 position = Vector2(3032, 0)
 
 [node name="Bat10" parent="Enemies" instance=ExtResource("7_rvwc5")]
 position = Vector2(3188, 168)
 
-[node name="Bat11" parent="Enemies" instance=ExtResource("7_rvwc5")]
-position = Vector2(3156, 88)
-
-[node name="Bat7" parent="Enemies" instance=ExtResource("7_rvwc5")]
-position = Vector2(2628, 8)
-
 [node name="Rat" parent="Enemies" instance=ExtResource("9_13lr1")]
 position = Vector2(1424, 96)
 
 [node name="Rat2" parent="Enemies" instance=ExtResource("9_13lr1")]
-position = Vector2(3728, 344)
+position = Vector2(3744, 344)
+
+[node name="Rat4" parent="Enemies" instance=ExtResource("9_13lr1")]
+position = Vector2(3952, 352)
+
+[node name="Rat5" parent="Enemies" instance=ExtResource("9_13lr1")]
+position = Vector2(5688, 632)
+
+[node name="Rat3" parent="Enemies" instance=ExtResource("9_13lr1")]
+position = Vector2(2744, 80)
 
 [node name="Crab" parent="Enemies" instance=ExtResource("11_cwsf0")]
 position = Vector2(5392, 656)
@@ -178,6 +178,15 @@ position = Vector2(5291, 584)
 
 [node name="SkeletonHand5" parent="Enemies" instance=ExtResource("11_x0whm")]
 position = Vector2(5616, 632)
+
+[node name="Crab3" parent="Enemies" instance=ExtResource("11_cwsf0")]
+position = Vector2(2783, 80)
+
+[node name="Crab4" parent="Enemies" instance=ExtResource("11_cwsf0")]
+position = Vector2(2904, 80)
+
+[node name="Crab5" parent="Enemies" instance=ExtResource("11_cwsf0")]
+position = Vector2(4928, 656)
 
 [node name="Checkpoints" type="Node" parent="."]
 

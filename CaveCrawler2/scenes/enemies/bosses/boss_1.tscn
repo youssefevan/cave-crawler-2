@@ -44,7 +44,7 @@ position = Vector2(0, -32)
 
 [node name="VisibleOnScreenEnabler2D" parent="." index="2"]
 position = Vector2(-4.76837e-07, 1.90735e-06)
-scale = Vector2(4, 3.2)
+scale = Vector2(3.2, 3.2)
 
 [node name="Collider" parent="." index="3"]
 shape = SubResource("CircleShape2D_5y5g1")

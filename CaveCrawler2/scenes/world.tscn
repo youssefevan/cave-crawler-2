@@ -99,7 +99,7 @@ floor_max_angle = 0.785398
 floor_snap_length = 1.0
 
 [node name="SkeletonHand" parent="Enemies" instance=ExtResource("8_008sm")]
-position = Vector2(568, 120)
+position = Vector2(249, 127)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
