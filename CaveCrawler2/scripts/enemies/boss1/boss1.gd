@@ -38,10 +38,12 @@ func face_player():
 		$Hitbox.scale.x = 1
 		$Hurtbox.scale.x = 1
 		$Sprite.flip_h = false
+		$Eye.position.x = -16
 	else:
 		$Hitbox.scale.x = -1
 		$Hurtbox.scale.x = -1
 		$Sprite.flip_h = true
+		$Eye.position.x = 16
 
 func get_hurt(hitstun_weight):
 	super.get_hurt(hitstun_weight)

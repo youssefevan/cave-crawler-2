@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://djmayij4alpbc"]
+[gd_scene load_steps=24 format=3 uid="uid://djmayij4alpbc"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_4jgkh"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/boss1.gd" id="2_0l4ph"]
@@ -9,9 +9,104 @@
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="5_ov2j7"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/idle.gd" id="6_3qrkk"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/adjust.gd" id="7_1yt20"]
+[ext_resource type="Texture2D" uid="uid://ca5wg3ayn8iur" path="res://sprites/enemies/boss_eye.png" id="7_bn4dq"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/swoop.gd" id="8_ql2vq"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/slam.gd" id="9_vfhde"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/chase.gd" id="10_b86wr"]
+
+[sub_resource type="Animation" id="Animation_t0ooa"]
+resource_name = "Idle"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eye:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_dli2o"]
+resource_name = "Adjust"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eye:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_1tp2n"]
+resource_name = "Swoop"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eye:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_1c7gn"]
+resource_name = "Chase"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eye:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_hsrtb"]
+resource_name = "Slam"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eye:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 4, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvp6w"]
+_data = {
+"Adjust": SubResource("Animation_dli2o"),
+"Chase": SubResource("Animation_1c7gn"),
+"Idle": SubResource("Animation_t0ooa"),
+"Slam": SubResource("Animation_hsrtb"),
+"Swoop": SubResource("Animation_1tp2n")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5y5g1"]
 radius = 26.0192
@@ -41,6 +136,9 @@ max_health = 200
 position = Vector2(0, -32)
 
 [node name="Animator" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_kvp6w")
+}
 
 [node name="VisibleOnScreenEnabler2D" parent="." index="2"]
 position = Vector2(-4.76837e-07, 1.90735e-06)
@@ -53,6 +151,12 @@ shape = SubResource("CircleShape2D_5y5g1")
 material = SubResource("ShaderMaterial_7rp3d")
 texture = ExtResource("4_dkdxd")
 hframes = 3
+
+[node name="Eye" type="Sprite2D" parent="." index="5"]
+position = Vector2(-16, 2)
+texture = ExtResource("7_bn4dq")
+hframes = 5
+frame = 1
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(-6, 2)
@@ -70,10 +174,9 @@ rotation = -1.76627
 shape = SubResource("CapsuleShape2D_hwiac")
 debug_color = Color(0.701961, 0.427451, 0, 0.419608)
 
-[node name="StateManager" type="Node" parent="." index="7"]
+[node name="StateManager" type="Node" parent="." index="8"]
 script = ExtResource("5_ov2j7")
 starting_state = NodePath("Idle")
-auto_animate = false
 
 [node name="Idle" type="Node" parent="StateManager" index="0"]
 script = ExtResource("6_3qrkk")
