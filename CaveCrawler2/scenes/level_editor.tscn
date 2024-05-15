@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=37 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_f2vqo"]
 [ext_resource type="Script" path="res://scripts/editor/level_editor_camera.gd" id="2_a1c03"]
@@ -58,6 +58,10 @@ region = Rect2(40, 8, 8, 8)
 [sub_resource type="AtlasTexture" id="AtlasTexture_063vg"]
 atlas = SubResource("CompressedTexture2D_plt8p")
 region = Rect2(48, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e38i"]
+atlas = ExtResource("5_56hnm")
+region = Rect2(56, 8, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8iqj"]
 atlas = SubResource("CompressedTexture2D_plt8p")
@@ -315,6 +319,13 @@ script = ExtResource("6_mg418")
 tool_type = 1
 tile_coordinate_x = 6
 
+[node name="SlugCluster" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_8e38i")
+script = ExtResource("6_mg418")
+tool_type = 1
+tile_coordinate_x = 7
+
 [node name="Hazards" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
 layout_mode = 2
@@ -464,7 +475,8 @@ tile_coordinate_x = 3
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/Turret" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/RolyPoly" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/RolyPoly" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/RolyPoly" to="." method="_on_tool_selected"]
-[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/RolyPoly" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/RolyPoly" method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SlugCluster" to="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SlugCluster" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Enemies/ScrollContainer/HBoxContainer/SlugCluster" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Spike" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" method="_on_pressed"]

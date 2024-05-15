@@ -16,6 +16,7 @@ extends Node2D
 @export var slug := Vector2(4, 1)
 @export var turret := Vector2(5, 1)
 @export var roly_poly := Vector2(6, 1)
+@export var slug_cluster := Vector2(7, 1)
 
 # Hazard Coordinates
 @export var spike := Vector2(0, 2)
@@ -45,6 +46,7 @@ var player_scene = Global.player_scene
 @export var slug_scene : PackedScene
 @export var turret_scene : PackedScene
 @export var roly_poly_scene : PackedScene
+@export var slug_cluster_scene : PackedScene
 
 # Hazard scenes
 @export var stalactite_scene : PackedScene
@@ -133,6 +135,8 @@ func build_level():
 				spawn_entity(turret_scene, cell_position)
 			roly_poly:
 				spawn_entity(roly_poly_scene, cell_position)
+			slug_cluster:
+				spawn_entity(slug_cluster_scene, cell_position)
 			stalactite:
 				spawn_entity(stalactite_scene, cell_position)
 			health:

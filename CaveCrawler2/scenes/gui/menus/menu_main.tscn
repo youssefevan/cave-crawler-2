@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dac0e0pa16hb3"]
+[gd_scene load_steps=6 format=3 uid="uid://dac0e0pa16hb3"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_d0ld2"]
 [ext_resource type="Script" path="res://scripts/gui/menus/menu_main.gd" id="2_0p0fq"]
 [ext_resource type="Script" path="res://scripts/gui/interactable_gui.gd" id="3_lk6dm"]
+[ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/backgrounds/bg.png" id="4_d5lht"]
+[ext_resource type="Texture2D" uid="uid://bwe3d466qla7t" path="res://sprites/title.png" id="4_svttn"]
 
 [node name="MenuMain" type="Control"]
 layout_mode = 3
@@ -14,28 +16,44 @@ grow_vertical = 2
 theme = ExtResource("1_d0ld2")
 script = ExtResource("2_0p0fq")
 
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 256.0
-offset_bottom = 144.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
+[node name="BG1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(128, 72)
+texture = ExtResource("4_d5lht")
 
-[node name="Title" type="Label" parent="."]
+[node name="BG2" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(128, 72)
+rotation = -3.14159
+texture = ExtResource("4_d5lht")
+
+[node name="Logo" type="Button" parent="."]
 layout_mode = 0
-offset_top = 24.0
-offset_right = 256.0
-offset_bottom = 35.0
-text = "Cave Crawler 2"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 115.0
+offset_top = 8.0
+offset_right = 142.0
+offset_bottom = 18.0
+text = "Logo"
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(128, 43)
+texture = ExtResource("4_svttn")
+hframes = 2
+vframes = 2
 
 [node name="Buttons" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 76.0
-offset_right = 80.0
-offset_bottom = 128.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Play" type="Button" parent="Buttons"]
 layout_mode = 2
@@ -73,6 +91,7 @@ grow_vertical = 0
 text = "1.0a"
 horizontal_alignment = 2
 
+[connection signal="pressed" from="Logo" to="." method="_on_logo_pressed"]
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Buttons/Editor" to="." method="_on_editor_pressed"]
 [connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]

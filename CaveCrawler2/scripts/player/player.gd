@@ -234,7 +234,7 @@ func hit_flash() -> void:
 func die() -> void:
 	if OptionsHandler.particles_enabled == true:
 		var particles = particles_death.instantiate()
-		get_tree().get_root().add_child(particles)
+		get_parent().add_child(particles)
 		particles.position = global_position
 	
 	can_get_hurt = false

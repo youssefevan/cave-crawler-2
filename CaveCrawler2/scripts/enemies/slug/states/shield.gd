@@ -10,6 +10,8 @@ func enter():
 	end = true
 
 func physics_update(delta):
+	entity.apply_friction(delta)
+	
 	if end == true:
 		return entity.idle
 	

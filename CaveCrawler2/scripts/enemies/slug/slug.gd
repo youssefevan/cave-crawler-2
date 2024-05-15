@@ -30,7 +30,6 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	states.physics_update(delta)
 	apply_gravity(delta)
-	apply_friction(delta)
 	
 	if velocity.x > 0:
 		$Sprite.flip_h = true

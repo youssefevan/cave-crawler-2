@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://c272xrhclf508" path="res://scenes/particles/blood_2.tscn" id="4_okihp"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="5_ov2j7"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/idle.gd" id="6_3qrkk"]
-[ext_resource type="Texture2D" uid="uid://mjyo33glbnbe" path="res://sprites/circle.png" id="6_yo4ju"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/adjust.gd" id="7_1yt20"]
 [ext_resource type="Texture2D" uid="uid://ca5wg3ayn8iur" path="res://sprites/enemies/boss_eye.png" id="7_bn4dq"]
+[ext_resource type="Texture2D" uid="uid://bmw17bdkl0kls" path="res://sprites/enemies/boss_outline.png" id="7_smv13"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/swoop.gd" id="8_ql2vq"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/slam.gd" id="9_vfhde"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/chase.gd" id="10_b86wr"]
@@ -143,7 +143,7 @@ libraries = {
 
 [node name="VisibleOnScreenEnabler2D" parent="." index="2"]
 position = Vector2(-4.76837e-07, 1.90735e-06)
-scale = Vector2(3.2, 3.2)
+scale = Vector2(8, 3.2)
 
 [node name="Collider" parent="." index="3"]
 shape = SubResource("CircleShape2D_5y5g1")
@@ -154,8 +154,7 @@ hframes = 3
 
 [node name="Sprite" parent="." index="5"]
 material = SubResource("ShaderMaterial_7rp3d")
-position = Vector2(12, -16)
-texture = ExtResource("6_yo4ju")
+texture = ExtResource("7_smv13")
 
 [node name="Eye" type="Sprite2D" parent="." index="6"]
 position = Vector2(-16, 2)

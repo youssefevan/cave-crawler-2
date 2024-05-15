@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cmahsj0x7tsud"]
+[gd_scene load_steps=19 format=3 uid="uid://cmahsj0x7tsud"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_pryh1"]
 [ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/backgrounds/bg.png" id="2_jssfd"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://yc224h5ox2cb" path="res://sprites/background_details/minecart.png" id="8_gt52u"]
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="9_1qr2k"]
 [ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="9_13lr1"]
-[ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="10_khqh8"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="11_cwsf0"]
 [ext_resource type="PackedScene" uid="uid://bf7qonhrj13f0" path="res://scenes/enemies/skeleton_hand.tscn" id="11_x0whm"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="12_30an1"]
@@ -354,15 +353,6 @@ next_level = ExtResource("14_875yr")
 [node name="Machine" type="Sprite2D" parent="."]
 position = Vector2(1840, 32)
 texture = ExtResource("15_bijwm")
-
-[node name="Label4" type="Label" parent="."]
-offset_left = 1892.0
-offset_top = 62.0
-offset_right = 1965.0
-offset_bottom = 81.0
-theme = ExtResource("10_khqh8")
-text = "add detructable
-blocks here"
 
 [node name="Player" parent="." instance=ExtResource("6_6xli3")]
 position = Vector2(40, 112)

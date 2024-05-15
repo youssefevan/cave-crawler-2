@@ -23,3 +23,10 @@ func _on_options_pressed():
 	Global.entering_sub_menu()
 	var o = Global.options_scene.instantiate()
 	get_tree().get_root().add_child(o)
+
+
+func _on_logo_pressed():
+	if $Title.frame < 2:
+		$Title.frame += 1
+	else:
+		$Title.frame = 0
