@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmi8pdawdrjo3"
-path="res://.godot/imported/bone1.png-46615f8ccfbd74f6fbbc4c0c3bd3886c.ctex"
+uid="uid://yc224h5ox2cb"
+path="res://.godot/imported/minecart.png-bd02d7352b60cee1948fc41d445f50c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bone1.png"
-dest_files=["res://.godot/imported/bone1.png-46615f8ccfbd74f6fbbc4c0c3bd3886c.ctex"]
+source_file="res://sprites/background_details/minecart.png"
+dest_files=["res://.godot/imported/minecart.png-bd02d7352b60cee1948fc41d445f50c7.ctex"]
 
 [params]
 

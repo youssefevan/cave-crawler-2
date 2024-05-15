@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pb6r7vo857w4"
-path="res://.godot/imported/chain.png-06a7926744d5e9222f7c0dcb6c6ae43f.ctex"
+uid="uid://bpb6xy6nwqqai"
+path="res://.godot/imported/barricade.png-03425ddb0a77f28cf9cfe4fa92115454.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/chain.png"
-dest_files=["res://.godot/imported/chain.png-06a7926744d5e9222f7c0dcb6c6ae43f.ctex"]
+source_file="res://sprites/background_details/barricade.png"
+dest_files=["res://.godot/imported/barricade.png-03425ddb0a77f28cf9cfe4fa92115454.ctex"]
 
 [params]
 
