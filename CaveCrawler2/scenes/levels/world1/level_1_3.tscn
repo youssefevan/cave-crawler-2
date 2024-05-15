@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bi4cxx2hhneqj"]
+[gd_scene load_steps=17 format=3 uid="uid://bi4cxx2hhneqj"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_ca5ad"]
 [ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/backgrounds/bg.png" id="2_bjipa"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="6_sk7q1"]
 [ext_resource type="Texture2D" uid="uid://yc224h5ox2cb" path="res://sprites/background_details/minecart.png" id="7_4l66d"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="7_ff0ta"]
+[ext_resource type="Texture2D" uid="uid://c0e0ci47gkbq2" path="res://sprites/background_details/crystal1.png" id="8_uj43o"]
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="9_yb7f0"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="11_n036p"]
 [ext_resource type="PackedScene" uid="uid://cmahsj0x7tsud" path="res://scenes/levels/world1/level_1_4.tscn" id="12_vim6b"]
@@ -78,6 +79,88 @@ position = Vector2(2588, 128)
 texture = ExtResource("7_4l66d")
 hframes = 2
 frame = 1
+
+[node name="Minecart2" type="Sprite2D" parent="BGSprites"]
+position = Vector2(2554, 248)
+texture = ExtResource("7_4l66d")
+hframes = 2
+
+[node name="Minecart3" type="Sprite2D" parent="BGSprites"]
+position = Vector2(2704, 352)
+texture = ExtResource("7_4l66d")
+hframes = 2
+
+[node name="Minecart4" type="Sprite2D" parent="BGSprites"]
+position = Vector2(2720, 352)
+texture = ExtResource("7_4l66d")
+hframes = 2
+frame = 1
+
+[node name="Crystal" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(304, 48)
+scale = Vector2(1, -1)
+texture = ExtResource("8_uj43o")
+hframes = 2
+vframes = 2
+
+[node name="Crystal2" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(520, 32)
+scale = Vector2(1, -1)
+texture = ExtResource("8_uj43o")
+hframes = 2
+vframes = 2
+frame = 3
+
+[node name="Crystal3" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(1184, 96)
+texture = ExtResource("8_uj43o")
+hframes = 2
+vframes = 2
+
+[node name="Crystal4" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(1320, 48)
+scale = Vector2(1, -1)
+texture = ExtResource("8_uj43o")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Crystal5" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(1888, 64)
+scale = Vector2(1, -1)
+texture = ExtResource("8_uj43o")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Crystal7" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(2560, 64)
+scale = Vector2(1, -1)
+texture = ExtResource("8_uj43o")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Crystal8" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(2824, 352)
+scale = Vector2(1, -1)
+texture = ExtResource("8_uj43o")
+hframes = 2
+vframes = 2
+
+[node name="Crystal6" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(2128, 144)
+texture = ExtResource("8_uj43o")
+hframes = 2
+vframes = 2
 
 [node name="Hazards" type="Node" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bw4glxewqp7ky"]
+[gd_scene load_steps=22 format=3 uid="uid://bw4glxewqp7ky"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_m2gn4"]
 [ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/backgrounds/bg.png" id="2_xa6y4"]
@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bf7qonhrj13f0" path="res://scenes/enemies/skeleton_hand.tscn" id="8_ggtth"]
 [ext_resource type="PackedScene" uid="uid://dcvtfkkcuh0mh" path="res://scenes/boss_door.tscn" id="8_gtusv"]
 [ext_resource type="Texture2D" uid="uid://cmiryxlloc6bo" path="res://sprites/background_details/chain2.png" id="8_lm867"]
+[ext_resource type="Texture2D" uid="uid://yc224h5ox2cb" path="res://sprites/background_details/minecart.png" id="9_fp4p4"]
 [ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="10_6strr"]
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="11_5kma0"]
+[ext_resource type="Texture2D" uid="uid://c0e0ci47gkbq2" path="res://sprites/background_details/crystal1.png" id="11_dufkv"]
 [ext_resource type="PackedScene" uid="uid://bdqqv88177tgm" path="res://scenes/enemies/bat.tscn" id="11_rkyjg"]
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="13_c5qum"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="13_hboso"]
@@ -98,103 +100,214 @@ boss = NodePath("../Boss1")
 
 [node name="BGSprites" type="Node" parent="."]
 
-[node name="Sprite2D4" type="Sprite2D" parent="BGSprites"]
+[node name="Chains" type="Node" parent="BGSprites"]
+
+[node name="Chain" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2389, 860)
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D9" type="Sprite2D" parent="BGSprites"]
+[node name="Chain2" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2433, 816)
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D6" type="Sprite2D" parent="BGSprites"]
+[node name="Chain3" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2282, 900)
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D7" type="Sprite2D" parent="BGSprites"]
+[node name="Chain4" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2327, 912)
 scale = Vector2(1, -1)
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D10" type="Sprite2D" parent="BGSprites"]
+[node name="Chain5" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2371, 956)
 scale = Vector2(1, -1)
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D11" type="Sprite2D" parent="BGSprites"]
+[node name="Chain6" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2415, 1000)
 scale = Vector2(1, -1)
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D16" type="Sprite2D" parent="BGSprites"]
+[node name="Chain7" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2371, 1046)
 scale = Vector2(1, -1)
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D12" type="Sprite2D" parent="BGSprites"]
+[node name="Chain8" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2460, 988)
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D13" type="Sprite2D" parent="BGSprites"]
+[node name="Chain9" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2361, 1001)
-scale = Vector2(-1, -1)
+rotation = -3.14159
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D18" type="Sprite2D" parent="BGSprites"]
+[node name="Chain10" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2273, 1089)
-scale = Vector2(-1, -1)
+rotation = -3.14159
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D19" type="Sprite2D" parent="BGSprites"]
+[node name="Chain11" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2229, 1133)
-scale = Vector2(-1, -1)
+rotation = -3.14159
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D14" type="Sprite2D" parent="BGSprites"]
+[node name="Chain12" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2317, 1045)
-scale = Vector2(-1, -1)
+rotation = -3.14159
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D15" type="Sprite2D" parent="BGSprites"]
+[node name="Chain13" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2317, 956)
-scale = Vector2(-1, -1)
+rotation = -3.14159
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D8" type="Sprite2D" parent="BGSprites"]
+[node name="Chain14" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2379, 905)
-scale = Vector2(-1, 1)
+rotation = -3.14159
+scale = Vector2(1, -1)
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D20" type="Sprite2D" parent="BGSprites"]
+[node name="Chain15" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2272, 1033)
-scale = Vector2(-1, 1)
+rotation = -3.14159
+scale = Vector2(1, -1)
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D17" type="Sprite2D" parent="BGSprites"]
+[node name="Chain16" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2379, 815)
-scale = Vector2(-1, 1)
+rotation = -3.14159
+scale = Vector2(1, -1)
 texture = ExtResource("8_lm867")
 
-[node name="Sprite2D5" type="Sprite2D" parent="BGSprites"]
+[node name="Chain17" type="Sprite2D" parent="BGSprites/Chains"]
 z_index = -1
 position = Vector2(2423, 950)
-scale = Vector2(-1, 1)
+rotation = -3.14159
+scale = Vector2(1, -1)
 texture = ExtResource("8_lm867")
+
+[node name="Minecart" type="Sprite2D" parent="BGSprites"]
+z_index = -1
+position = Vector2(1800, 112)
+texture = ExtResource("9_fp4p4")
+hframes = 2
+frame = 1
+
+[node name="Minecart2" type="Sprite2D" parent="BGSprites"]
+z_index = -1
+position = Vector2(1752, 240)
+texture = ExtResource("9_fp4p4")
+hframes = 2
+frame = 1
+
+[node name="Minecart3" type="Sprite2D" parent="BGSprites"]
+z_index = -1
+position = Vector2(1912, 264)
+texture = ExtResource("9_fp4p4")
+hframes = 2
+
+[node name="Minecart4" type="Sprite2D" parent="BGSprites"]
+z_index = -1
+position = Vector2(1864, 440)
+texture = ExtResource("9_fp4p4")
+hframes = 2
+
+[node name="Minecart5" type="Sprite2D" parent="BGSprites"]
+z_index = -1
+position = Vector2(1880, 440)
+texture = ExtResource("9_fp4p4")
+hframes = 2
+
+[node name="Minecart6" type="Sprite2D" parent="BGSprites"]
+z_index = -1
+position = Vector2(2432, 448)
+texture = ExtResource("9_fp4p4")
+hframes = 2
+frame = 1
+
+[node name="Sign" type="Sprite2D" parent="BGSprites"]
+z_index = -1
+position = Vector2(2405, 448)
+texture = ExtResource("19_5f8ey")
+
+[node name="Crystal" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(208, 104)
+texture = ExtResource("11_dufkv")
+hframes = 2
+vframes = 2
+
+[node name="Crystal2" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(601, 104)
+texture = ExtResource("11_dufkv")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Crystal3" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(984, 104)
+texture = ExtResource("11_dufkv")
+hframes = 2
+vframes = 2
+frame = 3
+
+[node name="Crystal4" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(1552, 72)
+scale = Vector2(1, -1)
+texture = ExtResource("11_dufkv")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Crystal5" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(2344, 583)
+rotation = 1.5708
+texture = ExtResource("11_dufkv")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Crystal6" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(2368, 631)
+rotation = 1.5708
+scale = Vector2(1, -1)
+texture = ExtResource("11_dufkv")
+hframes = 2
+vframes = 2
+frame = 3
+
+[node name="Crystal7" type="Sprite2D" parent="BGSprites"]
+z_index = -2
+position = Vector2(2312, 760)
+rotation = -1.5708
+scale = Vector2(-1, -1)
+texture = ExtResource("11_dufkv")
+hframes = 2
+vframes = 2
+frame = 1
 
 [node name="Hazards" type="Node" parent="."]
 
@@ -245,7 +358,7 @@ position = Vector2(800, 120)
 [node name="Pickups" type="Node" parent="."]
 
 [node name="Health" parent="Pickups" instance=ExtResource("11_5kma0")]
-position = Vector2(1792, 112)
+position = Vector2(1784, 112)
 
 [node name="Health2" parent="Pickups" instance=ExtResource("11_5kma0")]
 position = Vector2(2304, 1096)
@@ -262,8 +375,3 @@ next_level = ExtResource("17_nsjmm")
 
 [node name="Player" parent="." instance=ExtResource("5_pfi3k")]
 position = Vector2(32, 112)
-
-[node name="Sign" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(2405, 448)
-texture = ExtResource("19_5f8ey")
