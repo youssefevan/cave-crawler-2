@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://djmayij4alpbc"]
+[gd_scene load_steps=25 format=3 uid="uid://djmayij4alpbc"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_4jgkh"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/boss1.gd" id="2_0l4ph"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c272xrhclf508" path="res://scenes/particles/blood_2.tscn" id="4_okihp"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="5_ov2j7"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/idle.gd" id="6_3qrkk"]
+[ext_resource type="Texture2D" uid="uid://mjyo33glbnbe" path="res://sprites/circle.png" id="6_yo4ju"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/adjust.gd" id="7_1yt20"]
 [ext_resource type="Texture2D" uid="uid://ca5wg3ayn8iur" path="res://sprites/enemies/boss_eye.png" id="7_bn4dq"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/swoop.gd" id="8_ql2vq"]
@@ -147,12 +148,16 @@ scale = Vector2(3.2, 3.2)
 [node name="Collider" parent="." index="3"]
 shape = SubResource("CircleShape2D_5y5g1")
 
-[node name="Sprite" parent="." index="4"]
-material = SubResource("ShaderMaterial_7rp3d")
+[node name="Skull" type="Sprite2D" parent="." index="4"]
 texture = ExtResource("4_dkdxd")
 hframes = 3
 
-[node name="Eye" type="Sprite2D" parent="." index="5"]
+[node name="Sprite" parent="." index="5"]
+material = SubResource("ShaderMaterial_7rp3d")
+position = Vector2(12, -16)
+texture = ExtResource("6_yo4ju")
+
+[node name="Eye" type="Sprite2D" parent="." index="6"]
 position = Vector2(-16, 2)
 texture = ExtResource("7_bn4dq")
 hframes = 5
@@ -174,7 +179,7 @@ rotation = -1.76627
 shape = SubResource("CapsuleShape2D_hwiac")
 debug_color = Color(0.701961, 0.427451, 0, 0.419608)
 
-[node name="StateManager" type="Node" parent="." index="8"]
+[node name="StateManager" type="Node" parent="." index="9"]
 script = ExtResource("5_ov2j7")
 starting_state = NodePath("Idle")
 

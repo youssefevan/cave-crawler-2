@@ -22,7 +22,7 @@ var phase := 0
 func _ready():
 	super._ready()
 	reset_position = global_position
-	$Sprite.frame = 0
+	$Skull.frame = 0
 	phase = 0
 	states.init(self)
 
@@ -37,24 +37,26 @@ func face_player():
 	if (global_position.x - player.global_position.x) > 0:
 		$Hitbox.scale.x = 1
 		$Hurtbox.scale.x = 1
-		$Sprite.flip_h = false
+		$Skull.flip_h = false
 		$Eye.position.x = -16
+		$Sprite.position.x = 16
 	else:
 		$Hitbox.scale.x = -1
 		$Hurtbox.scale.x = -1
-		$Sprite.flip_h = true
+		$Skull.flip_h = true
 		$Eye.position.x = 16
+		$Sprite.position.x = -16
 
 func get_hurt(hitstun_weight):
 	super.get_hurt(hitstun_weight)
 	
 	if current_health == snapped(.66 * max_health, 1):
-		$Sprite.frame = 1
+		$Skull.frame = 1
 		var blood1 = blood_particles1.instantiate()
 		add_child(blood1)
 		blood1.position = $PartclesSpawnPosition.position
 	elif current_health == snapped(.33 * max_health, 1):
-		$Sprite.frame = 2
+		$Skull.frame = 2
 		var blood2 = blood_particles2.instantiate()
 		add_child(blood2)
 		blood2.position = $PartclesSpawnPosition.position
