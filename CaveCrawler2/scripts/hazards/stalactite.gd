@@ -11,6 +11,9 @@ func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(delta):
+	if player == null:
+		player = get_tree().get_first_node_in_group("Player")
+	
 	if fall == true:
 		velocity.y += gravity * delta
 		
