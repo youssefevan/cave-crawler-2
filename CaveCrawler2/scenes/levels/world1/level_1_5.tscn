@@ -263,7 +263,7 @@ next_level = ExtResource("17_nsjmm")
 [node name="Player" parent="." instance=ExtResource("5_pfi3k")]
 position = Vector2(32, 112)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sign" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(2405, 448)
 texture = ExtResource("17_wiamd")

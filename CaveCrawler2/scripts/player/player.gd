@@ -186,6 +186,7 @@ func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shap
 		if cell_data.get_custom_data("killzone") == true:
 			health = 0
 			die()
+			
 		elif cell_data.get_custom_data("does_damage") == true:
 			get_hurt()
 			
@@ -217,7 +218,7 @@ func get_hurt() -> void:
 				set_physics_process(true)
 			
 			hit_flash()
-			$Hurtbox/Collider.disabled = true
+			#$Hurtbox/Collider.disabled = true
 			await get_tree().create_timer(invincibility_length, false).timeout
 			can_get_hurt = true
 			$Hurtbox/Collider.disabled = false
@@ -239,6 +240,8 @@ func die() -> void:
 	can_get_hurt = false
 	set_physics_process(false)
 	visible = false
+	
+	await get_tree().create_timer(1).timeout
 	
 	$GUI/MenuDeath.visible = true
 	if OptionsHandler.cursor_visible == false:

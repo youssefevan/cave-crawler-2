@@ -217,9 +217,8 @@ shader_parameter/Tint = Color(1, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkv2b"]
 size = Vector2(4, 7)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ucujg"]
-radius = 2.0
-height = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2533"]
+size = Vector2(4, 7)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 material = SubResource("ShaderMaterial_xhmht")
@@ -298,8 +297,8 @@ position = Vector2(8, 0)
 [node name="Hurtbox" parent="." groups=["Player"] instance=ExtResource("9_i5i06")]
 
 [node name="Collider" parent="Hurtbox" index="0"]
-position = Vector2(0, -3)
-shape = SubResource("CapsuleShape2D_ucujg")
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_m2533")
 
 [node name="StateManager" type="Node" parent="."]
 script = ExtResource("3_fwq1u")
