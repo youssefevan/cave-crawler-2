@@ -19,7 +19,6 @@ var bounce_force := 400.0
 var deceleration := 8.0
 
 var got_hit := false
-@export var shield_state : State
 
 func _ready():
 	super._ready()
@@ -57,6 +56,7 @@ func _on_hurtbox_area_entered(area):
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Player"):
-		if states.current_state == shield_state:
+		print(states.current_state)
+		if states.current_state == shield:
 			area.get_parent().enter_bounce(bounce_force)
 

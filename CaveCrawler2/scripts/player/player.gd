@@ -109,6 +109,11 @@ func handle_input() -> void:
 			gun.rotation_degrees = -90
 		else:
 			gun.rotation_degrees = 90
+	elif Input.is_action_pressed("drop_through"):
+		if $Sprite.flip_h == false:
+			gun.rotation_degrees = 90
+		else:
+			gun.rotation_degrees = -90
 	else:
 		gun.rotation_degrees = 0
 
@@ -173,8 +178,8 @@ func shoot() -> void:
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Enemy") or area.is_in_group("Hazard"):
 		# Make sure player doesn't get hurt by the slug when its in the shield state (bounce mode thing)
-		if area.get_parent() is Slug and area.get_parent().states.current_state == area.get_parent().shield_state:
-			area.get_parent().states.change_state(area.get_parent().shield_state)
+		if area.get_parent() is Slug and area.get_parent().states.current_state == area.get_parent().shield:
+			area.get_parent().states.change_state(area.get_parent().shield)
 		else:
 			get_hurt()
 
