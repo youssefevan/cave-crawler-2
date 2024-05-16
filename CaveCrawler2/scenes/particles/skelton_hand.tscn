@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://jvgai8n0qun0"]
+
+[ext_resource type="Script" path="res://scripts/particles.gd" id="1_bf0fb"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uab1l"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(6, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color = Color(1, 0, 0, 1)
+
+[node name="SkeltonHand" type="GPUParticles2D"]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_uab1l")
+lifetime = 0.3
+one_shot = true
+script = ExtResource("1_bf0fb")

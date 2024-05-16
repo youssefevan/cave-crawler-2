@@ -1,6 +1,9 @@
 extends Enemy
 class_name Boss1
 
+var sfx_phase = preload("res://audio/sfx/boss1_hurt.ogg")
+var sfx_die = preload("res://audio/sfx/boss_death.ogg")
+
 var speed := 200.0
 var movement_direction : Vector2
 
@@ -18,6 +21,9 @@ var movement_direction : Vector2
 
 var reset_position : Vector2
 var phase := 0
+
+var last_attack := -1
+var same_attack := 0
 
 func _ready():
 	super._ready()
@@ -52,6 +58,7 @@ func get_hurt(hitstun_weight):
 	
 	if current_health == snapped(.66 * max_health, 1):
 		$Skull.frame = 1
+		AudioHandler.play_sfx(sfx_phase)
 		var blood1 = blood_particles1.instantiate()
 		add_child(blood1)
 		blood1.position = $PartclesSpawnPosition.position
@@ -60,3 +67,7 @@ func get_hurt(hitstun_weight):
 		var blood2 = blood_particles2.instantiate()
 		add_child(blood2)
 		blood2.position = $PartclesSpawnPosition.position
+
+func die():
+	AudioHandler.play_sfx(sfx_die)
+	super.die()

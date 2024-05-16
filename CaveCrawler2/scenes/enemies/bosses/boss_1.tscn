@@ -131,7 +131,7 @@ collision_mask = 1
 script = ExtResource("2_0l4ph")
 blood_particles1 = ExtResource("3_ohh10")
 blood_particles2 = ExtResource("4_okihp")
-max_health = 200
+max_health = 150
 
 [node name="PartclesSpawnPosition" type="Node2D" parent="." index="0"]
 position = Vector2(0, -32)
