@@ -55,7 +55,7 @@ func load_level():
 		$Main/FileTypeError.visible = true
 
 func _on_new_pressed():
-	OptionsHandler.show_cursor()
+	OptionsHandler.set_cursor(true)
 	save_dialog.visible = true
 	file_dialog.visible = false
 
