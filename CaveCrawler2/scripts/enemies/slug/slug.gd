@@ -10,12 +10,12 @@ class_name Slug
 
 @onready var shield_timer = $ShieldTimer
 
-var speed := 100.0
+var speed := 80.0
 var move_direction := -1
 var inch_time := 0.4 # in seconds
 var shield_time := 3.0 # in seconds
 
-var bounce_force := 400.0
+var bounce_force := 800.0
 var deceleration := 8.0
 
 var got_hit := false

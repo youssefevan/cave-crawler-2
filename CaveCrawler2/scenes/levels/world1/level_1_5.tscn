@@ -374,4 +374,4 @@ position = Vector2(3368, 1080)
 next_level = ExtResource("17_nsjmm")
 
 [node name="Player" parent="." instance=ExtResource("5_pfi3k")]
-position = Vector2(2405, 1071)
+position = Vector2(32, 112)

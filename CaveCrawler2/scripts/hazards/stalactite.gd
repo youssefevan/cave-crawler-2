@@ -29,7 +29,7 @@ func _physics_process(delta):
 	if frame == 1:
 		telegraph()
 	
-	if abs(player.global_position.x - global_position.x) < 64:
+	if abs(player.global_position.x - global_position.x) < 96:
 		frame += 1
 	
 	if abs(player.global_position.x - global_position.x) < 40:
