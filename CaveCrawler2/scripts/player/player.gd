@@ -120,11 +120,11 @@ func handle_input() -> void:
 func apply_movement(delta) -> void:
 	if is_on_floor():
 		if get_floor_normal() != Vector2(0, -1):
-			speed = slope_speed * speed_modifier
+			speed = slope_speed #* speed_modifier
 		else:
-			speed = normal_speed * speed_modifier
+			speed = normal_speed #* speed_modifier
 	else:
-		speed = normal_speed * speed_modifier
+		speed = normal_speed #* speed_modifier
 	
 	if movement_input != 0:
 		var acceleration

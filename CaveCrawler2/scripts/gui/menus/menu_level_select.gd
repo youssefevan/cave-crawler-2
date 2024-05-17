@@ -6,6 +6,8 @@ var level_1_3 = load("res://scenes/levels/world1/level_1_3.tscn")
 var level_1_4 = load("res://scenes/levels/world1/level_1_4.tscn")
 var level_1_5 = load("res://scenes/levels/world1/level_1_5.tscn")
 
+var level_2_1 = load("res://scenes/levels/world2/level_2_1.tscn")
+
 func _ready():
 	if OptionsHandler.cursor_visible == false:
 		$Worlds/World1/World1Btn.grab_focus()
@@ -34,3 +36,8 @@ func _on_1_4_pressed():
 
 func _on_1_5_pressed():
 	get_tree().change_scene_to_packed(level_1_5)
+
+
+
+func _on_2_1_pressed():
+	get_tree().change_scene_to_packed(level_2_1)

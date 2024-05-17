@@ -21,7 +21,7 @@ func physics_update(delta):
 func apply_gravity(delta):
 		entity.velocity.y = clampf(
 			entity.velocity.y,
-			-entity.max_fall_speed * entity.speed_modifier,
-			entity.max_fall_speed * entity.speed_modifier
+			-entity.max_fall_speed,
+			entity.max_fall_speed
 		)
-		entity.velocity.y += entity.gravity_down * entity.speed_modifier * delta
+		entity.velocity.y += entity.gravity_down * delta

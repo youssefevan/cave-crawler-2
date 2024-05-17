@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvk2o5ljywjt"]
+
+[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="1_1br4s"]
+[ext_resource type="Texture2D" uid="uid://cidncnv0r7soy" path="res://sprites/moving_platform.png" id="1_elj6x"]
+[ext_resource type="Texture2D" uid="uid://mjyo33glbnbe" path="res://sprites/circle.png" id="2_mgvrw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7gms"]
+size = Vector2(32, 4)
+
+[node name="MovingPlatform" type="CharacterBody2D"]
+collision_layer = 512
+collision_mask = 134
+motion_mode = 1
+safe_margin = 0.02
+script = ExtResource("1_1br4s")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_elj6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i7gms")
+one_way_collision = true
+
+[node name="Endpoint" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Endpoint"]
+position = Vector2(-1.60933e-06, -8.9407e-08)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_mgvrw")
+
+[connection signal="tween_complete" from="." to="." method="_on_tween_complete"]
