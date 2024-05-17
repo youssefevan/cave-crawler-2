@@ -10,8 +10,6 @@ size = Vector2(32, 4)
 [node name="MovingPlatform" type="CharacterBody2D"]
 collision_layer = 512
 collision_mask = 134
-motion_mode = 1
-safe_margin = 0.02
 script = ExtResource("1_1br4s")
 
 [node name="Sprite" type="Sprite2D" parent="."]

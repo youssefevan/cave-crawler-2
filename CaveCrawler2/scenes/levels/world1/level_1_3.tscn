@@ -75,13 +75,13 @@ position = Vector2(984, 56)
 texture = ExtResource("6_4v88k")
 
 [node name="Minecart" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2588, 128)
+position = Vector2(2552, 248)
 texture = ExtResource("7_4l66d")
 hframes = 2
 frame = 1
 
 [node name="Minecart2" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2554, 248)
+position = Vector2(2592, 128)
 texture = ExtResource("7_4l66d")
 hframes = 2
 

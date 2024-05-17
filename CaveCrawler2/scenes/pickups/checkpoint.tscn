@@ -5,16 +5,17 @@
 [ext_resource type="Script" path="res://scripts/pickups/checkpoint.gd" id="2_hhoq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63ugg"]
-size = Vector2(8, 9)
+size = Vector2(10, 14)
 
 [node name="Checkpoint" instance=ExtResource("1_d80ow")]
 position = Vector2(0, 4)
 script = ExtResource("2_hhoq8")
 
 [node name="Sprite" parent="." index="0"]
+position = Vector2(0, -4)
 texture = ExtResource("2_1dowr")
 hframes = 2
 
 [node name="Collider" parent="Area" index="0"]
-position = Vector2(0, -0.5)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_63ugg")
