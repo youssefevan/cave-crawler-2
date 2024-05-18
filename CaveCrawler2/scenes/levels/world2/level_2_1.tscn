@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_kwe8n"]
 [ext_resource type="Texture2D" uid="uid://gm0sv8ckdfbq" path="res://sprites/backgrounds/bg3.png" id="2_5nheq"]
-[ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="3_0h1bm"]
-[ext_resource type="PackedScene" uid="uid://ciebte6qaf4gn" path="res://scenes/background_tiles.tscn" id="4_gwlbi"]
+[ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tilemaps/tile_map.tscn" id="3_0h1bm"]
+[ext_resource type="PackedScene" uid="uid://ciebte6qaf4gn" path="res://scenes/tilemaps/background_tiles.tscn" id="4_gwlbi"]
 [ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/engine/camera_room.tscn" id="5_svtg4"]
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="5_xinbm"]
 [ext_resource type="PackedScene" uid="uid://cbne2o42871na" path="res://scenes/hazards/stalactite.tscn" id="7_r2481"]
@@ -66,39 +66,51 @@ position = Vector2(40, 88)
 
 [node name="Slug" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(328, 120)
+collision_mask = 513
 
 [node name="Slug2" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(1048, 120)
+collision_mask = 513
 
 [node name="Slug3" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(1304, 104)
+collision_mask = 513
 
 [node name="Slug4" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(1648, 120)
+collision_mask = 513
 
 [node name="Slug5" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(1736, 72)
+collision_mask = 513
 
 [node name="Slug6" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(2336, -48)
+collision_mask = 513
 
 [node name="Slug7" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(2592, -40)
+collision_mask = 513
 
 [node name="Slug9" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(2672, -40)
+collision_mask = 513
 
 [node name="Slug8" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(2616, -80)
+collision_mask = 513
 
 [node name="Rat" parent="Enemies" instance=ExtResource("8_vr2a5")]
 position = Vector2(792, 104)
+collision_mask = 513
 
 [node name="Crab" parent="Enemies" instance=ExtResource("9_g7yid")]
 position = Vector2(2208, -48)
+collision_mask = 513
 
 [node name="Crab2" parent="Enemies" instance=ExtResource("9_g7yid")]
 position = Vector2(2240, -80)
+collision_mask = 513
 
 [node name="Hazards" type="Node" parent="."]
 

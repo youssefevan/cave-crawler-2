@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://bdwtpmwatgytk"]
 
 [ext_resource type="Script" path="res://scripts/editor/custom_level_loader.gd" id="1_m6kmy"]
-[ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="1_o6b1y"]
+[ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tilemaps/tile_map.tscn" id="1_o6b1y"]
 [ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="3_r8tj7"]
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="4_r6um7"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="4_umlyi"]

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_jf4sl"]
 [ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/backgrounds/bg.png" id="2_8kisc"]
-[ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tile_map.tscn" id="3_jg8kg"]
-[ext_resource type="PackedScene" uid="uid://ciebte6qaf4gn" path="res://scenes/background_tiles.tscn" id="4_6wyl7"]
+[ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tilemaps/tile_map.tscn" id="3_jg8kg"]
+[ext_resource type="PackedScene" uid="uid://ciebte6qaf4gn" path="res://scenes/tilemaps/background_tiles.tscn" id="4_6wyl7"]
 [ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/engine/camera_room.tscn" id="4_iq6qv"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="5_6yp0m"]
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="5_q0nnt"]

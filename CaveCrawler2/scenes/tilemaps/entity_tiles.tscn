@@ -1,0 +1,37 @@
+[gd_scene load_steps=13 format=3 uid="uid://bt8ib1upj3ure"]
+
+[ext_resource type="PackedScene" uid="uid://bdqqv88177tgm" path="res://scenes/enemies/bat.tscn" id="1_hlr3o"]
+[ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="2_h6o4b"]
+[ext_resource type="PackedScene" uid="uid://bqdrntg643p4m" path="res://scenes/enemies/rat.tscn" id="3_nsd63"]
+[ext_resource type="PackedScene" uid="uid://bpks5orrmydww" path="res://scenes/enemies/roly_poly.tscn" id="4_yaqos"]
+[ext_resource type="PackedScene" uid="uid://bf7qonhrj13f0" path="res://scenes/enemies/skeleton_hand.tscn" id="5_3wt4o"]
+[ext_resource type="PackedScene" uid="uid://biogwmi8pccag" path="res://scenes/enemies/slug.tscn" id="6_xap14"]
+[ext_resource type="PackedScene" uid="uid://dpmspylnysx1w" path="res://scenes/enemies/slug_cluster.tscn" id="7_j3bt5"]
+[ext_resource type="PackedScene" uid="uid://dhj58pmo05pej" path="res://scenes/enemies/turret.tscn" id="8_kqw8u"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_f0rte"]
+resource_name = "Enemies"
+scenes/1/scene = ExtResource("1_hlr3o")
+scenes/2/scene = ExtResource("2_h6o4b")
+scenes/3/scene = ExtResource("3_nsd63")
+scenes/4/scene = ExtResource("4_yaqos")
+scenes/5/scene = ExtResource("5_3wt4o")
+scenes/6/scene = ExtResource("6_xap14")
+scenes/7/scene = ExtResource("7_j3bt5")
+scenes/8/scene = ExtResource("8_kqw8u")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_41xaf"]
+resource_name = "Hazards"
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tqoxs"]
+resource_name = "Pickups"
+
+[sub_resource type="TileSet" id="TileSet_hehlt"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetScenesCollectionSource_f0rte")
+sources/1 = SubResource("TileSetScenesCollectionSource_41xaf")
+sources/2 = SubResource("TileSetScenesCollectionSource_tqoxs")
+
+[node name="EntityTiles" type="TileMap"]
+tile_set = SubResource("TileSet_hehlt")
+format = 2

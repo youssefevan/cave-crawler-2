@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="3_0kwb5"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="5_e3vb8"]
 [ext_resource type="Script" path="res://scripts/enemies/bat/states/hang.gd" id="6_jyeiq"]
-[ext_resource type="Script" path="res://scripts/enemies/bat/fly.gd" id="7_ualhh"]
+[ext_resource type="Script" path="res://scripts/enemies/bat/states/fly.gd" id="7_suhbi"]
 
 [sub_resource type="Animation" id="Animation_wy22j"]
 resource_name = "Fly"
@@ -103,7 +103,7 @@ starting_state = NodePath("Hang")
 script = ExtResource("6_jyeiq")
 
 [node name="Fly" type="Node" parent="StateManager" index="1"]
-script = ExtResource("7_ualhh")
+script = ExtResource("7_suhbi")
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

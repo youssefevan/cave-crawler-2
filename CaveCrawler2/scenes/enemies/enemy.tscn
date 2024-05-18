@@ -13,7 +13,7 @@ shader_parameter/Tint = Color(1, 0, 0, 1)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
-collision_mask = 513
+collision_mask = 517
 floor_constant_speed = true
 floor_max_angle = 0.872665
 floor_snap_length = 2.0

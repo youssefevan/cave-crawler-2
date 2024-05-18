@@ -19,7 +19,8 @@ func _ready():
 	move()
 
 func move():
-	await get_tree().create_timer(1).timeout
+	if get_tree() != null:
+		await get_tree().create_timer(1).timeout
 	var tween = get_tree().create_tween()
 	tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	tween.tween_property(self, "position", target_position, distance/speed).set_trans(Tween.TRANS_LINEAR)

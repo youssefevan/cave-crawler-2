@@ -8,10 +8,14 @@ func _ready():
 
 func picked(body):
 	super.picked(body)
+	call_deferred("disable")
 	if body.health != body.max_health:
 		body.health += 1
 		picked_anim()
 		AudioHandler.play_sfx(sfx_pickup)
+
+func disable():
+	$Area/Collider.disabled = true
 
 func picked_anim():
 	if OptionsHandler.particles_enabled == true:
