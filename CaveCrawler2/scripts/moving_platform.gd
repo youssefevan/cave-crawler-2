@@ -21,11 +21,11 @@ func _ready():
 func move():
 	if get_tree() != null:
 		await get_tree().create_timer(1).timeout
-	var tween = get_tree().create_tween()
-	tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	tween.tween_property(self, "position", target_position, distance/speed).set_trans(Tween.TRANS_LINEAR)
-	await tween.finished
-	emit_signal("tween_complete")
+		var tween = get_tree().create_tween()
+		tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+		tween.tween_property(self, "position", target_position, distance/speed).set_trans(Tween.TRANS_LINEAR)
+		await tween.finished
+		emit_signal("tween_complete")
 
 func _on_tween_complete():
 	if returning == true:
