@@ -229,6 +229,7 @@ slide_on_ceiling = false
 floor_constant_speed = true
 floor_max_angle = 0.872665
 floor_snap_length = 4.0
+platform_on_leave = 2
 safe_margin = 0.02
 script = ExtResource("1_g2djs")
 bullet = ExtResource("2_wqhji")

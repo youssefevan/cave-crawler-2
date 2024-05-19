@@ -3,6 +3,7 @@ extends State
 func enter():
 	super.enter()
 	
+	entity.velocity.y = 0
 	entity.velocity.y = -entity.jump_velocity
 	
 	if Input.is_action_just_released("jump"):
