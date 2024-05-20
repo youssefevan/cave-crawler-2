@@ -55,7 +55,8 @@ func _on_hurtbox_area_entered(area):
 		got_hit = true
 
 func _on_hitbox_area_entered(area):
-	if area.is_in_group("Player"):
+	
+	if area.is_in_group("Player") or area.is_in_group("Enemy"):
 		#print(states.current_state)
 		if states.current_state == shield:
 			area.get_parent().enter_bounce(bounce_force)
