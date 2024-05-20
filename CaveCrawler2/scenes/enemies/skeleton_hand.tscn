@@ -106,8 +106,6 @@ frame = 1
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_k3gdp")
 
-[node name="Hurtbox" parent="." index="5" groups=["Enemy"]]
-
 [node name="Collider" parent="Hurtbox" index="0"]
 position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_bwi64")

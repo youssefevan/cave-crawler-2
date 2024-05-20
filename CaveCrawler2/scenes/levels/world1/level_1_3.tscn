@@ -243,43 +243,33 @@ position = Vector2(2732, 192)
 
 [node name="Rat" parent="Enemies" instance=ExtResource("6_60ju3")]
 position = Vector2(1256, 96)
-collision_mask = 513
 
 [node name="Rat2" parent="Enemies" instance=ExtResource("6_60ju3")]
 position = Vector2(1940, 112)
-collision_mask = 513
 
 [node name="Rat3" parent="Enemies" instance=ExtResource("6_60ju3")]
 position = Vector2(2280, 88)
-collision_mask = 513
 
 [node name="Rat4" parent="Enemies" instance=ExtResource("6_60ju3")]
 position = Vector2(3344, 400)
-collision_mask = 513
 
 [node name="Rat5" parent="Enemies" instance=ExtResource("6_60ju3")]
 position = Vector2(3184, 440)
-collision_mask = 513
 
 [node name="Crab" parent="Enemies" instance=ExtResource("7_ff0ta")]
 position = Vector2(1023, 112)
-collision_mask = 513
 
 [node name="Crab2" parent="Enemies" instance=ExtResource("7_ff0ta")]
 position = Vector2(1848, 104)
-collision_mask = 513
 
 [node name="Crab3" parent="Enemies" instance=ExtResource("7_ff0ta")]
 position = Vector2(2712, 440)
-collision_mask = 513
 
 [node name="Crab4" parent="Enemies" instance=ExtResource("7_ff0ta")]
 position = Vector2(2688, 440)
-collision_mask = 513
 
 [node name="Crab5" parent="Enemies" instance=ExtResource("7_ff0ta")]
 position = Vector2(2736, 440)
-collision_mask = 513
 
 [node name="Pickups" type="Node" parent="."]
 

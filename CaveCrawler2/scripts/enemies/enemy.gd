@@ -26,7 +26,7 @@ func _physics_process(delta):
 		player = get_tree().get_first_node_in_group("Player")
 
 func enter_bounce(bounce_force):
-	pass#velocity.y -= bounce_force
+	velocity.y -= bounce_force
 
 func get_hurt(hitstun_weight):
 	if can_get_hurt:

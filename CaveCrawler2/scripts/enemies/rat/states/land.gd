@@ -13,8 +13,6 @@ func enter():
 func physics_update(delta):
 	super.physics_update(delta)
 	
-	entity.velocity.y = 1
-	
 	if not entity.is_on_floor():
 		return entity.fall
 	

@@ -66,51 +66,39 @@ position = Vector2(40, 88)
 
 [node name="Slug" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(328, 120)
-collision_mask = 513
 
 [node name="Slug2" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(1048, 120)
-collision_mask = 513
 
 [node name="Slug3" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(1304, 104)
-collision_mask = 513
 
 [node name="Slug4" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(1648, 120)
-collision_mask = 513
 
 [node name="Slug5" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(1736, 72)
-collision_mask = 513
 
 [node name="Slug6" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(2336, -48)
-collision_mask = 513
 
 [node name="Slug7" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(2592, -40)
-collision_mask = 513
 
 [node name="Slug9" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(2672, -40)
-collision_mask = 513
 
 [node name="Slug8" parent="Enemies" instance=ExtResource("8_yvmva")]
 position = Vector2(2616, -80)
-collision_mask = 513
 
 [node name="Rat" parent="Enemies" instance=ExtResource("8_vr2a5")]
 position = Vector2(792, 104)
-collision_mask = 513
 
 [node name="Crab" parent="Enemies" instance=ExtResource("9_g7yid")]
 position = Vector2(2208, -48)
-collision_mask = 513
 
 [node name="Crab2" parent="Enemies" instance=ExtResource("9_g7yid")]
 position = Vector2(2240, -80)
-collision_mask = 513
 
 [node name="Hazards" type="Node" parent="."]
 

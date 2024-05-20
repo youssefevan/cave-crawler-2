@@ -41,9 +41,6 @@ func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * speed_modifier * delta
 	
-	if is_on_floor():
-		velocity.y = 1
-	
 	velocity.y = clampf(velocity.y, -250.0 * speed_modifier, 250.0 * speed_modifier)
 
 func apply_friction(delta):
@@ -53,9 +50,11 @@ func _on_hurtbox_area_entered(area):
 	super._on_hurtbox_area_entered(area)
 	if area.is_in_group("Player"):
 		got_hit = true
+	elif area.is_in_group("Enemy") and area != $Hitbox:
+		if states.current_state == shield:
+			got_hit = true
 
 func _on_hitbox_area_entered(area):
-	
 	if area.is_in_group("Player") or area.is_in_group("Enemy"):
 		#print(states.current_state)
 		if states.current_state == shield:

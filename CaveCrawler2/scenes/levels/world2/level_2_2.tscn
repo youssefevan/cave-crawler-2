@@ -67,26 +67,22 @@ scale = Vector2(1120, 144)
 
 [node name="Slug" parent="Enemies" instance=ExtResource("6_611tk")]
 position = Vector2(1336, 120)
-collision_mask = 513
 
 [node name="Slug2" parent="Enemies" instance=ExtResource("6_611tk")]
 position = Vector2(2984, -8)
-collision_mask = 513
 
 [node name="Slug3" parent="Enemies" instance=ExtResource("6_611tk")]
 position = Vector2(3416, -64)
-collision_mask = 513
 
 [node name="Rat" parent="Enemies" instance=ExtResource("7_bsxlo")]
 position = Vector2(2024, 62)
-collision_mask = 513
 
 [node name="SkeletonHand" parent="Enemies" instance=ExtResource("8_ejpwh")]
 position = Vector2(2092, 120)
-collision_mask = 513
 
 [node name="Crab" parent="Enemies" instance=ExtResource("9_egykr")]
 position = Vector2(2976, -64)
+collision_mask = 517
 
 [node name="Pickups" type="Node" parent="."]
 

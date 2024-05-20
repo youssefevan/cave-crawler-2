@@ -14,8 +14,8 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * speed_modifier * delta
 	
-	if is_on_floor():
-		velocity.y = 1
+	#if is_on_floor():
+	#	velocity.y = 1
 	
 	velocity.y = clampf(velocity.y, -250.0 * speed_modifier, 250.0 * speed_modifier)
 	

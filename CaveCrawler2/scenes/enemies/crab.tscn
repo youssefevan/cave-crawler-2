@@ -36,7 +36,7 @@ shader_parameter/enabled = false
 shader_parameter/Tint = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urqul"]
-radius = 4.0
+radius = 5.0
 height = 20.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2e00y"]
@@ -68,7 +68,7 @@ hframes = 3
 frame = 1
 
 [node name="Collider" parent="Hitbox" index="0"]
-position = Vector2(0, -6)
+position = Vector2(0, -5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_urqul")
 

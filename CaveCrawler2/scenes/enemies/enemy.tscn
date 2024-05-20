@@ -13,7 +13,7 @@ shader_parameter/Tint = Color(1, 0, 0, 1)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
-collision_mask = 517
+collision_mask = 513
 floor_constant_speed = true
 floor_max_angle = 0.872665
 floor_snap_length = 2.0
@@ -29,7 +29,7 @@ material = SubResource("ShaderMaterial_gu8jq")
 
 [node name="Hitbox" parent="." groups=["Enemy"] instance=ExtResource("2_nrbic")]
 
-[node name="Hurtbox" parent="." instance=ExtResource("3_ohsqj")]
+[node name="Hurtbox" parent="." groups=["Enemy"] instance=ExtResource("3_ohsqj")]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_shape_entered" from="Hurtbox" to="." method="_on_hurtbox_body_shape_entered"]

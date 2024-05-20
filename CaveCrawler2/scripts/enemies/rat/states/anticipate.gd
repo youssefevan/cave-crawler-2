@@ -10,7 +10,6 @@ func enter():
 	end = true
 
 func physics_update(delta):
-	entity.velocity.y = 1
 	
 	if end == true:
 		return entity.jump
