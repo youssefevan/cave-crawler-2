@@ -335,13 +335,13 @@ position = Vector2(3880, 312)
 [node name="Checkpoints" type="Node" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("9_1qr2k")]
-position = Vector2(1744, 76)
+position = Vector2(1744, 80)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("9_1qr2k")]
-position = Vector2(3016, 76)
+position = Vector2(3016, 80)
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("9_1qr2k")]
-position = Vector2(4584, 652)
+position = Vector2(4584, 656)
 
 [node name="Flagpole" parent="Checkpoints" instance=ExtResource("12_30an1")]
 position = Vector2(5944, 640)

@@ -19,7 +19,17 @@ func _physics_process(delta):
 #	move_and_slide()
 	
 	if player:
-		gun.look_at(Vector2(player.global_position.x, player.global_position.y - player_height_offset))
+		var player_offset_x = 0.0
+		if player.velocity.x > 65:
+			player_offset_x = 64.0
+		elif player.velocity.x < -65:
+			player_offset_x = -64.0
+		else:
+			player_offset_x = 0.0
+		
+		var target = Vector2(player.global_position.x + player_offset_x, player.global_position.y - player_height_offset)
+		gun.rotation = lerp_angle(gun.rotation, get_angle_to(target), 5 * delta)
+		
 		$Animator.play("fire")
 		fire()
 	else:
