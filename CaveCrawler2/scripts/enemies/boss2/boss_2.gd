@@ -13,6 +13,7 @@ var move_direction := -1
 func _ready():
 	super._ready()
 	states.init(self)
+	$Animator.play("Chase")
 
 func _physics_process(delta):
 	super._physics_process(delta)
