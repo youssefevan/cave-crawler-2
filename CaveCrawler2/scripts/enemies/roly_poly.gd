@@ -12,12 +12,12 @@ func _ready():
 func _physics_process(delta):
 	super._physics_process(delta)
 	if not is_on_floor():
-		velocity.y += gravity * speed_modifier * delta
+		velocity.y += gravity * delta
 	
 	#if is_on_floor():
 	#	velocity.y = 1
 	
-	velocity.y = clampf(velocity.y, -250.0 * speed_modifier, 250.0 * speed_modifier)
+	velocity.y = clampf(velocity.y, -250.0, 250.0)
 	
 	if player:
 		if (global_position.x - player.global_position.x) > 0:
@@ -27,7 +27,7 @@ func _physics_process(delta):
 			move_direction = 1
 			$Sprite.flip_h = true
 	
-	velocity.x = lerpf(velocity.x, speed * speed_modifier * move_direction, acceleration * delta)
+	velocity.x = lerpf(velocity.x, speed * move_direction, acceleration * delta)
 	
 	$Animator.play("Roll")
 	

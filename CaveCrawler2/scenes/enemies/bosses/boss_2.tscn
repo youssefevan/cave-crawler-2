@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvbqessjl8i47"]
+[gd_scene load_steps=13 format=3 uid="uid://cvbqessjl8i47"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_55woq"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_6upu1"]
+[ext_resource type="Script" path="res://scripts/enemies/boss2/boss_2.gd" id="2_b0qhc"]
 [ext_resource type="Texture2D" uid="uid://637g3qxxgmh6" path="res://sprites/enemies/boss2.png" id="3_8oo4p"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="4_oaoej"]
+[ext_resource type="Script" path="res://scripts/enemies/boss2/states/idle.gd" id="6_306sk"]
+[ext_resource type="Script" path="res://scripts/enemies/boss2/states/chase.gd" id="7_bmes1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1310v"]
 size = Vector2(16, 16)
@@ -13,16 +17,23 @@ shader = ExtResource("2_6upu1")
 shader_parameter/enabled = false
 shader_parameter/Tint = Color(1, 0, 0, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v2bmq"]
-radius = 8.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wice"]
+radius = 14.0
+height = 32.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sph6e"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8yu7"]
+radius = 8.06226
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6lqxl"]
+radius = 16.0
+height = 38.0
 
 [node name="Boss2" instance=ExtResource("1_55woq")]
+script = ExtResource("2_b0qhc")
 
 [node name="VisibleOnScreenEnabler2D" parent="." index="0"]
-position = Vector2(0, -10)
+position = Vector2(-0.499999, -10)
+scale = Vector2(2.45, 1)
 
 [node name="Collider" parent="." index="1"]
 position = Vector2(0, -8)
@@ -30,16 +41,38 @@ shape = SubResource("RectangleShape2D_1310v")
 
 [node name="Sprite" parent="." index="2"]
 material = SubResource("ShaderMaterial_dgg8r")
-position = Vector2(0, -16)
+position = Vector2(0, -32)
 texture = ExtResource("3_8oo4p")
 
 [node name="Collider" parent="Hitbox" index="0"]
-position = Vector2(0, -8)
-shape = SubResource("CircleShape2D_v2bmq")
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_5wice")
+
+[node name="Collider2" type="CollisionShape2D" parent="Hitbox" index="1"]
+position = Vector2(11, -12)
+shape = SubResource("CircleShape2D_q8yu7")
+debug_color = Color(0.701961, 0, 0.027451, 0.419608)
+
+[node name="Collider3" type="CollisionShape2D" parent="Hitbox" index="2"]
+position = Vector2(-11, -12)
+shape = SubResource("CircleShape2D_q8yu7")
+debug_color = Color(0.701961, 0, 0.027451, 0.419608)
 
 [node name="Collider" parent="Hurtbox" index="0"]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_sph6e")
+position = Vector2(0, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6lqxl")
+
+[node name="StateManager" type="Node" parent="." index="5"]
+script = ExtResource("4_oaoej")
+starting_state = NodePath("Idle")
+auto_animate = false
+
+[node name="Idle" type="Node" parent="StateManager" index="0"]
+script = ExtResource("6_306sk")
+
+[node name="Chase" type="Node" parent="StateManager" index="1"]
+script = ExtResource("7_bmes1")
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

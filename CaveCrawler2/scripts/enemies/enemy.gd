@@ -44,6 +44,7 @@ func get_hurt(hitstun_weight):
 		$Sprite.material.set_shader_parameter("enabled", false)
 		
 		can_get_hurt = true
+		$Hurtbox/Collider.disabled = false
 
 func die():
 	AudioHandler.play_sfx(sfx_death)

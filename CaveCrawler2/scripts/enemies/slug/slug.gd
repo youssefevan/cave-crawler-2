@@ -46,6 +46,10 @@ func apply_gravity(delta):
 func apply_friction(delta):
 	velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
 
+func get_hurt(hitstun_weight):
+	super.get_hurt(hitstun_weight)
+	got_hit = true
+
 func _on_hurtbox_area_entered(area):
 	super._on_hurtbox_area_entered(area)
 	if area.is_in_group("Player"):
