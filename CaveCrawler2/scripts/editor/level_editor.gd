@@ -19,12 +19,11 @@ var camera_room_tool_coordinates := Vector2(1, 4)
 
 func _ready():
 	Global.checkpoint_passed = false
-	
+	new_level = Global.creating_new_level
 	level_path = Global.level_to_load
-	
 	$CanvasLayer/Error.visible = false
 	
-	if new_level != true:
+	if new_level == false:
 		load_existing_level()
 
 func _on_tool_selected(tool_coordinates, tool_type):

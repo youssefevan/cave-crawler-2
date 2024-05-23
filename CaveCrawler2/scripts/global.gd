@@ -7,7 +7,7 @@ var options_scene = preload("res://scenes/gui/menus/menu_options.tscn")
 var level_select_scene = preload("res://scenes/gui/menus/menu_level_select.tscn")
 var level_editor_scene = preload("res://scenes/level_editor/level_editor.tscn")
 var custom_level_loader_scene = preload("res://scenes/level_editor/custom_level_loader.tscn")
-var custom_level_interface_scene = preload("res://scenes/gui/custom_level_interface.tscn")
+var custom_level_interface_scene = load("res://scenes/gui/menu_custom_levels.tscn")
 var pause_scene = preload("res://scenes/gui/menus/menu_pause.tscn")
 var player_scene = load("res://scenes/player.tscn")
 

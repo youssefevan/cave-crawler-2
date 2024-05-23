@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdwtpmwatgytk"]
+[gd_scene load_steps=20 format=3 uid="uid://bdwtpmwatgytk"]
 
 [ext_resource type="Script" path="res://scripts/editor/custom_level_loader.gd" id="1_m6kmy"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tilemaps/tile_map.tscn" id="1_o6b1y"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dpmspylnysx1w" path="res://scenes/enemies/slug_cluster.tscn" id="12_5k13r"]
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="12_nk4f0"]
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="14_x870c"]
+[ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="18_45rhx"]
+[ext_resource type="Script" path="res://scripts/gui/interactable_gui.gd" id="19_ysq71"]
 
 [node name="CustomLevelLoader" type="Node2D"]
 script = ExtResource("1_m6kmy")
@@ -52,3 +54,39 @@ scale = Vector2(-1, -1)
 texture = ExtResource("8_hnsdk")
 
 [node name="TileMap" parent="." instance=ExtResource("1_o6b1y")]
+
+[node name="Error" type="Panel" parent="."]
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 104.0
+theme = ExtResource("18_45rhx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Error"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -29.0
+offset_right = 88.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Error/VBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Error: player not found.
+In order to play this level, please use the editor to add an instance of the player."
+autowrap_mode = 2
+
+[node name="Okay" type="Button" parent="Error/VBoxContainer"]
+layout_mode = 2
+text = "Okay
+"
+script = ExtResource("19_ysq71")
+
+[connection signal="pressed" from="Error/VBoxContainer/Okay" to="." method="_on_okay_pressed"]

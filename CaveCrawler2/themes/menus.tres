@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://bhgqfbo01g2pt"]
+[gd_resource type="Theme" load_steps=35 format=3 uid="uid://bhgqfbo01g2pt"]
 
 [ext_resource type="Texture2D" uid="uid://nvn1nyhqrmqn" path="res://sprites/menus/checkbox_unchecked.png" id="1_i0d12"]
 [ext_resource type="Texture2D" uid="uid://bnaapxrgiuddf" path="res://sprites/menus/checkbox_checked.png" id="1_ol1yn"]
@@ -95,6 +95,38 @@ grow_begin = 0.0
 grow_end = 0.0
 thickness = 2
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jdnpp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26aep"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpvgl"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3iemc"]
+bg_color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgi66"]
+bg_color = Color(0, 0, 0, 1)
+border_width_bottom = 1
+border_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfeyf"]
+bg_color = Color(0, 0, 0, 1)
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4r8l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtyn3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvpcg"]
 bg_color = Color(1, 1, 1, 1)
 
@@ -145,6 +177,17 @@ HSlider/icons/grabber_highlight = ExtResource("4_ssgt7")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_2iwaw")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_ardwj")
 HSlider/styles/slider = SubResource("StyleBoxLine_oc357")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+ItemList/colors/font_hovered_color = Color(0.705882, 0.854902, 0.878431, 1)
+ItemList/colors/font_selected_color = Color(1, 1, 1, 1)
+ItemList/styles/focus = SubResource("StyleBoxEmpty_jdnpp")
+ItemList/styles/hovered = SubResource("StyleBoxFlat_26aep")
+ItemList/styles/panel = SubResource("StyleBoxFlat_mpvgl")
+ItemList/styles/selected_focus = SubResource("StyleBoxFlat_3iemc")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_kgi66")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_vfeyf")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_k4r8l")
+Panel/styles/panel = SubResource("StyleBoxFlat_xtyn3")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_nvpcg")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_m4yq7")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_iutad")

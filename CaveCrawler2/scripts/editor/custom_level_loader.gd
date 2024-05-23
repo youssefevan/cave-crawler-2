@@ -65,10 +65,13 @@ var lines : Array
 var camera_rooms : Array
 
 func _ready():
-	print(level_path)
+	#print(level_path)
 	level_path = Global.level_to_load
 	
+	$Error.visible = false
+	
 	load_file()
+	check_for_player()
 	build_level()
 
 func load_file():
@@ -103,6 +106,18 @@ func load_file():
 			lines.append(line_vector)
 			
 	file.close()
+
+func check_for_player():
+	var player_found = false
+	for cell in lines:
+		if Vector2(cell.z, cell.w) == player:
+			player_found = true
+			break
+	#print(player_found)
+	
+	if player_found == false:
+		$Error.visible = true
+		$Error/VBoxContainer/Okay.grab_focus()
 
 func build_level():
 	var autotile_cells : Array
@@ -174,3 +189,6 @@ func spawn_entity(entity, spawn_position):
 			e.global_position = (spawn_position * tile_size) + e.get_level_editor_offset()
 		else:
 			e.global_position = spawn_position * tile_size
+
+func _on_okay_pressed():
+	get_tree().change_scene_to_packed(Global.custom_level_interface_scene)

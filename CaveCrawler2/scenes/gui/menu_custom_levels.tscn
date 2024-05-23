@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=3 uid="uid://cogsn4qb4v3ki"]
+
+[ext_resource type="Script" path="res://scripts/gui/menu_custom_levels.gd" id="1_41si6"]
+[ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_pupcv"]
+[ext_resource type="Texture2D" uid="uid://chefipuxmi2g7" path="res://sprites/preview_temp.png" id="2_rcwkg"]
+[ext_resource type="Texture2D" uid="uid://cr4rjlithoxxv" path="res://sprites/level_editor_icons/play.png" id="3_hky2j"]
+[ext_resource type="Texture2D" uid="uid://cxn2pn2y2gjot" path="res://sprites/level_editor_icons/load.png" id="4_df2c5"]
+[ext_resource type="Script" path="res://scripts/gui/interactable_gui.gd" id="5_1g345"]
+[ext_resource type="Texture2D" uid="uid://cuca2s3oma8u1" path="res://sprites/level_editor_icons/reset.png" id="5_oo1bl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fl87"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="MenuCustomLevels" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_pupcv")
+script = ExtResource("1_41si6")
+
+[node name="Details" type="Panel" parent="."]
+offset_left = 146.0
+offset_top = 16.0
+offset_right = 232.0
+offset_bottom = 112.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5fl87")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Details"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 83.0
+offset_bottom = 93.0
+size_flags_horizontal = 6
+theme_override_constants/separation = 0
+
+[node name="Name" type="Label" parent="Details/VBoxContainer"]
+custom_minimum_size = Vector2(80, 24)
+layout_mode = 2
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="Details/VBoxContainer"]
+custom_minimum_size = Vector2(64, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_rcwkg")
+
+[node name="Options" type="HBoxContainer" parent="Details/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Play" type="Button" parent="Details/VBoxContainer/Options"]
+layout_mode = 2
+icon = ExtResource("3_hky2j")
+script = ExtResource("5_1g345")
+
+[node name="Edit" type="Button" parent="Details/VBoxContainer/Options"]
+layout_mode = 2
+icon = ExtResource("4_df2c5")
+script = ExtResource("5_1g345")
+
+[node name="Delete" type="Button" parent="Details/VBoxContainer/Options"]
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("5_oo1bl")
+script = ExtResource("5_1g345")
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = 24.0
+offset_top = 17.0
+offset_right = 142.0
+offset_bottom = 112.0
+
+[node name="BottomBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 128.0
+offset_right = 232.0
+offset_bottom = 136.0
+
+[node name="Options" type="HBoxContainer" parent="BottomBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -9.0
+offset_right = 104.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="Back" type="Button" parent="BottomBar/Options"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Back
+"
+script = ExtResource("5_1g345")
+
+[node name="New" type="Button" parent="BottomBar/Options"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "+ New
+"
+script = ExtResource("5_1g345")
+
+[node name="NewLevel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+offset_left = 56.0
+offset_top = 41.0
+offset_right = 200.0
+offset_bottom = 96.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NewLevel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -17.0
+offset_right = 61.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Text" type="Label" parent="NewLevel/VBoxContainer"]
+layout_mode = 2
+text = "Name Your Level:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="NewLevel/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "level name..."
+alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="NewLevel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Cancel" type="Button" parent="NewLevel/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Cancel"
+script = ExtResource("5_1g345")
+
+[node name="Create" type="Button" parent="NewLevel/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Create Level"
+script = ExtResource("5_1g345")
+
+[connection signal="pressed" from="Details/VBoxContainer/Options/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Details/VBoxContainer/Options/Edit" to="." method="_on_edit_pressed"]
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="BottomBar/Options/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="BottomBar/Options/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="NewLevel/VBoxContainer/Buttons/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="NewLevel/VBoxContainer/Buttons/Create" to="." method="_on_create_pressed"]
