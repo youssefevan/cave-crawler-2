@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cvbqessjl8i47"]
+[gd_scene load_steps=19 format=3 uid="uid://cvbqessjl8i47"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_55woq"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_6upu1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="4_oaoej"]
 [ext_resource type="Script" path="res://scripts/enemies/boss2/states/idle.gd" id="6_306sk"]
 [ext_resource type="Script" path="res://scripts/enemies/boss2/states/chase.gd" id="7_bmes1"]
+[ext_resource type="Script" path="res://scripts/enemies/boss2/states/turret.gd" id="8_2uacb"]
 
 [sub_resource type="Animation" id="Animation_rufxj"]
 resource_name = "Chase"
@@ -22,16 +23,186 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tank:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/Collider:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [9.0, 9.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox/Collider:shape:height")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [18.0, 20.0]
+}
+
+[sub_resource type="Animation" id="Animation_b8ags"]
+resource_name = "Transform"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [12, 13, 14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tank:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 5, 6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/Collider:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [12.0, 12.0, 9.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox/Collider:shape:height")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [28.0, 24.0, 18.0]
+}
+
+[sub_resource type="Animation" id="Animation_j2n70"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tank:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/Collider:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox/Collider:shape:height")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [32.0]
+}
+
+[sub_resource type="Animation" id="Animation_bcm8u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/Collider:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [12.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/Collider:shape:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [32.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_84h00"]
 _data = {
-"Chase": SubResource("Animation_rufxj")
+"Chase": SubResource("Animation_rufxj"),
+"Idle": SubResource("Animation_j2n70"),
+"RESET": SubResource("Animation_bcm8u"),
+"Transform": SubResource("Animation_b8ags")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1310v"]
-size = Vector2(38, 32)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uhdfl"]
+radius = 15.0
+height = 44.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dgg8r"]
 resource_local_to_scene = true
@@ -40,7 +211,7 @@ shader_parameter/enabled = false
 shader_parameter/Tint = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wice"]
-radius = 14.0
+radius = 12.0
 height = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8yu7"]
@@ -63,14 +234,23 @@ position = Vector2(-0.499999, -10)
 scale = Vector2(2.45, 1)
 
 [node name="Collider" parent="." index="2"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_1310v")
+position = Vector2(0, -15)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uhdfl")
 
 [node name="Sprite" parent="." index="3"]
 material = SubResource("ShaderMaterial_dgg8r")
 position = Vector2(0, -32)
 texture = ExtResource("3_8oo4p")
 hframes = 4
+vframes = 4
+frame = 8
+
+[node name="Tank" type="Sprite2D" parent="." index="4"]
+position = Vector2(0, -32)
+texture = ExtResource("3_8oo4p")
+hframes = 4
+vframes = 4
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -16)
@@ -86,14 +266,18 @@ position = Vector2(-11, -12)
 shape = SubResource("CircleShape2D_q8yu7")
 debug_color = Color(0.701961, 0, 0.027451, 0.419608)
 
+[node name="Hurtbox" parent="." index="6"]
+visible = false
+
 [node name="Collider" parent="Hurtbox" index="0"]
 position = Vector2(0, -16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6lqxl")
 
-[node name="StateManager" type="Node" parent="." index="6"]
+[node name="StateManager" type="Node" parent="." index="7"]
 script = ExtResource("4_oaoej")
 starting_state = NodePath("Idle")
+print_states = true
 auto_animate = false
 
 [node name="Idle" type="Node" parent="StateManager" index="0"]
@@ -101,6 +285,9 @@ script = ExtResource("6_306sk")
 
 [node name="Chase" type="Node" parent="StateManager" index="1"]
 script = ExtResource("7_bmes1")
+
+[node name="Turret" type="Node" parent="StateManager" index="2"]
+script = ExtResource("8_2uacb")
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

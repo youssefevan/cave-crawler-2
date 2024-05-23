@@ -6,6 +6,7 @@ var acceleration := 1.0
 
 var move_direction := -1
 
+@onready var animator = $Animator
 @onready var states = $StateManager
 @onready var idle = $StateManager/Idle
 @onready var chase = $StateManager/Chase
@@ -13,7 +14,6 @@ var move_direction := -1
 func _ready():
 	super._ready()
 	states.init(self)
-	$Animator.play("Chase")
 
 func _physics_process(delta):
 	super._physics_process(delta)
