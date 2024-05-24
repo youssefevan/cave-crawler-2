@@ -4,7 +4,7 @@ var end := false
 
 func enter():
 	super.enter()
-	entity.animator.play("Idle")
+	#entity.animator.play("Idle")
 	
 	end = false
 	await get_tree().create_timer(2).timeout

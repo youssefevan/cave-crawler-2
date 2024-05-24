@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cvbqessjl8i47"]
+[gd_scene load_steps=21 format=3 uid="uid://cvbqessjl8i47"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_55woq"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_6upu1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://637g3qxxgmh6" path="res://sprites/enemies/boss2.png" id="3_8oo4p"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="4_oaoej"]
 [ext_resource type="Script" path="res://scripts/enemies/boss2/states/idle.gd" id="6_306sk"]
+[ext_resource type="Script" path="res://scripts/enemies/boss2/states/sleep.gd" id="6_tt2aq"]
 [ext_resource type="Script" path="res://scripts/enemies/boss2/states/chase.gd" id="7_bmes1"]
 [ext_resource type="Script" path="res://scripts/enemies/boss2/states/turret.gd" id="8_2uacb"]
 
@@ -192,11 +193,39 @@ tracks/1/keys = {
 "values": [32.0]
 }
 
+[sub_resource type="Animation" id="Animation_6tnel"]
+resource_name = "Sleep"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tank:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_84h00"]
 _data = {
 "Chase": SubResource("Animation_rufxj"),
 "Idle": SubResource("Animation_j2n70"),
 "RESET": SubResource("Animation_bcm8u"),
+"Sleep": SubResource("Animation_6tnel"),
 "Transform": SubResource("Animation_b8ags")
 }
 
@@ -223,6 +252,7 @@ height = 38.0
 
 [node name="Boss2" instance=ExtResource("1_55woq")]
 script = ExtResource("2_b0qhc")
+max_health = 150
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -251,6 +281,7 @@ position = Vector2(0, -32)
 texture = ExtResource("3_8oo4p")
 hframes = 4
 vframes = 4
+frame = 3
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -16)
@@ -276,17 +307,19 @@ shape = SubResource("CapsuleShape2D_6lqxl")
 
 [node name="StateManager" type="Node" parent="." index="7"]
 script = ExtResource("4_oaoej")
-starting_state = NodePath("Idle")
+starting_state = NodePath("Sleep")
 print_states = true
-auto_animate = false
 
-[node name="Idle" type="Node" parent="StateManager" index="0"]
+[node name="Sleep" type="Node" parent="StateManager" index="0"]
+script = ExtResource("6_tt2aq")
+
+[node name="Idle" type="Node" parent="StateManager" index="1"]
 script = ExtResource("6_306sk")
 
-[node name="Chase" type="Node" parent="StateManager" index="1"]
+[node name="Chase" type="Node" parent="StateManager" index="2"]
 script = ExtResource("7_bmes1")
 
-[node name="Turret" type="Node" parent="StateManager" index="2"]
+[node name="Turret" type="Node" parent="StateManager" index="3"]
 script = ExtResource("8_2uacb")
 
 [editable path="Hitbox"]

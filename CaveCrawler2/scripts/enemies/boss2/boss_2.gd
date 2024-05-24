@@ -10,6 +10,9 @@ var move_direction := -1
 @onready var states = $StateManager
 @onready var idle = $StateManager/Idle
 @onready var chase = $StateManager/Chase
+@onready var sleep = $StateManager/Sleep
+
+@onready var vines_particles = load("res://scenes/particles/boss_vines.tscn")
 
 func _ready():
 	super._ready()
@@ -25,3 +28,9 @@ func _physics_process(delta):
 func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * speed_modifier * delta
+
+
+func vines():
+	var v = vines_particles.instantiate()
+	add_child(v)
+	v.global_position = global_position + Vector2(0, -8)

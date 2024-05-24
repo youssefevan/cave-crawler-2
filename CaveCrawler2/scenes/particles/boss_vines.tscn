@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvbkk8t76ua8r"]
+
+[ext_resource type="Texture2D" uid="uid://ckf84hx76bhqe" path="res://sprites/particles/boss_vines.png" id="1_x3okp"]
+[ext_resource type="Script" path="res://scripts/particles.gd" id="2_mdov5"]
+
+[sub_resource type="Curve" id="Curve_u8gm2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.580442, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_h5jw2"]
+curve = SubResource("Curve_u8gm2")
+
+[sub_resource type="CurveTexture" id="CurveTexture_mglvh"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qg4y6"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 25.0
+angle_curve = SubResource("CurveTexture_mglvh")
+direction = Vector3(0, -1, 0)
+flatness = 0.25
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+gravity = Vector3(0, 98, 0)
+alpha_curve = SubResource("CurveTexture_h5jw2")
+
+[node name="BossVines" type="GPUParticles2D"]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_qg4y6")
+texture = ExtResource("1_x3okp")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("2_mdov5")
