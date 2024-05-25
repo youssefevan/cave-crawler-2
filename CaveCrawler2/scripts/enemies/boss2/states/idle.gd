@@ -29,8 +29,8 @@ func shoot():
 	if entity.can_fire == true:
 		entity.can_fire = false
 		var b = entity.bullet.instantiate()
-		entity.add_child(b)
-		b.position = entity.muzzle.position
+		get_tree().get_root().add_child(b)
+		b.global_position = entity.muzzle.global_position
 		b.rotation = entity.muzzle.rotation
 		await get_tree().create_timer(entity.fire_rate).timeout
 		entity.can_fire = true

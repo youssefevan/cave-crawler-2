@@ -356,7 +356,7 @@ height = 38.0
 
 [node name="Boss2" instance=ExtResource("1_55woq")]
 script = ExtResource("2_b0qhc")
-max_health = 150
+max_health = 120
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {

@@ -35,7 +35,7 @@ func explode():
 	
 	var flash = hit_flash.instantiate()
 	get_tree().get_root().add_child(flash)
-	flash.position = position
+	flash.global_position = position
 	
 	call_deferred("queue_free")
 
