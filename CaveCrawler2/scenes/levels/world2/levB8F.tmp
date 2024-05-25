@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c12wrf7v466eq"]
+[gd_scene load_steps=8 format=3 uid="uid://c12wrf7v466eq"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_t12p6"]
 [ext_resource type="Texture2D" uid="uid://gm0sv8ckdfbq" path="res://sprites/backgrounds/bg3.png" id="2_avgl0"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/engine/camera_room.tscn" id="5_4n3ol"]
 [ext_resource type="PackedScene" uid="uid://cvbqessjl8i47" path="res://scenes/enemies/bosses/boss_2.tscn" id="6_d4omo"]
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="6_ouao7"]
-[ext_resource type="PackedScene" uid="uid://bvk2o5ljywjt" path="res://scenes/moving_platform.tscn" id="6_vqlx2"]
 
 [node name="Level2-5" type="Node2D"]
 
@@ -41,35 +40,10 @@ layer_0/tile_data = PackedInt32Array(1179649, 589826, 11, 1114113, 589826, 10, 1
 [node name="CameraRoom" parent="CameraRooms" instance=ExtResource("5_4n3ol")]
 scale = Vector2(256, 144)
 
-[node name="MovingPlatforms" type="Node" parent="."]
-
-[node name="MovingPlatform" parent="MovingPlatforms" instance=ExtResource("6_vqlx2")]
-position = Vector2(40, 122)
-metadata/_edit_group_ = true
-
-[node name="Endpoint" parent="MovingPlatforms/MovingPlatform" index="2"]
-position = Vector2(0, -74)
-
-[node name="MovingPlatform2" parent="MovingPlatforms" instance=ExtResource("6_vqlx2")]
-position = Vector2(216, 122)
-metadata/_edit_group_ = true
-
-[node name="Endpoint" parent="MovingPlatforms/MovingPlatform2" index="2"]
-position = Vector2(0, -74)
-
-[node name="MovingPlatform3" parent="MovingPlatforms" instance=ExtResource("6_vqlx2")]
-position = Vector2(128, 48)
-metadata/_edit_group_ = true
-
-[node name="Endpoint" parent="MovingPlatforms/MovingPlatform3" index="2"]
-position = Vector2(0, 74)
-
 [node name="Boss2" parent="." instance=ExtResource("6_d4omo")]
-position = Vector2(172, 120)
+position = Vector2(144, 120)
+gravity = 800.0
+level_editor_offset = Vector2(4, -8)
 
 [node name="Player" parent="." instance=ExtResource("6_ouao7")]
-position = Vector2(64, 112)
-
-[editable path="MovingPlatforms/MovingPlatform"]
-[editable path="MovingPlatforms/MovingPlatform2"]
-[editable path="MovingPlatforms/MovingPlatform3"]
+position = Vector2(32, 112)

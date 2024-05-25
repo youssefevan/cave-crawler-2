@@ -94,19 +94,19 @@ texture = ExtResource("7_humq7")
 
 [node name="Turret" parent="Enemies" instance=ExtResource("6_qmc2k")]
 position = Vector2(384, 20)
-fire_rate = 0.7
+fire_rate = 0.4
 
 [node name="Turret2" parent="Enemies" instance=ExtResource("6_qmc2k")]
 position = Vector2(760, 20)
-fire_rate = 0.7
+fire_rate = 0.4
 
 [node name="Turret4" parent="Enemies" instance=ExtResource("6_qmc2k")]
 position = Vector2(2108, 20)
-fire_rate = 0.7
+fire_rate = 0.4
 
 [node name="Turret5" parent="Enemies" instance=ExtResource("6_qmc2k")]
 position = Vector2(3460, 164)
-fire_rate = 0.7
+fire_rate = 0.4
 
 [node name="SlugCluster" parent="Enemies" instance=ExtResource("6_addq5")]
 position = Vector2(1856, 48)

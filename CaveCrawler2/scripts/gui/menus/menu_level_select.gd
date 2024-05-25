@@ -7,6 +7,10 @@ var level_1_4 = load("res://scenes/levels/world1/level_1_4.tscn")
 var level_1_5 = load("res://scenes/levels/world1/level_1_5.tscn")
 
 var level_2_1 = load("res://scenes/levels/world2/level_2_1.tscn")
+var level_2_2 = load("res://scenes/levels/world2/level_2_2.tscn")
+var level_2_3 = load("res://scenes/levels/world2/level_2_3.tscn")
+var level_2_4 = load("res://scenes/levels/world2/level_2_4.tscn")
+var level_2_5 = load("res://scenes/levels/world2/level_2_5.tscn")
 
 func _ready():
 	if OptionsHandler.cursor_visible == false:
@@ -37,7 +41,17 @@ func _on_1_4_pressed():
 func _on_1_5_pressed():
 	get_tree().change_scene_to_packed(level_1_5)
 
-
-
 func _on_2_1_pressed():
 	get_tree().change_scene_to_packed(level_2_1)
+
+func _on_2_2_pressed():
+	get_tree().change_scene_to_packed(level_2_2)
+
+func _on_2_3_pressed():
+	get_tree().change_scene_to_packed(level_2_3)
+
+func _on_2_4_pressed():
+	get_tree().change_scene_to_packed(level_2_4)
+
+func _on_2_5_pressed():
+	get_tree().change_scene_to_packed(level_2_5)

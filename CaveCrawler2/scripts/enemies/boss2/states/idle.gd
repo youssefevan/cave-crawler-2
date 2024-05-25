@@ -7,13 +7,16 @@ func enter():
 	super.enter()
 	#entity.animator.play("Idle")
 	
+	entity.can_fire = true
 	anim_end = false
 	end = false
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(3).timeout
 	end = true
 
 func physics_update(delta):
 	super.physics_update(delta)
+	
+	shoot()
 	
 	entity.velocity.x = lerp(entity.velocity.x, 0.0, 3 * delta)
 	
@@ -21,6 +24,16 @@ func physics_update(delta):
 		entity.animator.play("Transform")
 		if anim_end == true:
 			return entity.chase
+
+func shoot():
+	if entity.can_fire == true:
+		entity.can_fire = false
+		var b = entity.bullet.instantiate()
+		entity.add_child(b)
+		b.position = entity.muzzle.position
+		b.rotation = entity.muzzle.rotation
+		await get_tree().create_timer(entity.fire_rate).timeout
+		entity.can_fire = true
 
 func _on_animator_animation_finished(anim_name):
 	if anim_name == "Transform":

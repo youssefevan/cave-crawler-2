@@ -7,7 +7,7 @@ func physics_update(delta):
 	super.physics_update(delta)
 	
 	if entity.current_health <= (entity.max_health - 10):
-		return entity.idle
+		return entity.wait
 
 func exit():
 	entity.vines()

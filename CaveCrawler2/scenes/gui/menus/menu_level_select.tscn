@@ -187,4 +187,8 @@ script = ExtResource("6_bup17")
 [connection signal="pressed" from="Worlds/World1/ButtonStack/ButtonRow2/1-4" to="." method="_on_1_4_pressed"]
 [connection signal="pressed" from="Worlds/World1/ButtonStack/ButtonRow3/1-5" to="." method="_on_1_5_pressed"]
 [connection signal="pressed" from="Worlds/World2/ButtonStack/ButtonRow1/2-1" to="." method="_on_2_1_pressed"]
+[connection signal="pressed" from="Worlds/World2/ButtonStack/ButtonRow1/2-2" to="." method="_on_2_2_pressed"]
+[connection signal="pressed" from="Worlds/World2/ButtonStack/ButtonRow2/2-3" to="." method="_on_2_3_pressed"]
+[connection signal="pressed" from="Worlds/World2/ButtonStack/ButtonRow2/2-4" to="." method="_on_2_4_pressed"]
+[connection signal="pressed" from="Worlds/World2/ButtonStack/ButtonRow3/2-5" to="." method="_on_2_5_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
