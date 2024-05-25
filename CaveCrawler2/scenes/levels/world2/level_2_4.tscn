@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dw5eee0bd8x8e"]
+[gd_scene load_steps=21 format=3 uid="uid://dw5eee0bd8x8e"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_0m6g2"]
 [ext_resource type="Texture2D" uid="uid://gm0sv8ckdfbq" path="res://sprites/backgrounds/bg3.png" id="2_ar7ib"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bpks5orrmydww" path="res://scenes/enemies/roly_poly.tscn" id="13_xfav0"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="16_bhqvc"]
 [ext_resource type="PackedScene" uid="uid://cbne2o42871na" path="res://scenes/hazards/stalactite.tscn" id="16_orfqa"]
+[ext_resource type="PackedScene" uid="uid://c12wrf7v466eq" path="res://scenes/levels/world2/level_2_5.tscn" id="17_ot7qi"]
 
 [node name="Level2-4" type="Node2D"]
 
@@ -153,6 +154,7 @@ position = Vector2(2888, 256)
 
 [node name="Flagpole" parent="Pickups" instance=ExtResource("16_bhqvc")]
 position = Vector2(3945, 392)
+next_level = ExtResource("17_ot7qi")
 
 [node name="MovingPlatforms" type="Node" parent="."]
 

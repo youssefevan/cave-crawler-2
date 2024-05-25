@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="9_bo8y3"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="9_g7yid"]
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="12_c6qsp"]
+[ext_resource type="PackedScene" uid="uid://c78wc6mai8xxl" path="res://scenes/levels/world2/level_2_2.tscn" id="13_by6u4"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="13_qvpa4"]
 [ext_resource type="Texture2D" uid="uid://b2xew04g7dd38" path="res://sprites/background_details/mushroom.png" id="14_6as84"]
-[ext_resource type="PackedScene" uid="uid://bxvqi5nt65yki" path="res://scenes/levels/world1/level_1_2.tscn" id="14_r6fc5"]
 
 [node name="Level2-1" type="Node2D"]
 
@@ -127,7 +127,7 @@ position = Vector2(1568, 120)
 
 [node name="Flagpole" parent="Pickups" instance=ExtResource("13_qvpa4")]
 position = Vector2(2716, -96)
-next_level = ExtResource("14_r6fc5")
+next_level = ExtResource("13_by6u4")
 
 [node name="BGSprites" type="Node2D" parent="."]
 z_index = -2

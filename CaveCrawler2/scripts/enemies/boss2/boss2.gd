@@ -1,11 +1,6 @@
 extends Enemy
 class_name Boss2
 
-var speed := 160.0
-var acceleration := 1.0
-
-var move_direction := -1
-
 @onready var animator = $Animator
 @onready var states = $StateManager
 @onready var idle = $StateManager/Idle
@@ -13,6 +8,11 @@ var move_direction := -1
 @onready var sleep = $StateManager/Sleep
 
 @onready var vines_particles = load("res://scenes/particles/boss_vines.tscn")
+
+var speed := 200.0
+var acceleration := 1.0
+
+var move_direction := -1
 
 func _ready():
 	super._ready()
@@ -27,8 +27,7 @@ func _physics_process(delta):
 
 func apply_gravity(delta):
 	if not is_on_floor():
-		velocity.y += gravity * speed_modifier * delta
-
+		velocity.y += gravity * delta
 
 func vines():
 	var v = vines_particles.instantiate()

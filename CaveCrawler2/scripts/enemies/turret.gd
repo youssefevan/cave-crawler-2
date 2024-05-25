@@ -15,8 +15,6 @@ func _ready():
 
 func _physics_process(delta):
 	super._physics_process(delta)
-#	apply_gravity(delta)
-#	move_and_slide()
 	
 	if player:
 		var player_offset_x = 0.0
@@ -44,14 +42,6 @@ func _physics_process(delta):
 	elif $Rays/Right.is_colliding():
 		$Sprite.rotation_degrees = -90
 
-func apply_gravity(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	
-	if is_on_floor():
-		velocity.y = 1
-	
-	velocity.y = clampf(velocity.y, -250.0, 250.0)
 
 func fire():
 	if can_fire == true:

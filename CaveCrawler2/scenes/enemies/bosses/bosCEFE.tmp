@@ -1,13 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://cvbqessjl8i47"]
+[gd_scene load_steps=23 format=3 uid="uid://cvbqessjl8i47"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_55woq"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_6upu1"]
 [ext_resource type="Script" path="res://scripts/enemies/boss2/boss2.gd" id="2_b0qhc"]
 [ext_resource type="Texture2D" uid="uid://637g3qxxgmh6" path="res://sprites/enemies/boss2.png" id="3_8oo4p"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="4_oaoej"]
+[ext_resource type="Texture2D" uid="uid://db2kk4a7fsuse" path="res://sprites/enemies/turret_gun.png" id="5_ac1oe"]
 [ext_resource type="Script" path="res://scripts/enemies/boss2/states/idle.gd" id="6_306sk"]
 [ext_resource type="Script" path="res://scripts/enemies/boss2/states/sleep.gd" id="6_tt2aq"]
 [ext_resource type="Script" path="res://scripts/enemies/boss2/states/chase.gd" id="7_bmes1"]
+[ext_resource type="Script" path="res://scripts/enemies/boss2/states/turret.gd" id="8_2uacb"]
 
 [sub_resource type="Animation" id="Animation_rufxj"]
 resource_name = "Chase"
@@ -352,7 +354,19 @@ position = Vector2(0, -16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6lqxl")
 
-[node name="StateManager" type="Node" parent="." index="7"]
+[node name="Gun" type="Node2D" parent="." index="7"]
+visible = false
+position = Vector2(0, -26)
+
+[node name="Sprite" type="Sprite2D" parent="Gun" index="0"]
+position = Vector2(16, 0)
+texture = ExtResource("5_ac1oe")
+hframes = 2
+
+[node name="Muzzle" type="Node2D" parent="Gun/Sprite" index="0"]
+position = Vector2(3, 0)
+
+[node name="StateManager" type="Node" parent="." index="8"]
 script = ExtResource("4_oaoej")
 starting_state = NodePath("Sleep")
 print_states = true
@@ -366,8 +380,8 @@ script = ExtResource("6_306sk")
 [node name="Chase" type="Node" parent="StateManager" index="2"]
 script = ExtResource("7_bmes1")
 
-[connection signal="animation_finished" from="Animator" to="StateManager/Idle" method="_on_animator_animation_finished"]
-[connection signal="animation_finished" from="Animator" to="StateManager/Chase" method="_on_animator_animation_finished"]
+[node name="Turret" type="Node" parent="StateManager" index="3"]
+script = ExtResource("8_2uacb")
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

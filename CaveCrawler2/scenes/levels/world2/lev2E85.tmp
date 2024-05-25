@@ -42,6 +42,8 @@ scale = Vector2(256, 144)
 
 [node name="Boss2" parent="." instance=ExtResource("6_d4omo")]
 position = Vector2(144, 120)
+gravity = 800.0
+level_editor_offset = Vector2(4, -8)
 
 [node name="Player" parent="." instance=ExtResource("6_ouao7")]
 position = Vector2(32, 112)

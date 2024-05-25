@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://rga8nqe6g5nj" path="res://sprites/boss_door.png" id="2_5pyub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8em6"]
-size = Vector2(8, 32)
+size = Vector2(0, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwxbs"]
 size = Vector2(10, 32)
@@ -19,7 +19,7 @@ texture = ExtResource("2_5pyub")
 hframes = 2
 
 [node name="Trigger" type="CollisionShape2D" parent="."]
-position = Vector2(13, 0)
+position = Vector2(9, 0)
 shape = SubResource("RectangleShape2D_a8em6")
 
 [node name="Wall" type="StaticBody2D" parent="."]

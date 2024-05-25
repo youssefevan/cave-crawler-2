@@ -45,4 +45,4 @@ func _on_body_entered(body):
 func animate(pos):
 	var sprite = $Sprite
 	var tween = get_tree().create_tween()
-	tween.tween_property(sprite, "position", pos, .5).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(sprite, "position", pos, .25).set_trans(Tween.TRANS_LINEAR)
