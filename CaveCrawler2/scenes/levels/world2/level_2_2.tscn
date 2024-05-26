@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c78wc6mai8xxl"]
+[gd_scene load_steps=20 format=3 uid="uid://c78wc6mai8xxl"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_qms3u"]
 [ext_resource type="Texture2D" uid="uid://gm0sv8ckdfbq" path="res://sprites/backgrounds/bg3.png" id="2_t6p4x"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cbne2o42871na" path="res://scenes/hazards/stalactite.tscn" id="10_hehdb"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="11_2cdnl"]
 [ext_resource type="PackedScene" uid="uid://d4df2y3jcs60q" path="res://scenes/levels/world2/level_2_3.tscn" id="13_6bjfp"]
+[ext_resource type="PackedScene" uid="uid://dpmspylnysx1w" path="res://scenes/enemies/slug_cluster.tscn" id="13_1448r"]
 
 [node name="Level2-2" type="Node2D"]
 
@@ -145,6 +146,9 @@ position = Vector2(2568, 16)
 
 [node name="Bat3" parent="Enemies" instance=ExtResource("10_erxn4")]
 position = Vector2(2472, 16)
+
+[node name="SlugCluster" parent="Enemies" instance=ExtResource("13_1448r")]
+position = Vector2(924, -71)
 
 [node name="Pickups" type="Node" parent="."]
 
