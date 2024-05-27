@@ -2,6 +2,7 @@ extends Control
 
 @onready var item_list = $ItemList
 @onready var details = $Details
+@onready var details_info = $Details/VBoxContainer
 @onready var details_name = $Details/VBoxContainer/Name
 @onready var new_level_panel = $NewLevel
 @onready var new_level_line_edit = $NewLevel/VBoxContainer/LineEdit
@@ -18,7 +19,11 @@ func _ready():
 	OptionsHandler.set_cursor(true)
 	
 	get_levels()
-	details.visible = false
+	
+	selected_item = 0
+	var name = item_list.get_item_text(selected_item)
+	details_name.text = str(name)
+	
 	new_level_panel.visible = false
 
 func get_levels():
@@ -40,7 +45,6 @@ func get_levels():
 
 func _on_item_list_item_selected(index):
 	selected_item = index
-	details.visible = true
 	var name = item_list.get_item_text(index)
 	details_name.text = str(name)
 

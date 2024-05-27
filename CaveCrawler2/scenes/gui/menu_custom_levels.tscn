@@ -23,6 +23,7 @@ theme = ExtResource("1_pupcv")
 script = ExtResource("1_41si6")
 
 [node name="Details" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 146.0
 offset_top = 16.0
 offset_right = 232.0
@@ -78,6 +79,7 @@ icon = ExtResource("5_oo1bl")
 script = ExtResource("5_1g345")
 
 [node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 17.0
 offset_right = 142.0
