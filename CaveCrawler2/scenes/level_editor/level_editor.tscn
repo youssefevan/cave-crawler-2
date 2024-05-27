@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=38 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_jya82"]
 [ext_resource type="PackedScene" uid="uid://dd4kgsl8xo6gi" path="res://scenes/level_editor/tools/camera_room_tool.tscn" id="2_ttnjw"]
@@ -13,20 +13,24 @@
 [ext_resource type="Texture2D" uid="uid://bgty7fw6d5dlk" path="res://sprites/level_editor_icons/le_atlas.atlastex" id="11_kvv4k"]
 [ext_resource type="Script" path="res://scripts/level_editor/tool_button.gd" id="12_5u3pp"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fi6u"]
+atlas = ExtResource("5_fjyjh")
+region = Rect2(16, 0, 8, 8)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_plt8p"]
 load_path = "res://.godot/imported/level_editor_atlas.png-b95c532db98e67af2a2b15e9144c22fe.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7ra6"]
 atlas = SubResource("CompressedTexture2D_plt8p")
-region = Rect2(16, 0, 8, 8)
+region = Rect2(24, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmfxb"]
 atlas = SubResource("CompressedTexture2D_plt8p")
-region = Rect2(24, 0, 8, 8)
+region = Rect2(32, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_id2b8"]
 atlas = SubResource("CompressedTexture2D_plt8p")
-region = Rect2(32, 0, 8, 8)
+region = Rect2(40, 0, 8, 8)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8xwce"]
 load_path = "res://.godot/imported/level_editor_atlas.png-b95c532db98e67af2a2b15e9144c22fe.ctex"
@@ -230,26 +234,32 @@ icon_alignment = 1
 script = ExtResource("12_5u3pp")
 tile_coordinate_x = 1
 
+[node name="Terrain2" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_7fi6u")
+script = ExtResource("12_5u3pp")
+tile_coordinate_x = 2
+
 [node name="SlopeLeft" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = SubResource("AtlasTexture_f7ra6")
 icon_alignment = 1
 script = ExtResource("12_5u3pp")
-tile_coordinate_x = 2
+tile_coordinate_x = 3
 
 [node name="SlopeRight" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = SubResource("AtlasTexture_xmfxb")
 icon_alignment = 1
 script = ExtResource("12_5u3pp")
-tile_coordinate_x = 3
+tile_coordinate_x = 4
 
 [node name="OneWay" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 icon = SubResource("AtlasTexture_id2b8")
 icon_alignment = 1
 script = ExtResource("12_5u3pp")
-tile_coordinate_x = 4
+tile_coordinate_x = 5
 
 [node name="Enemies" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
@@ -363,6 +373,7 @@ tool_type = 2
 tile_coordinate_x = 2
 
 [node name="Sludge" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 icon = SubResource("AtlasTexture_150ph")
 icon_alignment = 1
@@ -455,6 +466,8 @@ tile_coordinate_x = 3
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainerRight/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain2" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain2" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain2" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeLeft" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeLeft" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeLeft" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeRight" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/SlopeRight" method="_on_pressed"]

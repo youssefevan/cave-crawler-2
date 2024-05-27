@@ -4,9 +4,10 @@ extends Node2D
 
 # Terrain Coordinates
 @export var ground := Vector2(1, 0)
-@export var slope_left := Vector2(2, 0)
-@export var slope_right := Vector2(3, 0)
-@export var one_way := Vector2(4, 0)
+@export var ground2 := Vector2(2, 0)
+@export var slope_left := Vector2(3, 0)
+@export var slope_right := Vector2(4, 0)
+@export var one_way := Vector2(5, 0)
 
 # Enemy Coordinates
 @export var rat := Vector2(0, 1)
@@ -22,7 +23,6 @@ extends Node2D
 @export var spike := Vector2(0, 2)
 @export var stalactite := Vector2(1, 2)
 @export var lava := Vector2(2, 2)
-@export var sludge := Vector2(3, 2)
 
 # Utility Coordinates
 @export var player := Vector2(0, 4)
@@ -120,14 +120,17 @@ func check_for_player():
 		$Error/VBoxContainer/Okay.grab_focus()
 
 func build_level():
-	var autotile_cells : Array
+	var world_1_cells : Array
+	var world_2_cells : Array
 	
 	for cell in lines:
 		var cell_type = Vector2(cell.z, cell.w)
 		var cell_position = Vector2(cell.x, cell.y)
 		match cell_type:
 			ground:
-				autotile_cells.append(cell_position)
+				world_1_cells.append(cell_position)
+			ground2:
+				world_2_cells.append(cell_position)
 			slope_left:
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(0,4))
 			slope_right:
@@ -164,10 +167,9 @@ func build_level():
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(3,4))
 			lava:
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(4,4))
-			sludge:
-				tiles.set_cell(0, cell_position, tileset_id, Vector2(4,5))
 	
-	tiles.set_cells_terrain_connect(0, autotile_cells, 0, 0)
+	tiles.set_cells_terrain_connect(0, world_1_cells, 0, 0)
+	tiles.set_cells_terrain_connect(0, world_2_cells, 0, 1)
 	
 	for room in camera_rooms:
 		spawn_camera_room(Vector2(room.x, room.y), Vector2(room.z, room.w))
