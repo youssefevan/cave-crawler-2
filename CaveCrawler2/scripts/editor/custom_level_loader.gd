@@ -3,34 +3,34 @@ extends Node2D
 @onready var tiles = $TileMap
 
 # Terrain Coordinates
-@export var ground := Vector2(1, 0)
-@export var ground2 := Vector2(2, 0)
-@export var slope_left := Vector2(3, 0)
-@export var slope_right := Vector2(4, 0)
-@export var one_way := Vector2(5, 0)
+var ground := Vector2(1, 0)
+var ground2 := Vector2(2, 0)
+var slope_left := Vector2(3, 0)
+var slope_right := Vector2(4, 0)
+var one_way := Vector2(5, 0)
 
 # Enemy Coordinates
-@export var rat := Vector2(0, 1)
-@export var crab := Vector2(1, 1)
-@export var bat := Vector2(2, 1)
-@export var skeleton_hand := Vector2(3, 1)
-@export var slug := Vector2(4, 1)
-@export var turret := Vector2(5, 1)
-@export var roly_poly := Vector2(6, 1)
-@export var slug_cluster := Vector2(7, 1)
+var rat := Vector2(0, 1)
+var crab := Vector2(1, 1)
+var bat := Vector2(2, 1)
+var skeleton_hand := Vector2(3, 1)
+var slug := Vector2(4, 1)
+var turret := Vector2(5, 1)
+var roly_poly := Vector2(6, 1)
+var slug_cluster := Vector2(7, 1)
 
 # Hazard Coordinates
-@export var spike := Vector2(0, 2)
-@export var stalactite := Vector2(1, 2)
-@export var lava := Vector2(2, 2)
+var spike := Vector2(0, 2)
+var stalactite := Vector2(1, 2)
+var lava := Vector2(2, 2)
 
 # Utility Coordinates
-@export var player := Vector2(0, 4)
-@export var checkpoint := Vector2(2, 4)
-@export var flagpole := Vector2(3, 4)
+var player := Vector2(0, 4)
+var checkpoint := Vector2(2, 4)
+var flagpole := Vector2(3, 4)
 
 # Pickup Coordinates
-@export var health := Vector2(0, 3)
+var health := Vector2(0, 3)
 
 # Utility scenes
 var player_scene = Global.player_scene
