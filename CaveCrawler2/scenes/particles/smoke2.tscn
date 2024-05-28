@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cegndx8bcqxni"]
+
+[ext_resource type="PackedScene" uid="uid://cts0cbd5h5ejt" path="res://scenes/particles/smoke.tscn" id="1_avipj"]
+[ext_resource type="Texture2D" uid="uid://cj8sfw8styee0" path="res://sprites/particles/smoke2.png" id="2_l0kb8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uaxmo"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Smoke2" instance=ExtResource("1_avipj")]
+material = SubResource("CanvasItemMaterial_uaxmo")
+texture = ExtResource("2_l0kb8")

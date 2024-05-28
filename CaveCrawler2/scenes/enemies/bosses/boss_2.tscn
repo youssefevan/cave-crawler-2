@@ -170,7 +170,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_b8ags"]
 resource_name = "Transform"
-length = 0.9
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -178,7 +178,7 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
+"times": PackedFloat32Array(0, 0.4, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [12, 13, 14]
@@ -190,7 +190,7 @@ tracks/1/path = NodePath("Tank:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
+"times": PackedFloat32Array(0, 0.4, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [4, 5, 6]
@@ -202,7 +202,7 @@ tracks/2/path = NodePath("Hitbox/Collider:shape:radius")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
+"times": PackedFloat32Array(0, 0.4, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [12.0, 12.0, 9.0]
@@ -214,7 +214,7 @@ tracks/3/path = NodePath("Hitbox/Collider:shape:height")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
+"times": PackedFloat32Array(0, 0.4, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [28.0, 24.0, 18.0]
@@ -334,7 +334,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uhdfl"]
-radius = 15.0
+radius = 14.0
 height = 40.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dgg8r"]
@@ -364,11 +364,11 @@ libraries = {
 }
 
 [node name="VisibleOnScreenEnabler2D" parent="." index="1"]
-position = Vector2(-0.499999, -10)
-scale = Vector2(2.45, 1)
+position = Vector2(4.76837e-07, -10)
+scale = Vector2(1.9, 1)
 
 [node name="Collider" parent="." index="2"]
-position = Vector2(0, -15)
+position = Vector2(0, -14)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uhdfl")
 
@@ -378,13 +378,14 @@ position = Vector2(0, -32)
 texture = ExtResource("3_8oo4p")
 hframes = 4
 vframes = 4
-frame = 8
+frame = 12
 
 [node name="Tank" type="Sprite2D" parent="." index="4"]
 position = Vector2(0, -32)
 texture = ExtResource("3_8oo4p")
 hframes = 4
 vframes = 4
+frame = 4
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -16)
@@ -411,7 +412,6 @@ position = Vector2(0, -26)
 [node name="StateManager" type="Node" parent="." index="8"]
 script = ExtResource("4_oaoej")
 starting_state = NodePath("Sleep")
-print_states = true
 
 [node name="Sleep" type="Node" parent="StateManager" index="0"]
 script = ExtResource("6_tt2aq")

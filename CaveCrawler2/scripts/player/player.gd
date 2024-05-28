@@ -225,6 +225,7 @@ func get_hurt() -> void:
 			hit_flash()
 			#$Hurtbox/Collider.disabled = true
 			await get_tree().create_timer(invincibility_length, false).timeout
+			$Hurtbox/Collider.disabled = true
 			can_get_hurt = true
 			$Hurtbox/Collider.disabled = false
 			

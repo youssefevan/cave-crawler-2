@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7g2negqj3n8a"]
+[gd_scene load_steps=6 format=3 uid="uid://c7g2negqj3n8a"]
 
 [ext_resource type="Script" path="res://scripts/bullets/turret_bullet.gd" id="1_l20ss"]
 [ext_resource type="PackedScene" uid="uid://bkhosm25ser2" path="res://sprites/particles/hit_flash.tscn" id="2_o5al5"]
 [ext_resource type="Texture2D" uid="uid://x5oxawj3fbw" path="res://sprites/turret_bullet.png" id="3_smncd"]
+[ext_resource type="PackedScene" uid="uid://cfx3i0o8fdykm" path="res://scenes/particles/bullet_trail.tscn" id="4_aocbk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_562gq"]
 radius = 2.0
@@ -11,7 +12,7 @@ radius = 2.0
 collision_layer = 40
 collision_mask = 81
 script = ExtResource("1_l20ss")
-speed = 150.0
+speed = 100.0
 hit_flash = ExtResource("2_o5al5")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -20,6 +21,8 @@ texture = ExtResource("3_smncd")
 [node name="Collision" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CircleShape2D_562gq")
+
+[node name="BulletTrail" parent="." instance=ExtResource("4_aocbk")]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
