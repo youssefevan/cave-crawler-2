@@ -6,10 +6,12 @@ extends Control
 @onready var details_name = $Details/VBoxContainer/Name
 @onready var new_level_panel = $NewLevel
 @onready var new_level_line_edit = $NewLevel/VBoxContainer/LineEdit
+@onready var delete_panel = $DeleteConfirm
+@onready var delete_cancel = $DeleteConfirm/VBoxContainer/Buttons/CancelDelete
 
 var levels = []
 var selected_item = null
-@onready var path = "res://custom_levels/"
+@onready var path = Global.level_path
 
 func _ready():
 	if OptionsHandler.cursor_visible == false:
@@ -25,11 +27,12 @@ func _ready():
 	details_name.text = str(name)
 	
 	new_level_panel.visible = false
+	delete_panel.visible = false
 
 func get_levels():
-	levels = []
+	clear_levels()
 	
-	var dir = DirAccess.open("res://custom_levels/")
+	var dir = DirAccess.open(Global.level_path)
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
@@ -42,6 +45,10 @@ func get_levels():
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
+
+func clear_levels():
+	levels = []
+	item_list.clear()
 
 func _on_item_list_item_selected(index):
 	selected_item = index
@@ -67,8 +74,26 @@ func _on_new_pressed():
 func _on_cancel_pressed():
 	new_level_line_edit.text = ""
 	new_level_panel.visible = false
+	$NewLevel/Error.visible = false
 
 func _on_create_pressed():
-	Global.creating_new_level = true
-	Global.level_to_load = path + new_level_line_edit.text + ".cc2"
-	get_tree().change_scene_to_packed(Global.level_editor_scene)
+	if str(path + new_level_line_edit.text + ".cc2") in levels:
+		$NewLevel/Error.visible = true
+	else:
+		Global.creating_new_level = true
+		Global.level_to_load = path + new_level_line_edit.text + ".cc2"
+		get_tree().change_scene_to_packed(Global.level_editor_scene)
+
+func _on_delete_pressed():
+	delete_panel.visible = true
+	delete_cancel.grab_focus()
+
+func _on_cancel_delete_pressed():
+	delete_panel.visible = false
+
+func _on_confirm_delete_pressed():
+	var dir = DirAccess.open(Global.level_path)
+	dir.remove(levels[selected_item])
+	print(levels[selected_item])
+	delete_panel.visible = false
+	get_levels()

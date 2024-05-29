@@ -1,6 +1,7 @@
 extends Node
 
 var save_path = "user://save_data.save"
+var level_path = "user://custom_levels/"
 
 var main_menu_scene = load("res://scenes/gui/menus/menu_main.tscn")
 var options_scene = load("res://scenes/gui/menus/menu_options.tscn")
@@ -24,6 +25,11 @@ var checkpoint_position : Vector2
 var last_focused_node
 
 var next_level
+
+func _ready():
+	var dir = DirAccess.open("user://")
+	if dir.dir_exists(Global.level_path) == false:
+		dir.make_dir("custom_levels")
 
 func entering_sub_menu():
 	last_focused_node = get_viewport().gui_get_focus_owner()
