@@ -35,7 +35,7 @@ func _physics_process(delta):
 	states.physics_update(delta)
 	apply_gravity(delta)
 	
-	muzzle.look_at(player.global_position)
+	muzzle.look_at(player.global_position + Vector2(0, 4))
 	
 	move_and_slide()
 
