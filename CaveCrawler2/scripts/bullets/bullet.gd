@@ -18,6 +18,14 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 		
 		if cell_data.get_custom_data("does_damage") == true:
 			pass
+		elif cell_data.get_custom_data("health") != 0:
+			if cell_data.get_custom_data("health") == 2:
+				body.set_cell(0, cell_pos, 2, Vector2(1, 6))
+			elif cell_data.get_custom_data("health") == 1:
+				body.set_cell(0, cell_pos, 2, Vector2(2, 6))
+			elif cell_data.get_custom_data("health") == -1:
+				body.erase_cell(0, cell_pos)
+			explode()
 		else:
 			explode()
 
