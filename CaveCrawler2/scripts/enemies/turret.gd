@@ -19,9 +19,9 @@ func _physics_process(delta):
 	if player:
 		var player_offset_x = 0.0
 		if player.velocity.x > 65:
-			player_offset_x = 64.0
+			player_offset_x = 72.0
 		elif player.velocity.x < -65:
-			player_offset_x = -64.0
+			player_offset_x = -72.0
 		else:
 			player_offset_x = 0.0
 		

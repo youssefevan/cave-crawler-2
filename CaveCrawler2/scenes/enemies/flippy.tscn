@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://e1avqsod0abs"]
+
+[ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_lsg0v"]
+[ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_3a1d5"]
+[ext_resource type="Script" path="res://scripts/enemies/flippy.gd" id="2_jeik1"]
+[ext_resource type="Texture2D" uid="uid://oojlndwxy8tm" path="res://sprites/enemies/flippy.png" id="3_ktd2d"]
+
+[sub_resource type="Animation" id="Animation_t3b24"]
+resource_name = "Idle"
+length = 0.3
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_at04i"]
+_data = {
+"Idle": SubResource("Animation_t3b24")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdq5i"]
+size = Vector2(8, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6atbn"]
+resource_local_to_scene = true
+shader = ExtResource("2_3a1d5")
+shader_parameter/enabled = false
+shader_parameter/Tint = Color(1, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ows7u"]
+size = Vector2(8, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwv1m"]
+size = Vector2(8, 10)
+
+[node name="Flippy" instance=ExtResource("1_lsg0v")]
+script = ExtResource("2_jeik1")
+gravity = 400.0
+
+[node name="Animator" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_at04i")
+}
+
+[node name="VisibleOnScreenEnabler2D" parent="." index="1"]
+position = Vector2(-2.38419e-07, -4.5)
+scale = Vector2(0.4, 0.45)
+
+[node name="Collider" parent="." index="2"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_hdq5i")
+
+[node name="Sprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_6atbn")
+position = Vector2(0, -5)
+texture = ExtResource("3_ktd2d")
+hframes = 2
+
+[node name="Collider" parent="Hitbox" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_ows7u")
+
+[node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_nwv1m")
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]

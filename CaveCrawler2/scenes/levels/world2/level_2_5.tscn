@@ -119,23 +119,23 @@ position = Vector2(2384, 36)
 texture = ExtResource("8_sda3i")
 
 [node name="Pyramid5" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2384, 36)
+position = Vector2(2523, 46)
 texture = ExtResource("8_sda3i")
 
 [node name="Pyramid4" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2436, 77)
+position = Vector2(2463, 77)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid6" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2409, 104)
+position = Vector2(2436, 104)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid7" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2382, 131)
+position = Vector2(2409, 131)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid8" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2432, 89)
+position = Vector2(2459, 89)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid22" type="Sprite2D" parent="BGSprites"]
@@ -203,31 +203,31 @@ position = Vector2(2019, 179)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid10" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2459, 62)
+position = Vector2(2486, 62)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid11" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2463, 50)
+position = Vector2(2490, 50)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid12" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2486, 35)
+position = Vector2(2513, 35)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid13" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2490, 23)
+position = Vector2(2517, 23)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid14" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2513, 8)
+position = Vector2(2540, 8)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid17" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2517, -4)
+position = Vector2(2544, -4)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid9" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2405, 116)
+position = Vector2(2432, 116)
 texture = ExtResource("9_0llu5")
 
 [node name="Pyramid2" type="Sprite2D" parent="BGSprites"]
@@ -236,32 +236,6 @@ texture = ExtResource("9_aa2jm")
 
 [node name="Pyramid3" type="Sprite2D" parent="BGSprites"]
 position = Vector2(2362, 10)
-scale = Vector2(-1, 1)
-texture = ExtResource("9_aa2jm")
-
-[node name="Pyramid15" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2282, 57)
-texture = ExtResource("8_sda3i")
-
-[node name="Pyramid16" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2304, 31)
-texture = ExtResource("9_aa2jm")
-
-[node name="Pyramid18" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2260, 31)
-scale = Vector2(-1, 1)
-texture = ExtResource("9_aa2jm")
-
-[node name="Pyramid19" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2555, 49)
-texture = ExtResource("8_sda3i")
-
-[node name="Pyramid20" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2577, 23)
-texture = ExtResource("9_aa2jm")
-
-[node name="Pyramid21" type="Sprite2D" parent="BGSprites"]
-position = Vector2(2533, 23)
 scale = Vector2(-1, 1)
 texture = ExtResource("9_aa2jm")
 
