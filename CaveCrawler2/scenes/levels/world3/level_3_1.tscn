@@ -137,14 +137,14 @@ position = Vector2(2736, 80)
 metadata/_edit_group_ = true
 
 [node name="Endpoint" parent="MovingPlatforms/MovingPlatform2" index="2"]
-position = Vector2(-104, 0)
+position = Vector2(-112, 0)
 
 [node name="MovingPlatform3" parent="MovingPlatforms" instance=ExtResource("14_eu8g8")]
-position = Vector2(2632, 112)
+position = Vector2(2624, 112)
 metadata/_edit_group_ = true
 
 [node name="Endpoint" parent="MovingPlatforms/MovingPlatform3" index="2"]
-position = Vector2(104, 0)
+position = Vector2(112, 0)
 
 [node name="Player" parent="." instance=ExtResource("6_fasik")]
 position = Vector2(32, 96)
