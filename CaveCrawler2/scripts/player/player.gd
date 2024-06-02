@@ -177,7 +177,7 @@ func shoot() -> void:
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Enemy") or area.is_in_group("Hazard"):
-		# Make sure player doesn't get hurt by the slug when its in the shield state (bounce mode thing)
+		# Make sure player doesn't get hurt by the slug when its in the shield state
 		if area.get_parent() is Slug and area.get_parent().states.current_state == area.get_parent().shield:
 			area.get_parent().states.change_state(area.get_parent().shield)
 		else:
@@ -194,13 +194,6 @@ func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shap
 			
 		elif cell_data.get_custom_data("does_damage") == true:
 			get_hurt()
-			
-		if cell_data.get_custom_data("speed_modifier") != 0.0:
-			speed_modifier = cell_data.get_custom_data("speed_modifier")
-
-func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
-	if body is TileMap:
-		speed_modifier = 1.0
 
 func get_hurt() -> void:
 	if can_get_hurt == true:

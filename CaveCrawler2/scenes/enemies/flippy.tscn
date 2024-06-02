@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://e1avqsod0abs"]
+[gd_scene load_steps=12 format=3 uid="uid://e1avqsod0abs"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_lsg0v"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_3a1d5"]
@@ -22,14 +22,56 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5mqch"]
+resource_name = "Land"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 0.8), Vector2(0.8, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_at04i"]
 _data = {
-"Idle": SubResource("Animation_t3b24")
+"Idle": SubResource("Animation_t3b24"),
+"Land": SubResource("Animation_5mqch")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdq5i"]
-size = Vector2(8, 10)
+size = Vector2(8, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6atbn"]
 resource_local_to_scene = true
@@ -64,15 +106,21 @@ shape = SubResource("RectangleShape2D_hdq5i")
 material = SubResource("ShaderMaterial_6atbn")
 position = Vector2(0, -5)
 texture = ExtResource("3_ktd2d")
-hframes = 2
+hframes = 3
+frame = 2
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_ows7u")
 
+[node name="Hurtbox" parent="." index="5"]
+collision_mask = 417
+
 [node name="Collider" parent="Hurtbox" index="0"]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_nwv1m")
+
+[connection signal="body_shape_exited" from="Hurtbox" to="." method="_on_hurtbox_body_shape_exited"]
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

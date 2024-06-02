@@ -33,7 +33,6 @@ material = SubResource("ShaderMaterial_gu8jq")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_shape_entered" from="Hurtbox" to="." method="_on_hurtbox_body_shape_entered"]
-[connection signal="body_shape_exited" from="Hurtbox" to="." method="_on_hurtbox_body_shape_exited"]
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

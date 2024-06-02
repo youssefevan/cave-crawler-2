@@ -70,10 +70,3 @@ func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shap
 			die()
 		elif cell_data.get_custom_data("does_damage") == true:
 			get_hurt(0.1)
-			
-		if cell_data.get_custom_data("speed_modifier") != 0.0:
-			speed_modifier = cell_data.get_custom_data("speed_modifier")
-
-func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
-	if body is TileMap:
-		speed_modifier = 1.0
