@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://che434nuick0y"]
+[gd_scene load_steps=18 format=3 uid="uid://che434nuick0y"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_udyp1"]
 [ext_resource type="Texture2D" uid="uid://dar57tpu003nr" path="res://sprites/backgrounds/bg4.png" id="2_cx0o7"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="13_o64ir"]
 [ext_resource type="PackedScene" uid="uid://bvk2o5ljywjt" path="res://scenes/moving_platform.tscn" id="14_eu8g8"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="14_oe7qr"]
+[ext_resource type="PackedScene" uid="uid://dc4kc52bro3vs" path="res://scenes/levels/world3/level_3_2.tscn" id="15_bpcs4"]
 
 [node name="Level3-1" type="Node2D"]
 
@@ -122,6 +123,7 @@ position = Vector2(1840, 104)
 
 [node name="Flagpole" parent="Pickups" instance=ExtResource("14_oe7qr")]
 position = Vector2(2780, 64)
+next_level = ExtResource("15_bpcs4")
 
 [node name="MovingPlatforms" type="Node" parent="."]
 
