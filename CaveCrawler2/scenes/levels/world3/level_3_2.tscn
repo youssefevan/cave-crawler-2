@@ -58,6 +58,10 @@ scale = Vector2(256, 304)
 position = Vector2(1848, -160)
 scale = Vector2(256, 144)
 
+[node name="CameraRoom5" parent="CameraRooms" instance=ExtResource("5_cleac")]
+position = Vector2(2104, -160)
+scale = Vector2(256, 144)
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Flippy" parent="Enemies" instance=ExtResource("6_fjoq5")]
@@ -136,7 +140,7 @@ position = Vector2(1792, -64)
 position = Vector2(1976, -64)
 
 [node name="Player" parent="." instance=ExtResource("6_o04r5")]
-position = Vector2(1617, 103)
+position = Vector2(32, 112)
 
 [editable path="MovingPlatforms/MovingPlatform"]
 [editable path="MovingPlatforms/MovingPlatform2"]

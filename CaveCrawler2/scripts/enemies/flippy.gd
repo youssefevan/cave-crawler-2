@@ -42,8 +42,9 @@ func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
 		
-		if cell_data.get_custom_data("health") != 0:
-			damage_tile(body, cell_data, cell_pos)
+		if cell_data:
+			if cell_data.get_custom_data("health") != 0:
+				damage_tile(body, cell_data, cell_pos)
 
 func damage_tile(body, cell_data, cell_pos):
 	if cell_data.get_custom_data("health") == 2:
