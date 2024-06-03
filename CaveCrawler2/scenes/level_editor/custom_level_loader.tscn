@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bdwtpmwatgytk"]
+[gd_scene load_steps=21 format=3 uid="uid://bdwtpmwatgytk"]
 
 [ext_resource type="Script" path="res://scripts/editor/custom_level_loader.gd" id="1_m6kmy"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tilemaps/tile_map.tscn" id="1_o6b1y"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bpks5orrmydww" path="res://scenes/enemies/roly_poly.tscn" id="10_rnwff"]
 [ext_resource type="PackedScene" uid="uid://dpmspylnysx1w" path="res://scenes/enemies/slug_cluster.tscn" id="12_5k13r"]
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="12_nk4f0"]
+[ext_resource type="PackedScene" uid="uid://e1avqsod0abs" path="res://scenes/enemies/flippy.tscn" id="13_hnpkc"]
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="14_x870c"]
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="18_45rhx"]
 [ext_resource type="Script" path="res://scripts/gui/interactable_gui.gd" id="19_ysq71"]
@@ -33,6 +34,7 @@ slug_scene = ExtResource("8_jcnug")
 turret_scene = ExtResource("9_eyrh3")
 roly_poly_scene = ExtResource("10_rnwff")
 slug_cluster_scene = ExtResource("12_5k13r")
+flippy_scene = ExtResource("13_hnpkc")
 stalactite_scene = ExtResource("10_8m8eu")
 health_scene = ExtResource("12_nk4f0")
 

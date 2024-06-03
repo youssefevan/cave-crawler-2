@@ -5,9 +5,11 @@ extends Node2D
 # Terrain Coordinates
 var ground := Vector2(1, 0)
 var ground2 := Vector2(2, 0)
-var slope_left := Vector2(3, 0)
-var slope_right := Vector2(4, 0)
-var one_way := Vector2(5, 0)
+var ground3 := Vector2(3, 0)
+var slope_left := Vector2(4, 0)
+var slope_right := Vector2(5, 0)
+var one_way := Vector2(6, 0)
+var destructible := Vector2(7, 0)
 
 # Enemy Coordinates
 var rat := Vector2(0, 1)
@@ -18,6 +20,7 @@ var slug := Vector2(4, 1)
 var turret := Vector2(5, 1)
 var roly_poly := Vector2(6, 1)
 var slug_cluster := Vector2(7, 1)
+var flippy := Vector2(8, 1)
 
 # Hazard Coordinates
 var spike := Vector2(0, 2)
@@ -47,6 +50,7 @@ var player_scene = Global.player_scene
 @export var turret_scene : PackedScene
 @export var roly_poly_scene : PackedScene
 @export var slug_cluster_scene : PackedScene
+@export var flippy_scene : PackedScene
 
 # Hazard scenes
 @export var stalactite_scene : PackedScene
@@ -122,6 +126,7 @@ func check_for_player():
 func build_level():
 	var world_1_cells : Array
 	var world_2_cells : Array
+	var world_3_cells : Array
 	
 	for cell in lines:
 		var cell_type = Vector2(cell.z, cell.w)
@@ -131,12 +136,16 @@ func build_level():
 				world_1_cells.append(cell_position)
 			ground2:
 				world_2_cells.append(cell_position)
+			ground3:
+				world_3_cells.append(cell_position)
 			slope_left:
-				tiles.set_cell(0, cell_position, tileset_id, Vector2(0,4))
+				tiles.set_cell(0, cell_position, tileset_id, Vector2(0, 4))
 			slope_right:
-				tiles.set_cell(0, cell_position, tileset_id, Vector2(1,4))
+				tiles.set_cell(0, cell_position, tileset_id, Vector2(1, 4))
 			one_way:
-				tiles.set_cell(0, cell_position, tileset_id, Vector2(2,4))
+				tiles.set_cell(0, cell_position, tileset_id, Vector2(2, 4))
+			destructible:
+				tiles.set_cell(0, cell_position, tileset_id, Vector2(0, 6))
 			player:
 				spawn_entity(player_scene, cell_position)
 			rat:
@@ -155,6 +164,8 @@ func build_level():
 				spawn_entity(roly_poly_scene, cell_position)
 			slug_cluster:
 				spawn_entity(slug_cluster_scene, cell_position)
+			flippy:
+				spawn_entity(flippy_scene, cell_position)
 			stalactite:
 				spawn_entity(stalactite_scene, cell_position)
 			health:
@@ -170,6 +181,7 @@ func build_level():
 	
 	tiles.set_cells_terrain_connect(0, world_1_cells, 0, 0)
 	tiles.set_cells_terrain_connect(0, world_2_cells, 0, 1)
+	tiles.set_cells_terrain_connect(0, world_3_cells, 0, 2)
 	
 	for room in camera_rooms:
 		spawn_camera_room(Vector2(room.x, room.y), Vector2(room.z, room.w))
