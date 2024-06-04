@@ -26,6 +26,7 @@ var flippy := Vector2(8, 1)
 var spike := Vector2(0, 2)
 var stalactite := Vector2(1, 2)
 var lava := Vector2(2, 2)
+var anti_gravity := Vector2(3, 2)
 
 # Utility Coordinates
 var player := Vector2(0, 4)
@@ -178,6 +179,8 @@ func build_level():
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(3,4))
 			lava:
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(4,4))
+			anti_gravity:
+				tiles.set_cell(0, cell_position, tileset_id, Vector2(4,6))
 	
 	tiles.set_cells_terrain_connect(0, world_1_cells, 0, 0)
 	tiles.set_cells_terrain_connect(0, world_2_cells, 0, 1)

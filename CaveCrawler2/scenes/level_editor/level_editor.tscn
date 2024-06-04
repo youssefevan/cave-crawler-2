@@ -91,8 +91,8 @@ region = Rect2(8, 16, 8, 8)
 atlas = SubResource("CompressedTexture2D_plt8p")
 region = Rect2(16, 16, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_150ph"]
-atlas = SubResource("CompressedTexture2D_plt8p")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h01t"]
+atlas = ExtResource("5_fjyjh")
 region = Rect2(24, 16, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u1wij"]
@@ -403,11 +403,9 @@ script = ExtResource("12_5u3pp")
 tool_type = 2
 tile_coordinate_x = 2
 
-[node name="Sludge" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
-visible = false
+[node name="AntiGravity" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-icon = SubResource("AtlasTexture_150ph")
-icon_alignment = 1
+icon = SubResource("AtlasTexture_2h01t")
 script = ExtResource("12_5u3pp")
 tool_type = 2
 tile_coordinate_x = 3
@@ -533,8 +531,8 @@ tile_coordinate_x = 3
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Stalactite" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" to="." method="_on_tool_selected"]
-[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Sludge" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Sludge" method="_on_pressed"]
-[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Sludge" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/AntiGravity" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/AntiGravity" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/AntiGravity" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" to="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Health" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" to="CanvasLayer/ToolBar/TabContainer/Pickups/ScrollContainer/HBoxContainer/Shield" method="_on_pressed"]
