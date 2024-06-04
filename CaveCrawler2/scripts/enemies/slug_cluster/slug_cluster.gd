@@ -24,11 +24,11 @@ func _physics_process(delta):
 		move_dir = 1
 		$Sprite.scale.x = -1
 	
-	velocity.x = lerpf(velocity.x, move_dir * speed * speed_modifier, 2 * delta)
+	velocity.x = lerpf(velocity.x, move_dir * speed, 2 * delta)
 	
 	# gravity
-	velocity.y += gravity * delta
-	velocity.y = clampf(velocity.y, -250.0 * speed_modifier, 250.0 * speed_modifier)
+	velocity.y += gravity * gravity_multiplier * delta
+	velocity.y = clampf(velocity.y, -250.0, 250.0)
 	
 	if is_on_floor():
 		$Sprite.scale.y = 0.5

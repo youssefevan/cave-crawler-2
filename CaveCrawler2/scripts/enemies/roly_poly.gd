@@ -12,7 +12,7 @@ func _ready():
 func _physics_process(delta):
 	super._physics_process(delta)
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += gravity * gravity_multiplier * delta
 	
 	#if is_on_floor():
 	#	velocity.y = 1

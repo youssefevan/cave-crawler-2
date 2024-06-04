@@ -70,30 +70,39 @@ scale = Vector2(768, 144)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Turret" parent="Enemies" instance=ExtResource("6_jn1cw")]
+visible = true
 position = Vector2(568, 44)
 
 [node name="Turret3" parent="Enemies" instance=ExtResource("6_jn1cw")]
+visible = true
 position = Vector2(808, 20)
 
 [node name="Turret4" parent="Enemies" instance=ExtResource("6_jn1cw")]
+visible = true
 position = Vector2(2680, 20)
 
 [node name="Crab" parent="Enemies" instance=ExtResource("7_uy4ne")]
+visible = true
 position = Vector2(1248, 80)
 
 [node name="RolyPoly" parent="Enemies" instance=ExtResource("8_8scgc")]
+visible = true
 position = Vector2(1472, 120)
 
 [node name="Bat" parent="Enemies" instance=ExtResource("9_fjtdh")]
+visible = true
 position = Vector2(1232, 16)
 
 [node name="Bat2" parent="Enemies" instance=ExtResource("9_fjtdh")]
+visible = true
 position = Vector2(1316, 40)
 
 [node name="Slug" parent="Enemies" instance=ExtResource("10_7woe8")]
+visible = true
 position = Vector2(1912, 104)
 
 [node name="Slug2" parent="Enemies" instance=ExtResource("10_7woe8")]
+visible = true
 position = Vector2(2120, 112)
 
 [node name="Hazards" type="Node" parent="."]

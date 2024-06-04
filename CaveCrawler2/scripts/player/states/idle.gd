@@ -12,7 +12,10 @@ func physics_update(delta):
 	entity.handle_input()
 	entity.apply_movement(delta)
 	
-	entity.velocity.y = 1
+	if entity.gravity_multiplier == 0.0:
+		entity.velocity.y += 0.0
+	else:
+		entity.velocity.y = 1
 	
 	if entity.movement_input != 0:
 		return entity.run

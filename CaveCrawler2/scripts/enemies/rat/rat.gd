@@ -44,13 +44,13 @@ func _physics_process(delta):
 			move_direction = -1
 			$Sprite.flip_h = false
 	
-	velocity.y = clampf(velocity.y, -250.0 * speed_modifier, 250.0 * speed_modifier)
+	velocity.y = clampf(velocity.y, -250.0, 250.0)
 	
 	move_and_slide()
 
 func apply_gravity(delta):
 	if not is_on_floor():
-		velocity.y += gravity * speed_modifier * delta
+		velocity.y += gravity * gravity_multiplier * delta
 
 func apply_friction(delta):
 	if is_on_floor():

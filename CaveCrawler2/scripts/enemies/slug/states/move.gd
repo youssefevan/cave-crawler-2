@@ -5,7 +5,7 @@ var end := false
 func enter():
 	super.enter()
 	end = false
-	entity.velocity.x = entity.speed * entity.speed_modifier * entity.move_direction
+	entity.velocity.x = entity.speed * entity.move_direction
 	await get_tree().create_timer(entity.inch_time).timeout
 	end = true
 

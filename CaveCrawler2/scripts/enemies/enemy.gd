@@ -9,10 +9,11 @@ var player : Player
 
 var sfx_death = preload("res://audio/sfx/enemy_death.ogg")
 
-var speed_modifier := 1.0
-
 var current_health : int
 var can_get_hurt : bool
+
+var gravity_multiplier := 0.0
+var gravity_tiles = []
 
 func _ready():
 	$Sprite.material.set_shader_parameter("enabled", false)
@@ -24,6 +25,11 @@ func _ready():
 func _physics_process(delta):
 	if player == null:
 		player = get_tree().get_first_node_in_group("Player")
+	
+	if gravity_tiles.is_empty():
+		gravity_multiplier = 1.0
+	else:
+		gravity_multiplier = 0.0
 
 func enter_bounce(bounce_force):
 	velocity.y -= bounce_force
@@ -70,3 +76,13 @@ func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shap
 			die()
 		elif cell_data.get_custom_data("does_damage") == true:
 			get_hurt(0.1)
+		elif cell_data.get_custom_data("no_gravity") == true:
+			gravity_tiles.append(cell_pos)
+
+func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	if body is TileMap:
+		var cell_pos = body.get_coords_for_body_rid(body_rid)
+		var cell_data = body.get_cell_tile_data(0, cell_pos)
+			
+		if cell_data.get_custom_data("no_gravity") == true:
+			gravity_tiles.pop_front()

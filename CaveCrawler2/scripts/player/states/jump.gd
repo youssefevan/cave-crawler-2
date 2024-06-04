@@ -44,4 +44,4 @@ func apply_gravity(delta):
 		-entity.max_fall_speed,
 		entity.max_fall_speed
 	)
-	entity.velocity.y += entity.gravity_up * delta
+	entity.velocity.y += entity.gravity_up * entity.gravity_multiplier * delta

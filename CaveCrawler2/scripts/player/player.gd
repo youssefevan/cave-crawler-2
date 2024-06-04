@@ -48,6 +48,8 @@ var gravity_down := 1400.0
 var max_fall_speed := 250.0
 var bouncing := false
 var bounce_force
+var gravity_multiplier := 0.0
+var gravity_tiles := []
 
 # Health
 @export var max_health := 4
@@ -60,6 +62,7 @@ var invincibility_length := 2.0 # in seconds
 # Gun varaibles
 var can_fire : bool
 var fire_rate := 0.25
+var aiming : Vector2
 
 # Camera variables
 var camera_speed := 6.0
@@ -89,6 +92,12 @@ func _physics_process(delta) -> void:
 	handle_oneway_collision()
 	jump_buffering()
 	
+	# If the player is in contact with any anti-grav tiles, remove gravity
+	if gravity_tiles.is_empty():
+		gravity_multiplier = 1.0
+	else:
+		gravity_multiplier = 0.0
+	
 	if Input.is_action_pressed("shoot") and can_fire:
 		shoot()
 	
@@ -99,23 +108,27 @@ func handle_input() -> void:
 	movement_input = Input.get_action_strength("right") - Input.get_action_strength("left")
 	if movement_input > 0:
 		$Sprite.flip_h = false
-		$Gun.scale.x = 1
+		gun.scale.x = 1
 	if movement_input < 0:
 		$Sprite.flip_h = true
-		$Gun.scale.x = -1
+		gun.scale.x = -1
 	
 	if Input.is_action_pressed("look_up"):
+		aiming = Vector2.UP
 		if $Sprite.flip_h == false:
 			gun.rotation_degrees = -90
 		else:
 			gun.rotation_degrees = 90
 	elif Input.is_action_pressed("drop_through"):
+		aiming = Vector2.DOWN
 		if $Sprite.flip_h == false:
 			gun.rotation_degrees = 90
 		else:
 			gun.rotation_degrees = -90
 	else:
 		gun.rotation_degrees = 0
+		
+		aiming = Vector2(gun.scale.x, 0)
 
 func apply_movement(delta) -> void:
 	if is_on_floor():
@@ -129,19 +142,25 @@ func apply_movement(delta) -> void:
 	if movement_input != 0:
 		var acceleration
 		if is_on_floor():
-			acceleration = acceleration_ground
+			acceleration = acceleration_ground # * gravity_multiplier
 		else:
-			acceleration = acceleration_air
+			acceleration = acceleration_air # * gravity_multiplier
 		
-		velocity.x = lerp(velocity.x, movement_input * speed, acceleration * delta)
+		if gravity_multiplier == 0 and !is_on_floor():
+			pass
+		else:
+			velocity.x = lerp(velocity.x, movement_input * speed, acceleration * delta)
 	else:
 		var deceleration
 		if is_on_floor():
 			deceleration = deceleration_ground
 		else:
 			deceleration = deceleration_air
-			
-		velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
+		
+		if gravity_multiplier == 0 and !is_on_floor():
+			pass
+		else:
+			velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
 		
 		if abs(velocity.x) < 0.05:
 			velocity.x = 0
@@ -171,6 +190,10 @@ func shoot() -> void:
 	
 	AudioHandler.play_sfx(sfx_shoot)
 	
+	if gravity_multiplier == 0.0:
+		velocity -= 25 * aiming
+	#print(aiming)
+	
 	can_fire = false
 	await get_tree().create_timer(fire_rate).timeout
 	can_fire = true
@@ -194,6 +217,20 @@ func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shap
 			
 		elif cell_data.get_custom_data("does_damage") == true:
 			get_hurt()
+		
+		# Use array to keep track of whether or not player is in contact
+		# with an anti-gravity tile.
+		elif cell_data.get_custom_data("no_gravity") == true:
+			gravity_tiles.append(cell_pos)
+
+func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	if body is TileMap:
+		var cell_pos = body.get_coords_for_body_rid(body_rid)
+		var cell_data = body.get_cell_tile_data(0, cell_pos)
+		
+		# When the player exits an anti-grav tile, remove it from the array
+		if cell_data.get_custom_data("no_gravity") == true:
+			gravity_tiles.pop_front()
 
 func get_hurt() -> void:
 	if can_get_hurt == true:
@@ -305,3 +342,5 @@ func end_level() -> void:
 func enter_bounce(bf) -> void:
 	bouncing = true
 	bounce_force = bf
+
+
