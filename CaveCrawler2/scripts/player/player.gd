@@ -48,7 +48,7 @@ var gravity_down := 1400.0
 var max_fall_speed := 250.0
 var bouncing := false
 var bounce_force
-var gravity_multiplier := 0.0
+var gravity_multiplier := 1.0
 var gravity_tiles := []
 
 # Health
@@ -62,7 +62,6 @@ var invincibility_length := 2.0 # in seconds
 # Gun varaibles
 var can_fire : bool
 var fire_rate := 0.25
-var aiming : Vector2
 
 # Camera variables
 var camera_speed := 6.0
@@ -96,7 +95,7 @@ func _physics_process(delta) -> void:
 	if gravity_tiles.is_empty():
 		gravity_multiplier = 1.0
 	else:
-		gravity_multiplier = 0.0
+		gravity_multiplier = -1.0
 	
 	if Input.is_action_pressed("shoot") and can_fire:
 		shoot()
@@ -114,21 +113,17 @@ func handle_input() -> void:
 		gun.scale.x = -1
 	
 	if Input.is_action_pressed("look_up"):
-		aiming = Vector2.UP
 		if $Sprite.flip_h == false:
 			gun.rotation_degrees = -90
 		else:
 			gun.rotation_degrees = 90
 	elif Input.is_action_pressed("drop_through"):
-		aiming = Vector2.DOWN
 		if $Sprite.flip_h == false:
 			gun.rotation_degrees = 90
 		else:
 			gun.rotation_degrees = -90
 	else:
 		gun.rotation_degrees = 0
-		
-		aiming = Vector2(gun.scale.x, 0)
 
 func apply_movement(delta) -> void:
 	if is_on_floor():
@@ -146,10 +141,7 @@ func apply_movement(delta) -> void:
 		else:
 			acceleration = acceleration_air # * gravity_multiplier
 		
-		if gravity_multiplier == 0 and !is_on_floor():
-			pass
-		else:
-			velocity.x = lerp(velocity.x, movement_input * speed, acceleration * delta)
+		velocity.x = lerp(velocity.x, movement_input * speed, acceleration * delta)
 	else:
 		var deceleration
 		if is_on_floor():
@@ -157,10 +149,7 @@ func apply_movement(delta) -> void:
 		else:
 			deceleration = deceleration_air
 		
-		if gravity_multiplier == 0 and !is_on_floor():
-			pass
-		else:
-			velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
+		velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
 		
 		if abs(velocity.x) < 0.05:
 			velocity.x = 0
@@ -189,10 +178,6 @@ func shoot() -> void:
 		b.speed = -b.speed
 	
 	AudioHandler.play_sfx(sfx_shoot)
-	
-	if gravity_multiplier == 0.0:
-		velocity -= 25 * aiming
-	#print(aiming)
 	
 	can_fire = false
 	await get_tree().create_timer(fire_rate).timeout
@@ -234,7 +219,6 @@ func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape
 
 func get_hurt() -> void:
 	if can_get_hurt == true:
-		can_get_hurt = false
 		
 		health -= 1
 		AudioHandler.play_sfx(sfx_hit)

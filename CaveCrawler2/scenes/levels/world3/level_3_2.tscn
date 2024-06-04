@@ -72,107 +72,81 @@ scale = Vector2(1536, 144)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Flippy" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(332, 112)
 
 [node name="Flippy2" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(508, 120)
 
 [node name="Flippy3" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(588, 120)
 
 [node name="Flippy4" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(984, 80)
 
 [node name="Flippy10" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(2472, -48)
 
 [node name="Flippy11" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(2496, -48)
 
 [node name="Flippy12" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(2760, -80)
 
 [node name="Flippy13" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(2784, -80)
 
 [node name="Flippy14" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(3184, -48)
 
 [node name="Flippy15" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(3040, -48)
 
 [node name="Flippy5" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(1408, 80)
 
 [node name="Flippy6" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(1416, 80)
 
 [node name="Flippy7" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(1424, 80)
 
 [node name="Flippy8" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(1432, 80)
 
 [node name="Flippy9" parent="Enemies" instance=ExtResource("6_fjoq5")]
-visible = true
 position = Vector2(1440, 80)
 
 [node name="SkeletonHand2" parent="Enemies" instance=ExtResource("7_dw6ob")]
-visible = true
 position = Vector2(1128, 72)
 
 [node name="Crab" parent="Enemies" instance=ExtResource("8_iv151")]
-visible = true
 position = Vector2(1288, 48)
 
 [node name="Slug" parent="Enemies" instance=ExtResource("9_hhyg4")]
-visible = true
 position = Vector2(1680, 112)
 
 [node name="Slug2" parent="Enemies" instance=ExtResource("9_hhyg4")]
-visible = true
 position = Vector2(1768, 48)
 
 [node name="Slug3" parent="Enemies" instance=ExtResource("9_hhyg4")]
-visible = true
 position = Vector2(1696, -8)
 
 [node name="Slug5" parent="Enemies" instance=ExtResource("9_hhyg4")]
-visible = true
 position = Vector2(1752, -56)
 
 [node name="Slug4" parent="Enemies" instance=ExtResource("9_hhyg4")]
-visible = true
 position = Vector2(1800, -8)
 
 [node name="Slug6" parent="Enemies" instance=ExtResource("9_hhyg4")]
-visible = true
 position = Vector2(3248, -64)
 
 [node name="Slug7" parent="Enemies" instance=ExtResource("9_hhyg4")]
-visible = true
 position = Vector2(3504, -40)
 
 [node name="Turret" parent="Enemies" instance=ExtResource("10_r186v")]
-visible = true
 position = Vector2(2987, -140)
 
 [node name="Turret2" parent="Enemies" instance=ExtResource("10_r186v")]
-visible = true
 position = Vector2(3360, -92)
 
 [node name="Hazard" type="Node" parent="."]

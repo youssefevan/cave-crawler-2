@@ -12,7 +12,6 @@ shader_parameter/enabled = false
 shader_parameter/Tint = Color(1, 0, 0, 1)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
-visible = false
 collision_layer = 4
 collision_mask = 513
 floor_constant_speed = true

@@ -9,7 +9,7 @@ func _ready():
 func _physics_process(delta):
 	super._physics_process(delta)
 	
-	velocity.y += gravity * gravity_multiplier * delta
+	velocity.y += gravity * delta
 	
 	if is_on_floor() or is_on_ceiling():
 		velocity.x = 0

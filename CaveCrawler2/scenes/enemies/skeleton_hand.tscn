@@ -63,7 +63,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qpea"]
-size = Vector2(4, 2)
+size = Vector2(4, 15)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ymug"]
 resource_local_to_scene = true
@@ -92,7 +92,7 @@ position = Vector2(0, -8)
 scale = Vector2(0.6, 0.8)
 
 [node name="Collider" parent="." index="2"]
-position = Vector2(0, -1)
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_6qpea")
 
 [node name="Sprite" parent="." index="3"]

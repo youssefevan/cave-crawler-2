@@ -6,6 +6,7 @@ var speed := 40.0
 var move_direction := -1
 
 func _physics_process(delta):
+	super._physics_process(delta)
 	velocity.y += gravity * gravity_multiplier * delta
 	velocity.y = clampf(velocity.y, -250, 250)
 	

@@ -29,7 +29,7 @@ func _physics_process(delta):
 	if gravity_tiles.is_empty():
 		gravity_multiplier = 1.0
 	else:
-		gravity_multiplier = 0.0
+		gravity_multiplier = -1.0
 
 func enter_bounce(bounce_force):
 	velocity.y -= bounce_force
