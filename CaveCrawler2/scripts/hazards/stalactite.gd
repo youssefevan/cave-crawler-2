@@ -12,6 +12,9 @@ var frame = 0
 var player
 var gravity = 500.0
 
+var gravity_multiplier = 1
+var gravity_tiles = []
+
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 
@@ -20,11 +23,16 @@ func _physics_process(delta):
 		player = get_tree().get_first_node_in_group("Player")
 	
 	if fall == true:
-		velocity.y += gravity * delta
+		velocity.y += gravity * gravity_multiplier * delta
 		
 		if is_on_floor():
 			AudioHandler.play_sfx(sfx_death)
 			call_deferred("queue_free")
+	
+	if gravity_tiles.is_empty():
+		gravity_multiplier = 1
+	else:
+		gravity_multiplier = -1
 	
 	if frame == 1:
 		telegraph()
@@ -64,3 +72,13 @@ func _on_hitbox_body_shape_entered(body_rid, body, body_shape_index, local_shape
 		if cell_data:
 			if cell_data.get_custom_data("health") != 0:
 				body.erase_cell(0, cell_pos)
+			if cell_data.get_custom_data("no_gravity") == true:
+				gravity_tiles.append(cell_pos)
+
+func _on_hitbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	if body is TileMap:
+		var cell_pos = body.get_coords_for_body_rid(body_rid)
+		var cell_data = body.get_cell_tile_data(0, cell_pos)
+		
+		if cell_data.get_custom_data("no_gravity") == true:
+			gravity_tiles.pop_front()

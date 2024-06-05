@@ -18,7 +18,7 @@ class_name Rat
 var jump_velocity_x := 100.0
 var jump_velocity_y := 200.0
 var anticipate_length := 0.3 # in seconds
-var land_length := 1.0 # in seconds
+var land_length := 0.5 # in seconds
 var deceleration := 10.0
 
 var move_direction := 0

@@ -27,7 +27,7 @@ position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_2nkn0")
 
 [node name="Hitbox" parent="." groups=["Hazard"] instance=ExtResource("2_8pemx")]
-collision_mask = 65
+collision_mask = 193
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, 4)
@@ -39,6 +39,7 @@ scale = Vector2(0.4, 0.4)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_shape_entered" from="Hitbox" to="." method="_on_hitbox_body_shape_entered"]
+[connection signal="body_shape_exited" from="Hitbox" to="." method="_on_hitbox_body_shape_exited"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
 
