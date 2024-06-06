@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://dsgeth0yhkuc1"]
+
+[ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_bivop"]
+[ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_4lml2"]
+[ext_resource type="Script" path="res://scripts/enemies/flea.gd" id="2_ga81o"]
+[ext_resource type="Texture2D" uid="uid://e45g43daegmj" path="res://sprites/enemies/flea.png" id="3_2u2q4"]
+
+[sub_resource type="Animation" id="Animation_ocxj0"]
+resource_name = "Bounce"
+length = 0.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnbe2"]
+_data = {
+"Bounce": SubResource("Animation_ocxj0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfyav"]
+size = Vector2(6, 6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txxbr"]
+resource_local_to_scene = true
+shader = ExtResource("2_4lml2")
+shader_parameter/enabled = false
+shader_parameter/Tint = Color(1, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lfliw"]
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm8rf"]
+size = Vector2(6, 6)
+
+[node name="Flea" instance=ExtResource("1_bivop")]
+script = ExtResource("2_ga81o")
+max_health = 1
+
+[node name="Animator" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_lnbe2")
+}
+
+[node name="VisibleOnScreenEnabler2D" parent="." index="1"]
+position = Vector2(0, -3)
+scale = Vector2(0.3, 0.3)
+
+[node name="Collider" parent="." index="2"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_qfyav")
+
+[node name="Sprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_txxbr")
+position = Vector2(0, -4)
+texture = ExtResource("3_2u2q4")
+hframes = 5
+
+[node name="Collider" parent="Hitbox" index="0"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_lfliw")
+
+[node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_lm8rf")
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]

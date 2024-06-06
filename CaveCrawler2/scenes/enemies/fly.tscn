@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://331t2qn34l8g"]
+
+[ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_1wyk2"]
+[ext_resource type="Script" path="res://scripts/enemies/fly.gd" id="2_16fpd"]
+[ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="3_r68yu"]
+[ext_resource type="Texture2D" uid="uid://cwgau3dxynbdw" path="res://sprites/enemies/fly.png" id="4_d5n7b"]
+
+[sub_resource type="Animation" id="Animation_l4222"]
+resource_name = "Fly"
+length = 0.3
+loop_mode = 1
+step = 0.06
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e617w"]
+_data = {
+"Fly": SubResource("Animation_l4222")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i681u"]
+radius = 4.12311
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqayy"]
+resource_local_to_scene = true
+shader = ExtResource("3_r68yu")
+shader_parameter/enabled = false
+shader_parameter/Tint = Color(1, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jt88w"]
+size = Vector2(16, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypdos"]
+size = Vector2(18, 7)
+
+[node name="Fly" instance=ExtResource("1_1wyk2")]
+script = ExtResource("2_16fpd")
+max_health = 6
+
+[node name="Animator" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_e617w")
+}
+
+[node name="VisibleOnScreenEnabler2D" parent="." index="1"]
+position = Vector2(0, 0.5)
+scale = Vector2(1, 0.35)
+
+[node name="Collider" parent="." index="2"]
+shape = SubResource("CircleShape2D_i681u")
+
+[node name="Sprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_gqayy")
+texture = ExtResource("4_d5n7b")
+hframes = 5
+
+[node name="Collider" parent="Hitbox" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_jt88w")
+
+[node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ypdos")
+
+[node name="FleaCarrier" type="Node2D" parent="." index="6"]
+position = Vector2(0, 8)
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]
