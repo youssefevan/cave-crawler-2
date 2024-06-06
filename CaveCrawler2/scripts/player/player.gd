@@ -219,6 +219,7 @@ func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape
 
 func get_hurt() -> void:
 	if can_get_hurt == true:
+		can_get_hurt = false
 		
 		health -= 1
 		AudioHandler.play_sfx(sfx_hit)
