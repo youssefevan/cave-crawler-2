@@ -53,7 +53,7 @@ position = Vector2(3328, 0)
 scale = Vector2(256, 144)
 
 [node name="CameraRoom8" parent="CameraRooms" instance=ExtResource("5_mds2u")]
-position = Vector2(4608, 287)
+position = Vector2(4608, 288)
 scale = Vector2(256, 144)
 
 [node name="CameraRoom6" parent="CameraRooms" instance=ExtResource("5_mds2u")]
