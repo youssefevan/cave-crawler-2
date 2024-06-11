@@ -44,4 +44,4 @@ scale = Vector2(256, 144)
 position = Vector2(32, 112)
 
 [node name="Boss3" parent="." instance=ExtResource("7_cakbn")]
-position = Vector2(160, 120)
+position = Vector2(170, 79)
