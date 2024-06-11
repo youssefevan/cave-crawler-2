@@ -150,7 +150,7 @@ position = Vector2(4404, 328)
 position = Vector2(4380, 328)
 
 [node name="Player" parent="." instance=ExtResource("5_7ahe0")]
-position = Vector2(3407, 103)
+position = Vector2(32, 96)
 
 [editable path="MovingPlatforms/MovingPlatform"]
 [editable path="MovingPlatforms/MovingPlatform2"]
