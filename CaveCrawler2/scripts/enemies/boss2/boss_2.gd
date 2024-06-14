@@ -33,15 +33,10 @@ func _ready():
 func _physics_process(delta):
 	super._physics_process(delta)
 	states.physics_update(delta)
-	apply_gravity(delta)
 	
 	muzzle.look_at(player.global_position + Vector2(0, 4))
 	
 	move_and_slide()
-
-func apply_gravity(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
 
 func get_hurt(hitstun_weight):
 	super.get_hurt(hitstun_weight)

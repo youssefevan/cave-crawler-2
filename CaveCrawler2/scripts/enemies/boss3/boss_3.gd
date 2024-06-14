@@ -1,10 +1,9 @@
 extends Enemy
 class_name Boss3
 
+@onready var animator = $Animator
 @onready var states = $StateManager
 @onready var idle = $StateManager/Idle
-
-@onready var muzzle = $Muzzle
 
 func _ready():
 	super._ready()
@@ -14,12 +13,14 @@ func _ready():
 func _physics_process(delta):
 	super._physics_process(delta)
 	states.physics_update(delta)
-	apply_gravity(delta)
-	
-	muzzle.look_at(player.global_position + Vector2(0, 4))
+	face_player()
 	
 	move_and_slide()
 
-func apply_gravity(delta):
-	if not is_on_floor():
-		velocity.y += gravity * 0.1 * delta
+func face_player():
+	if (global_position.x - player.global_position.x) > 0:
+		$Boss.flip_h = false
+		$Sprite.scale.x = 1
+	else:
+		$Boss.flip_h = true
+		$Sprite.scale.x = -1
