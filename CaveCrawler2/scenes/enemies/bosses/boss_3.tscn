@@ -102,5 +102,8 @@ script = ExtResource("6_l7rxy")
 
 [node name="Node4" type="Node" parent="StateManager" index="3"]
 
+[node name="Muzzle" type="Node2D" parent="." index="8"]
+position = Vector2(-2, 3)
+
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

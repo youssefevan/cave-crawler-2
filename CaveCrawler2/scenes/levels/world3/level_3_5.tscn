@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://0ylgloko7p7v"]
+[gd_scene load_steps=8 format=3 uid="uid://0ylgloko7p7v"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_87bmc"]
 [ext_resource type="Texture2D" uid="uid://dar57tpu003nr" path="res://sprites/backgrounds/bg4.png" id="2_kylo1"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/engine/camera_room.tscn" id="5_yfirm"]
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="6_4p3sx"]
 [ext_resource type="PackedScene" uid="uid://dyxqx1wk6buob" path="res://scenes/enemies/bosses/boss_3.tscn" id="7_cakbn"]
-[ext_resource type="Texture2D" uid="uid://dvr8eo0r08ikg" path="res://sprites/scythe.png" id="8_0r2qk"]
 
 [node name="Level3-5" type="Node2D"]
 
@@ -45,8 +44,4 @@ scale = Vector2(256, 144)
 position = Vector2(32, 112)
 
 [node name="Boss3" parent="." instance=ExtResource("7_cakbn")]
-position = Vector2(168, 80)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(144, 79)
-texture = ExtResource("8_0r2qk")
+position = Vector2(182, 97)
