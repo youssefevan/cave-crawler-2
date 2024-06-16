@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyxqx1wk6buob"]
+[gd_scene load_steps=14 format=3 uid="uid://dyxqx1wk6buob"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_ca2ao"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/boss_3.gd" id="2_1w15h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bd0fwvay4rj7w" path="res://sprites/enemies/boss3.png" id="4_np1ue"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="5_f0p1x"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/states/idle.gd" id="6_l7rxy"]
+[ext_resource type="Script" path="res://scripts/enemies/boss3/states/chase.gd" id="7_f6nk4"]
 
 [sub_resource type="Animation" id="Animation_nvveq"]
 resource_name = "Idle"
@@ -91,10 +92,14 @@ shape = SubResource("CapsuleShape2D_iou82")
 
 [node name="StateManager" type="Node" parent="." index="7"]
 script = ExtResource("5_f0p1x")
-starting_state = NodePath("Idle")
+starting_state = NodePath("Chase")
+auto_animate = false
 
 [node name="Idle" type="Node" parent="StateManager" index="0"]
 script = ExtResource("6_l7rxy")
+
+[node name="Chase" type="Node" parent="StateManager" index="1"]
+script = ExtResource("7_f6nk4")
 
 [node name="Muzzle" type="Node2D" parent="." index="8"]
 position = Vector2(-2, 3)
