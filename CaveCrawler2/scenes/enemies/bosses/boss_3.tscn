@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyxqx1wk6buob"]
+[gd_scene load_steps=15 format=3 uid="uid://dyxqx1wk6buob"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_ca2ao"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/boss_3.gd" id="2_1w15h"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="5_f0p1x"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/states/idle.gd" id="6_l7rxy"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/states/chase.gd" id="7_f6nk4"]
+[ext_resource type="Script" path="res://scripts/enemies/boss3/states/spawn.gd" id="8_0br8l"]
 
 [sub_resource type="Animation" id="Animation_nvveq"]
 resource_name = "Idle"
@@ -43,7 +44,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6njj"]
-size = Vector2(20, 46)
+size = Vector2(14, 36)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gk4g1"]
 resource_local_to_scene = true
@@ -71,6 +72,7 @@ scale = Vector2(1.5, 2.35)
 
 [node name="Collider" parent="." index="2"]
 shape = SubResource("RectangleShape2D_o6njj")
+disabled = true
 
 [node name="Sprite" parent="." index="3"]
 material = SubResource("ShaderMaterial_gk4g1")
@@ -84,6 +86,9 @@ texture = ExtResource("4_np1ue")
 hframes = 4
 vframes = 2
 
+[node name="Hitbox" parent="." index="5"]
+collision_mask = 65
+
 [node name="Collider" parent="Hitbox" index="0"]
 shape = SubResource("RectangleShape2D_0k1dq")
 
@@ -92,17 +97,25 @@ shape = SubResource("CapsuleShape2D_iou82")
 
 [node name="StateManager" type="Node" parent="." index="7"]
 script = ExtResource("5_f0p1x")
-starting_state = NodePath("Chase")
+starting_state = NodePath("Laser")
 auto_animate = false
 
 [node name="Idle" type="Node" parent="StateManager" index="0"]
 script = ExtResource("6_l7rxy")
 
-[node name="Chase" type="Node" parent="StateManager" index="1"]
+[node name="Laser" type="Node" parent="StateManager" index="1"]
 script = ExtResource("7_f6nk4")
+
+[node name="Spawn" type="Node" parent="StateManager" index="2"]
+script = ExtResource("8_0br8l")
 
 [node name="Muzzle" type="Node2D" parent="." index="8"]
 position = Vector2(-2, 3)
+
+[node name="HeadSpawn" type="Node2D" parent="." index="9"]
+position = Vector2(0, -15)
+
+[connection signal="body_shape_entered" from="Hitbox" to="." method="_on_hitbox_body_shape_entered"]
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

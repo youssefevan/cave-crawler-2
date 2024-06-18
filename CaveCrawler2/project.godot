@@ -30,10 +30,14 @@ window/size/window_width_override=1024
 window/size/window_height_override=576
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/filesystem_drawer/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
-"res://scenes/": "blue",
+"res://scenes/": "green",
 "res://scripts/": "yellow",
 "res://sprites/": "red"
 }
