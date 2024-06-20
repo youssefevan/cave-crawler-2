@@ -2,18 +2,20 @@ extends State
 
 var done := false
 
+var delay := 0.5
+
 func enter():
 	super.enter()
 	done = false
 	#await get_tree().create_timer(1).timeout
 	entity.spawn_head()
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(delay).timeout
 	entity.spawn_head()
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(delay).timeout
 	entity.spawn_head()
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(delay).timeout
 	entity.spawn_head()
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(delay).timeout
 	entity.spawn_head()
 	await get_tree().create_timer(2).timeout
 	done = true

@@ -60,6 +60,7 @@ height = 44.0
 
 [node name="Boss3" instance=ExtResource("1_ca2ao")]
 script = ExtResource("2_1w15h")
+max_health = 150
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -97,7 +98,7 @@ shape = SubResource("CapsuleShape2D_iou82")
 
 [node name="StateManager" type="Node" parent="." index="7"]
 script = ExtResource("5_f0p1x")
-starting_state = NodePath("Laser")
+starting_state = NodePath("Idle")
 auto_animate = false
 
 [node name="Idle" type="Node" parent="StateManager" index="0"]

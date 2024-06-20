@@ -22,7 +22,7 @@ func _ready():
 	$Animator.play("Idle")
 	
 	start_height = global_position.y
-	print(start_height)
+	#print(start_height)
 
 func _physics_process(delta):
 	super._physics_process(delta)
