@@ -8,6 +8,7 @@ class_name Enemy
 var player : Player
 
 var sfx_death = preload("res://audio/sfx/enemy_death.ogg")
+var particles_death = preload("res://scenes/particles/enemy_death.tscn")
 
 var current_health : int
 var can_get_hurt : bool
@@ -54,6 +55,9 @@ func get_hurt(hitstun_weight):
 		$Hurtbox/Collider.disabled = false
 
 func die():
+	var p = particles_death.instantiate()
+	get_parent().add_child(p)
+	p.global_position = global_position + $Hurtbox/Collider.position
 	AudioHandler.play_sfx(sfx_death)
 	call_deferred("queue_free")
 
