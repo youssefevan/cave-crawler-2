@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmdemfpxfln25"]
+[gd_scene load_steps=17 format=3 uid="uid://cmdemfpxfln25"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_aya66"]
 [ext_resource type="Texture2D" uid="uid://dar57tpu003nr" path="res://sprites/backgrounds/bg4.png" id="2_6xwox"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://e1avqsod0abs" path="res://scenes/enemies/flippy.tscn" id="11_73nrv"]
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="11_tysca"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="14_tosm5"]
+[ext_resource type="PackedScene" uid="uid://q7gbecw6jch8" path="res://scenes/levels/world3/level_3_4.tscn" id="15_mofdq"]
 
 [node name="Level3-3" type="Node2D"]
 
@@ -158,6 +159,7 @@ position = Vector2(2656, 88)
 
 [node name="Flagpole" parent="Pickups" instance=ExtResource("14_tosm5")]
 position = Vector2(4472, -128)
+next_level = ExtResource("15_mofdq")
 
 [node name="Player" parent="." instance=ExtResource("6_c2akw")]
 position = Vector2(32, 112)

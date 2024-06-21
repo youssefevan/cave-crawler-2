@@ -12,6 +12,12 @@ var level_2_3 = load("res://scenes/levels/world2/level_2_3.tscn")
 var level_2_4 = load("res://scenes/levels/world2/level_2_4.tscn")
 var level_2_5 = load("res://scenes/levels/world2/level_2_5.tscn")
 
+var level_3_1 = load("res://scenes/levels/world3/level_3_1.tscn")
+var level_3_2 = load("res://scenes/levels/world3/level_3_2.tscn")
+var level_3_3 = load("res://scenes/levels/world3/level_3_3.tscn")
+var level_3_4 = load("res://scenes/levels/world3/level_3_4.tscn")
+var level_3_5 = load("res://scenes/levels/world3/level_3_5.tscn")
+
 func _ready():
 	if OptionsHandler.cursor_visible == false:
 		$Worlds/World1/World1Btn.grab_focus()
@@ -55,3 +61,18 @@ func _on_2_4_pressed():
 
 func _on_2_5_pressed():
 	get_tree().change_scene_to_packed(level_2_5)
+
+func _on_3_1_pressed():
+	get_tree().change_scene_to_packed(level_3_1)
+
+func _on_3_2_pressed():
+	get_tree().change_scene_to_packed(level_3_2)
+
+func _on_3_3_pressed():
+	get_tree().change_scene_to_packed(level_3_3)
+
+func _on_3_4_pressed():
+	get_tree().change_scene_to_packed(level_3_4)
+
+func _on_3_5_pressed():
+	get_tree().change_scene_to_packed(level_3_5)
