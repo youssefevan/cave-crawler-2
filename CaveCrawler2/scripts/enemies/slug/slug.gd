@@ -10,6 +10,8 @@ class_name Slug
 
 @onready var shield_timer = $ShieldTimer
 
+@onready var bounce_particles = preload("res://scenes/particles/bounce.tscn")
+
 var speed := 80.0
 var move_direction := -1
 var inch_time := 0.4 # in seconds
@@ -67,3 +69,7 @@ func _on_hitbox_area_entered(area):
 		if states.current_state == shield:
 			area.get_parent().enter_bounce(bounce_force)
 
+func spawn_bounce_particles():
+	var p = bounce_particles.instantiate()
+	get_parent().add_child(p)
+	p.global_position = global_position
