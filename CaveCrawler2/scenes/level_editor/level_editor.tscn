@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=42 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_jya82"]
 [ext_resource type="PackedScene" uid="uid://dd4kgsl8xo6gi" path="res://scenes/level_editor/tools/camera_room_tool.tscn" id="2_ttnjw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dag04y6cpg6lf" path="res://sprites/level_editor_icons/save.png" id="8_x4ghw"]
 [ext_resource type="Texture2D" uid="uid://cr4rjlithoxxv" path="res://sprites/level_editor_icons/play.png" id="9_bi37b"]
 [ext_resource type="Texture2D" uid="uid://beygbsbrc776m" path="res://sprites/level_editor_icons/home.png" id="10_pdxjg"]
+[ext_resource type="Texture2D" uid="uid://cuca2s3oma8u1" path="res://sprites/level_editor_icons/reset.png" id="11_ek03p"]
 [ext_resource type="Texture2D" uid="uid://bgty7fw6d5dlk" path="res://sprites/level_editor_icons/le_atlas.atlastex" id="11_kvv4k"]
 [ext_resource type="Script" path="res://scripts/level_editor/tool_button.gd" id="12_5u3pp"]
 
@@ -214,6 +215,10 @@ theme_override_constants/separation = 0
 [node name="MainMenu" type="Button" parent="CanvasLayer/Interface/HBoxContainerRight"]
 layout_mode = 2
 icon = ExtResource("10_pdxjg")
+
+[node name="Reset" type="Button" parent="CanvasLayer/Interface/HBoxContainerRight"]
+layout_mode = 2
+icon = ExtResource("11_ek03p")
 
 [node name="ToolBar" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -493,6 +498,7 @@ tile_coordinate_x = 3
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Run" to="." method="_on_run_pressed"]
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainerRight/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Interface/HBoxContainerRight/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain2" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain2" method="_on_pressed"]

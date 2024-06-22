@@ -4,6 +4,7 @@ class_name Enemy
 @export var max_health : int
 @export var gravity := 800.0
 @export var level_editor_offset := Vector2(4, -8)
+@export var enable_hit_flash := true
 
 var player : Player
 
@@ -44,11 +45,15 @@ func get_hurt(hitstun_weight):
 		if current_health == 0:
 			die()
 		
-		$Sprite.material.set_shader_parameter("enabled", true)
+		if enable_hit_flash == true:
+			$Sprite.material.set_shader_parameter("enabled", true)
+		
 		set_physics_process(false)
 		await get_tree().create_timer(hitstun_weight).timeout
 		set_physics_process(true)
-		$Sprite.material.set_shader_parameter("enabled", false)
+		
+		if enable_hit_flash == true:
+			$Sprite.material.set_shader_parameter("enabled", false)
 		
 		$Hurtbox/Collider.disabled = true
 		can_get_hurt = true

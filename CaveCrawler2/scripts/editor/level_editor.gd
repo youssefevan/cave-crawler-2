@@ -164,3 +164,6 @@ func display_error():
 func _on_main_menu_pressed():
 	save()
 	get_tree().change_scene_to_packed(Global.main_menu_scene)
+
+func _on_reset_pressed():
+	print("Under construction")
