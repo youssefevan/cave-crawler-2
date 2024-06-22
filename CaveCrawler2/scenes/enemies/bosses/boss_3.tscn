@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dyxqx1wk6buob"]
+[gd_scene load_steps=16 format=3 uid="uid://dyxqx1wk6buob"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_ca2ao"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/boss_3.gd" id="2_1w15h"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/enemies/boss3/states/idle.gd" id="6_l7rxy"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/states/chase.gd" id="7_f6nk4"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/states/spawn.gd" id="8_0br8l"]
+[ext_resource type="Script" path="res://scripts/enemies/boss3/states/orbiting.gd" id="9_pa2cy"]
 
 [sub_resource type="Animation" id="Animation_nvveq"]
 resource_name = "Idle"
@@ -110,11 +111,40 @@ script = ExtResource("7_f6nk4")
 [node name="Spawn" type="Node" parent="StateManager" index="2"]
 script = ExtResource("8_0br8l")
 
+[node name="Orbiting" type="Node" parent="StateManager" index="3"]
+script = ExtResource("9_pa2cy")
+
 [node name="Muzzle" type="Node2D" parent="." index="8"]
 position = Vector2(-2, 3)
 
 [node name="HeadSpawn" type="Node2D" parent="." index="9"]
 position = Vector2(0, -15)
+
+[node name="Orbit" type="Node2D" parent="." index="10"]
+
+[node name="South" type="Node2D" parent="Orbit" index="0"]
+position = Vector2(0, 32)
+
+[node name="SouthEast" type="Node2D" parent="Orbit" index="1"]
+position = Vector2(24, 24)
+
+[node name="East" type="Node2D" parent="Orbit" index="2"]
+position = Vector2(32, 0)
+
+[node name="NorthEast" type="Node2D" parent="Orbit" index="3"]
+position = Vector2(24, -24)
+
+[node name="North" type="Node2D" parent="Orbit" index="4"]
+position = Vector2(0, -32)
+
+[node name="NorthWest" type="Node2D" parent="Orbit" index="5"]
+position = Vector2(-24, -24)
+
+[node name="SouthWest" type="Node2D" parent="Orbit" index="6"]
+position = Vector2(-24, 24)
+
+[node name="West" type="Node2D" parent="Orbit" index="7"]
+position = Vector2(-32, 0)
 
 [connection signal="body_shape_entered" from="Hitbox" to="." method="_on_hitbox_body_shape_entered"]
 

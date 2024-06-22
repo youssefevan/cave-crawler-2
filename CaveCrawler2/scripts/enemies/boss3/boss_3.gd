@@ -6,11 +6,14 @@ class_name Boss3
 @onready var idle = $StateManager/Idle
 @onready var laser = $StateManager/Laser
 @onready var spawn = $StateManager/Spawn
+@onready var orbiting = $StateManager/Orbiting
 
 @onready var laser_scene = preload("res://scenes/bullets/laser.tscn")
 @onready var head_scene = preload("res://scenes/enemies/head.tscn")
+@onready var knife_scene = preload("res://scenes/bullets/knife.tscn")
 
 var speed := 50.0
+var rotation_speed := 80.0
 
 var start_height
 
@@ -28,6 +31,8 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	states.physics_update(delta)
 	face_player()
+	
+	$Orbit.rotation_degrees += rotation_speed * delta
 	
 	#move_and_slide()
 
@@ -59,6 +64,30 @@ func spawn_head():
 	var h = head_scene.instantiate()
 	get_parent().add_child.call_deferred(h)
 	h.global_position = $HeadSpawn.global_position
+
+func spawn_knives():
+	for i in $Orbit.get_children():
+		var k = knife_scene.instantiate()
+		i.add_child(k)
+		await get_tree().create_timer(0.3).timeout
+		
+	await get_tree().create_timer(1).timeout
+	
+	for i in $Orbit.get_children():
+		i.get_child(0).player = player
+		await get_tree().create_timer(0.3).timeout
+	
+	await get_tree().create_timer(1).timeout
+	
+	for i in $Orbit.get_children():
+		i.get_child(0).call_deferred("queue_free")
+		var k = knife_scene.instantiate()
+		get_parent().get_parent().add_child(k)
+		k.look_at(player.global_position)
+		k.player = player
+		k.global_position = i.global_position
+		k.throw = true
+		await get_tree().create_timer(0.5).timeout
 
 func _on_hitbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	pass

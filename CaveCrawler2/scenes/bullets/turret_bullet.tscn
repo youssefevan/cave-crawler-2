@@ -24,7 +24,12 @@ shape = SubResource("CircleShape2D_562gq")
 
 [node name="BulletTrail" parent="." instance=ExtResource("4_aocbk")]
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-5.96046e-08, 0)
+scale = Vector2(0.1, 0.1)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

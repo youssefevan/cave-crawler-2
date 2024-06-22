@@ -375,7 +375,7 @@ boss = NodePath("../Boss2")
 position = Vector2(3028, 264)
 
 [node name="Player" parent="." instance=ExtResource("6_ouao7")]
-position = Vector2(40, 89)
+position = Vector2(32, 88)
 
 [editable path="MovingPlatforms/MovingPlatform"]
 [editable path="MovingPlatforms/MovingPlatform2"]

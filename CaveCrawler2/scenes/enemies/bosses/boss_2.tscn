@@ -357,6 +357,7 @@ height = 38.0
 [node name="Boss2" instance=ExtResource("1_55woq")]
 script = ExtResource("2_b0qhc")
 max_health = 120
+gravity = 400.0
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -378,14 +379,14 @@ position = Vector2(0, -32)
 texture = ExtResource("3_8oo4p")
 hframes = 4
 vframes = 4
-frame = 12
+frame = 14
 
 [node name="Tank" type="Sprite2D" parent="." index="4"]
 position = Vector2(0, -32)
 texture = ExtResource("3_8oo4p")
 hframes = 4
 vframes = 4
-frame = 4
+frame = 6
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -16)

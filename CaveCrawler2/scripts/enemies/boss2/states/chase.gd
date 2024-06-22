@@ -14,7 +14,6 @@ func enter():
 
 func physics_update(delta):
 	super.physics_update(delta)
-	entity.velocity.y = clampf(entity.velocity.y, -250.0, 250.0)
 	
 	if entity.player:
 		if (entity.global_position.x - entity.player.global_position.x) > 0:

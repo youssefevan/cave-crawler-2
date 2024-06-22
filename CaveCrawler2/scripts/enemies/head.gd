@@ -11,7 +11,6 @@ func _physics_process(delta):
 	velocity = lerp(velocity, speed * movement_direction, 5 * delta)
 	move_and_slide()
 	
-	
 	if (global_position.x - player.global_position.x) > 0:
 		$Sprite.scale.x = 1
 	else:
