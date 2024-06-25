@@ -1,4 +1,5 @@
 extends Button
+class_name InteractableGUI
 
 func _ready():
 	OptionsHandler.connect("cursor_changed", change_mouse_filter)

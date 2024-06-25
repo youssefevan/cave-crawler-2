@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwuqci8c0bdpw"]
+[gd_scene load_steps=12 format=3 uid="uid://dwuqci8c0bdpw"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_232jo"]
 [ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/backgrounds/bg.png" id="1_okavj"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="4_1q840"]
 [ext_resource type="PackedScene" uid="uid://ciebte6qaf4gn" path="res://scenes/tilemaps/background_tiles.tscn" id="4_4rq7v"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="5_ht6st"]
-[ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="6_ci8kq"]
 [ext_resource type="Texture2D" uid="uid://c0e0ci47gkbq2" path="res://sprites/background_details/crystal1.png" id="6_jwjrh"]
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="7_e3np3"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="8_5lto3"]
@@ -101,12 +100,6 @@ position = Vector2(1376, 328)
 position = Vector2(1592, 320)
 
 [node name="Pickups" type="Node" parent="."]
-
-[node name="Health" parent="Pickups" instance=ExtResource("6_ci8kq")]
-position = Vector2(716, 80)
-
-[node name="Health2" parent="Pickups" instance=ExtResource("6_ci8kq")]
-position = Vector2(1176, 264)
 
 [node name="Checkpoint" parent="Pickups" instance=ExtResource("7_e3np3")]
 position = Vector2(888, 120)
