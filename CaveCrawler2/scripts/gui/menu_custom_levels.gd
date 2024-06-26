@@ -14,11 +14,11 @@ var selected_item = null
 @onready var path = Global.level_path
 
 func _ready():
-	if OptionsHandler.cursor_visible == false:
-		item_list.grab_focus()
 	Global.checkpoint_passed = false
 	
-	OptionsHandler.set_cursor(true)
+	if OptionsHandler.cursor_visible == false:
+		item_list.grab_focus()
+	#OptionsHandler.set_cursor(true)
 	
 	get_levels()
 	
@@ -45,6 +45,9 @@ func get_levels():
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")
+	
+	for i in range(0, item_list.item_count):
+		item_list.set_item_tooltip_enabled(i, false)
 
 func clear_levels():
 	levels = []
@@ -68,6 +71,9 @@ func _on_back_pressed():
 	get_tree().change_scene_to_packed(Global.main_menu_scene)
 
 func _on_new_pressed():
+	if OptionsHandler.cursor_visible == false:
+		OptionsHandler.set_cursor(true)
+	
 	new_level_panel.visible = true
 	new_level_line_edit.grab_focus()
 
@@ -94,6 +100,6 @@ func _on_cancel_delete_pressed():
 func _on_confirm_delete_pressed():
 	var dir = DirAccess.open(Global.level_path)
 	dir.remove(levels[selected_item])
-	print(levels[selected_item])
+	#print(levels[selected_item])
 	delete_panel.visible = false
 	get_levels()

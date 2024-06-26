@@ -1,19 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://bckw6h4d2naaj"]
+[gd_scene load_steps=8 format=3 uid="uid://bckw6h4d2naaj"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_hkc8s"]
-[ext_resource type="Texture2D" uid="uid://dnnftlhh7he3d" path="res://sprites/level_select/world1.png" id="2_fex6p"]
 [ext_resource type="Script" path="res://scripts/gui/menus/menu_level_select.gd" id="2_vmneo"]
 [ext_resource type="Texture2D" uid="uid://h1aqvn7pnosm" path="res://sprites/level_select/world1_hover.png" id="3_x7scr"]
-[ext_resource type="Texture2D" uid="uid://epgs1qjaj17f" path="res://sprites/level_select/world1_focus.png" id="5_6dh5w"]
 [ext_resource type="Script" path="res://scripts/gui/interactable_gui.gd" id="6_bup17"]
-[ext_resource type="Script" path="res://scripts/gui/interactable_gui_txtbtn.gd" id="6_w4xf0"]
 [ext_resource type="PackedScene" uid="uid://2qqdl3a2nr2p" path="res://scenes/gui/level_button.tscn" id="7_2mvjj"]
-[ext_resource type="Texture2D" uid="uid://dkbkmc7orrawe" path="res://sprites/level_select/world2.png" id="8_ng0qn"]
 [ext_resource type="Texture2D" uid="uid://dirqb8014j85o" path="res://sprites/level_select/world2_hover.png" id="9_qqkpx"]
-[ext_resource type="Texture2D" uid="uid://ct0c6gc884qyr" path="res://sprites/level_select/world2_focus.png" id="10_hauc5"]
-[ext_resource type="Texture2D" uid="uid://ddqjdlhqdiewb" path="res://sprites/level_select/world3.png" id="11_av8pq"]
 [ext_resource type="Texture2D" uid="uid://ck7woxpnih63j" path="res://sprites/level_select/world3_hover.png" id="12_b0pl8"]
-[ext_resource type="Texture2D" uid="uid://cqvjlgc0h021c" path="res://sprites/level_select/world3_focus.png" id="13_1mn37"]
 
 [node name="MenuLevelSelect" type="Control"]
 layout_mode = 3
@@ -83,12 +76,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="World1Btn" type="TextureButton" parent="Worlds/World1"]
+[node name="World1Btn" type="TextureRect" parent="Worlds/World1"]
 layout_mode = 2
-texture_normal = ExtResource("2_fex6p")
-texture_hover = ExtResource("3_x7scr")
-texture_focused = ExtResource("5_6dh5w")
-script = ExtResource("6_w4xf0")
+texture = ExtResource("3_x7scr")
 
 [node name="ButtonStack" type="VBoxContainer" parent="Worlds/World1"]
 layout_mode = 2
@@ -132,12 +122,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="World2Btn" type="TextureButton" parent="Worlds/World2"]
+[node name="World2Btn" type="TextureRect" parent="Worlds/World2"]
 layout_mode = 2
-texture_normal = ExtResource("8_ng0qn")
-texture_hover = ExtResource("9_qqkpx")
-texture_focused = ExtResource("10_hauc5")
-script = ExtResource("6_w4xf0")
+texture = ExtResource("9_qqkpx")
 
 [node name="ButtonStack" type="VBoxContainer" parent="Worlds/World2"]
 layout_mode = 2
@@ -181,12 +168,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="World3Btn" type="TextureButton" parent="Worlds/World3"]
+[node name="World3Btn" type="TextureRect" parent="Worlds/World3"]
 layout_mode = 2
-texture_normal = ExtResource("11_av8pq")
-texture_hover = ExtResource("12_b0pl8")
-texture_focused = ExtResource("13_1mn37")
-script = ExtResource("6_w4xf0")
+texture = ExtResource("12_b0pl8")
 
 [node name="ButtonStack" type="VBoxContainer" parent="Worlds/World3"]
 layout_mode = 2

@@ -18,6 +18,9 @@ var camera_room_tool_coordinates := Vector2(1, 4)
 @export var camera_room_tool_scene : PackedScene
 
 func _ready():
+	if OptionsHandler.cursor_visible == false:
+		OptionsHandler.set_cursor(true)
+	
 	Global.checkpoint_passed = false
 	new_level = Global.creating_new_level
 	level_path = Global.level_to_load
