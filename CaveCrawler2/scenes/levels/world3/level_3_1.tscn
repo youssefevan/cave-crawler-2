@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://che434nuick0y"]
+[gd_scene load_steps=19 format=3 uid="uid://che434nuick0y"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_udyp1"]
 [ext_resource type="Texture2D" uid="uid://dar57tpu003nr" path="res://sprites/backgrounds/bg4.png" id="2_cx0o7"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bpks5orrmydww" path="res://scenes/enemies/roly_poly.tscn" id="8_8scgc"]
 [ext_resource type="PackedScene" uid="uid://bdqqv88177tgm" path="res://scenes/enemies/bat.tscn" id="9_fjtdh"]
 [ext_resource type="PackedScene" uid="uid://biogwmi8pccag" path="res://scenes/enemies/slug.tscn" id="10_7woe8"]
-[ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="12_461g8"]
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="13_o64ir"]
 [ext_resource type="PackedScene" uid="uid://bvk2o5ljywjt" path="res://scenes/moving_platform.tscn" id="14_eu8g8"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="14_oe7qr"]
@@ -159,9 +158,6 @@ position = Vector2(1292, 24)
 
 [node name="Pickups" type="Node" parent="."]
 
-[node name="Health" parent="Pickups" instance=ExtResource("12_461g8")]
-position = Vector2(1928, 40)
-
 [node name="Checkpoint" parent="Pickups" instance=ExtResource("13_o64ir")]
 position = Vector2(1840, 104)
 
@@ -173,11 +169,11 @@ level_id = 11
 [node name="MovingPlatforms" type="Node" parent="."]
 
 [node name="MovingPlatform" parent="MovingPlatforms" instance=ExtResource("14_eu8g8")]
-position = Vector2(2248, 104)
+position = Vector2(2240, 104)
 metadata/_edit_group_ = true
 
 [node name="Endpoint" parent="MovingPlatforms/MovingPlatform" index="2"]
-position = Vector2(104, 0)
+position = Vector2(120, 0)
 
 [node name="MovingPlatform2" parent="MovingPlatforms" instance=ExtResource("14_eu8g8")]
 position = Vector2(2736, 80)

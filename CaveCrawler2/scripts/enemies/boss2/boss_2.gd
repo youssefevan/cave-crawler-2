@@ -37,7 +37,7 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity.y = clampf(velocity.y, -250.0, 250.0)
 	
-	muzzle.look_at(player.global_position + Vector2(0, 4))
+	muzzle.look_at(player.global_position - Vector2(0, 4))
 	
 	move_and_slide()
 
