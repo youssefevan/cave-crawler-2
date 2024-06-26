@@ -5,3 +5,6 @@
 [node name="AudioHandler" type="Node"]
 process_mode = 3
 script = ExtResource("1_7v6wj")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

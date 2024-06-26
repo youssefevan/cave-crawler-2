@@ -25,6 +25,7 @@ class_name Player
 var sfx_jump = preload("res://audio/sfx/player/player_jump.ogg")
 var sfx_hit = preload("res://audio/sfx/player/player_hit.ogg")
 var sfx_shoot = preload("res://audio/sfx/player/player_shoot.ogg")
+var sfx_die = preload("res://audio/sfx/player/player_death.ogg")
 
 # Horizontal movement variables
 var speed := 85.0
@@ -253,6 +254,8 @@ func hit_flash() -> void:
 		await get_tree().create_timer(0.1, false).timeout
 
 func die() -> void:
+	AudioHandler.play_sfx(sfx_die)
+	
 	if OptionsHandler.particles_enabled == true:
 		var particles = particles_death.instantiate()
 		get_parent().add_child(particles)

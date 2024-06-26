@@ -31,17 +31,22 @@ func _on_toggle_particles_toggled(toggled_on):
 	OptionsHandler.set_particles(toggled_on)
 
 func _on_bloom_intensity_value_changed(value):
-	OptionsHandler.set_bloom(value/slider_bloom.max_value)
+	var setting = value/2
+	OptionsHandler.set_bloom(setting/slider_bloom.max_value)
 
 func _on_volume_sounds_value_changed(value):
 	OptionsHandler.set_volume_sfx(value)
+
+func _on_volume_music_value_changed(value):
+	OptionsHandler.set_volume_music(value)
 
 func sync_options():
 	btn_fullscreen.button_pressed = OptionsHandler.fullscreen_enabled
 	btn_cursor.button_pressed = OptionsHandler.cursor_visible
 	btn_particles.button_pressed = OptionsHandler.particles_enabled
-	slider_bloom.value = (OptionsHandler.bloom_intensity*slider_bloom.max_value)
+	slider_bloom.value = (OptionsHandler.bloom_intensity * 2 * slider_bloom.max_value)
 	slider_sfx.value = OptionsHandler.volume_sfx
+	slider_music.value = OptionsHandler.volume_music
 	#print("?: ", slider_sfx.value)
 
 func exit():

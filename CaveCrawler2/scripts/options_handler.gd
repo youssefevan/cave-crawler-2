@@ -3,15 +3,16 @@ extends Node
 signal bloom_changed
 signal cursor_changed
 signal volume_sfx_changed
+signal volume_music_changed
 
 var fullscreen_enabled := false
 var cursor_visible := true
 var particles_enabled := true
 var bloom_intensity := 0.5
 var volume_sfx := 5.0
+var volume_music := 5.0
 
 var levels_unlocked := 1
-var test := false
 
 var data = {}
 
@@ -23,6 +24,7 @@ func _ready():
 	set_particles(particles_enabled)
 	set_bloom(bloom_intensity)
 	set_volume_sfx(volume_sfx)
+	set_volume_music(volume_music)
 	
 	set_levels_unlocked(levels_unlocked)
 
@@ -35,6 +37,7 @@ func save_options():
 		"particles_enabled": particles_enabled,
 		"bloom_intensity": bloom_intensity,
 		"volume_sfx": volume_sfx,
+		"volume_music": volume_music,
 		"levels_unlocked": levels_unlocked,
 	}
 	
@@ -52,9 +55,13 @@ func load_options():
 		bloom_intensity = load_data.bloom_intensity
 		volume_sfx = load_data.volume_sfx
 		
+		if load_data.has("volume_music") and load_data.volume_music != null:
+			volume_music = load_data.volume_music
+		else:
+			set_volume_music(volume_music)
+		
 		if load_data.has("levels_unlocked") and load_data.levels_unlocked != null:
 			levels_unlocked = load_data.levels_unlocked
-			print("test2 ", load_data.levels_unlocked)
 		else:
 			set_levels_unlocked(levels_unlocked)
 
@@ -95,6 +102,12 @@ func set_volume_sfx(setting):
 	volume_sfx = setting
 	save_options()
 	emit_signal("volume_sfx_changed")
+
+func set_volume_music(setting):
+	#print("S ", setting)
+	volume_music = setting
+	save_options()
+	emit_signal("volume_music_changed")
 
 func set_levels_unlocked(levels):
 	if levels_unlocked < levels:

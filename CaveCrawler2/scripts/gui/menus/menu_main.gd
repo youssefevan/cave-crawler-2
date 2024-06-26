@@ -1,7 +1,9 @@
 extends Control
 
+@onready var title_music = load("res://audio/music/cc1.ogg")
+
 func _ready():
-	#OptionsHandler.load_options()
+	AudioHandler.play_music(title_music)
 	
 	Global.checkpoint_passed = false
 	
