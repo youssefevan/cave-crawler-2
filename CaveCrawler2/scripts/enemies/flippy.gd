@@ -37,7 +37,7 @@ func _on_hurtbox_area_entered(area):
 		#if can_flip:
 		flip()
 
-func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body is TileMap:
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
@@ -45,6 +45,10 @@ func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape
 		if cell_data and cell_pos:
 			if cell_data.get_custom_data("health") != 0:
 				damage_tile(body, cell_data, cell_pos)
+		
+		if cell_data.get_custom_data("killzone") == true:
+			current_health = 0
+			die()
 
 func damage_tile(body, cell_data, cell_pos):
 	if cell_data.get_custom_data("health") == 2:

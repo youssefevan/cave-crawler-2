@@ -5,6 +5,10 @@ var end := false
 func enter():
 	super.enter()
 	end = false
+	
+	if entity.is_on_wall():
+		entity.move_direction *= -1
+	
 	entity.velocity.x = entity.speed * entity.move_direction
 	await get_tree().create_timer(entity.inch_time).timeout
 	end = true

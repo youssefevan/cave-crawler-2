@@ -75,5 +75,8 @@ shape = SubResource("RectangleShape2D_ypdos")
 [node name="FleaCarrier" type="Node2D" parent="." index="6"]
 position = Vector2(0, 8)
 
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

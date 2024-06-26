@@ -7,14 +7,19 @@ var acceleration := 3.0
 
 var flea = preload("res://scenes/enemies/flea.tscn")
 
+var frame := 0
+
 func _ready():
 	super._ready()
 	$Animator.play("Fly")
-	
-	drop()
 
 func _physics_process(delta):
 	super._physics_process(delta)
+	
+	frame += 1
+	
+	if frame == 1:
+		drop()
 	
 	if player:
 		if (global_position.x - player.global_position.x) > 0:
