@@ -317,6 +317,7 @@ func handle_oneway_collision() -> void:
 
 func end_level() -> void:
 	level_end = true
+	
 	$GUI/MenuLevelEnd.visible = true
 	if OptionsHandler.cursor_visible == false:
 		$GUI/MenuLevelEnd.focus_button.grab_focus()

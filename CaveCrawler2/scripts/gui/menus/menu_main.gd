@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	OptionsHandler.load_options()
+	#OptionsHandler.load_options()
 	
 	Global.checkpoint_passed = false
 	

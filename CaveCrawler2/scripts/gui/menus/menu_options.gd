@@ -23,23 +23,18 @@ func _on_back_pressed():
 
 func _on_toggle_fullscreen_toggled(toggled_on):
 	OptionsHandler.set_fullscreen(toggled_on)
-	OptionsHandler.save_options()
 
 func _on_toggle_cursor_toggled(toggled_on):
 	OptionsHandler.set_cursor(toggled_on)
-	OptionsHandler.save_options()
 
 func _on_toggle_particles_toggled(toggled_on):
 	OptionsHandler.set_particles(toggled_on)
-	OptionsHandler.save_options()
 
 func _on_bloom_intensity_value_changed(value):
 	OptionsHandler.set_bloom(value/slider_bloom.max_value)
-	OptionsHandler.save_options()
 
 func _on_volume_sounds_value_changed(value):
 	OptionsHandler.set_volume_sfx(value)
-	OptionsHandler.save_options()
 
 func sync_options():
 	btn_fullscreen.button_pressed = OptionsHandler.fullscreen_enabled

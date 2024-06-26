@@ -1,6 +1,6 @@
 extends Node
 
-var save_path = "user://save_data.save"
+var save_path = "user://save_data.dat"
 var level_path = "user://custom_levels/"
 
 var main_menu_scene = load("res://scenes/gui/menus/menu_main.tscn")

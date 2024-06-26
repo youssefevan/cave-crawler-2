@@ -235,6 +235,7 @@ position = Vector2(2656, 88)
 [node name="Flagpole" parent="Pickups" instance=ExtResource("14_tosm5")]
 position = Vector2(4472, -128)
 next_level = ExtResource("15_mofdq")
+level_id = 13
 
 [node name="Player" parent="." instance=ExtResource("6_c2akw")]
 position = Vector2(32, 112)

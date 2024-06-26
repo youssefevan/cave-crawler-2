@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bckw6h4d2naaj"]
+[gd_scene load_steps=15 format=3 uid="uid://bckw6h4d2naaj"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_hkc8s"]
 [ext_resource type="Texture2D" uid="uid://dnnftlhh7he3d" path="res://sprites/level_select/world1.png" id="2_fex6p"]
@@ -9,26 +9,11 @@
 [ext_resource type="Script" path="res://scripts/gui/interactable_gui_txtbtn.gd" id="6_w4xf0"]
 [ext_resource type="PackedScene" uid="uid://2qqdl3a2nr2p" path="res://scenes/gui/level_button.tscn" id="7_2mvjj"]
 [ext_resource type="Texture2D" uid="uid://dkbkmc7orrawe" path="res://sprites/level_select/world2.png" id="8_ng0qn"]
-[ext_resource type="PackedScene" uid="uid://dwuqci8c0bdpw" path="res://scenes/levels/world1/level_1_1.tscn" id="8_xdryg"]
-[ext_resource type="PackedScene" uid="uid://bxvqi5nt65yki" path="res://scenes/levels/world1/level_1_2.tscn" id="9_38ifj"]
 [ext_resource type="Texture2D" uid="uid://dirqb8014j85o" path="res://sprites/level_select/world2_hover.png" id="9_qqkpx"]
 [ext_resource type="Texture2D" uid="uid://ct0c6gc884qyr" path="res://sprites/level_select/world2_focus.png" id="10_hauc5"]
-[ext_resource type="PackedScene" uid="uid://bi4cxx2hhneqj" path="res://scenes/levels/world1/level_1_3.tscn" id="10_n57w0"]
 [ext_resource type="Texture2D" uid="uid://ddqjdlhqdiewb" path="res://sprites/level_select/world3.png" id="11_av8pq"]
-[ext_resource type="PackedScene" uid="uid://cmahsj0x7tsud" path="res://scenes/levels/world1/level_1_4.tscn" id="11_hiu50"]
 [ext_resource type="Texture2D" uid="uid://ck7woxpnih63j" path="res://sprites/level_select/world3_hover.png" id="12_b0pl8"]
-[ext_resource type="PackedScene" uid="uid://bw4glxewqp7ky" path="res://scenes/levels/world1/level_1_5.tscn" id="12_cg5rk"]
 [ext_resource type="Texture2D" uid="uid://cqvjlgc0h021c" path="res://sprites/level_select/world3_focus.png" id="13_1mn37"]
-[ext_resource type="PackedScene" uid="uid://csl72k0c7ihju" path="res://scenes/levels/world2/level_2_1.tscn" id="16_x3pdx"]
-[ext_resource type="PackedScene" uid="uid://c78wc6mai8xxl" path="res://scenes/levels/world2/level_2_2.tscn" id="17_jyjod"]
-[ext_resource type="PackedScene" uid="uid://d4df2y3jcs60q" path="res://scenes/levels/world2/level_2_3.tscn" id="18_odrcr"]
-[ext_resource type="PackedScene" uid="uid://dw5eee0bd8x8e" path="res://scenes/levels/world2/level_2_4.tscn" id="19_55uyh"]
-[ext_resource type="PackedScene" uid="uid://c12wrf7v466eq" path="res://scenes/levels/world2/level_2_5.tscn" id="20_j1n0b"]
-[ext_resource type="PackedScene" uid="uid://che434nuick0y" path="res://scenes/levels/world3/level_3_1.tscn" id="24_vdbpy"]
-[ext_resource type="PackedScene" uid="uid://dc4kc52bro3vs" path="res://scenes/levels/world3/level_3_2.tscn" id="25_jufqw"]
-[ext_resource type="PackedScene" uid="uid://cmdemfpxfln25" path="res://scenes/levels/world3/level_3_3.tscn" id="26_ngh1w"]
-[ext_resource type="PackedScene" uid="uid://q7gbecw6jch8" path="res://scenes/levels/world3/level_3_4.tscn" id="27_tiin3"]
-[ext_resource type="PackedScene" uid="uid://0ylgloko7p7v" path="res://scenes/levels/world3/level_3_5.tscn" id="28_idvrl"]
 
 [node name="MenuLevelSelect" type="Control"]
 layout_mode = 3
@@ -116,12 +101,10 @@ alignment = 1
 [node name="1-1" parent="Worlds/World1/ButtonStack/ButtonRow1" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "1"
-level = ExtResource("8_xdryg")
 
 [node name="1-2" parent="Worlds/World1/ButtonStack/ButtonRow1" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "2"
-level = ExtResource("9_38ifj")
 
 [node name="ButtonRow2" type="HBoxContainer" parent="Worlds/World1/ButtonStack"]
 layout_mode = 2
@@ -130,12 +113,10 @@ alignment = 1
 [node name="1-3" parent="Worlds/World1/ButtonStack/ButtonRow2" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "3"
-level = ExtResource("10_n57w0")
 
 [node name="1-4" parent="Worlds/World1/ButtonStack/ButtonRow2" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "4"
-level = ExtResource("11_hiu50")
 
 [node name="ButtonRow3" type="HBoxContainer" parent="Worlds/World1/ButtonStack"]
 layout_mode = 2
@@ -144,7 +125,6 @@ alignment = 1
 [node name="1-5" parent="Worlds/World1/ButtonStack/ButtonRow3" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "5"
-level = ExtResource("12_cg5rk")
 
 [node name="World2" type="HBoxContainer" parent="Worlds"]
 layout_mode = 2
@@ -170,12 +150,10 @@ alignment = 1
 [node name="2-1" parent="Worlds/World2/ButtonStack/ButtonRow1" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "1"
-level = ExtResource("16_x3pdx")
 
 [node name="2-2" parent="Worlds/World2/ButtonStack/ButtonRow1" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "2"
-level = ExtResource("17_jyjod")
 
 [node name="ButtonRow2" type="HBoxContainer" parent="Worlds/World2/ButtonStack"]
 layout_mode = 2
@@ -184,12 +162,10 @@ alignment = 1
 [node name="2-3" parent="Worlds/World2/ButtonStack/ButtonRow2" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "3"
-level = ExtResource("18_odrcr")
 
 [node name="2-4" parent="Worlds/World2/ButtonStack/ButtonRow2" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "4"
-level = ExtResource("19_55uyh")
 
 [node name="ButtonRow3" type="HBoxContainer" parent="Worlds/World2/ButtonStack"]
 layout_mode = 2
@@ -198,7 +174,6 @@ alignment = 1
 [node name="2-5" parent="Worlds/World2/ButtonStack/ButtonRow3" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "5"
-level = ExtResource("20_j1n0b")
 
 [node name="World3" type="HBoxContainer" parent="Worlds"]
 layout_mode = 2
@@ -224,12 +199,10 @@ alignment = 1
 [node name="3-1" parent="Worlds/World3/ButtonStack/ButtonRow1" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "1"
-level = ExtResource("24_vdbpy")
 
 [node name="3-2" parent="Worlds/World3/ButtonStack/ButtonRow1" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "2"
-level = ExtResource("25_jufqw")
 
 [node name="ButtonRow2" type="HBoxContainer" parent="Worlds/World3/ButtonStack"]
 layout_mode = 2
@@ -238,12 +211,10 @@ alignment = 1
 [node name="3-3" parent="Worlds/World3/ButtonStack/ButtonRow2" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "3"
-level = ExtResource("26_ngh1w")
 
 [node name="3-4" parent="Worlds/World3/ButtonStack/ButtonRow2" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "4"
-level = ExtResource("27_tiin3")
 
 [node name="ButtonRow3" type="HBoxContainer" parent="Worlds/World3/ButtonStack"]
 layout_mode = 2
@@ -252,7 +223,6 @@ alignment = 1
 [node name="3-5" parent="Worlds/World3/ButtonStack/ButtonRow3" instance=ExtResource("7_2mvjj")]
 layout_mode = 2
 text = "5"
-level = ExtResource("28_idvrl")
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0

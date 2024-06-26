@@ -124,6 +124,7 @@ position = Vector2(1568, 120)
 [node name="Flagpole" parent="Pickups" instance=ExtResource("13_qvpa4")]
 position = Vector2(2716, -96)
 next_level = ExtResource("13_by6u4")
+level_id = 6
 
 [node name="BGSprites" type="Node2D" parent="."]
 z_index = -2

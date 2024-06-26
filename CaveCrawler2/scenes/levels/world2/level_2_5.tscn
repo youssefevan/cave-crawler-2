@@ -300,6 +300,7 @@ position = Vector2(2724, 248)
 [node name="Flagpole" parent="Pickups" instance=ExtResource("9_74riq")]
 position = Vector2(3297, 424)
 next_level = ExtResource("12_pygm1")
+level_id = 10
 
 [node name="Enemies" type="Node" parent="."]
 

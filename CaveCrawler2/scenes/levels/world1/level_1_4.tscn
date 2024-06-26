@@ -346,6 +346,7 @@ position = Vector2(4584, 656)
 [node name="Flagpole" parent="Checkpoints" instance=ExtResource("12_30an1")]
 position = Vector2(5944, 640)
 next_level = ExtResource("14_875yr")
+level_id = 4
 
 [node name="Machine" type="Sprite2D" parent="."]
 position = Vector2(1840, 32)
