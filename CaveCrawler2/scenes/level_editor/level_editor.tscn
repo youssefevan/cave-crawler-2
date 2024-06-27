@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=44 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_jya82"]
 [ext_resource type="PackedScene" uid="uid://dd4kgsl8xo6gi" path="res://scenes/level_editor/tools/camera_room_tool.tscn" id="2_ttnjw"]
@@ -7,12 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://d243if60go3yc" path="res://sprites/level_editor_icons/level_editor_atlas.png" id="5_fjyjh"]
 [ext_resource type="Script" path="res://scripts/editor/level_editor_camera.gd" id="6_ylqy6"]
 [ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="7_kusvm"]
+[ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="8_cyby3"]
 [ext_resource type="Texture2D" uid="uid://dag04y6cpg6lf" path="res://sprites/level_editor_icons/save.png" id="8_x4ghw"]
 [ext_resource type="Texture2D" uid="uid://cr4rjlithoxxv" path="res://sprites/level_editor_icons/play.png" id="9_bi37b"]
 [ext_resource type="Texture2D" uid="uid://beygbsbrc776m" path="res://sprites/level_editor_icons/home.png" id="10_pdxjg"]
 [ext_resource type="Texture2D" uid="uid://cuca2s3oma8u1" path="res://sprites/level_editor_icons/reset.png" id="11_ek03p"]
 [ext_resource type="Texture2D" uid="uid://bgty7fw6d5dlk" path="res://sprites/level_editor_icons/le_atlas.atlastex" id="11_kvv4k"]
 [ext_resource type="Script" path="res://scripts/level_editor/tool_button.gd" id="12_5u3pp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85sbq"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7fi6u"]
 atlas = ExtResource("5_fjyjh")
@@ -182,6 +191,41 @@ offset_bottom = 143.0
 theme = ExtResource("7_kusvm")
 text = "Cannot run level: missing player"
 horizontal_alignment = 1
+
+[node name="ResetConfirm" type="Panel" parent="CanvasLayer"]
+visible = false
+offset_left = 56.0
+offset_top = 41.0
+offset_right = 200.0
+offset_bottom = 96.0
+theme = ExtResource("8_cyby3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_85sbq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ResetConfirm"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 10.0
+offset_right = 136.0
+offset_bottom = 47.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ResetConfirm/VBoxContainer"]
+layout_mode = 2
+text = "Are you sure you want to reset this level?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/ResetConfirm/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CancelReset" type="Button" parent="CanvasLayer/ResetConfirm/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="ConfirmReset" type="Button" parent="CanvasLayer/ResetConfirm/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Reset"
 
 [node name="Interface" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -495,6 +539,8 @@ script = ExtResource("12_5u3pp")
 tool_type = 4
 tile_coordinate_x = 3
 
+[connection signal="pressed" from="CanvasLayer/ResetConfirm/VBoxContainer/Buttons/CancelReset" to="." method="_on_cancel_reset_pressed"]
+[connection signal="pressed" from="CanvasLayer/ResetConfirm/VBoxContainer/Buttons/ConfirmReset" to="." method="_on_confirm_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Run" to="." method="_on_run_pressed"]
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainerRight/MainMenu" to="." method="_on_main_menu_pressed"]

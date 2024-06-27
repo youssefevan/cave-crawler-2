@@ -14,6 +14,8 @@ var camera_rooms : Array
 
 var player_in_level := false
 
+var session_tiles = []
+
 var camera_room_tool_coordinates := Vector2(1, 4)
 @export var camera_room_tool_scene : PackedScene
 
@@ -36,6 +38,12 @@ func _input(event):
 	if event is InputEvent:
 		if Input.is_action_just_pressed("save_level"):
 			save()
+		
+		if Input.is_action_just_pressed("undo"):
+			if session_tiles.is_empty() == false:
+				tiles.erase_cell(0, session_tiles.back())
+				session_tiles.pop_back()
+				#print(session_tiles)
 
 func _process(delta):
 	$ToolPreview.frame_coords = tileset_coordinates
@@ -46,8 +54,11 @@ func _unhandled_input(event):
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if tileset_coordinates != camera_room_tool_coordinates:
-			tiles.set_cell(0, mouse_position_rounded, 3, tileset_coordinates)
-			
+			if tiles.get_cell_atlas_coords(0, mouse_position_rounded) != Vector2i(tileset_coordinates):
+				tiles.set_cell(0, mouse_position_rounded, 3, tileset_coordinates)
+				session_tiles.append(mouse_position_rounded)
+				print(session_tiles)
+		
 	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		tiles.erase_cell(0, mouse_position_rounded)
 	
@@ -169,4 +180,12 @@ func _on_main_menu_pressed():
 	get_tree().change_scene_to_packed(Global.main_menu_scene)
 
 func _on_reset_pressed():
-	print("Under construction")
+	$CanvasLayer/ResetConfirm.visible = true
+	$CanvasLayer/ResetConfirm/VBoxContainer/Buttons/CancelReset.grab_focus()
+
+func _on_cancel_reset_pressed():
+	$CanvasLayer/ResetConfirm.visible = false
+
+func _on_confirm_reset_pressed():
+	tiles.clear()
+	$CanvasLayer/ResetConfirm.visible = false
