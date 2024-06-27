@@ -74,6 +74,7 @@ var camera_shake_fade := 15.0
 # Misc
 var level_editor_offset := Vector2(4, -8)
 var level_end := false
+var hitstun_buffer := false
 
 var random = RandomNumberGenerator.new()
 
@@ -231,12 +232,15 @@ func get_hurt() -> void:
 			die()
 		else:
 			$Sprite.material.set_shader_parameter("enabled", true)
+			hitstun_buffer = true
 			set_physics_process(false)
-			await get_tree().create_timer(.05).timeout
+			await get_tree().create_timer(0.05).timeout
 			$Sprite.material.set_shader_parameter("enabled", false)
 			
 			if health != 0:
 				set_physics_process(true)
+			
+			hitstun_buffer = false
 			
 			hit_flash()
 			#$Hurtbox/Collider.disabled = true
@@ -244,7 +248,13 @@ func get_hurt() -> void:
 			$Hurtbox/Collider.disabled = true
 			can_get_hurt = true
 			$Hurtbox/Collider.disabled = false
-			
+
+func _unhandled_input(event):
+	if hitstun_buffer == true:
+		if event.is_action_pressed("jump"):
+			jump_was_pressed = true
+			await get_tree().create_timer(jump_buffer).timeout
+			jump_was_pressed = false
 
 func hit_flash() -> void:
 	while not can_get_hurt:
