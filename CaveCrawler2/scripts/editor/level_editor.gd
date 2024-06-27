@@ -14,8 +14,6 @@ var camera_rooms : Array
 
 var player_in_level := false
 
-var session_tiles = []
-
 var camera_room_tool_coordinates := Vector2(1, 4)
 @export var camera_room_tool_scene : PackedScene
 
@@ -39,12 +37,6 @@ func _input(event):
 	if event is InputEvent:
 		if Input.is_action_just_pressed("save_level"):
 			save()
-		
-		if Input.is_action_just_pressed("undo"):
-			if session_tiles.is_empty() == false:
-				tiles.erase_cell(0, session_tiles.back())
-				session_tiles.pop_back()
-				#print(session_tiles)
 
 func _process(delta):
 	$ToolPreview.frame_coords = tileset_coordinates
@@ -53,19 +45,22 @@ func _process(delta):
 func _unhandled_input(event):
 	var mouse_position_rounded = Vector2(floor(get_local_mouse_position() / tile_size))
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_action_pressed("place_tile"):
 		if tileset_coordinates != camera_room_tool_coordinates:
 			if tiles.get_cell_atlas_coords(0, mouse_position_rounded) != Vector2i(tileset_coordinates):
-				tiles.set_cell(0, mouse_position_rounded, 3, tileset_coordinates)
-				session_tiles.append(mouse_position_rounded)
-				print(session_tiles)
-		
-	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		tiles.erase_cell(0, mouse_position_rounded)
-	
-	if Input.is_action_just_pressed("place_tile"):
-		if tileset_coordinates == camera_room_tool_coordinates:
+				place_tile(mouse_position_rounded)
+		else:
 			place_camera_room_tool(mouse_position_rounded * tile_size)
+	
+	if Input.is_action_pressed("erase_tile"):
+		if Vector2i(mouse_position_rounded) in tiles.get_used_cells(0):
+			erase_tile(mouse_position_rounded)
+
+func place_tile(placement_coordinates):
+	tiles.set_cell(0, placement_coordinates, 3, tileset_coordinates)
+
+func erase_tile(placement_coordinates):
+	tiles.erase_cell(0, placement_coordinates)
 
 func place_camera_room_tool(coordinates):
 	var target_position = coordinates.snapped(Vector2(tile_size, tile_size))
