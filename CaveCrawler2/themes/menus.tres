@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=36 format=3 uid="uid://bhgqfbo01g2pt"]
+[gd_resource type="Theme" load_steps=37 format=3 uid="uid://bhgqfbo01g2pt"]
 
 [ext_resource type="Texture2D" uid="uid://nvn1nyhqrmqn" path="res://sprites/menus/checkbox_unchecked.png" id="1_i0d12"]
 [ext_resource type="Texture2D" uid="uid://bnaapxrgiuddf" path="res://sprites/menus/checkbox_checked.png" id="1_ol1yn"]
@@ -111,6 +111,9 @@ bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 bg_color = Color(0, 0, 0, 1)
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwdx3"]
+bg_color = Color(0.294118, 0.294118, 0.294118, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3iemc"]
 bg_color = Color(0.294118, 0.294118, 0.294118, 1)
 
@@ -192,6 +195,7 @@ ItemList/colors/font_selected_color = Color(1, 1, 1, 1)
 ItemList/styles/focus = SubResource("StyleBoxEmpty_yv481")
 ItemList/styles/hovered = SubResource("StyleBoxFlat_26aep")
 ItemList/styles/panel = SubResource("StyleBoxFlat_mpvgl")
+ItemList/styles/selected = SubResource("StyleBoxFlat_nwdx3")
 ItemList/styles/selected_focus = SubResource("StyleBoxFlat_3iemc")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_kgi66")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_vfeyf")
