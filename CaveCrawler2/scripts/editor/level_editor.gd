@@ -27,6 +27,7 @@ func _ready():
 	new_level = Global.creating_new_level
 	level_path = Global.level_to_load
 	$CanvasLayer/Error.visible = false
+	$CanvasLayer/Interface/SaveSuccessful.visible = false
 	
 	if new_level == false:
 		load_existing_level()
@@ -105,6 +106,8 @@ func save():
 #			print(str(cr_data, ",CR"))
 	
 	save_file.close()
+	$CanvasLayer/Interface/Animator.stop(false)
+	$CanvasLayer/Interface/Animator.play("SaveSuccessful")
 
 func _on_run_pressed():
 	save()

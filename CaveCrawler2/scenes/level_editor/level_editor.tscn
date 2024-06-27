@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=47 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_jya82"]
 [ext_resource type="PackedScene" uid="uid://dd4kgsl8xo6gi" path="res://scenes/level_editor/tools/camera_room_tool.tscn" id="2_ttnjw"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cuca2s3oma8u1" path="res://sprites/level_editor_icons/reset.png" id="11_ek03p"]
 [ext_resource type="Texture2D" uid="uid://bgty7fw6d5dlk" path="res://sprites/level_editor_icons/le_atlas.atlastex" id="11_kvv4k"]
 [ext_resource type="Script" path="res://scripts/level_editor/tool_button.gd" id="12_5u3pp"]
+[ext_resource type="Texture2D" uid="uid://l0m2achevuc6" path="res://sprites/level_editor_icons/save_successful.png" id="15_pourh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85sbq"]
 bg_color = Color(0, 0, 0, 1)
@@ -22,6 +23,38 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_oxnto"]
+resource_name = "SaveSuccessful"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SaveSuccessful:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SaveSuccessful:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_34d58"]
+_data = {
+"SaveSuccessful": SubResource("Animation_oxnto")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7fi6u"]
 atlas = ExtResource("5_fjyjh")
@@ -235,6 +268,18 @@ offset_right = 24.0
 offset_bottom = 144.0
 theme = ExtResource("7_kusvm")
 
+[node name="Animator" type="AnimationPlayer" parent="CanvasLayer/Interface"]
+libraries = {
+"": SubResource("AnimationLibrary_34d58")
+}
+
+[node name="SaveSuccessful" type="TextureRect" parent="CanvasLayer/Interface"]
+offset_left = 1.0
+offset_top = -9.0
+offset_right = 11.0
+offset_bottom = 1.0
+texture = ExtResource("15_pourh")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Interface"]
 layout_mode = 0
 offset_right = 36.0
@@ -251,18 +296,15 @@ icon = ExtResource("9_bi37b")
 
 [node name="HBoxContainerRight" type="HBoxContainer" parent="CanvasLayer/Interface"]
 layout_mode = 0
-offset_left = 232.0
+offset_left = 244.0
 offset_right = 256.0
 offset_bottom = 12.0
 theme_override_constants/separation = 0
 
 [node name="MainMenu" type="Button" parent="CanvasLayer/Interface/HBoxContainerRight"]
 layout_mode = 2
+size_flags_horizontal = 8
 icon = ExtResource("10_pdxjg")
-
-[node name="Reset" type="Button" parent="CanvasLayer/Interface/HBoxContainerRight"]
-layout_mode = 2
-icon = ExtResource("11_ek03p")
 
 [node name="ToolBar" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -539,12 +581,21 @@ script = ExtResource("12_5u3pp")
 tool_type = 4
 tile_coordinate_x = 3
 
+[node name="Reset" type="Button" parent="CanvasLayer/ToolBar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+icon = ExtResource("11_ek03p")
+
 [connection signal="pressed" from="CanvasLayer/ResetConfirm/VBoxContainer/Buttons/CancelReset" to="." method="_on_cancel_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/ResetConfirm/VBoxContainer/Buttons/ConfirmReset" to="." method="_on_confirm_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainer/Run" to="." method="_on_run_pressed"]
 [connection signal="pressed" from="CanvasLayer/Interface/HBoxContainerRight/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="CanvasLayer/Interface/HBoxContainerRight/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain2" to="CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain2" method="_on_pressed"]
@@ -599,3 +650,4 @@ tile_coordinate_x = 3
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Checkpoint" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Flagpole" to="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Flagpole" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Flagpole" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/Reset" to="." method="_on_reset_pressed"]
