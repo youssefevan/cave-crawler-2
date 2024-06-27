@@ -25,11 +25,11 @@ func play_sfx(sound: AudioStream, parent := get_tree().current_scene):
 	stream.connect("finished", Callable(stream, "queue_free"))
 	
 	var can_play = true
-	for i in parent.get_children():
+	for i in get_children():
 		if i is AudioStreamPlayer and i.stream == sound:
 			can_play = false
 	if can_play:
-		parent.add_child(stream)
+		add_child(stream)
 		stream.play()
 
 func play_music(music: AudioStream):
