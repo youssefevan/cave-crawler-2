@@ -3,12 +3,14 @@ class_name Boss1
 
 var sfx_phase = preload("res://audio/sfx/boss1_hurt.ogg")
 var sfx_slam = preload("res://audio/sfx/menu_back.ogg")
+var sfx_death_anim = preload("res://audio/sfx/boss_death.ogg") 
 
 var speed := 200.0
 var movement_direction : Vector2
 
 @export var blood_particles1 : PackedScene
 @export var blood_particles2 : PackedScene
+@export var death_particles : PackedScene
 
 @onready var animator = $Animator
 @onready var jaw = $Jaw
@@ -19,12 +21,18 @@ var movement_direction : Vector2
 @onready var slam = $StateManager/Slam
 @onready var swoop = $StateManager/Swoop
 @onready var chase = $StateManager/Chase
+@onready var death = $StateManager/Death
 
 var reset_position : Vector2
 var phase := 0
 
 var last_attack := -1
 var same_attack := 0
+
+var max_shake_strength := 5.0
+var current_shake_strength : float
+var shake_fade := 2.0
+var random = RandomNumberGenerator.new()
 
 func _ready():
 	super._ready()
@@ -34,14 +42,19 @@ func _ready():
 	$Sprite.frame = 0
 	phase = 0
 	
-	sfx_death = preload("res://audio/sfx/boss_death.ogg")
-	
 	states.init(self)
 
 func _physics_process(delta):
 	super._physics_process(delta)
 	states.physics_update(delta)
 	face_player()
+	
+	if current_shake_strength > 0:
+		current_shake_strength = lerpf(current_shake_strength, 0, shake_fade * delta)
+		$Jaw.position = get_random_offset()
+		$Skull.position = get_random_offset()
+		$Sprite.position = get_random_offset()
+		$Eye.position = get_random_offset()
 	
 	move_and_slide()
 
@@ -79,4 +92,23 @@ func get_hurt(hitstun_weight):
 
 func die():
 	#AudioHandler.play_sfx(sfx_die)
+	states.change_state(death)
+	$Hitbox/Collider.disabled = true
+	$Hurtbox/Collider.disabled = true
+	$Hurtbox/Collider2.disabled = true
+	AudioHandler.play_sfx(sfx_death_anim)
+	
+	var p = death_particles.instantiate()
+	add_child(p)
+	p.global_position = global_position
+	
+	apply_shake()
+	await get_tree().create_timer(3).timeout
 	super.die()
+
+func apply_shake():
+	current_shake_strength = max_shake_strength
+
+func get_random_offset():
+	var shake = random.randf_range(-current_shake_strength, current_shake_strength)
+	return Vector2(-shake, shake)

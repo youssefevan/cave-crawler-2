@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://djmayij4alpbc"]
+[gd_scene load_steps=28 format=3 uid="uid://djmayij4alpbc"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_4jgkh"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/boss1.gd" id="2_0l4ph"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="3_oya1n"]
 [ext_resource type="Texture2D" uid="uid://dbwp3knqrye2o" path="res://sprites/enemies/boss1.png" id="4_dkdxd"]
 [ext_resource type="PackedScene" uid="uid://c272xrhclf508" path="res://scenes/particles/blood_2.tscn" id="4_okihp"]
+[ext_resource type="PackedScene" uid="uid://cbmshjd0qtl3x" path="res://scenes/particles/boss_death.tscn" id="5_66ag5"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="5_ov2j7"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/idle.gd" id="6_3qrkk"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/adjust.gd" id="7_1yt20"]
@@ -14,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/swoop.gd" id="8_ql2vq"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/slam.gd" id="9_vfhde"]
 [ext_resource type="Script" path="res://scripts/enemies/boss1/states/chase.gd" id="10_b86wr"]
+[ext_resource type="Script" path="res://scripts/enemies/boss1/states/death.gd" id="15_81ptk"]
 
 [sub_resource type="Animation" id="Animation_dli2o"]
 resource_name = "Adjust"
@@ -124,10 +126,28 @@ tracks/0/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_8gjpp"]
+resource_name = "Death"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eye:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kvp6w"]
 _data = {
 "Adjust": SubResource("Animation_dli2o"),
 "Chase": SubResource("Animation_1c7gn"),
+"Death": SubResource("Animation_8gjpp"),
 "Idle": SubResource("Animation_t0ooa"),
 "Slam": SubResource("Animation_hsrtb"),
 "Swoop": SubResource("Animation_1tp2n")
@@ -155,6 +175,7 @@ collision_mask = 1
 script = ExtResource("2_0l4ph")
 blood_particles1 = ExtResource("3_ohh10")
 blood_particles2 = ExtResource("4_okihp")
+death_particles = ExtResource("5_66ag5")
 max_health = 150
 
 [node name="PartclesSpawnPosition" type="Node2D" parent="." index="0"]
@@ -176,7 +197,6 @@ shape = SubResource("CircleShape2D_5y5g1")
 texture = ExtResource("4_dkdxd")
 hframes = 3
 vframes = 2
-frame = 2
 
 [node name="Skull" type="Sprite2D" parent="." index="5"]
 texture = ExtResource("4_dkdxd")
@@ -193,7 +213,6 @@ hframes = 2
 position = Vector2(-16, 2)
 texture = ExtResource("7_bn4dq")
 hframes = 5
-frame = 4
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(-6, 2)
@@ -229,6 +248,9 @@ script = ExtResource("9_vfhde")
 
 [node name="Chase" type="Node" parent="StateManager" index="4"]
 script = ExtResource("10_b86wr")
+
+[node name="Death" type="Node" parent="StateManager" index="5"]
+script = ExtResource("15_81ptk")
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]
