@@ -5,6 +5,7 @@ var move_dir : float
 
 func enter():
 	super.enter()
+	
 	frame = 0
 	entity.velocity.y = 0
 	

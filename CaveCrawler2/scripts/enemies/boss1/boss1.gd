@@ -2,7 +2,7 @@ extends Enemy
 class_name Boss1
 
 var sfx_phase = preload("res://audio/sfx/boss1_hurt.ogg")
-var sfx_die = preload("res://audio/sfx/boss_death.ogg")
+var sfx_slam = preload("res://audio/sfx/menu_back.ogg")
 
 var speed := 200.0
 var movement_direction : Vector2
@@ -11,6 +11,7 @@ var movement_direction : Vector2
 @export var blood_particles2 : PackedScene
 
 @onready var animator = $Animator
+@onready var jaw = $Jaw
 
 @onready var states = $StateManager
 @onready var idle = $StateManager/Idle
@@ -28,8 +29,13 @@ var same_attack := 0
 func _ready():
 	super._ready()
 	reset_position = global_position
-	$Skull.frame = 0
+	$Skull.frame = 3
+	$Jaw.frame = 0
+	$Sprite.frame = 0
 	phase = 0
+	
+	sfx_death = preload("res://audio/sfx/boss_death.ogg")
+	
 	states.init(self)
 
 func _physics_process(delta):
@@ -44,12 +50,14 @@ func face_player():
 		$Hitbox.scale.x = 1
 		$Hurtbox.scale.x = 1
 		$Skull.flip_h = false
+		$Jaw.flip_h = false
 		$Eye.position.x = -16
 		$Sprite.scale.x = 1
 	else:
 		$Hitbox.scale.x = -1
 		$Hurtbox.scale.x = -1
 		$Skull.flip_h = true
+		$Jaw.flip_h = true
 		$Eye.position.x = 16
 		$Sprite.scale.x = -1
 
@@ -57,17 +65,18 @@ func get_hurt(hitstun_weight):
 	super.get_hurt(hitstun_weight)
 	
 	if current_health == snapped(.66 * max_health, 1):
-		$Skull.frame = 1
+		$Skull.frame = 4
 		AudioHandler.play_sfx(sfx_phase)
 		var blood1 = blood_particles1.instantiate()
 		add_child(blood1)
 		blood1.position = $PartclesSpawnPosition.position
 	elif current_health == snapped(.33 * max_health, 1):
-		$Skull.frame = 2
+		$Skull.frame = 5
+		AudioHandler.play_sfx(sfx_phase)
 		var blood2 = blood_particles2.instantiate()
 		add_child(blood2)
 		blood2.position = $PartclesSpawnPosition.position
 
 func die():
-	AudioHandler.play_sfx(sfx_die)
+	#AudioHandler.play_sfx(sfx_die)
 	super.die()
