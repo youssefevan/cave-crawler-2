@@ -98,12 +98,12 @@ func die():
 	$Hurtbox/Collider2.disabled = true
 	AudioHandler.play_sfx(sfx_death_anim)
 	
-	var p = death_particles.instantiate()
-	add_child(p)
-	p.global_position = global_position
-	
 	apply_shake()
 	await get_tree().create_timer(3).timeout
+	
+	var p = death_particles.instantiate()
+	get_parent().add_child(p)
+	p.global_position = global_position
 	super.die()
 
 func apply_shake():
