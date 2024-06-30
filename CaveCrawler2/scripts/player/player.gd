@@ -33,8 +33,8 @@ var normal_speed := 85.0
 var slope_speed := 118.0 # normal_speed * (1*sqrt(2))
 var acceleration_ground := 14.0
 var acceleration_air := 7.0
-var deceleration_ground := 13.5
-var deceleration_air := 1.4
+var deceleration_ground := 16.0
+var deceleration_air := 1.8
 var movement_input : float
 var speed_modifier := 1.0
 
@@ -82,6 +82,8 @@ func _ready() -> void:
 	states.init(self)
 	can_fire = true
 	health = max_health
+	
+	$Gun/Muzzle/Hitbox/Collider.disabled = true
 	
 	if Global.checkpoint_passed == true:
 		global_position = Global.checkpoint_position
@@ -171,6 +173,8 @@ func shoot() -> void:
 	if OptionsHandler.particles_enabled == true:
 		var mf = muzzle_flash.instantiate()
 		muzzle.add_child(mf)
+	
+	$Gun/Muzzle/Animator.play("Shoot")
 	
 	var b = bullet.instantiate()
 	get_tree().get_root().add_child(b)

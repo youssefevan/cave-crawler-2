@@ -2,7 +2,7 @@ extends Enemy
 class_name Boss1
 
 var sfx_phase = preload("res://audio/sfx/boss1_hurt.ogg")
-var sfx_slam = preload("res://audio/sfx/menu_back.ogg")
+var sfx_slam = preload("res://audio/sfx/slam.ogg")
 var sfx_death_anim = preload("res://audio/sfx/boss_death.ogg") 
 
 var speed := 200.0
@@ -42,6 +42,8 @@ func _ready():
 	$Sprite.frame = 0
 	phase = 0
 	
+	sfx_death = sfx_death_anim
+	
 	states.init(self)
 
 func _physics_process(delta):
@@ -53,7 +55,7 @@ func _physics_process(delta):
 		current_shake_strength = lerpf(current_shake_strength, 0, shake_fade * delta)
 		$Jaw.position = get_random_offset()
 		$Skull.position = get_random_offset()
-		$Sprite.position = get_random_offset()
+		$Sprite.position = $Skull.position
 		$Eye.position = get_random_offset()
 	
 	move_and_slide()

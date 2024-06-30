@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dsonrkjq8rlpg"]
+[gd_scene load_steps=43 format=3 uid="uid://dsonrkjq8rlpg"]
 
 [ext_resource type="Texture2D" uid="uid://c0ojv4t3ika0i" path="res://sprites/player.png" id="1_2wwr2"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g2djs"]
@@ -19,6 +19,8 @@
 [ext_resource type="Script" path="res://scripts/player/states/fall.gd" id="7_7bu6j"]
 [ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="9_i5i06"]
 [ext_resource type="Texture2D" uid="uid://dd4adbhayqsfq" path="res://sprites/gun.png" id="12_wkw83"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/engine/hitbox.tscn" id="14_ymkh0"]
+[ext_resource type="Script" path="res://scripts/player/muzzle_hitbox.gd" id="15_84ay5"]
 [ext_resource type="Script" path="res://scripts/player/states/bounce.gd" id="16_4ydgs"]
 
 [sub_resource type="VisualShader" id="VisualShader_r7p8m"]
@@ -217,6 +219,30 @@ shader_parameter/Tint = Color(1, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkv2b"]
 size = Vector2(4, 7)
 
+[sub_resource type="Animation" id="Animation_bv5nr"]
+resource_name = "Shoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oakiu"]
+_data = {
+"Shoot": SubResource("Animation_bv5nr")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_00o25"]
+radius = 3.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2533"]
 size = Vector2(4, 7)
 
@@ -296,6 +322,19 @@ texture = ExtResource("12_wkw83")
 [node name="Muzzle" type="Node2D" parent="Gun"]
 position = Vector2(8, 0)
 
+[node name="Animator" type="AnimationPlayer" parent="Gun/Muzzle"]
+root_node = NodePath("../Hitbox/Collider")
+libraries = {
+"": SubResource("AnimationLibrary_oakiu")
+}
+
+[node name="Hitbox" parent="Gun/Muzzle" groups=["Player"] instance=ExtResource("14_ymkh0")]
+script = ExtResource("15_84ay5")
+
+[node name="Collider" parent="Gun/Muzzle/Hitbox" index="0"]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_00o25")
+
 [node name="Hurtbox" parent="." groups=["Player"] instance=ExtResource("9_i5i06")]
 
 [node name="Collider" parent="Hurtbox" index="0"]
@@ -328,4 +367,5 @@ script = ExtResource("16_4ydgs")
 [connection signal="body_shape_entered" from="Hurtbox" to="." method="_on_hurtbox_body_shape_entered"]
 [connection signal="body_shape_exited" from="Hurtbox" to="." method="_on_hurtbox_body_shape_exited"]
 
+[editable path="Gun/Muzzle/Hitbox"]
 [editable path="Hurtbox"]
