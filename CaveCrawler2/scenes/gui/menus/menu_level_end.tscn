@@ -71,6 +71,7 @@ script = ExtResource("3_5mw2n")
 layout_mode = 2
 text = "Main Menu"
 script = ExtResource("3_5mw2n")
+back_button = true
 
 [connection signal="pressed" from="Buttons/Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Buttons/Edit" to="." method="_on_edit_pressed"]

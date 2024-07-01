@@ -74,6 +74,7 @@ script = ExtResource("3_lk6dm")
 layout_mode = 2
 text = "Quit"
 script = ExtResource("3_lk6dm")
+back_button = true
 
 [node name="Version" type="Label" parent="."]
 layout_mode = 1

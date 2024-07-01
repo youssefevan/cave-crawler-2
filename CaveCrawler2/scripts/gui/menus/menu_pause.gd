@@ -4,6 +4,9 @@ var paused = false
 
 var player
 
+var sfx_pause = preload("res://audio/sfx/menu/pause.ogg")
+var sfx_unpause = preload("res://audio/sfx/menu/unpause.ogg")
+
 func _ready() -> void:
 	player = get_parent().get_parent()
 	
@@ -22,6 +25,7 @@ func _input(event):
 				unpause()
 
 func pause():
+	AudioHandler.play_sfx(sfx_pause)
 	paused = true
 	visible = true
 	
@@ -31,6 +35,7 @@ func pause():
 	get_tree().paused = true
 
 func unpause():
+	AudioHandler.play_sfx(sfx_unpause)
 	paused = false
 	visible = false
 	get_tree().paused = false

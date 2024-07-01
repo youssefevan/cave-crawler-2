@@ -216,6 +216,7 @@ offset_right = 49.0
 offset_bottom = 136.0
 text = "back"
 script = ExtResource("6_bup17")
+back_button = true
 
 [connection signal="level_selected" from="Worlds/World1/ButtonStack/ButtonRow1/1-1" to="." method="_on_level_selected"]
 [connection signal="level_selected" from="Worlds/World1/ButtonStack/ButtonRow1/1-2" to="." method="_on_level_selected"]

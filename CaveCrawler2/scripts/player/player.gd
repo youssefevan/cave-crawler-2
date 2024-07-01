@@ -26,6 +26,7 @@ var sfx_jump = preload("res://audio/sfx/player/player_jump.ogg")
 var sfx_hit = preload("res://audio/sfx/player/player_hit.ogg")
 var sfx_shoot = preload("res://audio/sfx/player/player_shoot.ogg")
 var sfx_die = preload("res://audio/sfx/player/player_death.ogg")
+var sfx_level_end = preload("res://audio/sfx/menu/level_end.ogg")
 
 # Horizontal movement variables
 var speed := 85.0
@@ -338,6 +339,8 @@ func end_level() -> void:
 	$GUI/MenuLevelEnd.visible = true
 	if OptionsHandler.cursor_visible == false:
 		$GUI/MenuLevelEnd.focus_button.grab_focus()
+	
+	AudioHandler.play_sfx(sfx_level_end)
 	
 	Global.checkpoint_passed = false
 	get_tree().paused = true

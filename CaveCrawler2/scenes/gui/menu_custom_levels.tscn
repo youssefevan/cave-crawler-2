@@ -124,6 +124,7 @@ size_flags_horizontal = 0
 text = "Back
 "
 script = ExtResource("5_1g345")
+back_button = true
 
 [node name="New" type="Button" parent="BottomBar/Options"]
 layout_mode = 2
@@ -174,6 +175,7 @@ alignment = 1
 layout_mode = 2
 text = "Cancel"
 script = ExtResource("5_1g345")
+back_button = true
 
 [node name="Create" type="Button" parent="NewLevel/VBoxContainer/Buttons"]
 layout_mode = 2
@@ -233,10 +235,13 @@ alignment = 1
 [node name="CancelDelete" type="Button" parent="DeleteConfirm/VBoxContainer/Buttons"]
 layout_mode = 2
 text = "Cancel"
+script = ExtResource("5_1g345")
+back_button = true
 
 [node name="ConfirmDelete" type="Button" parent="DeleteConfirm/VBoxContainer/Buttons"]
 layout_mode = 2
 text = "Delete"
+script = ExtResource("5_1g345")
 
 [connection signal="pressed" from="Details/VBoxContainer/Options/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Details/VBoxContainer/Options/Edit" to="." method="_on_edit_pressed"]
