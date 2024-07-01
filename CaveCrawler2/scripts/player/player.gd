@@ -328,7 +328,7 @@ func get_level_editor_offset() -> Vector2:
 	return level_editor_offset
 
 func handle_oneway_collision() -> void:
-	if is_on_floor() and Input.is_action_pressed("drop_through"):
+	if Input.is_action_pressed("drop_through"):
 		set_collision_mask_value(10, false)
 		await get_tree().create_timer(0.1).timeout
 		set_collision_mask_value(10, true)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cmcygxcgpgtdt"]
+[gd_scene load_steps=20 format=3 uid="uid://cmcygxcgpgtdt"]
 
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="1_1tsot"]
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_tbda8"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="14_8fabe"]
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="15_hwnha"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="15_wjdkq"]
+[ext_resource type="PackedScene" uid="uid://bvk2o5ljywjt" path="res://scenes/moving_platform.tscn" id="18_slo5q"]
 
 [node name="World" type="Node2D"]
 
@@ -137,5 +138,14 @@ position = Vector2(1040, 88)
 [node name="Checkpoint" parent="Pickups" instance=ExtResource("15_hwnha")]
 position = Vector2(688, 120)
 
+[node name="MovingPlatform" parent="." instance=ExtResource("18_slo5q")]
+position = Vector2(64, 48)
+metadata/_edit_group_ = true
+
+[node name="Endpoint" parent="MovingPlatform" index="2"]
+position = Vector2(0, 48)
+
 [node name="Player" parent="." instance=ExtResource("1_1tsot")]
 position = Vector2(32, 112)
+
+[editable path="MovingPlatform"]
