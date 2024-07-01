@@ -212,14 +212,8 @@ position = Vector2(336, 120)
 [node name="Turret" parent="Enemies" instance=ExtResource("8_pcb2y")]
 position = Vector2(872, 20)
 
-[node name="SkeletonHand" parent="Enemies" instance=ExtResource("10_eg81s")]
-position = Vector2(436, 96)
-
 [node name="SkeletonHand2" parent="Enemies" instance=ExtResource("10_eg81s")]
 position = Vector2(612, 96)
-
-[node name="SkeletonHand3" parent="Enemies" instance=ExtResource("10_eg81s")]
-position = Vector2(1040, 96)
 
 [node name="SkeletonHand4" parent="Enemies" instance=ExtResource("10_eg81s")]
 position = Vector2(1128, 80)
@@ -245,10 +239,10 @@ position = Vector2(1252, 24)
 [node name="Hazards" type="Node" parent="."]
 
 [node name="Stalactite" parent="Hazards" instance=ExtResource("7_i8yev")]
-position = Vector2(508, 32)
+position = Vector2(500, 32)
 
 [node name="Stalactite3" parent="Hazards" instance=ExtResource("7_i8yev")]
-position = Vector2(540, 32)
+position = Vector2(548, 32)
 
 [node name="Stalactite2" parent="Hazards" instance=ExtResource("7_i8yev")]
 position = Vector2(524, 32)
