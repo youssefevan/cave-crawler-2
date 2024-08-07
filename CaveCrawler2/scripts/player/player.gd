@@ -1,3 +1,4 @@
+@icon("res://sprites/engine_editor_icons/player.png")
 extends CharacterBody2D
 class_name Player
 
@@ -13,6 +14,7 @@ class_name Player
 @export var muzzle_flash : PackedScene
 @export var particles_death : PackedScene
 @export var jump_dust : PackedScene
+@export var level_clear : PackedScene
 
 # States
 @onready var idle = $StateManager/Idle
@@ -54,7 +56,7 @@ var gravity_multiplier := 1.0
 var gravity_tiles := []
 
 # Health
-@export var max_health := 4
+var max_health := 4
 var health : int
 
 # Hurt
@@ -76,6 +78,7 @@ var camera_shake_fade := 15.0
 var level_editor_offset := Vector2(4, -8)
 var level_end := false
 var hitstun_buffer := false
+var can_move := true
 
 var random = RandomNumberGenerator.new()
 
@@ -109,26 +112,27 @@ func _physics_process(delta) -> void:
 	move_and_slide()
 
 func handle_input() -> void:
-	movement_input = Input.get_action_strength("right") - Input.get_action_strength("left")
-	if movement_input > 0:
-		$Sprite.flip_h = false
-		gun.scale.x = 1
-	if movement_input < 0:
-		$Sprite.flip_h = true
-		gun.scale.x = -1
-	
-	if Input.is_action_pressed("look_up"):
-		if $Sprite.flip_h == false:
-			gun.rotation_degrees = -90
+	if can_move == true:
+		movement_input = Input.get_action_strength("right") - Input.get_action_strength("left")
+		if movement_input > 0:
+			$Sprite.flip_h = false
+			gun.scale.x = 1
+		if movement_input < 0:
+			$Sprite.flip_h = true
+			gun.scale.x = -1
+		
+		if Input.is_action_pressed("look_up"):
+			if $Sprite.flip_h == false:
+				gun.rotation_degrees = -90
+			else:
+				gun.rotation_degrees = 90
+		elif Input.is_action_pressed("drop_through"):
+			if $Sprite.flip_h == false:
+				gun.rotation_degrees = 90
+			else:
+				gun.rotation_degrees = -90
 		else:
-			gun.rotation_degrees = 90
-	elif Input.is_action_pressed("drop_through"):
-		if $Sprite.flip_h == false:
-			gun.rotation_degrees = 90
-		else:
-			gun.rotation_degrees = -90
-	else:
-		gun.rotation_degrees = 0
+			gun.rotation_degrees = 0
 
 func apply_movement(delta) -> void:
 	if is_on_floor():
@@ -160,10 +164,11 @@ func apply_movement(delta) -> void:
 			velocity.x = 0
 
 func jump_buffering() -> void:
-	if Input.is_action_just_pressed("jump"):
-		jump_was_pressed = true
-		await get_tree().create_timer(jump_buffer).timeout
-		jump_was_pressed = false
+	if can_move == true:
+		if Input.is_action_just_pressed("jump"):
+			jump_was_pressed = true
+			await get_tree().create_timer(jump_buffer).timeout
+			jump_was_pressed = false
 
 func coyote_time() -> void:
 	can_coyote_jump = true
@@ -335,12 +340,22 @@ func handle_oneway_collision() -> void:
 
 func end_level() -> void:
 	level_end = true
+	can_get_hurt = false
+	can_move = false
+	movement_input = 0
+	
+	if OptionsHandler.particles_enabled == true:
+		var lc = level_clear.instantiate()
+		add_child(lc)
+	
+	AudioHandler.play_sfx(sfx_level_end)
+	states.change_state(idle)
+	
+	await get_tree().create_timer(1).timeout
 	
 	$GUI/MenuLevelEnd.visible = true
 	if OptionsHandler.cursor_visible == false:
 		$GUI/MenuLevelEnd.focus_button.grab_focus()
-	
-	AudioHandler.play_sfx(sfx_level_end)
 	
 	Global.checkpoint_passed = false
 	get_tree().paused = true

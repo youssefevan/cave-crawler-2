@@ -1,3 +1,4 @@
+@icon("res://sprites/engine_editor_icons/enemy.png")
 extends CharacterBody2D
 class_name Enemy
 

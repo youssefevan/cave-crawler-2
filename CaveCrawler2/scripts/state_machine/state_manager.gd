@@ -1,3 +1,4 @@
+@icon("res://sprites/engine_editor_icons/state_manager.png")
 extends Node
 class_name StateManager
 

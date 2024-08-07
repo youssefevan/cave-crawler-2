@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dsonrkjq8rlpg"]
+[gd_scene load_steps=44 format=3 uid="uid://dsonrkjq8rlpg"]
 
 [ext_resource type="Texture2D" uid="uid://c0ojv4t3ika0i" path="res://sprites/player.png" id="1_2wwr2"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g2djs"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/player/states/run.gd" id="5_xe08m"]
 [ext_resource type="Texture2D" uid="uid://dcujevinxw3ro" path="res://sprites/gui/health_bar.png" id="5_xselh"]
 [ext_resource type="Script" path="res://scripts/player/states/jump.gd" id="6_w0w5j"]
+[ext_resource type="PackedScene" uid="uid://urefukvjmxqo" path="res://scenes/particles/health_picked.tscn" id="6_yasuh"]
 [ext_resource type="Script" path="res://scripts/player/states/fall.gd" id="7_7bu6j"]
 [ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="9_i5i06"]
 [ext_resource type="Texture2D" uid="uid://dd4adbhayqsfq" path="res://sprites/gun.png" id="12_wkw83"]
@@ -262,6 +263,7 @@ bullet = ExtResource("2_wqhji")
 muzzle_flash = ExtResource("3_s6cts")
 particles_death = ExtResource("4_2n17x")
 jump_dust = ExtResource("5_ufqjq")
+level_clear = ExtResource("6_yasuh")
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {
