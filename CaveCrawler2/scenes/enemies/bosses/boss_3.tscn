@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dyxqx1wk6buob"]
+[gd_scene load_steps=17 format=3 uid="uid://dyxqx1wk6buob"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_ca2ao"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/boss_3.gd" id="2_1w15h"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/enemies/boss3/states/chase.gd" id="7_f6nk4"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/states/spawn.gd" id="8_0br8l"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/states/orbiting.gd" id="9_pa2cy"]
+[ext_resource type="Script" path="res://scripts/enemies/boss1/states/death.gd" id="10_ux6fi"]
 
 [sub_resource type="Animation" id="Animation_nvveq"]
 resource_name = "Idle"
@@ -113,6 +114,9 @@ script = ExtResource("8_0br8l")
 
 [node name="Orbiting" type="Node" parent="StateManager" index="3"]
 script = ExtResource("9_pa2cy")
+
+[node name="Death" type="Node" parent="StateManager" index="4"]
+script = ExtResource("10_ux6fi")
 
 [node name="Muzzle" type="Node2D" parent="." index="8"]
 position = Vector2(-2, 3)

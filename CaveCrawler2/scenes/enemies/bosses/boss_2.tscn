@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cvbqessjl8i47"]
+[gd_scene load_steps=24 format=3 uid="uid://cvbqessjl8i47"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_55woq"]
 [ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_6upu1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/enemies/boss2/states/sleep.gd" id="6_tt2aq"]
 [ext_resource type="Script" path="res://scripts/enemies/boss2/states/chase.gd" id="7_bmes1"]
 [ext_resource type="Script" path="res://scripts/enemies/boss2/states/wait.gd" id="9_xm8gy"]
+[ext_resource type="Script" path="res://scripts/enemies/boss1/states/death.gd" id="10_mrar6"]
 
 [sub_resource type="Animation" id="Animation_rufxj"]
 resource_name = "Chase"
@@ -423,6 +424,9 @@ script = ExtResource("7_bmes1")
 
 [node name="Wait" type="Node" parent="StateManager" index="3"]
 script = ExtResource("9_xm8gy")
+
+[node name="Death" type="Node" parent="StateManager" index="4"]
+script = ExtResource("10_mrar6")
 
 [connection signal="animation_finished" from="Animator" to="StateManager/Idle" method="_on_animator_animation_finished"]
 [connection signal="animation_finished" from="Animator" to="StateManager/Chase" method="_on_animator_animation_finished"]
