@@ -46,6 +46,14 @@ func _physics_process(delta):
 	
 	muzzle.look_at(player.global_position - Vector2(0, 4))
 	
+	if current_shake_strength > 0:
+		current_shake_strength = lerpf(current_shake_strength, 0, shake_fade * delta)
+		$Tank.position = get_random_offset() + Vector2(0, -32)
+		$Sprite.position = $Tank.position
+		$Muzzle.visible = false
+	else:
+		$Muzzle.visible = false
+	
 	move_and_slide()
 
 func get_hurt(hitstun_weight):

@@ -47,6 +47,11 @@ func _physics_process(delta):
 	
 	$Orbit.rotation_degrees += rotation_speed * delta
 	
+	if current_shake_strength > 0:
+		current_shake_strength = lerpf(current_shake_strength, 0, shake_fade * delta)
+		$Boss.position = get_random_offset()
+		$Sprite.position = $Boss.position
+	
 	#move_and_slide()
 
 func face_player():
@@ -60,47 +65,51 @@ func face_player():
 		$Muzzle.position.x = 2
 
 func shoot_v():
-	var l = laser_scene.instantiate()
-	get_parent().add_child.call_deferred(l)
-	l.global_position.x = player.global_position.x
-	l.global_position.y = player.global_position.y - 128
-	l.rotation_degrees = 90
+	if current_health > 0:
+		var l = laser_scene.instantiate() 
+		get_parent().add_child.call_deferred(l)
+		l.global_position.x = player.global_position.x
+		l.global_position.y = player.global_position.y - 128
+		l.rotation_degrees = 90
 
 func shoot_h():
-	var l = laser_scene.instantiate()
-	get_parent().add_child.call_deferred(l)
-	l.global_position.y = player.global_position.y
-	l.global_position.x = player.global_position.x - 256
-	l.scale.x *= 2
+	if current_health > 0:
+		var l = laser_scene.instantiate()
+		get_parent().add_child.call_deferred(l)
+		l.global_position.y = player.global_position.y
+		l.global_position.x = player.global_position.x - 256
+		l.scale.x *= 2
 
 func spawn_head():
-	var h = head_scene.instantiate()
-	get_parent().add_child.call_deferred(h)
-	h.global_position = $HeadSpawn.global_position
+	if current_health > 0:
+		var h = head_scene.instantiate()
+		get_parent().add_child.call_deferred(h)
+		h.global_position = $HeadSpawn.global_position
 
 func spawn_knives():
-	for i in $Orbit.get_children():
-		var k = knife_scene.instantiate()
-		i.add_child(k)
-		await get_tree().create_timer(0.3).timeout
+	if current_health > 0:
+		for i in $Orbit.get_children():
+			var k = knife_scene.instantiate()
+			i.add_child(k)
+			await get_tree().create_timer(0.3).timeout
+			
+		await get_tree().create_timer(1).timeout
 		
-	await get_tree().create_timer(1).timeout
-	
-	for i in $Orbit.get_children():
-		i.get_child(0).player = player
-		await get_tree().create_timer(0.3).timeout
-	
-	await get_tree().create_timer(1).timeout
-	
-	for i in $Orbit.get_children():
-		i.get_child(0).call_deferred("queue_free")
-		var k = knife_scene.instantiate()
-		get_parent().get_parent().add_child(k)
-		k.look_at(player.global_position)
-		k.player = player
-		k.global_position = i.global_position
-		k.throw = true
-		await get_tree().create_timer(0.5).timeout
+		for i in $Orbit.get_children():
+			i.get_child(0).player = player
+			await get_tree().create_timer(0.3).timeout
+		
+		await get_tree().create_timer(1).timeout
+		
+		for i in $Orbit.get_children():
+			i.get_child(0).call_deferred("queue_free")
+			var k = knife_scene.instantiate()
+			get_parent().get_parent().add_child(k)
+			k.look_at(player.global_position)
+			k.player = player
+			k.global_position = i.global_position
+			k.throw = true
+			await get_tree().create_timer(0.5).timeout
 
 func _on_hitbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	pass
@@ -131,7 +140,6 @@ func die():
 	states.change_state(death)
 	$Hitbox/Collider.disabled = true
 	$Hurtbox/Collider.disabled = true
-	$Hurtbox/Collider2.disabled = true
 	AudioHandler.play_sfx(sfx_death_anim)
 	
 	apply_shake()
