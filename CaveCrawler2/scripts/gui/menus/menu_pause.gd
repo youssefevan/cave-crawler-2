@@ -1,11 +1,14 @@
 extends Control
 
 var paused = false
+var window
 
 var player
 
 var sfx_pause = preload("res://audio/sfx/menu/pause.ogg")
 var sfx_unpause = preload("res://audio/sfx/menu/unpause.ogg")
+
+var previous_window_position
 
 func _ready() -> void:
 	player = get_parent().get_parent()
@@ -15,6 +18,9 @@ func _ready() -> void:
 	else:
 		$Buttons/Edit.visible = true
 	visible = false
+	
+	window = get_window()
+	previous_window_position = window.position
 
 func _input(event):
 	if player.health > 0 and player.level_end == false:
@@ -23,6 +29,15 @@ func _input(event):
 				pause()
 			else:
 				unpause()
+
+func _process(delta):
+	if !window.has_focus() and !paused:
+		pause()
+	
+	if window.position != previous_window_position:
+		pause()
+	
+	previous_window_position = window.position
 
 func pause():
 	AudioHandler.play_sfx(sfx_pause)
