@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 var sfx_death = preload("res://audio/sfx/enemy_death.ogg")
+var particles_death = preload("res://scenes/particles/enemy_death.tscn")
+
 @export var particles : PackedScene
 
 var fall := false
@@ -26,8 +28,7 @@ func _physics_process(delta):
 		velocity.y += gravity * gravity_multiplier * delta
 		
 		if is_on_floor():
-			AudioHandler.play_sfx(sfx_death)
-			call_deferred("queue_free")
+			destroy()
 	
 	if gravity_tiles.is_empty():
 		gravity_multiplier = 1
@@ -46,8 +47,17 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_hitbox_area_entered(area):
-	if area.get_collision_layer_value(7):
-		call_deferred("queue_free")
+	if area.get_collision_layer_value(7) or area.get_collision_layer_value(9):
+		destroy()
+
+func destroy():
+	AudioHandler.play_sfx(sfx_death)
+	
+	var pd = particles_death.instantiate()
+	get_parent().add_child(pd)
+	pd.global_position = global_position
+	
+	call_deferred("queue_free")
 
 func get_level_editor_offset() -> Vector2:
 	return level_editor_offset

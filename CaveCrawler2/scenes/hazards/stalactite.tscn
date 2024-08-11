@@ -14,6 +14,7 @@ height = 8.0
 
 [node name="Stalactite" type="CharacterBody2D"]
 collision_layer = 128
+collision_mask = 257
 safe_margin = 0.04
 script = ExtResource("1_b6yq4")
 particles = ExtResource("2_qvpuc")
@@ -27,7 +28,7 @@ position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_2nkn0")
 
 [node name="Hitbox" parent="." groups=["Hazard"] instance=ExtResource("2_8pemx")]
-collision_mask = 193
+collision_mask = 449
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, 4)
