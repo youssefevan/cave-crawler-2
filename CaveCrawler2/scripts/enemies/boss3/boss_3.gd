@@ -25,10 +25,10 @@ var start_height
 var sfx_phase = preload("res://audio/sfx/boss1_hurt.ogg")
 var sfx_death_anim = preload("res://audio/sfx/boss_death.ogg")
 
-var max_shake_strength := 5.0
-var current_shake_strength : float
-var shake_fade := 2.0
-var random = RandomNumberGenerator.new()
+#var max_shake_strength := 5.0
+#var current_shake_strength : float
+#var shake_fade := 2.0
+#var random = RandomNumberGenerator.new()
 
 func _ready():
 	super._ready()
@@ -141,6 +141,9 @@ func die():
 	$Hitbox/Collider.disabled = true
 	$Hurtbox/Collider.disabled = true
 	AudioHandler.play_sfx(sfx_death_anim)
+	
+	max_shake_strength = 5.0
+	shake_fade = 2.0
 	
 	apply_shake()
 	await get_tree().create_timer(3).timeout

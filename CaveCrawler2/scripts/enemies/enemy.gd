@@ -18,10 +18,19 @@ var can_get_hurt : bool
 var gravity_multiplier := 0.0
 var gravity_tiles = []
 
+@export var max_shake_strength := 1.0
+var current_shake_strength : float
+@export var shake_fade := 10.0
+var random = RandomNumberGenerator.new()
+
+var sprite_offset : Vector2
+
 func _ready():
 	$Sprite.material.set_shader_parameter("enabled", false)
 	current_health = max_health
 	can_get_hurt = true
+	
+	sprite_offset = $Sprite.position
 	
 	player = get_tree().get_first_node_in_group("Player")
 
@@ -33,6 +42,10 @@ func _physics_process(delta):
 		gravity_multiplier = 1.0
 	else:
 		gravity_multiplier = -1.0
+	
+	if current_shake_strength > 0:
+		current_shake_strength = lerpf(current_shake_strength, 0, shake_fade * delta)
+		$Sprite.position = get_random_offset() + sprite_offset
 
 func enter_bounce(bounce_force):
 	velocity.y -= bounce_force
@@ -49,6 +62,8 @@ func get_hurt(hitstun_weight):
 		if enable_hit_flash == true:
 			$Sprite.material.set_shader_parameter("enabled", true)
 		
+		apply_shake()
+		
 		set_physics_process(false)
 		await get_tree().create_timer(hitstun_weight).timeout
 		set_physics_process(true)
@@ -59,6 +74,13 @@ func get_hurt(hitstun_weight):
 		$Hurtbox/Collider.disabled = true
 		can_get_hurt = true
 		$Hurtbox/Collider.disabled = false
+
+func apply_shake():
+	current_shake_strength = max_shake_strength
+
+func get_random_offset():
+	var shake = random.randf_range(-current_shake_strength, current_shake_strength)
+	return Vector2(-shake, shake)
 
 func die():
 	var p = particles_death.instantiate()

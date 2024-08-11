@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxq2uyf68mxsy"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_cy1f6"]
+[ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="2_bwg03"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/engine/hitbox.tscn" id="2_nrbic"]
+[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="3_ohsqj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gu8jq"]
+resource_local_to_scene = true
+shader = ExtResource("2_bwg03")
+shader_parameter/enabled = false
+shader_parameter/Tint = Color(1, 0, 0, 1)
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 513
+floor_constant_speed = true
+floor_max_angle = 0.872665
+floor_snap_length = 2.0
+safe_margin = 0.04
+script = ExtResource("1_cy1f6")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_gu8jq")
+
+[node name="Hitbox" parent="." groups=["Enemy"] instance=ExtResource("2_nrbic")]
+
+[node name="Hurtbox" parent="." groups=["Enemy"] instance=ExtResource("3_ohsqj")]
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_shape_entered" from="Hurtbox" to="." method="_on_hurtbox_body_shape_entered"]
+[connection signal="body_shape_exited" from="Hurtbox" to="." method="_on_hurtbox_body_shape_exited"]
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]
