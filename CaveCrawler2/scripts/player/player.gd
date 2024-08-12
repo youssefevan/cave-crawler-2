@@ -363,5 +363,3 @@ func end_level() -> void:
 func enter_bounce(bf) -> void:
 	bouncing = true
 	bounce_force = bf
-
-
