@@ -7,6 +7,7 @@ var player
 
 var sfx_pause = preload("res://audio/sfx/menu/button_forward.ogg")
 var sfx_unpause = preload("res://audio/sfx/menu/button_back.ogg")
+var music_pause = preload("res://audio/music/pause.ogg")
 
 var previous_window_position
 
@@ -41,6 +42,8 @@ func _process(delta):
 
 func pause():
 	AudioHandler.play_sfx(sfx_pause)
+	AudioHandler.play_music(music_pause, true)
+	
 	paused = true
 	visible = true
 	
@@ -51,6 +54,8 @@ func pause():
 
 func unpause():
 	AudioHandler.play_sfx(sfx_unpause)
+	AudioHandler.resume_music()
+	
 	paused = false
 	visible = false
 	get_tree().paused = false

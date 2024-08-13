@@ -5,6 +5,9 @@ var bus_index_music = AudioServer.get_bus_index("Music")
 
 var current_streams = []
 
+var interrupted_music
+var interrupt_position
+
 @onready var music_player = $MusicPlayer
 
 func _ready():
@@ -32,11 +35,19 @@ func play_sfx(sound: AudioStream, parent := get_tree().current_scene):
 		add_child(stream)
 		stream.play()
 
-func play_music(music: AudioStream):
+func play_music(music: AudioStream, interrupt: bool):
 	if music_player.stream != music:
+		
+		if interrupt == true:
+			interrupted_music = music_player.stream
+			interrupt_position = music_player.get_playback_position()
+		
 		music_player.stream = music
 		music_player.play()
-		
+
+func resume_music():
+	music_player.stream = interrupted_music
+	music_player.play(interrupt_position)
 
 func volume_music_changed():
 	var vol = (OptionsHandler.volume_music/10) * 2

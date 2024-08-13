@@ -3,7 +3,7 @@ extends Control
 @onready var title_music = preload("res://audio/music/cc1.ogg")
 
 func _ready():
-	AudioHandler.play_music(title_music)
+	AudioHandler.play_music(title_music, false)
 	
 	Global.checkpoint_passed = false
 	
