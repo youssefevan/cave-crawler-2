@@ -6,7 +6,7 @@ var spawn_offset := Vector2(0, 4)
 var checked := false
 
 var particles = preload("res://scenes/particles/health_picked.tscn")
-var sfx = preload("res://audio/sfx/health_pickup.ogg")
+var sfx = preload("res://audio/sfx/checkpoint.ogg")
 
 func picked(body) -> void:
 	super.picked(body)

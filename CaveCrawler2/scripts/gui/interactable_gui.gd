@@ -1,8 +1,8 @@
 extends Button
 class_name InteractableGUI
 
-var sfx_next = preload("res://audio/sfx/menu/menu_next.ogg")
-var sfx_back = preload("res://audio/sfx/menu/menu_back.ogg")
+var sfx_next = preload("res://audio/sfx/menu/button_forward.ogg")
+var sfx_back = preload("res://audio/sfx/menu/button_back.ogg")
 
 @export var back_button := false
 @export var no_sfx := false

@@ -5,8 +5,8 @@ var window
 
 var player
 
-var sfx_pause = preload("res://audio/sfx/menu/pause.ogg")
-var sfx_unpause = preload("res://audio/sfx/menu/unpause.ogg")
+var sfx_pause = preload("res://audio/sfx/menu/button_forward.ogg")
+var sfx_unpause = preload("res://audio/sfx/menu/button_back.ogg")
 
 var previous_window_position
 
