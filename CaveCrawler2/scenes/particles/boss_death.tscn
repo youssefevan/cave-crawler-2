@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbmshjd0qtl3x"]
+[gd_scene load_steps=10 format=3 uid="uid://cbmshjd0qtl3x"]
 
 [ext_resource type="Texture2D" uid="uid://bnx0cyr0hvm2i" path="res://sprites/particles/jump_dust.png" id="1_2m0m0"]
 [ext_resource type="Script" path="res://scripts/particles_holder.gd" id="1_rhsh2"]
 [ext_resource type="Script" path="res://scripts/particles.gd" id="2_bpjby"]
+[ext_resource type="Material" uid="uid://b1ktey5q6qvl0" path="res://materials/boss_death_dust.tres" id="2_euv10"]
 [ext_resource type="PackedScene" uid="uid://cegndx8bcqxni" path="res://scenes/particles/smoke2.tscn" id="3_yosid"]
+[ext_resource type="Material" uid="uid://cnjfqer3ha1bl" path="res://materials/boss_death_blood.tres" id="5_v0pxn"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6vxaj"]
 blend_mode = 1
@@ -18,44 +20,6 @@ particles_animation = true
 particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = false
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3qfd7"]
-particle_flag_disable_z = true
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 0.0
-emission_ring_radius = 40.0
-emission_ring_inner_radius = 20.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_min = 10.0
-initial_velocity_max = 10.0
-radial_velocity_min = 40.0
-radial_velocity_max = 40.0
-gravity = Vector3(0, 0, 0)
-anim_speed_min = 1.0
-anim_speed_max = 1.0
-
-[sub_resource type="Gradient" id="Gradient_3s4sn"]
-offsets = PackedFloat32Array(0.655556, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_uyrhf"]
-gradient = SubResource("Gradient_3s4sn")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x8hwm"]
-particle_flag_disable_z = true
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 1.0
-emission_ring_radius = 40.0
-emission_ring_inner_radius = 20.0
-radial_velocity_min = 60.0
-radial_velocity_max = 120.0
-gravity = Vector3(0, 98, 0)
-scale_min = 2.0
-scale_max = 4.0
-color_ramp = SubResource("GradientTexture1D_uyrhf")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ufefr"]
 particle_flag_disable_z = true
@@ -73,7 +37,7 @@ script = ExtResource("1_rhsh2")
 material = SubResource("CanvasItemMaterial_4tw51")
 emitting = false
 amount = 32
-process_material = SubResource("ParticleProcessMaterial_3qfd7")
+process_material = ExtResource("2_euv10")
 texture = ExtResource("1_2m0m0")
 lifetime = 2.0
 one_shot = true
@@ -83,7 +47,7 @@ script = ExtResource("2_bpjby")
 [node name="Blood" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 32
-process_material = SubResource("ParticleProcessMaterial_x8hwm")
+process_material = ExtResource("5_v0pxn")
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0

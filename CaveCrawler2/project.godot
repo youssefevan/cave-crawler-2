@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 Global="*res://scripts/global.gd"
 AudioHandler="*res://scenes/engine/audio_handler.tscn"
 OptionsHandler="*res://scenes/engine/options_handler.tscn"
+ParticlesCache="*res://scripts/particles_cache.gd"
 
 [display]
 
