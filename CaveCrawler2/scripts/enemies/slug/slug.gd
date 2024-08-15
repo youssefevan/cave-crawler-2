@@ -52,6 +52,9 @@ func get_hurt(hitstun_weight):
 	super.get_hurt(hitstun_weight)
 	got_hit = true
 
+func apply_shake():
+	pass
+
 func enter_bounce(bounce_force):
 	pass
 
