@@ -12,6 +12,8 @@ class_name Slug
 
 @onready var bounce_particles = preload("res://scenes/particles/bounce.tscn")
 
+@onready var hurtbox_collider = $Hurtbox/Collider
+
 var speed := 80.0
 var move_direction := -1
 var inch_time := 0.4 # in seconds
@@ -71,6 +73,20 @@ func _on_hitbox_area_entered(area):
 		#print(states.current_state)
 		if states.current_state == shield:
 			area.get_parent().enter_bounce(bounce_force)
+
+func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if body is TileMap:
+		var cell_pos = body.get_coords_for_body_rid(body_rid)
+		var cell_data = body.get_cell_tile_data(0, cell_pos)
+			
+		if cell_data.get_custom_data("killzone") == true:
+			current_health = 0
+			die()
+		elif cell_data.get_custom_data("does_damage") == true:
+			if states.current_state != shield:
+				get_hurt(0.1)
+		elif cell_data.get_custom_data("no_gravity") == true:
+			gravity_tiles.append(cell_pos)
 
 func spawn_bounce_particles():
 	var p = bounce_particles.instantiate()

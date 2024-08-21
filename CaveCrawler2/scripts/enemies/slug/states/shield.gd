@@ -4,6 +4,7 @@ var end := false
 
 func enter():
 	super.enter()
+	
 	end = false
 	entity.shield_timer.start()
 	await entity.shield_timer.timeout
