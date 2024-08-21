@@ -27,14 +27,6 @@ position = Vector2(128, 72)
 rotation = -3.14159
 texture = ExtResource("4_d5lht")
 
-[node name="Logo" type="Button" parent="."]
-layout_mode = 0
-offset_left = 115.0
-offset_top = 8.0
-offset_right = 142.0
-offset_bottom = 18.0
-text = "Logo"
-
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(128, 43)
 texture = ExtResource("4_svttn")
@@ -92,7 +84,6 @@ grow_vertical = 0
 text = "1.1b"
 horizontal_alignment = 2
 
-[connection signal="pressed" from="Logo" to="." method="_on_logo_pressed"]
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Buttons/Editor" to="." method="_on_editor_pressed"]
 [connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
