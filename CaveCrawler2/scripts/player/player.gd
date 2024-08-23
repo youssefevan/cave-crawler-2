@@ -338,11 +338,15 @@ func handle_oneway_collision() -> void:
 		await get_tree().create_timer(0.1).timeout
 		set_collision_mask_value(10, true)
 
+func disable_hurtbox():
+	$Hurtbox/Collider.disabled = true
+
 func end_level() -> void:
 	level_end = true
 	can_get_hurt = false
 	can_move = false
 	movement_input = 0
+	call_deferred("disable_hurtbox")
 	
 	if OptionsHandler.particles_enabled == true:
 		var lc = level_clear.instantiate()
