@@ -119,7 +119,6 @@ texture = ExtResource("5_4qh3i")
 hframes = 3
 
 [node name="CameraRooms" type="Node2D" parent="."]
-visible = false
 
 [node name="CameraRoom" parent="CameraRooms" instance=ExtResource("5_uw3c8")]
 scale = Vector2(384, 144)
