@@ -105,7 +105,7 @@ func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shap
 			
 		if cell_data.get_custom_data("killzone") == true:
 			current_health = 0
-			die()
+			call_deferred("die")
 		elif cell_data.get_custom_data("does_damage") == true:
 			get_hurt(0.1)
 		elif cell_data.get_custom_data("no_gravity") == true:

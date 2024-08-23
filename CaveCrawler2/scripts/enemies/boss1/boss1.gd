@@ -30,6 +30,8 @@ var last_attack := -1
 var same_attack := 0
 
 var eye_offset : Vector2
+var jaw_offset : Vector2
+var outline_offset : Vector2
 
 #var max_shake_strength := 5.0
 #var current_shake_strength : float
@@ -40,6 +42,8 @@ func _ready():
 	super._ready()
 	reset_position = global_position
 	eye_offset = $Eye.position
+	jaw_offset = $Jaw.position
+	outline_offset = $Sprite.position
 	$Skull.frame = 3
 	$Jaw.frame = 0
 	$Sprite.frame = 0
@@ -56,10 +60,10 @@ func _physics_process(delta):
 	
 	if current_shake_strength > 0:
 		current_shake_strength = lerpf(current_shake_strength, 0, shake_fade * delta)
-		$Jaw.position = get_random_offset()
 		$Skull.position = get_random_offset()
-		$Sprite.position = $Skull.position
-		$Eye.position = get_random_offset() + eye_offset
+		$Jaw.position = $Skull.position + jaw_offset
+		$Eye.position = $Skull.position + eye_offset
+		$Sprite.position = $Skull.position + outline_offset
 		
 	face_player()
 	
@@ -97,12 +101,15 @@ func get_hurt(hitstun_weight):
 		add_child(blood2)
 		blood2.position = $PartclesSpawnPosition.position
 
-func die():
-	#AudioHandler.play_sfx(sfx_die)
-	states.change_state(death)
+func disable_hitboxes():
 	$Hitbox/Collider.disabled = true
 	$Hurtbox/Collider.disabled = true
 	$Hurtbox/Collider2.disabled = true
+
+func die():
+	#AudioHandler.play_sfx(sfx_die)
+	states.change_state(death)
+	call_deferred("disable_hitboxes")
 	AudioHandler.play_sfx(sfx_death_anim)
 	
 	max_shake_strength = 5.0

@@ -135,11 +135,14 @@ func get_hurt(hitstun_weight):
 		add_child(s)
 		s.position = Vector2(0, -16)
 
+func disable_hitboxes():
+	$Hitbox/Collider.disabled = true
+	$Hurtbox/Collider.disabled = true
+
 func die():
 	#AudioHandler.play_sfx(sfx_die)
 	states.change_state(death)
-	$Hitbox/Collider.disabled = true
-	$Hurtbox/Collider.disabled = true
+	call_deferred("disable_hitboxes")
 	AudioHandler.play_sfx(sfx_death_anim)
 	
 	max_shake_strength = 5.0
