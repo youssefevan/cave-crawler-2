@@ -29,6 +29,8 @@ var phase := 0
 var last_attack := -1
 var same_attack := 0
 
+var eye_offset : Vector2
+
 #var max_shake_strength := 5.0
 #var current_shake_strength : float
 #var shake_fade := 2.0
@@ -37,6 +39,7 @@ var same_attack := 0
 func _ready():
 	super._ready()
 	reset_position = global_position
+	eye_offset = $Eye.position
 	$Skull.frame = 3
 	$Jaw.frame = 0
 	$Sprite.frame = 0
@@ -48,15 +51,17 @@ func _ready():
 
 func _physics_process(delta):
 	super._physics_process(delta)
+	
 	states.physics_update(delta)
-	face_player()
 	
 	if current_shake_strength > 0:
 		current_shake_strength = lerpf(current_shake_strength, 0, shake_fade * delta)
 		$Jaw.position = get_random_offset()
 		$Skull.position = get_random_offset()
 		$Sprite.position = $Skull.position
-		$Eye.position = get_random_offset()
+		$Eye.position = get_random_offset() + eye_offset
+		
+	face_player()
 	
 	move_and_slide()
 
