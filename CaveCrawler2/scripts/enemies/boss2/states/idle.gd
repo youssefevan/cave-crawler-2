@@ -22,8 +22,9 @@ func physics_update(delta):
 	
 	if end == true:
 		entity.animator.play("Transform")
-		if anim_end == true:
-			return entity.chase
+	
+	if anim_end == true:
+		return entity.chase
 
 func shoot():
 	if entity.can_fire == true:

@@ -30,6 +30,8 @@ func play_sfx(sound: AudioStream, parent := get_tree().current_scene):
 	var can_play = true
 	for i in get_children():
 		if i is AudioStreamPlayer and i.stream == sound:
+			i.stop()
+			i.play()
 			can_play = false
 	if can_play:
 		add_child(stream)
