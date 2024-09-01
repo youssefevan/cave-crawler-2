@@ -47,6 +47,12 @@ func play_music(music: AudioStream, interrupt: bool):
 		music_player.stream = music
 		music_player.play()
 
+func clear_sfx(sfx: AudioStream):
+	for i in get_children():
+		if i.stream == sfx:
+			i.stop()
+			i.call_deferred("queue_free")
+
 func resume_music():
 	music_player.stream = interrupted_music
 	music_player.play(interrupt_position)

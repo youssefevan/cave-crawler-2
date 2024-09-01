@@ -5,6 +5,8 @@ extends Enemy
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
 
+var sfx_shoot = preload("res://audio/sfx/enemy_shoot.ogg")
+
 @export var fire_rate := 0.4
 var can_fire := true
 
@@ -49,6 +51,8 @@ func fire():
 		get_tree().get_root().add_child(b)
 		b.position = muzzle.global_position
 		b.rotation = gun.rotation
+		
+		AudioHandler.play_sfx(sfx_shoot)
 		
 		can_fire = false
 		await get_tree().create_timer(fire_rate).timeout

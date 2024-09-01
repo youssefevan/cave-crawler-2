@@ -2,8 +2,11 @@ extends Enemy
 class_name Boss1
 
 var sfx_phase = preload("res://audio/sfx/boss1_hurt.ogg")
+var sfx_chomp = preload("res://audio/sfx/boss1_chomp.ogg")
 var sfx_slam = preload("res://audio/sfx/slam.ogg")
-var sfx_death_anim = preload("res://audio/sfx/boss_death.ogg") 
+var sfx_hover = preload("res://audio/sfx/boss1_hover.ogg")
+var sfx_drop = preload("res://audio/sfx/boss1_drop.ogg")
+var sfx_death_anim = preload("res://audio/sfx/boss_death.ogg")
 
 var speed := 200.0
 var movement_direction : Vector2
@@ -129,3 +132,6 @@ func apply_shake():
 func get_random_offset():
 	var shake = random.randf_range(-current_shake_strength, current_shake_strength)
 	return Vector2(-shake, shake)
+
+func play_sfx_chomp():
+	AudioHandler.play_sfx(sfx_chomp)

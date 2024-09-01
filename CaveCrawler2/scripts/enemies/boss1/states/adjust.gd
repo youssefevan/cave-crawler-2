@@ -6,6 +6,8 @@ func enter():
 	super.enter()
 	entity.velocity.y = 0
 	
+	AudioHandler.play_sfx(entity.sfx_hover)
+	
 	end = false
 	await get_tree().create_timer(3).timeout
 	end = true
@@ -19,3 +21,7 @@ func physics_update(delta):
 	
 	if end:
 		return entity.slam
+
+func exit():
+	super.exit()
+	#AudioHandler.clear_sfx(entity.sfx_hover)

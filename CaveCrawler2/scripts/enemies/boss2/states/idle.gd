@@ -33,6 +33,9 @@ func shoot():
 		get_tree().get_root().add_child(b)
 		b.global_position = entity.muzzle.global_position
 		b.rotation = entity.muzzle.rotation
+		
+		AudioHandler.play_sfx(entity.sfx_shoot)
+		
 		await get_tree().create_timer(entity.fire_rate).timeout
 		entity.can_fire = true
 

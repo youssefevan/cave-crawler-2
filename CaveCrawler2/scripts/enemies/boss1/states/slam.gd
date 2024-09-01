@@ -10,6 +10,8 @@ func enter():
 	super.enter()
 	frame = 0
 	entity.velocity.x = 0
+	
+	AudioHandler.play_sfx(entity.sfx_drop)
 
 func physics_update(delta):
 	frame += 1
