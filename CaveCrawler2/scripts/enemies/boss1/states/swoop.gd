@@ -6,6 +6,8 @@ var move_dir : float
 func enter():
 	super.enter()
 	
+	AudioHandler.play_sfx(entity.sfx_swoop)
+	
 	frame = 0
 	entity.velocity.y = 0
 	

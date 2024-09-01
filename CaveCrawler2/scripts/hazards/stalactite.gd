@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var sfx_anticipate = preload("res://audio/sfx/stalactite_anticipate.ogg")
+var sfx_fall = preload("res://audio/sfx/stalactite_fall.ogg")
 var sfx_death = preload("res://audio/sfx/enemy_death.ogg")
 var particles_death = preload("res://scenes/particles/enemy_death.tscn")
 
@@ -10,6 +12,7 @@ var level_editor_offset := Vector2(4, 0)
 var on_screen := false
 
 var frame = 0
+var frame2 = 0
 
 var player
 var gravity = 500.0
@@ -38,11 +41,16 @@ func _physics_process(delta):
 	if frame == 1:
 		telegraph()
 	
+	if frame2 == 1:
+		AudioHandler.play_sfx(sfx_fall)
+	
 	if abs(player.global_position.x - global_position.x) < 96:
 		frame += 1
 	
 	if abs(player.global_position.x - global_position.x) < 40:
 		fall = true
+		frame2 += 1
+		
 	
 	move_and_slide()
 
@@ -70,6 +78,7 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 	on_screen = false
 
 func telegraph():
+	AudioHandler.play_sfx(sfx_anticipate)
 	var p = particles.instantiate()
 	get_parent().add_child(p)
 	p.global_position = global_position
