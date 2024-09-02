@@ -1,6 +1,7 @@
 extends Control
 
 @onready var focus_button = $Buttons/Next
+@onready var focus_button_custom = $Buttons/Edit
 
 func _ready() -> void:
 	if Global.custom_level == false:
@@ -9,6 +10,7 @@ func _ready() -> void:
 	else:
 		$Buttons/Edit.visible = true
 		$Buttons/Next.visible = false
+		focus_button = focus_button_custom
 	visible = false
 
 func _on_options_pressed():

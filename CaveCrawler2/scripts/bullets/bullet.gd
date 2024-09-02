@@ -16,11 +16,14 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
 		
-		if cell_data.get_custom_data("does_damage") == true:
-			pass
-		elif cell_data.get_custom_data("health") != 0:
-			damage_tile(body, cell_data, cell_pos)
-			explode()
+		if cell_data:
+			if cell_data.get_custom_data("does_damage") == true:
+				pass
+			elif cell_data.get_custom_data("health") != 0:
+				damage_tile(body, cell_data, cell_pos)
+				explode()
+			else:
+				explode()
 		else:
 			explode()
 

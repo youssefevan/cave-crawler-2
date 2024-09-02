@@ -33,10 +33,12 @@ func _input(event):
 
 func _process(delta):
 	if !window.has_focus() and !paused:
-		pause()
+		if get_parent().get_parent().level_end == false and get_parent().get_parent().health > 0:
+			pause()
 	
-	if window.position != previous_window_position:
-		pause()
+	if window.position != previous_window_position and !paused:
+		if get_parent().get_parent().level_end == false and get_parent().get_parent().health > 0:
+			pause()
 	
 	previous_window_position = window.position
 

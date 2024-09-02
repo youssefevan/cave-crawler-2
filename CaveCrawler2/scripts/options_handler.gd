@@ -86,6 +86,8 @@ func set_cursor(setting : bool):
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
+	print(cursor_visible)
+	
 	save_options()
 
 func set_particles(setting : bool):

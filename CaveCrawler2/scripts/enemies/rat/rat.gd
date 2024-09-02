@@ -14,6 +14,8 @@ class_name Rat
 
 @onready var jump_dust = preload("res://scenes/particles/jump.tscn")
 
+var sfx_jump = preload("res://audio/sfx/rat_jump.ogg")
+
 # Variables
 var jump_velocity_x := 100.0
 var jump_velocity_y := 200.0

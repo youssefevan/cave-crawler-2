@@ -18,6 +18,22 @@ grow_vertical = 2
 theme = ExtResource("1_d0ld2")
 script = ExtResource("2_0p0fq")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 23.0
+offset_right = 148.0
+offset_bottom = 63.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 67.0
+offset_right = 161.0
+offset_bottom = 121.0
+color = Color(0, 0, 0, 1)
+
 [node name="BG1" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(128, 72)

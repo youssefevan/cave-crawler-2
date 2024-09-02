@@ -6,6 +6,8 @@ func enter():
 	entity.hitbox_collider.disabled = false
 	entity.hurtbox_collider.disabled = false
 	
+	AudioHandler.play_sfx(entity.sfx_jump)
+	
 	spawn_particles()
 
 func physics_update(delta):

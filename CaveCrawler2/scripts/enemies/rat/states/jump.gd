@@ -7,6 +7,8 @@ func enter():
 	entity.velocity.y = -entity.jump_velocity_y
 	
 	
+	AudioHandler.play_sfx(entity.sfx_jump)
+	
 	if OptionsHandler.particles_enabled == true:
 		var j = entity.jump_dust.instantiate()
 		entity.add_child(j)

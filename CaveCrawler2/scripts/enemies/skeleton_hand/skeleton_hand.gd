@@ -14,6 +14,9 @@ class_name SkeletonHand
 @onready var particles_jump = preload("res://scenes/particles/skelton_hand_jump.tscn")
 @onready var particles_telegraph = preload("res://scenes/particles/skelton_hand.tscn")
 
+var sfx_telegraph = preload("res://audio/sfx/stalactite_anticipate.ogg")
+var sfx_jump = preload("res://audio/sfx/stalactite_fall.ogg")
+
 var grab := false
 var jump_velocity := 180.0
 
@@ -52,3 +55,4 @@ func telegraph():
 	var p = particles_telegraph.instantiate()
 	get_parent().add_child(p)
 	p.global_position = global_position
+	AudioHandler.play_sfx(sfx_telegraph)

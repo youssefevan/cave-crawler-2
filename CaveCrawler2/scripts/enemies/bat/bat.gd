@@ -10,6 +10,8 @@ var movement_direction : Vector2
 @onready var hang = $StateManager/Hang
 @onready var fly = $StateManager/Fly
 
+var sfx_chirp = preload("res://audio/sfx/bat.ogg")
+
 func _ready():
 	super._ready()
 	states.init(self)
