@@ -207,27 +207,29 @@ func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shap
 	if body is TileMap:
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
-			
-		if cell_data.get_custom_data("killzone") == true:
-			health = 0
-			die()
-			
-		elif cell_data.get_custom_data("does_damage") == true:
-			get_hurt()
 		
-		# Use array to keep track of whether or not player is in contact
-		# with an anti-gravity tile.
-		elif cell_data.get_custom_data("no_gravity") == true:
-			gravity_tiles.append(cell_pos)
+		if cell_data:
+			if cell_data.get_custom_data("killzone") == true:
+				health = 0
+				die()
+				
+			elif cell_data.get_custom_data("does_damage") == true:
+				get_hurt()
+			
+			# Use array to keep track of whether or not player is in contact
+			# with an anti-gravity tile.
+			elif cell_data.get_custom_data("no_gravity") == true:
+				gravity_tiles.append(cell_pos)
 
 func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	if body is TileMap:
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
 		
-		# When the player exits an anti-grav tile, remove it from the array
-		if cell_data.get_custom_data("no_gravity") == true:
-			gravity_tiles.pop_front()
+		if cell_data:
+			# When the player exits an anti-grav tile, remove it from the array
+			if cell_data.get_custom_data("no_gravity") == true:
+				gravity_tiles.pop_front()
 
 func get_hurt() -> void:
 	if can_get_hurt == true:

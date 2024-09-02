@@ -102,19 +102,21 @@ func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shap
 	if body is TileMap:
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
-			
-		if cell_data.get_custom_data("killzone") == true:
-			current_health = 0
-			call_deferred("die")
-		elif cell_data.get_custom_data("does_damage") == true:
-			get_hurt(0.1)
-		elif cell_data.get_custom_data("no_gravity") == true:
-			gravity_tiles.append(cell_pos)
+		
+		if cell_data:
+			if cell_data.get_custom_data("killzone") == true:
+				current_health = 0
+				call_deferred("die")
+			elif cell_data.get_custom_data("does_damage") == true:
+				get_hurt(0.1)
+			elif cell_data.get_custom_data("no_gravity") == true:
+				gravity_tiles.append(cell_pos)
 
 func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	if body is TileMap:
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
-			
-		if cell_data.get_custom_data("no_gravity") == true:
-			gravity_tiles.pop_front()
+		
+		if cell_data:
+			if cell_data.get_custom_data("no_gravity") == true:
+				gravity_tiles.pop_front()

@@ -7,10 +7,14 @@ func enter():
 	super.enter()
 	#entity.animator.play("Chase")
 	
+	AudioHandler.play_sfx(entity.sfx_chase)
+	
 	end = false
 	anim_end = false
 	await get_tree().create_timer(4).timeout
 	end = true
+	await get_tree().create_timer(.4).timeout
+	AudioHandler.play_sfx(entity.sfx_transform)
 
 func physics_update(delta):
 	super.physics_update(delta)

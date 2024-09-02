@@ -2,11 +2,11 @@ extends Enemy
 class_name Boss1
 
 var sfx_phase = preload("res://audio/sfx/boss1_hurt.ogg")
-var sfx_chomp = preload("res://audio/sfx/boss1_chomp.ogg")
+var sfx_chomp = preload("res://audio/sfx/boss1/boss1_chomp.ogg")
 var sfx_slam = preload("res://audio/sfx/slam.ogg")
-var sfx_hover = preload("res://audio/sfx/boss1_hover.ogg")
-var sfx_drop = preload("res://audio/sfx/boss1_drop.ogg")
-var sfx_swoop = preload("res://audio/sfx/boss1_swoop.ogg")
+var sfx_hover = preload("res://audio/sfx/boss1/boss1_hover.ogg")
+var sfx_drop = preload("res://audio/sfx/boss1/boss1_drop.ogg")
+var sfx_swoop = preload("res://audio/sfx/boss1/boss1_swoop.ogg")
 var sfx_death_anim = preload("res://audio/sfx/boss_death.ogg")
 
 var speed := 200.0

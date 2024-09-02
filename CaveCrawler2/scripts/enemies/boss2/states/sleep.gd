@@ -12,3 +12,4 @@ func physics_update(delta):
 func exit():
 	entity.vines()
 	entity.player.apply_camera_shake()
+	AudioHandler.play_sfx(entity.sfx_phase)

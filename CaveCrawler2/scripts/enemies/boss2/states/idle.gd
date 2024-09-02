@@ -11,6 +11,7 @@ func enter():
 	anim_end = false
 	end = false
 	await get_tree().create_timer(3).timeout
+	AudioHandler.play_sfx(entity.sfx_transform)
 	end = true
 
 func physics_update(delta):
