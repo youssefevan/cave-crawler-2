@@ -23,6 +23,8 @@ var sfx_shoot = preload("res://audio/sfx/enemy_shoot.ogg")
 var sfx_chase = preload("res://audio/sfx/boss2/boss2_chase.ogg")
 var sfx_transform = preload("res://audio/sfx/boss2/boss2_transform.ogg")
 
+var music_theme = preload("res://audio/music/world1_boss.ogg")
+
 var fire_rate := 0.4
 var can_fire := false
 
