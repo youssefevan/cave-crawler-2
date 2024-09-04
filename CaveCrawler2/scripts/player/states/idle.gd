@@ -32,5 +32,3 @@ func physics_update(delta):
 func exit():
 	super.exit()
 	enter_jump = false
-
-
