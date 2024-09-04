@@ -8,8 +8,13 @@ class_name BossDoor
 
 @onready var open_position = $OpenPosition.position
 
+@export var boss_music : AudioStream
+
+var frame = 0
 
 func _ready():
+	AudioHandler.resume_music(true)
+	
 	if open == true:
 		$Sprite.position = open_position
 	else:
@@ -20,7 +25,11 @@ func _ready():
 
 func _physics_process(delta):
 	if boss == null:
+		frame += 1
 		locked = false
+		
+		if frame == 1:
+			AudioHandler.resume_music(true)
 	
 	if open:
 		$Wall/Collider.disabled = true
@@ -38,6 +47,8 @@ func _on_body_entered(body):
 			open = false
 			locked = true
 			animate(Vector2.ZERO)
+			if boss_music:
+				AudioHandler.play_music(boss_music, false, true)
 		else:
 			open = true
 			animate(open_position)

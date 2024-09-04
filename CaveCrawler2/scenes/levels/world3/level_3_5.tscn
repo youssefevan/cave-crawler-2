@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://0ylgloko7p7v"]
+[gd_scene load_steps=29 format=3 uid="uid://0ylgloko7p7v"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_87bmc"]
 [ext_resource type="Texture2D" uid="uid://dar57tpu003nr" path="res://sprites/backgrounds/bg4.png" id="2_kylo1"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dcvtfkkcuh0mh" path="res://scenes/boss_door.tscn" id="16_44dvu"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="17_iaq1j"]
 [ext_resource type="PackedScene" uid="uid://bckw6h4d2naaj" path="res://scenes/gui/menus/menu_level_select.tscn" id="18_1efn4"]
+[ext_resource type="AudioStream" uid="uid://bq6iuo7ua202o" path="res://audio/music/world3_boss.ogg" id="28_11l8e"]
 
 [node name="Level3-5" type="Node2D"]
 
@@ -287,6 +288,7 @@ position = Vector2(2312, 808)
 boss = NodePath("../Boss3")
 open = true
 locked = false
+boss_music = ExtResource("28_11l8e")
 
 [node name="BossDoor2" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("16_44dvu")]
 position = Vector2(2808, 808)

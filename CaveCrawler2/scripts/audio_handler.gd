@@ -8,6 +8,9 @@ var current_streams = []
 var interrupted_music
 var interrupt_position
 
+var level_music
+var level_music_position
+
 @onready var music_player = $MusicPlayer
 
 func _ready():
@@ -37,12 +40,16 @@ func play_sfx(sound: AudioStream, parent := get_tree().current_scene):
 		add_child(stream)
 		stream.play()
 
-func play_music(music: AudioStream, interrupt: bool):
+func play_music(music: AudioStream, interrupt: bool, boss: bool):
 	if music_player.stream != music:
 		
 		if interrupt == true:
 			interrupted_music = music_player.stream
 			interrupt_position = music_player.get_playback_position()
+		
+		if boss == true:
+			level_music = music_player.stream
+			level_music_position = music_player.get_playback_position()
 		
 		music_player.stream = music
 		music_player.play()
@@ -53,9 +60,15 @@ func clear_sfx(sfx: AudioStream):
 			i.stop()
 			i.call_deferred("queue_free")
 
-func resume_music():
-	music_player.stream = interrupted_music
-	music_player.play(interrupt_position)
+func resume_music(boss: bool):
+	if boss == true:
+		if level_music and level_music_position:
+			music_player.stream = level_music
+			music_player.play(level_music_position)
+	else:
+		if interrupted_music and interrupt_position:
+			music_player.stream = interrupted_music
+			music_player.play(interrupt_position)
 
 func volume_music_changed():
 	var vol = (OptionsHandler.volume_music/10) * 2

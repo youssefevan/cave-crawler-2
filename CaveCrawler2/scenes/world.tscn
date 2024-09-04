@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cmcygxcgpgtdt"]
+[gd_scene load_steps=20 format=3 uid="uid://cmcygxcgpgtdt"]
 
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="1_1tsot"]
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_tbda8"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="14_8fabe"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="15_wjdkq"]
 [ext_resource type="PackedScene" uid="uid://cvbqessjl8i47" path="res://scenes/enemies/bosses/boss_2.tscn" id="17_vprav"]
+[ext_resource type="PackedScene" uid="uid://dcvtfkkcuh0mh" path="res://scenes/boss_door.tscn" id="18_meotr"]
+[ext_resource type="AudioStream" uid="uid://d38tnaqvo7rnn" path="res://audio/music/world2_boss.ogg" id="19_ankoa"]
 
 [node name="World" type="Node2D"]
 
@@ -116,4 +118,11 @@ position = Vector2(1040, 88)
 position = Vector2(34, 103)
 
 [node name="Boss2" parent="." instance=ExtResource("17_vprav")]
-position = Vector2(191, 87)
+position = Vector2(292, 110)
+
+[node name="BossDoor" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("18_meotr")]
+position = Vector2(72, 104)
+boss = NodePath("../Boss2")
+open = true
+locked = false
+boss_music = ExtResource("19_ankoa")
