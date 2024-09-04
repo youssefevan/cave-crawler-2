@@ -27,6 +27,5 @@ func cache_materials():
 		var particles_instance = GPUParticles2D.new()
 		particles_instance.process_material = material
 		particles_instance.one_shot = true
-		particles_instance.modulate = Color(1, 1, 1, 0)
 		particles_instance.emitting = true
-		add_child(particles_instance)
+		self.add_child(particles_instance)
