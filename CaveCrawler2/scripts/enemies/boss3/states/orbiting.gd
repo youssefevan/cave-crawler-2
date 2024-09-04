@@ -7,9 +7,11 @@ var delay := 0.5
 func enter():
 	super.enter()
 	done = false
-	#await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1).timeout
+	entity.animator.play("Spawn")
+	await get_tree().create_timer(2).timeout
 	entity.spawn_knives()
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(2).timeout
 	done = true
 
 func physics_update(delta):
