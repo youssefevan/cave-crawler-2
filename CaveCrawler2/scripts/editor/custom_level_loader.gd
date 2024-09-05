@@ -21,6 +21,7 @@ var turret := Vector2(5, 1)
 var roly_poly := Vector2(6, 1)
 var slug_cluster := Vector2(7, 1)
 var flippy := Vector2(8, 1)
+var fly := Vector2(9, 1)
 
 # Hazard Coordinates
 var spike := Vector2(0, 2)
@@ -34,7 +35,7 @@ var checkpoint := Vector2(2, 4)
 var flagpole := Vector2(3, 4)
 
 # Pickup Coordinates
-var health := Vector2(0, 3)
+var health := Vector2(4, 4)
 
 # Utility scenes
 var player_scene = Global.player_scene
@@ -52,6 +53,7 @@ var player_scene = Global.player_scene
 @export var roly_poly_scene : PackedScene
 @export var slug_cluster_scene : PackedScene
 @export var flippy_scene : PackedScene
+@export var fly_scene : PackedScene
 
 # Hazard scenes
 @export var stalactite_scene : PackedScene
@@ -167,6 +169,8 @@ func build_level():
 				spawn_entity(slug_cluster_scene, cell_position)
 			flippy:
 				spawn_entity(flippy_scene, cell_position)
+			fly:
+				spawn_entity(fly_scene, cell_position)
 			stalactite:
 				spawn_entity(stalactite_scene, cell_position)
 			health:

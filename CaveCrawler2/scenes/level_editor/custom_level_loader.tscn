@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bdwtpmwatgytk"]
+[gd_scene load_steps=22 format=3 uid="uid://bdwtpmwatgytk"]
 
 [ext_resource type="Script" path="res://scripts/editor/custom_level_loader.gd" id="1_m6kmy"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tilemaps/tile_map.tscn" id="1_o6b1y"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dpmspylnysx1w" path="res://scenes/enemies/slug_cluster.tscn" id="12_5k13r"]
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="12_nk4f0"]
 [ext_resource type="PackedScene" uid="uid://e1avqsod0abs" path="res://scenes/enemies/flippy.tscn" id="13_hnpkc"]
+[ext_resource type="PackedScene" uid="uid://331t2qn34l8g" path="res://scenes/enemies/fly.tscn" id="14_pjthn"]
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="14_x870c"]
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="18_45rhx"]
 [ext_resource type="Script" path="res://scripts/gui/interactable_gui.gd" id="19_ysq71"]
@@ -35,24 +36,19 @@ turret_scene = ExtResource("9_eyrh3")
 roly_poly_scene = ExtResource("10_rnwff")
 slug_cluster_scene = ExtResource("12_5k13r")
 flippy_scene = ExtResource("13_hnpkc")
+fly_scene = ExtResource("14_pjthn")
 stalactite_scene = ExtResource("10_8m8eu")
 health_scene = ExtResource("12_nk4f0")
 
 [node name="WorldEnv" parent="." instance=ExtResource("14_x870c")]
 
-[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -5
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(256, 144)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
-motion_scale = Vector2(0.07, 0.07)
-motion_mirroring = Vector2(256, 144)
-
-[node name="Bg" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+[node name="Bg" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(128, 72)
-texture = ExtResource("8_hnsdk")
-
-[node name="Bg2" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2(128, 72)
-scale = Vector2(-1, -1)
 texture = ExtResource("8_hnsdk")
 
 [node name="TileMap" parent="." instance=ExtResource("1_o6b1y")]
