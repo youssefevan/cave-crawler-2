@@ -8,6 +8,8 @@ var movement_direction : Vector2
 
 @export var slug_scene : PackedScene
 
+var sfx_bounce = preload("res://audio/sfx/bounce.ogg")
+
 var move_dir := 0
 
 func _ready():
@@ -42,6 +44,7 @@ func _physics_process(delta):
 
 func jump():
 	velocity.y -= 140.0
+	AudioHandler.play_sfx(sfx_bounce)
 
 func die():
 	var s2 = slug_scene.instantiate()

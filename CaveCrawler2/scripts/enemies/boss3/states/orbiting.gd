@@ -22,3 +22,7 @@ func physics_update(delta):
 	
 	if done == true:
 		return entity.idle
+
+func exit():
+	super.exit()
+	entity.animator.play("Idle")

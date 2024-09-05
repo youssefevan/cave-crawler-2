@@ -3,10 +3,13 @@ class_name Flea
 
 var speed := 30.0
 var acceleration := 5.0
-
 var move_direction := -1
 
 var waiting := true
+
+var sfx_drop = preload("res://audio/sfx/bat.ogg")
+
+var frame := 0
 
 func _ready():
 	super._ready()
@@ -16,6 +19,11 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	
 	if waiting == false:
+		frame += 1
+		
+		if frame == 1:
+			AudioHandler.play_sfx(sfx_drop)
+		
 		velocity.y += gravity * gravity_multiplier * delta
 		
 		#if is_on_floor():

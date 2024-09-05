@@ -10,6 +10,8 @@ class_name BossDoor
 
 @export var boss_music : AudioStream
 
+var sfx_open = preload("res://audio/sfx/stalactite_fall.ogg")
+
 var frame = 0
 
 func _ready():
@@ -55,5 +57,6 @@ func _on_body_entered(body):
 
 func animate(pos):
 	var sprite = $Sprite
+	AudioHandler.play_sfx(sfx_open)
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "position", pos, .25).set_trans(Tween.TRANS_LINEAR)

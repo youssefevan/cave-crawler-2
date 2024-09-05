@@ -1,6 +1,6 @@
 extends Node
 
-var app_id = "480"
+var app_id = "3000490"
 
 func _init():
 	OS.set_environment("SteamAppID", app_id)

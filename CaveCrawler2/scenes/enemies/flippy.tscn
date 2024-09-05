@@ -107,7 +107,6 @@ material = SubResource("ShaderMaterial_6atbn")
 position = Vector2(0, -5)
 texture = ExtResource("3_ktd2d")
 hframes = 3
-frame = 2
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -5)

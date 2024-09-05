@@ -5,6 +5,8 @@ var end := false
 func enter():
 	super.enter()
 	
+	AudioHandler.play_sfx(entity.sfx_bounce)
+	
 	end = false
 	entity.shield_timer.start()
 	await entity.shield_timer.timeout

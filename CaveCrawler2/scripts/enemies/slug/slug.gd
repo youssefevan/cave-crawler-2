@@ -14,6 +14,8 @@ class_name Slug
 
 @onready var hurtbox_collider = $Hurtbox/Collider
 
+var sfx_bounce = preload("res://audio/sfx/bounce.ogg")
+
 var speed := 80.0
 var move_direction := -1
 var inch_time := 0.4 # in seconds

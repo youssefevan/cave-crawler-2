@@ -7,6 +7,7 @@ var acceleration := 3.0
 
 var flea = preload("res://scenes/enemies/flea.tscn")
 
+
 var frame := 0
 
 func _ready():
@@ -44,5 +45,4 @@ func drop():
 	f2.velocity.x = velocity.x
 	f2.waiting = false
 	$FleaCarrier.remove_child(f)
-	
 	drop()

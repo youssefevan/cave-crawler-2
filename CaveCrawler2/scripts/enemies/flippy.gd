@@ -2,6 +2,8 @@ extends Enemy
 
 var can_flip := true
 
+var sfx_land = preload("res://audio/sfx/flippy_land.ogg")
+
 func _ready():
 	super._ready()
 	#$Animator.play("Idle")
@@ -19,6 +21,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func flip():
+	AudioHandler.play_sfx(sfx_land)
+	
 	$Animator.play("Land")
 	can_flip = false
 	
