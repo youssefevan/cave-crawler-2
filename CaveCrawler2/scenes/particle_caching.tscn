@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://fp6kpnx58e5q"]
+[gd_scene load_steps=23 format=3 uid="uid://fp6kpnx58e5q"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_4l43c"]
 [ext_resource type="PackedScene" uid="uid://cv1pyyejhp4ov" path="res://scenes/particles/blood_1.tscn" id="2_01oah"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://cegndx8bcqxni" path="res://scenes/particles/smoke2.tscn" id="16_vqlyx"]
 [ext_resource type="PackedScene" uid="uid://cts0cbd5h5ejt" path="res://scenes/particles/smoke.tscn" id="17_py88l"]
 [ext_resource type="PackedScene" uid="uid://bb8nqnpoddwv0" path="res://scenes/particles/stalactite.tscn" id="18_qfk50"]
+[ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="21_hmcgg"]
+[ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tilemaps/tile_map.tscn" id="22_skt3j"]
 
 [node name="ParticlesCaching" type="Control"]
 layout_mode = 3
@@ -92,19 +94,27 @@ one_shot = true
 [node name="Stalactite" parent="." instance=ExtResource("18_qfk50")]
 position = Vector2(128, 72)
 
+[node name="Crab" parent="." instance=ExtResource("21_hmcgg")]
+position = Vector2(128, 72)
+
+[node name="TileMap" parent="." instance=ExtResource("22_skt3j")]
+layer_0/tile_data = PackedInt32Array(589838, 196610, 4, 589839, 196610, 4, 589840, 196610, 4, 589841, 196610, 4, 524305, 196610, 4, 458769, 196610, 4, 458768, 196610, 4, 458767, 196610, 4, 458766, 196610, 4, 524302, 196610, 4)
+
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = 10
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 144.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
+z_index = 10
 layout_mode = 1
 offset_left = 1.0
 offset_top = 136.0
 offset_right = 256.0
 offset_bottom = 144.0
-text = "caching particles..."
+text = "caching shaders and particles..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
