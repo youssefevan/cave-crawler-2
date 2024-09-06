@@ -63,9 +63,12 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.05),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.05),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"play_spawn_sfx"
+}, {
 "args": [],
 "method": &"camera_shake"
 }]

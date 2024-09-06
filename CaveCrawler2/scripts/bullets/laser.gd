@@ -2,6 +2,9 @@ extends Area2D
 
 var player
 
+var sfx_spawn = preload("res://audio/sfx/boss3/boss3_laser_spawn.ogg")
+var sfx_shoot = preload("res://audio/sfx/boss3/boss3_laser_shoot.ogg")
+
 func _ready():
 	$Animator.play("Laser")
 	
@@ -24,3 +27,10 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 
 func camera_shake():
 	player.apply_camera_shake()
+	play_shoot_sfx()
+
+func play_spawn_sfx():
+	AudioHandler.play_sfx(sfx_spawn)
+
+func play_shoot_sfx():
+	AudioHandler.play_sfx(sfx_shoot)

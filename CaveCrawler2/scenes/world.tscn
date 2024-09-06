@@ -90,7 +90,7 @@ position = Vector2(507, 51)
 position = Vector2(512, 112)
 
 [node name="SlugCluster" parent="Enemies" instance=ExtResource("12_h8wl1")]
-position = Vector2(308, 93)
+position = Vector2(556, 47)
 
 [node name="Hazards" type="Node" parent="."]
 
@@ -115,4 +115,4 @@ locked = false
 boss_music = ExtResource("19_ankoa")
 
 [node name="Boss3" parent="." instance=ExtResource("19_q50fo")]
-position = Vector2(749, -78)
+position = Vector2(307, 49)

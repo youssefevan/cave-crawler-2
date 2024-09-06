@@ -24,6 +24,7 @@ var start_height
 
 var sfx_phase = preload("res://audio/sfx/boss1_hurt.ogg")
 var sfx_death_anim = preload("res://audio/sfx/boss_death.ogg")
+var sfx_spawn_head = preload("res://audio/sfx/stalactite_fall.ogg")
 
 #var max_shake_strength := 5.0
 #var current_shake_strength : float
@@ -85,6 +86,7 @@ func spawn_head():
 		var h = head_scene.instantiate()
 		get_parent().add_child.call_deferred(h)
 		h.global_position = $HeadSpawn.global_position
+		AudioHandler.play_sfx(sfx_spawn_head)
 
 func spawn_knives():
 	if current_health > 0:
