@@ -1,0 +1,111 @@
+[gd_scene load_steps=21 format=3 uid="uid://fp6kpnx58e5q"]
+
+[ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_4l43c"]
+[ext_resource type="PackedScene" uid="uid://cv1pyyejhp4ov" path="res://scenes/particles/blood_1.tscn" id="2_01oah"]
+[ext_resource type="Script" path="res://scripts/particle_caching.gd" id="2_uig6l"]
+[ext_resource type="PackedScene" uid="uid://c272xrhclf508" path="res://scenes/particles/blood_2.tscn" id="3_6y6xl"]
+[ext_resource type="PackedScene" uid="uid://cbmshjd0qtl3x" path="res://scenes/particles/boss_death.tscn" id="4_7gb3a"]
+[ext_resource type="PackedScene" uid="uid://dvbkk8t76ua8r" path="res://scenes/particles/boss_vines.tscn" id="5_6icvn"]
+[ext_resource type="Script" path="res://scripts/particles.gd" id="5_yvxff"]
+[ext_resource type="PackedScene" uid="uid://ddpop8oacrba6" path="res://scenes/particles/bounce.tscn" id="6_hgwbr"]
+[ext_resource type="PackedScene" uid="uid://cfx3i0o8fdykm" path="res://scenes/particles/bullet_trail.tscn" id="7_e66dx"]
+[ext_resource type="PackedScene" uid="uid://0vgix384ec6i" path="res://scenes/particles/enemy_death.tscn" id="8_cyx5g"]
+[ext_resource type="PackedScene" uid="uid://urefukvjmxqo" path="res://scenes/particles/health_picked.tscn" id="9_wc0a7"]
+[ext_resource type="PackedScene" uid="uid://dpc8jd3jq24u7" path="res://scenes/particles/jump.tscn" id="10_2tf6r"]
+[ext_resource type="PackedScene" uid="uid://dovcr8w3gsm5w" path="res://scenes/particles/muzzle_flash.tscn" id="11_fbjst"]
+[ext_resource type="PackedScene" uid="uid://b3egaqkkp50mv" path="res://scenes/particles/player_death.tscn" id="12_yxy54"]
+[ext_resource type="PackedScene" uid="uid://b10xvl5np5lgw" path="res://scenes/particles/roll_dust.tscn" id="13_ndmie"]
+[ext_resource type="PackedScene" uid="uid://jvgai8n0qun0" path="res://scenes/particles/skelton_hand.tscn" id="14_h0yvi"]
+[ext_resource type="PackedScene" uid="uid://c42orw218fy1q" path="res://scenes/particles/skelton_hand_jump.tscn" id="15_kqbhg"]
+[ext_resource type="PackedScene" uid="uid://cegndx8bcqxni" path="res://scenes/particles/smoke2.tscn" id="16_vqlyx"]
+[ext_resource type="PackedScene" uid="uid://cts0cbd5h5ejt" path="res://scenes/particles/smoke.tscn" id="17_py88l"]
+[ext_resource type="PackedScene" uid="uid://bb8nqnpoddwv0" path="res://scenes/particles/stalactite.tscn" id="18_qfk50"]
+
+[node name="ParticlesCaching" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_4l43c")
+script = ExtResource("2_uig6l")
+
+[node name="Blood1" parent="." instance=ExtResource("2_01oah")]
+position = Vector2(128, 72)
+emitting = false
+one_shot = true
+
+[node name="Blood2" parent="." instance=ExtResource("3_6y6xl")]
+position = Vector2(128, 72)
+emitting = false
+one_shot = true
+script = ExtResource("5_yvxff")
+
+[node name="BossDeath" parent="." instance=ExtResource("4_7gb3a")]
+position = Vector2(128, 72)
+
+[node name="BossVines" parent="." instance=ExtResource("5_6icvn")]
+position = Vector2(128, 72)
+
+[node name="Bounce" parent="." instance=ExtResource("6_hgwbr")]
+position = Vector2(128, 72)
+
+[node name="BulletTrail" parent="." instance=ExtResource("7_e66dx")]
+position = Vector2(128, 72)
+emitting = false
+one_shot = true
+script = ExtResource("5_yvxff")
+
+[node name="EnemyDeath" parent="." instance=ExtResource("8_cyx5g")]
+position = Vector2(128, 72)
+
+[node name="HealthPicked" parent="." instance=ExtResource("9_wc0a7")]
+position = Vector2(128, 72)
+
+[node name="Jump" parent="." instance=ExtResource("10_2tf6r")]
+position = Vector2(128, 72)
+
+[node name="MuzzleFlash" parent="." instance=ExtResource("11_fbjst")]
+position = Vector2(128, 72)
+
+[node name="PlayerDeath" parent="." instance=ExtResource("12_yxy54")]
+position = Vector2(128, 72)
+
+[node name="Dust" parent="." instance=ExtResource("13_ndmie")]
+position = Vector2(128, 72)
+emitting = false
+one_shot = true
+
+[node name="SkeltonHand" parent="." instance=ExtResource("14_h0yvi")]
+position = Vector2(128, 72)
+
+[node name="SkeltonHandJump" parent="." instance=ExtResource("15_kqbhg")]
+position = Vector2(128, 72)
+
+[node name="Smoke2" parent="." instance=ExtResource("16_vqlyx")]
+position = Vector2(128, 72)
+emitting = false
+one_shot = true
+
+[node name="Smoke" parent="." instance=ExtResource("17_py88l")]
+position = Vector2(128, 72)
+emitting = false
+one_shot = true
+
+[node name="Stalactite" parent="." instance=ExtResource("18_qfk50")]
+position = Vector2(128, 72)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 144.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 136.0
+offset_right = 256.0
+offset_bottom = 144.0
+text = "caching particles..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="BossDeath"]

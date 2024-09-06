@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CaveCrawler2"
-run/main_scene="res://scenes/gui/menus/menu_main.tscn"
+run/main_scene="res://scenes/particle_caching.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://sprites/menus/splash.png"
@@ -23,7 +23,7 @@ config/icon="res://icon.svg"
 Global="*res://scripts/global.gd"
 AudioHandler="*res://scenes/engine/audio_handler.tscn"
 OptionsHandler="*res://scenes/engine/options_handler.tscn"
-ParticlesCache="*res://scripts/particles_cache.gd"
+ParticlesCache="res://scripts/particles_cache.gd"
 SteamHandler="*res://scripts/steam_handler.gd"
 
 [display]

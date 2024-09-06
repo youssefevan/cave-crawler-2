@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 @export var path = "res://scenes/particles/"
 
@@ -29,3 +29,4 @@ func cache_materials():
 		particles_instance.one_shot = true
 		particles_instance.emitting = true
 		self.add_child(particles_instance)
+		particles_instance.global_position = Vector2(128, 72)
