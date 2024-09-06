@@ -1,10 +1,11 @@
 extends Pickup
 
 var part_number := 0
-
 var speed := 50.0
 
 var sfx_picked = preload("res://audio/sfx/health_pickup.ogg")
+
+@onready var particles_picked = load("res://scenes/particles/health_picked.tscn")
 
 func _ready() -> void:
 	$Sprite.frame = part_number
@@ -17,6 +18,10 @@ func picked(body):
 	AudioHandler.play_sfx(sfx_picked)
 	
 	$Animator.play("picked")
+	
+	var p = particles_picked.instantiate()
+	get_parent().add_child(p)
+	p.global_position = global_position
 
 func _physics_process(delta: float) -> void:
 	global_position.y += speed * delta
