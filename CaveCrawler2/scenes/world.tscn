@@ -117,6 +117,7 @@ boss_music = ExtResource("19_ankoa")
 
 [node name="Boss3" parent="." instance=ExtResource("19_q50fo")]
 position = Vector2(293, 50)
+max_health = 3
 
 [node name="Flippy" parent="." instance=ExtResource("20_kakta")]
 position = Vector2(604, 89)

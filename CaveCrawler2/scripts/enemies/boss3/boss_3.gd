@@ -17,6 +17,8 @@ class_name Boss3
 @onready var smoke2_particles = load("res://scenes/particles/smoke2.tscn")
 @onready var death_particles = load("res://scenes/particles/boss_death.tscn")
 
+@onready var machine_part_scene = load("res://scenes/pickups/machine_part.tscn")
+
 var speed := 50.0
 var rotation_speed := 80.0
 
@@ -156,6 +158,12 @@ func die():
 	var p = death_particles.instantiate()
 	get_parent().add_child(p)
 	p.global_position = global_position
+	
+	var mp = machine_part_scene.instantiate()
+	mp.part_number = 2
+	get_parent().add_child(mp)
+	mp.global_position = global_position
+	
 	super.die()
 
 func apply_shake():
