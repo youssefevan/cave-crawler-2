@@ -4,6 +4,8 @@ var can_flip := true
 
 var sfx_land = preload("res://audio/sfx/flippy_land.ogg")
 
+@onready var particles_flip  = preload("res://scenes/particles/skelton_hand.tscn")
+
 func _ready():
 	super._ready()
 	#$Animator.play("Idle")
@@ -22,6 +24,13 @@ func _physics_process(delta):
 
 func flip():
 	AudioHandler.play_sfx(sfx_land)
+	
+	var p = particles_flip.instantiate()
+	get_parent().add_child(p)
+	if gravity < 0:
+		p.global_position = global_position + Vector2(0, -4)
+	else:
+		p.global_position = global_position + Vector2(0, -8)
 	
 	$Animator.play("Land")
 	can_flip = false
