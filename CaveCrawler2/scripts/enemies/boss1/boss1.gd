@@ -16,6 +16,8 @@ var movement_direction : Vector2
 @export var blood_particles2 : PackedScene
 @export var death_particles : PackedScene
 
+@onready var machine_part = load("res://scenes/pickups/machine_part.tscn")
+
 @onready var animator = $Animator
 @onready var jaw = $Jaw
 
@@ -125,6 +127,12 @@ func die():
 	var p = death_particles.instantiate()
 	get_parent().add_child(p)
 	p.global_position = global_position
+	
+	var mp = machine_part.instantiate()
+	mp.part_number = 0
+	get_parent().add_child(mp)
+	mp.global_position = global_position
+	
 	super.die()
 
 func apply_shake():

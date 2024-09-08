@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cmcygxcgpgtdt"]
+[gd_scene load_steps=23 format=3 uid="uid://cmcygxcgpgtdt"]
 
 [ext_resource type="PackedScene" uid="uid://dsonrkjq8rlpg" path="res://scenes/player.tscn" id="1_1tsot"]
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_tbda8"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://dcvtfkkcuh0mh" path="res://scenes/boss_door.tscn" id="18_meotr"]
 [ext_resource type="PackedScene" uid="uid://dyxqx1wk6buob" path="res://scenes/enemies/bosses/boss_3.tscn" id="19_q50fo"]
 [ext_resource type="PackedScene" uid="uid://e1avqsod0abs" path="res://scenes/enemies/flippy.tscn" id="20_kakta"]
+[ext_resource type="PackedScene" uid="uid://cvbqessjl8i47" path="res://scenes/enemies/bosses/boss_2.tscn" id="21_lud23"]
+[ext_resource type="PackedScene" uid="uid://djmayij4alpbc" path="res://scenes/enemies/bosses/boss_1.tscn" id="22_xy514"]
 
 [node name="World" type="Node2D"]
 
@@ -109,15 +111,30 @@ position = Vector2(1040, 88)
 [node name="Player" parent="." instance=ExtResource("1_1tsot")]
 position = Vector2(34, 103)
 
-[node name="BossDoor" parent="." instance=ExtResource("18_meotr")]
+[node name="BossDoor" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("18_meotr")]
 position = Vector2(68, 104)
+boss = NodePath("../Boss1")
 open = true
 locked = false
 boss_music = ExtResource("18_0gxaw")
 
+[node name="BossDoor2" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("18_meotr")]
+position = Vector2(345, 104)
+scale = Vector2(-1, 1)
+boss = NodePath("../Boss1")
+boss_music = ExtResource("18_0gxaw")
+
 [node name="Boss3" parent="." instance=ExtResource("19_q50fo")]
-position = Vector2(293, 50)
+position = Vector2(333, -46)
 max_health = 3
 
 [node name="Flippy" parent="." instance=ExtResource("20_kakta")]
 position = Vector2(604, 89)
+
+[node name="Boss2" parent="." instance=ExtResource("21_lud23")]
+position = Vector2(266, -31)
+max_health = 1
+
+[node name="Boss1" parent="." instance=ExtResource("22_xy514")]
+position = Vector2(261, 56)
+max_health = 1

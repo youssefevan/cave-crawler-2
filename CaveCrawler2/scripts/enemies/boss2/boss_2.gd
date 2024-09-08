@@ -16,6 +16,7 @@ class_name Boss2
 @onready var death_particles = load("res://scenes/particles/boss_death.tscn")
 
 @onready var bullet = load("res://scenes/bullets/turret_bullet.tscn")
+@onready var machine_part = load("res://scenes/pickups/machine_part.tscn")
 
 var sfx_phase = preload("res://audio/sfx/boss1_hurt.ogg")
 var sfx_death_anim = preload("res://audio/sfx/boss_death.ogg")
@@ -100,6 +101,12 @@ func die():
 	var p = death_particles.instantiate()
 	get_parent().add_child(p)
 	p.global_position = global_position
+	
+	var mp = machine_part.instantiate()
+	mp.part_number = 1
+	get_parent().add_child(mp)
+	mp.global_position = global_position - Vector2(0, 32)
+	
 	super.die()
 
 func apply_shake():
