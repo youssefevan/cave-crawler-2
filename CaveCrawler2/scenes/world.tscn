@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dpmspylnysx1w" path="res://scenes/enemies/slug_cluster.tscn" id="12_h8wl1"]
 [ext_resource type="PackedScene" uid="uid://ds5v1s0jyogv8" path="res://scenes/pickups/health.tscn" id="14_8fabe"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="15_wjdkq"]
+[ext_resource type="AudioStream" uid="uid://bq6iuo7ua202o" path="res://audio/music/world3_boss.ogg" id="18_0gxaw"]
 [ext_resource type="PackedScene" uid="uid://dcvtfkkcuh0mh" path="res://scenes/boss_door.tscn" id="18_meotr"]
-[ext_resource type="AudioStream" uid="uid://d38tnaqvo7rnn" path="res://audio/music/world2_boss.ogg" id="19_ankoa"]
 [ext_resource type="PackedScene" uid="uid://dyxqx1wk6buob" path="res://scenes/enemies/bosses/boss_3.tscn" id="19_q50fo"]
 [ext_resource type="PackedScene" uid="uid://e1avqsod0abs" path="res://scenes/enemies/flippy.tscn" id="20_kakta"]
 
@@ -113,7 +113,7 @@ position = Vector2(34, 103)
 position = Vector2(68, 104)
 open = true
 locked = false
-boss_music = ExtResource("19_ankoa")
+boss_music = ExtResource("18_0gxaw")
 
 [node name="Boss3" parent="." instance=ExtResource("19_q50fo")]
 position = Vector2(293, 50)

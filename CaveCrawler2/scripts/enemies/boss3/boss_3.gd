@@ -27,6 +27,8 @@ var start_height
 var sfx_phase = preload("res://audio/sfx/boss1_hurt.ogg")
 var sfx_death_anim = preload("res://audio/sfx/boss_death.ogg")
 var sfx_spawn_head = preload("res://audio/sfx/stalactite_fall.ogg")
+var sfx_knife_spawn = preload("res://audio/sfx/boss3/boss3_knife_spawn.ogg")
+var sfx_knife_throw = preload("res://audio/sfx/boss3/boss3_knife_throw.ogg")
 
 #var max_shake_strength := 5.0
 #var current_shake_strength : float
@@ -95,6 +97,7 @@ func spawn_knives():
 		for i in $Orbit.get_children():
 			var k = knife_scene.instantiate()
 			i.add_child(k)
+			AudioHandler.play_sfx(sfx_knife_spawn)
 			await get_tree().create_timer(0.3).timeout
 			
 		await get_tree().create_timer(1).timeout
@@ -113,6 +116,7 @@ func spawn_knives():
 			k.player = player
 			k.global_position = i.global_position
 			k.throw = true
+			AudioHandler.play_sfx(sfx_knife_throw)
 			await get_tree().create_timer(0.5).timeout
 
 func _on_hitbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
