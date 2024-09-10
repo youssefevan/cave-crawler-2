@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var particles_stage1 = load("res://scenes/particles/rocket_stage_1.tscn")
+@onready var particles_stage2 = load("res://scenes/particles/rocket_stage_2.tscn")
+
 var done := false
 
 var player
@@ -13,8 +16,6 @@ func _ready():
 
 func add_new_part():
 	$"../BGSprites/Rocket".frame += 1
-	if $"../BGSprites/Rocket".frame == 4:
-		power_up()
 
 func _on_game_end_body_entered(body):
 	if body is Player and !done:
@@ -28,4 +29,15 @@ func move_player():
 	player.movement_input = 1
 
 func power_up():
-	pass
+	var s1_1 = particles_stage1.instantiate()
+	get_parent().add_child(s1_1)
+	s1_1.global_position = $"../BGSprites/Rocket/SmokePos".global_position
+	
+	var s1_2 = particles_stage1.instantiate()
+	get_parent().add_child(s1_2)
+	s1_2.global_position = $"../BGSprites/Rocket/SmokePos".global_position
+	s1_2.scale.x = -1
+
+func take_off():
+	var s2 = particles_stage2.instantiate()
+	$"../BGSprites/Rocket/SmokePos".add_child(s2)

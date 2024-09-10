@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6g280utssmxu"]
+
+[ext_resource type="Texture2D" uid="uid://bboyttwfcuyst" path="res://sprites/particles/rocket_smoke.png" id="1_he1rs"]
+[ext_resource type="Script" path="res://scripts/particles.gd" id="2_wh8o1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_frcsv"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v6xqa"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(24, 8, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 2, 0)
+anim_speed_min = 2.0
+anim_speed_max = 2.0
+
+[node name="RocketStage2" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_frcsv")
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_v6xqa")
+texture = ExtResource("1_he1rs")
+lifetime = 3.0
+script = ExtResource("2_wh8o1")
