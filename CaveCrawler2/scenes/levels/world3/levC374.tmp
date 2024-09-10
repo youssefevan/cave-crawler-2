@@ -46,7 +46,7 @@ tracks/0/path = NodePath("GameEndSequence/MachinePart1:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4, 1.1),
+"times": PackedFloat32Array(0.4, 0.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -58,7 +58,7 @@ tracks/1/path = NodePath("GameEndSequence/MachinePart2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.4, 1.1, 1.8),
+"times": PackedFloat32Array(0.4, 0.7, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -70,7 +70,7 @@ tracks/2/path = NodePath("GameEndSequence/MachinePart3:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.4, 1.8, 2.5),
+"times": PackedFloat32Array(0.4, 1.2, 1.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -82,7 +82,7 @@ tracks/3/path = NodePath("GameEndSequence/MachinePart1:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.4, 1.1),
+"times": PackedFloat32Array(0.4, 0.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(72, 13)]
@@ -94,7 +94,7 @@ tracks/4/path = NodePath("GameEndSequence/MachinePart2:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.1, 1.8),
+"times": PackedFloat32Array(0.9, 1.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(72, -20)]
@@ -106,7 +106,7 @@ tracks/5/path = NodePath("GameEndSequence/MachinePart3:position")
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(1.8, 2.5),
+"times": PackedFloat32Array(1.4, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(72, -52)]
@@ -118,7 +118,7 @@ tracks/6/path = NodePath("GameEndSequence")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(1.1, 1.8, 2.5, 3.1),
+"times": PackedFloat32Array(0.9, 1.4, 1.9, 2.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -231,10 +231,10 @@ texture = ExtResource("2_kylo1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -2
-offset_left = 3328.0
-offset_top = 647.0
-offset_right = 3842.0
-offset_bottom = 842.0
+offset_left = 3329.0
+offset_top = 652.0
+offset_right = 3843.0
+offset_bottom = 847.0
 color = Color(0, 0, 0, 1)
 
 [node name="TileMap" parent="." instance=ExtResource("3_22ito")]
@@ -366,14 +366,15 @@ texture = ExtResource("10_1bdqr")
 hframes = 5
 
 [node name="Stars" type="Sprite2D" parent="BGSprites"]
-position = Vector2(3456, 726)
+position = Vector2(3448, 727)
 texture = ExtResource("11_gydau")
 
 [node name="Stars2" type="Sprite2D" parent="BGSprites"]
-position = Vector2(3712, 727)
+position = Vector2(3705, 727)
 texture = ExtResource("11_gydau")
 
 [node name="CameraRooms" type="Node2D" parent="."]
+visible = false
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
