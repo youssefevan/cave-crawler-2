@@ -2,6 +2,7 @@ extends Control
 
 @onready var focus_button = $Buttons/Next
 @onready var focus_button_custom = $Buttons/Edit
+@onready var focus_button_end = $Buttons/Replay
 
 func _ready() -> void:
 	if Global.custom_level == false:

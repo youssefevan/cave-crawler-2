@@ -353,7 +353,7 @@ func end_level() -> void:
 	movement_input = 0
 	call_deferred("disable_hurtbox")
 	
-	if OptionsHandler.particles_enabled == true:
+	if OptionsHandler.particles_enabled == true and !game_end:
 		var lc = level_clear.instantiate()
 		add_child(lc)
 	
@@ -362,6 +362,9 @@ func end_level() -> void:
 	
 	await get_tree().create_timer(1).timeout
 	
+	if game_end:
+		$GUI/MenuLevelEnd.focus_button.visible = false
+		$GUI/MenuLevelEnd.focus_button = $GUI/MenuLevelEnd.focus_button_end
 	$GUI/MenuLevelEnd.visible = true
 	if OptionsHandler.cursor_visible == false:
 		$GUI/MenuLevelEnd.focus_button.grab_focus()

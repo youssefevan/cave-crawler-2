@@ -1,0 +1,373 @@
+[gd_scene load_steps=44 format=3 uid="uid://dsonrkjq8rlpg"]
+
+[ext_resource type="Texture2D" uid="uid://c0ojv4t3ika0i" path="res://sprites/player.png" id="1_2wwr2"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g2djs"]
+[ext_resource type="PackedScene" uid="uid://bjx44ncj1xgbb" path="res://scenes/bullets/bullet.tscn" id="2_wqhji"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_manager.gd" id="3_fwq1u"]
+[ext_resource type="PackedScene" uid="uid://dki3dw7r3sgem" path="res://scenes/gui/menus/menu_pause.tscn" id="3_m31ia"]
+[ext_resource type="PackedScene" uid="uid://nfxfbcloqbu0" path="res://scenes/engine/camera_room_detector.tscn" id="3_q6n07"]
+[ext_resource type="PackedScene" uid="uid://dovcr8w3gsm5w" path="res://scenes/particles/muzzle_flash.tscn" id="3_s6cts"]
+[ext_resource type="PackedScene" uid="uid://b3egaqkkp50mv" path="res://scenes/particles/player_death.tscn" id="4_2n17x"]
+[ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="4_jb2gt"]
+[ext_resource type="PackedScene" uid="uid://dnprs334j37fu" path="res://scenes/gui/menus/menu_death.tscn" id="4_k7iyl"]
+[ext_resource type="Shader" uid="uid://dkp33bbiymqyy" path="res://shaders/hit_flash.tres" id="4_pjpk1"]
+[ext_resource type="PackedScene" uid="uid://dxu7q2rap3i0t" path="res://scenes/gui/menus/menu_level_end.tscn" id="5_sa3x3"]
+[ext_resource type="PackedScene" uid="uid://dpc8jd3jq24u7" path="res://scenes/particles/jump.tscn" id="5_ufqjq"]
+[ext_resource type="Script" path="res://scripts/player/states/run.gd" id="5_xe08m"]
+[ext_resource type="Texture2D" uid="uid://dcujevinxw3ro" path="res://sprites/gui/health_bar.png" id="5_xselh"]
+[ext_resource type="Script" path="res://scripts/player/states/jump.gd" id="6_w0w5j"]
+[ext_resource type="PackedScene" uid="uid://urefukvjmxqo" path="res://scenes/particles/health_picked.tscn" id="6_yasuh"]
+[ext_resource type="Script" path="res://scripts/player/states/fall.gd" id="7_7bu6j"]
+[ext_resource type="PackedScene" uid="uid://cohlepmjty6gb" path="res://scenes/engine/hurtbox.tscn" id="9_i5i06"]
+[ext_resource type="Texture2D" uid="uid://dd4adbhayqsfq" path="res://sprites/gun.png" id="12_wkw83"]
+[ext_resource type="PackedScene" uid="uid://glb3k6b5r155" path="res://scenes/engine/hitbox.tscn" id="14_ymkh0"]
+[ext_resource type="Script" path="res://scripts/player/muzzle_hitbox.gd" id="15_84ay5"]
+[ext_resource type="Script" path="res://scripts/player/states/bounce.gd" id="16_4ydgs"]
+
+[sub_resource type="VisualShader" id="VisualShader_r7p8m"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+
+
+"
+mode = 1
+flags/light_only = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xhmht"]
+shader = SubResource("VisualShader_r7p8m")
+
+[sub_resource type="Animation" id="Animation_t2dss"]
+resource_name = "Bounce"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_bxdav"]
+resource_name = "Bounce_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_ued8s"]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+
+[sub_resource type="Animation" id="Animation_6bm1e"]
+resource_name = "Fall_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_nqqhm"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_7imad"]
+resource_name = "Idle_2"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_rw0os"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_aga44"]
+resource_name = "Jump_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_2yccq"]
+resource_name = "Run"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 10]
+}
+
+[sub_resource type="Animation" id="Animation_0chcy"]
+resource_name = "Run_2"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5keib"]
+_data = {
+"Bounce": SubResource("Animation_t2dss"),
+"Bounce_2": SubResource("Animation_bxdav"),
+"Fall": SubResource("Animation_ued8s"),
+"Fall_2": SubResource("Animation_6bm1e"),
+"Idle": SubResource("Animation_nqqhm"),
+"Idle_2": SubResource("Animation_7imad"),
+"Jump": SubResource("Animation_rw0os"),
+"Jump_2": SubResource("Animation_aga44"),
+"Run": SubResource("Animation_2yccq"),
+"Run_2": SubResource("Animation_0chcy")
+}
+
+[sub_resource type="AudioStream" id="AudioStream_medit"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_54jb2"]
+resource_local_to_scene = true
+shader = ExtResource("4_pjpk1")
+shader_parameter/enabled = false
+shader_parameter/Tint = Color(1, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkv2b"]
+size = Vector2(4, 7)
+
+[sub_resource type="Animation" id="Animation_bv5nr"]
+resource_name = "Shoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oakiu"]
+_data = {
+"Shoot": SubResource("Animation_bv5nr")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_00o25"]
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2533"]
+size = Vector2(4, 7)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 1
+material = SubResource("ShaderMaterial_xhmht")
+collision_layer = 2
+collision_mask = 1537
+slide_on_ceiling = false
+floor_constant_speed = true
+floor_max_angle = 0.872665
+floor_snap_length = 4.0
+platform_on_leave = 1
+safe_margin = 0.02
+script = ExtResource("1_g2djs")
+bullet = ExtResource("2_wqhji")
+muzzle_flash = ExtResource("3_s6cts")
+particles_death = ExtResource("4_2n17x")
+jump_dust = ExtResource("5_ufqjq")
+level_clear = ExtResource("6_yasuh")
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5keib")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_medit")
+bus = &"SFX"
+
+[node name="GUI" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="MenuPause" parent="GUI" instance=ExtResource("3_m31ia")]
+visible = false
+
+[node name="MenuDeath" parent="GUI" instance=ExtResource("4_k7iyl")]
+visible = false
+
+[node name="MenuLevelEnd" parent="GUI" instance=ExtResource("5_sa3x3")]
+visible = false
+
+[node name="HealthBar" type="Sprite2D" parent="GUI"]
+z_index = 3
+position = Vector2(24, 9)
+texture = ExtResource("5_xselh")
+vframes = 5
+frame = 4
+
+[node name="Camera" type="Camera2D" parent="."]
+drag_vertical_enabled = true
+drag_bottom_margin = 0.0
+editor_draw_drag_margin = true
+
+[node name="CameraRoomDetector" parent="." instance=ExtResource("3_q6n07")]
+position = Vector2(0, -6.5)
+metadata/_edit_lock_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_54jb2")
+position = Vector2(0, -8)
+texture = ExtResource("1_2wwr2")
+hframes = 5
+vframes = 4
+frame = 13
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_vkv2b")
+
+[node name="Gun" type="Node2D" parent="."]
+position = Vector2(0, -4)
+
+[node name="Sprite" type="Sprite2D" parent="Gun"]
+position = Vector2(6, 0)
+texture = ExtResource("12_wkw83")
+
+[node name="Muzzle" type="Node2D" parent="Gun"]
+position = Vector2(8, 0)
+
+[node name="Animator" type="AnimationPlayer" parent="Gun/Muzzle"]
+root_node = NodePath("../Hitbox/Collider")
+libraries = {
+"": SubResource("AnimationLibrary_oakiu")
+}
+
+[node name="Hitbox" parent="Gun/Muzzle" groups=["Player"] instance=ExtResource("14_ymkh0")]
+script = ExtResource("15_84ay5")
+
+[node name="Collider" parent="Gun/Muzzle/Hitbox" index="0"]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_00o25")
+
+[node name="Hurtbox" parent="." groups=["Player"] instance=ExtResource("9_i5i06")]
+
+[node name="Collider" parent="Hurtbox" index="0"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_m2533")
+
+[node name="StateManager" type="Node" parent="."]
+script = ExtResource("3_fwq1u")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateManager"]
+script = ExtResource("4_jb2gt")
+
+[node name="Run" type="Node" parent="StateManager"]
+script = ExtResource("5_xe08m")
+
+[node name="Jump" type="Node" parent="StateManager"]
+script = ExtResource("6_w0w5j")
+
+[node name="Fall" type="Node" parent="StateManager"]
+script = ExtResource("7_7bu6j")
+
+[node name="Bounce" type="Node" parent="StateManager"]
+script = ExtResource("16_4ydgs")
+
+[connection signal="area_entered" from="CameraRoomDetector" to="." method="_on_camera_room_detector_area_entered"]
+[connection signal="area_entered" from="CameraRoomDetector" to="Camera" method="_on_camera_room_detector_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_shape_entered" from="Hurtbox" to="." method="_on_hurtbox_body_shape_entered"]
+[connection signal="body_shape_exited" from="Hurtbox" to="." method="_on_hurtbox_body_shape_exited"]
+
+[editable path="Gun/Muzzle/Hitbox"]
+[editable path="Hurtbox"]
