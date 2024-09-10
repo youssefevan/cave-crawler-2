@@ -80,6 +80,8 @@ var level_end := false
 var hitstun_buffer := false
 var can_move := true
 
+var game_end = false
+
 var random = RandomNumberGenerator.new()
 
 func _ready() -> void:
@@ -193,7 +195,8 @@ func shoot() -> void:
 	
 	can_fire = false
 	await get_tree().create_timer(fire_rate).timeout
-	can_fire = true
+	if !game_end:
+		can_fire = true
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Enemy") or area.is_in_group("Hazard"):
@@ -369,3 +372,26 @@ func end_level() -> void:
 func enter_bounce(bf) -> void:
 	bouncing = true
 	bounce_force = bf
+
+func game_end_start():
+	game_end = true
+	can_move = false
+	can_fire = false
+	can_get_hurt = false
+	movement_input = 0
+	$Gun.rotation_degrees = 0
+
+func game_end_rocket():
+	can_move = false
+	can_fire = false
+	can_get_hurt = false
+	movement_input = 0
+	$Sprite.visible = false
+	$Gun.visible = false
+	
+	$"../BGSprites/Rocket".frame = 5
+	await get_tree().create_timer(1).timeout
+	max_camera_shake_strength = 5.0
+	camera_shake_fade = .5
+	apply_camera_shake()
+	$"../GameEndSequence/Animator".play("Rocket")
