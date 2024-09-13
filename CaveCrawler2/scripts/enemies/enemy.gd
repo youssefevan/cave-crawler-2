@@ -14,6 +14,7 @@ var particles_death = preload("res://scenes/particles/enemy_death.tscn")
 
 var current_health : int
 var can_get_hurt : bool
+var can_get_hurt_by_spikes := true
 
 var gravity_multiplier := 0.0
 var gravity_tiles = []
@@ -112,7 +113,9 @@ func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shap
 				current_health = 0
 				call_deferred("die")
 			elif cell_data.get_custom_data("does_damage") == true:
-				get_hurt(0.1)
+				if can_get_hurt_by_spikes == true:
+					get_hurt(0.1)
+					spike_timer()
 			elif cell_data.get_custom_data("no_gravity") == true:
 				gravity_tiles.append(cell_pos)
 
@@ -124,3 +127,8 @@ func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape
 		if cell_data:
 			if cell_data.get_custom_data("no_gravity") == true:
 				gravity_tiles.pop_front()
+
+func spike_timer():
+	can_get_hurt_by_spikes = false
+	await get_tree().create_timer(1).timeout
+	can_get_hurt_by_spikes = true

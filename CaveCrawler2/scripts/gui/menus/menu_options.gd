@@ -12,7 +12,7 @@ extends Control
 
 func _ready():
 	if OptionsHandler.cursor_visible == false:
-		slider_sfx.grab_focus()
+		btn_fullscreen.grab_focus()
 	
 	sync_options()
 

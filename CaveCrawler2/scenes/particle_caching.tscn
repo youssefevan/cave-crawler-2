@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://fp6kpnx58e5q"]
+[gd_scene load_steps=26 format=3 uid="uid://fp6kpnx58e5q"]
 
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_4l43c"]
 [ext_resource type="PackedScene" uid="uid://cv1pyyejhp4ov" path="res://scenes/particles/blood_1.tscn" id="2_01oah"]
@@ -22,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://bb8nqnpoddwv0" path="res://scenes/particles/stalactite.tscn" id="18_qfk50"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="21_hmcgg"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tilemaps/tile_map.tscn" id="22_skt3j"]
+[ext_resource type="PackedScene" uid="uid://bjlqmve07lqhi" path="res://scenes/particles/rocket_build.tscn" id="23_8i8nm"]
+[ext_resource type="PackedScene" path="res://scenes/particles/rocket_stage_1.tscn" id="24_75k8w"]
+[ext_resource type="PackedScene" path="res://scenes/particles/rocket_stage_2.tscn" id="25_i8grd"]
 
 [node name="ParticlesCaching" type="Control"]
 layout_mode = 3
@@ -92,6 +95,15 @@ emitting = false
 one_shot = true
 
 [node name="Stalactite" parent="." instance=ExtResource("18_qfk50")]
+position = Vector2(128, 72)
+
+[node name="RocketBuild" parent="." instance=ExtResource("23_8i8nm")]
+position = Vector2(128, 72)
+
+[node name="RocketStage1" parent="." instance=ExtResource("24_75k8w")]
+position = Vector2(128, 72)
+
+[node name="RocketStage2" parent="." instance=ExtResource("25_i8grd")]
 position = Vector2(128, 72)
 
 [node name="Crab" parent="." instance=ExtResource("21_hmcgg")]
