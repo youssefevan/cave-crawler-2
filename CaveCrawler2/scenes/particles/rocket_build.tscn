@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjlqmve07lqhi"]
+
+[ext_resource type="Texture2D" uid="uid://cj8sfw8styee0" path="res://sprites/particles/smoke2.png" id="1_buxby"]
+[ext_resource type="Script" path="res://scripts/particles.gd" id="2_74hwu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8dnaa"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_ybp27"]
+offsets = PackedFloat32Array(0.654472, 0.918699)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_owetg"]
+gradient = SubResource("Gradient_ybp27")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8lhf6"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 48.0
+gravity = Vector3(0, 9.8, 0)
+color_ramp = SubResource("GradientTexture1D_owetg")
+anim_speed_min = 3.0
+anim_speed_max = 3.0
+
+[node name="RocketBuild" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_8dnaa")
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_8lhf6")
+texture = ExtResource("1_buxby")
+one_shot = true
+explosiveness = 0.9
+script = ExtResource("2_74hwu")

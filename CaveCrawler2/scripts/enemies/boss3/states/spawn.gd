@@ -6,6 +6,9 @@ var delay := 0.5
 
 func enter():
 	super.enter()
+	
+	entity.animator.play("Idle")
+	
 	done = false
 	#await get_tree().create_timer(1).timeout
 	entity.spawn_head()

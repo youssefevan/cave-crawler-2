@@ -125,7 +125,7 @@ boss = NodePath("../Boss1")
 boss_music = ExtResource("18_0gxaw")
 
 [node name="Boss3" parent="." instance=ExtResource("19_q50fo")]
-position = Vector2(333, -46)
+position = Vector2(284, 47)
 max_health = 3
 
 [node name="Flippy" parent="." instance=ExtResource("20_kakta")]
@@ -136,5 +136,5 @@ position = Vector2(266, -31)
 max_health = 1
 
 [node name="Boss1" parent="." instance=ExtResource("22_xy514")]
-position = Vector2(261, 56)
+position = Vector2(209, -46)
 max_health = 1

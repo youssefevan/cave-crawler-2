@@ -508,6 +508,15 @@ hframes = 6
 [node name="SmokePos" type="Node2D" parent="BGSprites/Rocket"]
 position = Vector2(0, 64)
 
+[node name="PartPos3" type="Node2D" parent="BGSprites/Rocket"]
+position = Vector2(0, -9)
+
+[node name="PartPos2" type="Node2D" parent="BGSprites/Rocket"]
+position = Vector2(0, 18)
+
+[node name="PartPos1" type="Node2D" parent="BGSprites/Rocket"]
+position = Vector2(0, 53)
+
 [node name="CameraRooms" type="Node2D" parent="."]
 
 [node name="CameraRoom" parent="CameraRooms" instance=ExtResource("5_yfirm")]

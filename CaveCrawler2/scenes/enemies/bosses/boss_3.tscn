@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dyxqx1wk6buob"]
+[gd_scene load_steps=20 format=3 uid="uid://dyxqx1wk6buob"]
 
 [ext_resource type="PackedScene" uid="uid://dxq2uyf68mxsy" path="res://scenes/enemies/enemy.tscn" id="1_ca2ao"]
 [ext_resource type="Script" path="res://scripts/enemies/boss3/boss_3.gd" id="2_1w15h"]
@@ -37,7 +37,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [4, 5]
+"values": [6, 7]
 }
 
 [sub_resource type="Animation" id="Animation_763tv"]
@@ -53,6 +53,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
 }
 
 [sub_resource type="Animation" id="Animation_5goca"]
@@ -82,12 +94,42 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [6, 7]
+"values": [8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_adab2"]
+resource_name = "Laser"
+length = 3.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.9, 2.2, 2.5, 2.8, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 4, 5, 4, 5, 4, 5, 0, 1, 0, 1, 0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.9, 2.2, 2.5, 2.8, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 10, 11, 10, 11, 10, 11, 6, 7, 6, 7, 6, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gwols"]
 _data = {
 "Idle": SubResource("Animation_nvveq"),
+"Laser": SubResource("Animation_adab2"),
 "RESET": SubResource("Animation_763tv"),
 "Spawn": SubResource("Animation_5goca")
 }
@@ -127,13 +169,13 @@ disabled = true
 [node name="Sprite" parent="." index="3"]
 material = SubResource("ShaderMaterial_gk4g1")
 texture = ExtResource("4_np1ue")
-hframes = 4
+hframes = 6
 vframes = 2
-frame = 6
+frame = 11
 
 [node name="Boss" type="Sprite2D" parent="." index="4"]
 texture = ExtResource("4_np1ue")
-hframes = 4
+hframes = 6
 vframes = 2
 frame = 2
 

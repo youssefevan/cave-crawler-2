@@ -4,6 +4,9 @@ var done := false
 
 func enter():
 	super.enter()
+	
+	entity.animator.play("Laser")
+	
 	done = false
 	#await get_tree().create_timer(1).timeout
 	entity.shoot_v()

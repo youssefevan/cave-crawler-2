@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var particles_stage1 = load("res://scenes/particles/rocket_stage_1.tscn")
 @onready var particles_stage2 = load("res://scenes/particles/rocket_stage_2.tscn")
+@onready var particles_build = load("res://scenes/particles/rocket_build.tscn")
 
 var sfx_charge = preload("res://audio/sfx/rocket_charge.ogg")
 var sfx_takeoff = preload("res://audio/sfx/rocket_blast3.ogg")
@@ -19,10 +20,27 @@ func _ready():
 	$MachinePart3.visible = false
 
 func add_new_part():
-	AudioHandler.play_sfx(sfx_build)
 	$"../BGSprites/Rocket".frame += 1
+	
+	if $"../BGSprites/Rocket".frame == 1:
+		var b = particles_build.instantiate()
+		get_parent().add_child(b)
+		b.global_position = $"../BGSprites/Rocket/PartPos1".global_position
+	
+	if $"../BGSprites/Rocket".frame == 2:
+		var b = particles_build.instantiate()
+		get_parent().add_child(b)
+		b.global_position = $"../BGSprites/Rocket/PartPos2".global_position
+	
+	if $"../BGSprites/Rocket".frame == 3:
+		var b = particles_build.instantiate()
+		get_parent().add_child(b)
+		b.global_position = $"../BGSprites/Rocket/PartPos3".global_position
+	
 	if $"../BGSprites/Rocket".frame == 4:
 		AudioHandler.play_sfx(sfx_charge)
+	else:
+		AudioHandler.play_sfx(sfx_build)
 
 func _on_game_end_body_entered(body):
 	if body is Player and !done:
