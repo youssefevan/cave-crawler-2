@@ -32,11 +32,15 @@ func _ready():
 	
 	sprite_offset = $Sprite.position
 	
-	player = get_tree().get_first_node_in_group("Player")
+	for i in get_tree().get_nodes_in_group("Player"):
+		if i.name == "Player":
+			player = i
 
 func _physics_process(delta):
 	if player == null:
-		player = get_tree().get_first_node_in_group("Player")
+		for i in get_tree().get_nodes_in_group("Player"):
+			if i.name == "Player":
+				player = i
 	
 	if gravity_tiles.is_empty():
 		gravity_multiplier = 1.0
