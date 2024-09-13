@@ -622,7 +622,7 @@ next_level = ExtResource("18_1efn4")
 level_id = 15
 
 [node name="Player" parent="." instance=ExtResource("6_4p3sx")]
-position = Vector2(3293, 767)
+position = Vector2(32, 96)
 
 [node name="Boss3" parent="." instance=ExtResource("7_cakbn")]
 position = Vector2(2671, 731)
