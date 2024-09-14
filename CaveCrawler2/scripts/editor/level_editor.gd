@@ -11,11 +11,15 @@ var new_level : bool
 
 var lines : Array
 var camera_rooms : Array
+var moving_platforms : Array
 
 var player_in_level := false
 
 var camera_room_tool_coordinates := Vector2(1, 4)
 @export var camera_room_tool_scene : PackedScene
+
+var moving_platform_tool_coordinates := Vector2(4, 2)
+@export var moving_platform_tool_scene : PackedScene
 
 func _ready():
 	if OptionsHandler.cursor_visible == false:
@@ -32,6 +36,7 @@ func _ready():
 
 func _on_tool_selected(tool_coordinates, tool_type):
 	tileset_coordinates = tool_coordinates
+	#print(tileset_coordinates)
 
 func _input(event):
 	if event is InputEvent:
@@ -46,11 +51,13 @@ func _unhandled_input(event):
 	var mouse_position_rounded = Vector2(floor(get_local_mouse_position() / tile_size))
 	
 	if Input.is_action_pressed("place_tile"):
-		if tileset_coordinates != camera_room_tool_coordinates:
+		if tileset_coordinates != camera_room_tool_coordinates and tileset_coordinates != moving_platform_tool_coordinates:
 			if tiles.get_cell_atlas_coords(0, mouse_position_rounded) != Vector2i(tileset_coordinates):
 				place_tile(mouse_position_rounded)
-		else:
+		elif tileset_coordinates == camera_room_tool_coordinates:
 			place_camera_room_tool(mouse_position_rounded * tile_size)
+		elif tileset_coordinates == moving_platform_tool_coordinates:
+			place_moving_platform_tool(mouse_position_rounded * tile_size)
 	
 	if Input.is_action_pressed("erase_tile"):
 		if Vector2i(mouse_position_rounded) in tiles.get_used_cells(0):
@@ -76,6 +83,20 @@ func place_camera_room_tool(coordinates):
 		add_child(cr)
 		cr.global_position = target_position
 
+func place_moving_platform_tool(coordinates):
+	var target_position = coordinates.snapped(Vector2(tile_size, tile_size))
+	
+	var can_be_placed := true
+	for child in get_children():
+		if child is MovingPlatformTool:
+			if child.global_position.x == target_position.x and child.global_position.y == target_position.y:
+				can_be_placed = false
+	
+	if can_be_placed:
+		var mp = moving_platform_tool_scene.instantiate()
+		add_child(mp)
+		mp.global_position = target_position
+
 func _on_save_pressed():
 	save()
 
@@ -98,7 +119,11 @@ func save():
 		if child is CameraRoomTool:
 			var cr_data = Vector4(child.global_position.x, child.global_position.y, child.size.x, child.size.y)
 			save_file.store_line(str(cr_data, ",CR"))
-#			print(str(cr_data, ",CR"))
+		if child is MovingPlatformTool:
+			var mp_data = Vector4(
+				child.start.global_position.x, child.start.global_position.y,
+				child.end.global_position.x, child.end.global_position.y)
+			save_file.store_line(str(mp_data, ",MP"))
 	
 	save_file.close()
 	$CanvasLayer/Interface/Animator.stop(false)
@@ -127,6 +152,7 @@ func load_existing_level():
 		var count := 0
 		var line_vector : Vector4
 		var is_camera_room := false
+		var is_moving_platform := false
 		for char in line.split(","):
 			count += 1
 			
@@ -144,13 +170,18 @@ func load_existing_level():
 				4:
 					line_vector.w = char_to_int
 				5:
-					is_camera_room = true
-			
+					if char == "CR":
+						is_camera_room = true
+					elif char == "MP":
+						is_moving_platform = true
+		
 		if is_camera_room == true:
 			camera_rooms.append(line_vector)
+		elif is_moving_platform == true:
+			moving_platforms.append(line_vector)
 		else:
 			lines.append(line_vector)
-			
+		
 	file.close()
 	build_level()
 
@@ -162,6 +193,9 @@ func build_level():
 	
 	for room in camera_rooms:
 		build_camera_room_tool(Vector2(room.x, room.y), Vector2(room.z, room.w))
+	
+	for mp in moving_platforms:
+		build_moving_platform_tool(Vector2(mp.x, mp.y), Vector2(mp.z, mp.w))
 
 func build_camera_room_tool(coordinates, size):
 	var c = camera_room_tool_scene.instantiate()
@@ -169,6 +203,12 @@ func build_camera_room_tool(coordinates, size):
 	c.global_position = coordinates
 	c.width.value = size.x / tile_size
 	c.height.value = size.y / tile_size
+
+func build_moving_platform_tool(start_coords, end_coords):
+	var mp = moving_platform_tool_scene.instantiate()
+	mp.start.global_position = start_coords
+	mp.end.global_position = end_coords
+	add_child(mp)
 
 func display_error():
 	$CanvasLayer/Error.visible = true

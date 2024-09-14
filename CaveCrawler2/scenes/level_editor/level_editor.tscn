@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bgjuqby6d1rn4"]
+[gd_scene load_steps=49 format=3 uid="uid://bgjuqby6d1rn4"]
 
 [ext_resource type="Script" path="res://scripts/editor/level_editor.gd" id="1_jya82"]
 [ext_resource type="PackedScene" uid="uid://dd4kgsl8xo6gi" path="res://scenes/level_editor/tools/camera_room_tool.tscn" id="2_ttnjw"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bgty7fw6d5dlk" path="res://sprites/level_editor_icons/le_atlas.atlastex" id="11_kvv4k"]
 [ext_resource type="Script" path="res://scripts/level_editor/tool_button.gd" id="12_5u3pp"]
 [ext_resource type="Texture2D" uid="uid://l0m2achevuc6" path="res://sprites/level_editor_icons/save_successful.png" id="15_pourh"]
+[ext_resource type="PackedScene" uid="uid://1tin784yvrsp" path="res://scenes/level_editor/tools/moving_platform_tool.tscn" id="16_kmbpe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85sbq"]
 bg_color = Color(0, 0, 0, 1)
@@ -138,9 +139,16 @@ region = Rect2(8, 16, 8, 8)
 atlas = SubResource("CompressedTexture2D_plt8p")
 region = Rect2(16, 16, 8, 8)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_62b6q"]
+load_path = "res://.godot/imported/level_editor_atlas.png-b95c532db98e67af2a2b15e9144c22fe.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2h01t"]
-atlas = ExtResource("5_fjyjh")
+atlas = SubResource("CompressedTexture2D_62b6q")
 region = Rect2(24, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajir4"]
+atlas = ExtResource("5_fjyjh")
+region = Rect2(32, 16, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxhgi"]
 atlas = SubResource("CompressedTexture2D_plt8p")
@@ -165,6 +173,7 @@ region = Rect2(0, 24, 8, 8)
 [node name="LevelEditor" type="Node2D"]
 script = ExtResource("1_jya82")
 camera_room_tool_scene = ExtResource("2_ttnjw")
+moving_platform_tool_scene = ExtResource("16_kmbpe")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -314,7 +323,7 @@ theme = ExtResource("7_kusvm")
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 20.0
-current_tab = 3
+current_tab = 2
 
 [node name="Terrain" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
 visible = false
@@ -467,7 +476,6 @@ tool_type = 1
 tile_coordinate_x = 9
 
 [node name="Hazards" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -510,7 +518,15 @@ script = ExtResource("12_5u3pp")
 tool_type = 2
 tile_coordinate_x = 3
 
+[node name="MovingPlatform" type="Button" parent="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_ajir4")
+script = ExtResource("12_5u3pp")
+tool_type = 2
+tile_coordinate_x = 4
+
 [node name="Utilities" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
@@ -619,6 +635,8 @@ icon = ExtResource("11_ek03p")
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/Lava" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/AntiGravity" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/AntiGravity" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/AntiGravity" to="." method="_on_tool_selected"]
+[connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/MovingPlatform" to="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/MovingPlatform" method="_on_pressed"]
+[connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Hazards/ScrollContainer/HBoxContainer/MovingPlatform" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Player" to="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Player" method="_on_pressed"]
 [connection signal="tool_selected" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/Player" to="." method="_on_tool_selected"]
 [connection signal="pressed" from="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/CameraRoom" to="CanvasLayer/ToolBar/TabContainer/Utilities/ScrollContainer/HBoxContainer/CameraRoom" method="_on_pressed"]

@@ -1,16 +1,125 @@
-[gd_scene load_steps=4 format=3 uid="uid://1tin784yvrsp"]
+[gd_scene load_steps=28 format=3 uid="uid://1tin784yvrsp"]
 
 [ext_resource type="Script" path="res://scripts/level_editor/moving_platform_tool.gd" id="1_6ai3c"]
-[ext_resource type="Texture2D" uid="uid://cidncnv0r7soy" path="res://sprites/moving_platform.png" id="2_ms785"]
-[ext_resource type="Texture2D" uid="uid://mjyo33glbnbe" path="res://sprites/circle.png" id="3_rnmfd"]
+[ext_resource type="Theme" uid="uid://bc6wyrum3duwh" path="res://themes/editor_tools.tres" id="2_1bst2"]
+[ext_resource type="Texture2D" uid="uid://xr256xm28u38" path="res://sprites/level_editor_icons/moving_platform_start.png" id="3_5upan"]
+[ext_resource type="Texture2D" uid="uid://cuca2s3oma8u1" path="res://sprites/level_editor_icons/reset.png" id="4_nrgwm"]
+[ext_resource type="Texture2D" uid="uid://th8b3s1amlm3" path="res://sprites/level_editor_icons/moving_platform_end.png" id="4_oowb3"]
 
-[node name="MovingPlatformTool" type="Node2D"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ibakw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86xx6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sqmau"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwf8w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qw4ib"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydgor"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j377n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xtbrt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_khufs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_enhjj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sa5wl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vcpjj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0swms"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6qxn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4csq2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17yj4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7sx5d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_58fnx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clnri"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mx5ji"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vlv6n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ylft"]
+
+[node name="MovingPlatformTool" type="Node2D" node_paths=PackedStringArray("start", "end")]
 script = ExtResource("1_6ai3c")
+start = NodePath("Start")
+end = NodePath("End")
 
-[node name="Platform" type="Sprite2D" parent="."]
-position = Vector2(16, 2)
-texture = ExtResource("2_ms785")
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
 
-[node name="Endpoint" type="Sprite2D" parent="."]
-position = Vector2(16, 2)
-texture = ExtResource("3_rnmfd")
+[node name="Start" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 32.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1bst2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ibakw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_86xx6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sqmau")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_iwf8w")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qw4ib")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ydgor")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j377n")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_xtbrt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_khufs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_enhjj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sa5wl")
+toggle_mode = true
+icon = ExtResource("3_5upan")
+
+[node name="Delete" type="Button" parent="Start"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 22.0
+offset_bottom = 20.0
+icon = ExtResource("4_nrgwm")
+
+[node name="End" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_right = 96.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1bst2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vcpjj")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0swms")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g6qxn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4csq2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_17yj4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_7sx5d")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_58fnx")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_clnri")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mx5ji")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vlv6n")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ylft")
+icon = ExtResource("4_oowb3")
+
+[connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
+[connection signal="button_up" from="Start" to="." method="_on_start_button_up"]
+[connection signal="toggled" from="Start" to="." method="_on_start_toggled"]
+[connection signal="pressed" from="Start/Delete" to="." method="_on_delete_pressed"]
+[connection signal="button_down" from="End" to="." method="_on_end_button_down"]
+[connection signal="button_up" from="End" to="." method="_on_end_button_up"]

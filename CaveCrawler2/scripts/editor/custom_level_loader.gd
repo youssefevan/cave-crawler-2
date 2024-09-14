@@ -40,6 +40,7 @@ var health := Vector2(4, 4)
 # Utility scenes
 var player_scene = Global.player_scene
 @export var camera_room_scene : PackedScene
+@export var moving_platform_scene : PackedScene
 @export var checkpoint_scene : PackedScene
 @export var flagpole_scene : PackedScene
 
@@ -70,6 +71,7 @@ var tileset_id := 2
 
 var lines : Array
 var camera_rooms : Array
+var moving_platforms : Array
 
 func _ready():
 	#print(level_path)
@@ -88,11 +90,12 @@ func load_file():
 		var count := 0
 		var line_vector : Vector4
 		var is_camera_room := false
+		var is_moving_platform := false
 		for char in line.split(","):
 			count += 1
 			
 			var char_to_int
-			if char != "CR":
+			if char != "CR" and char != "MP":
 				char_to_int = char.to_int()
 			
 			match count:
@@ -105,10 +108,15 @@ func load_file():
 				4:
 					line_vector.w = char_to_int
 				5:
-					is_camera_room = true
+					if char == "CR":
+						is_camera_room = true
+					elif char == "MP":
+						is_moving_platform = true
 			
 		if is_camera_room == true:
 			camera_rooms.append(line_vector)
+		elif is_moving_platform == true:
+			moving_platforms.append(line_vector)
 		else:
 			lines.append(line_vector)
 			
@@ -192,12 +200,23 @@ func build_level():
 	
 	for room in camera_rooms:
 		spawn_camera_room(Vector2(room.x, room.y), Vector2(room.z, room.w))
+	
+	for mp in moving_platforms:
+		spawn_moving_platform(Vector2(mp.x, mp.y), Vector2(mp.z, mp.w))
 
 func spawn_camera_room(coordinates, size):
 	var c = camera_room_scene.instantiate()
 	add_child(c)
 	c.global_position = coordinates
 	c.scale = size
+
+func spawn_moving_platform(start_coords, end_coords):
+	var mp = moving_platform_scene.instantiate()
+	mp.custom_level = true
+	mp.start_position = start_coords
+	mp.end_position = end_coords
+	mp.global_position = start_coords
+	add_child(mp)
 
 func spawn_entity(entity, spawn_position):
 	var e = entity.instantiate()

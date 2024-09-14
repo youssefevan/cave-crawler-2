@@ -9,9 +9,13 @@ var distance
 var speed := 60.0
 var target_position
 
+var custom_level := false
+
 func _ready():
-	start_position = global_position
-	end_position = $Endpoint.global_position
+	if !custom_level:
+		start_position = global_position
+		end_position = $Endpoint.global_position
+	
 	distance = start_position.distance_to(end_position)
 	$Endpoint/Sprite.visible = false
 	target_position = end_position
