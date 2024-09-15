@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://d4df2y3jcs60q"]
+[gd_scene load_steps=18 format=3 uid="uid://d4df2y3jcs60q"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_d4bof"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_ie82g"]
 [ext_resource type="Texture2D" uid="uid://gm0sv8ckdfbq" path="res://sprites/backgrounds/bg3.png" id="2_pkuq4"]
+[ext_resource type="AudioStream" uid="uid://lxwbtsbbwakn" path="res://audio/music/world2.ogg" id="2_qq6lg"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tilemaps/tile_map.tscn" id="3_djygp"]
 [ext_resource type="PackedScene" uid="uid://ciebte6qaf4gn" path="res://scenes/tilemaps/background_tiles.tscn" id="4_04g1w"]
 [ext_resource type="PackedScene" uid="uid://c1fypkia17r5n" path="res://scenes/engine/camera_room.tscn" id="5_sdx4m"]
@@ -17,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://dw5eee0bd8x8e" path="res://scenes/levels/world2/level_2_4.tscn" id="14_bv0f5"]
 
 [node name="Level2-3" type="Node2D"]
+script = ExtResource("1_ie82g")
+music = ExtResource("2_qq6lg")
 
 [node name="WorldEnv" parent="." instance=ExtResource("1_d4bof")]
 

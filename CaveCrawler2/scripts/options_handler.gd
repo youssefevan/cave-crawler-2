@@ -12,7 +12,7 @@ var bloom_intensity := 0.5
 var volume_sfx := 5.0
 var volume_music := 5.0
 
-var levels_unlocked := 15
+var levels_unlocked := 1
 
 var data = {}
 
@@ -112,4 +112,14 @@ func set_volume_music(setting):
 func set_levels_unlocked(levels):
 	if levels_unlocked < levels:
 		levels_unlocked = levels
+		
+		if levels_unlocked == 6:
+			SteamHandler.set_achievement("ach_beat_w1")
+		
+		if levels_unlocked == 11:
+			SteamHandler.set_achievement("ach_beat_w2")
+		
+		if levels_unlocked == 16:
+			SteamHandler.set_achievement("ach_beat_w3")
+		
 		save_options()

@@ -52,6 +52,7 @@ func _on_game_end_body_entered(body):
 
 func move_player():
 	player.movement_input = 1
+	SteamHandler.set_achievement("ach_build_rocket")
 
 func power_up():
 	var s1_1 = particles_stage1.instantiate()

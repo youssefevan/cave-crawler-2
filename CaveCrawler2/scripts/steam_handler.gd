@@ -15,3 +15,13 @@ func _ready():
 		return
 	
 	print("Steam is running")
+
+func set_achievement(ach_name):
+	var status = Steam.getAchievement(ach_name)
+	
+	if status["achieved"]:
+		print("already unlocked: ", ach_name)
+		return
+	else:
+		print("unlocked: ", ach_name)
+		Steam.setAchievement(ach_name)

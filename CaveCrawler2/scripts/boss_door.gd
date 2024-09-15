@@ -15,7 +15,6 @@ var sfx_open = preload("res://audio/sfx/stalactite_fall.ogg")
 var frame = 0
 
 func _ready():
-	AudioHandler.resume_music(true)
 	
 	if open == true:
 		$Sprite.position = open_position
@@ -31,7 +30,7 @@ func _physics_process(delta):
 		locked = false
 		
 		if frame == 1:
-			AudioHandler.resume_music(true)
+			AudioHandler.play_music(get_parent().music, false)
 	
 	if open:
 		$Wall/Collider.disabled = true
@@ -50,7 +49,7 @@ func _on_body_entered(body):
 			locked = true
 			animate(Vector2.ZERO)
 			if boss_music:
-				AudioHandler.play_music(boss_music, false, true)
+				AudioHandler.play_music(boss_music, false)
 		else:
 			open = true
 			animate(open_position)

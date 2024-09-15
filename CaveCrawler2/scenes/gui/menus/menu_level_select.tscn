@@ -233,4 +233,5 @@ back_button = true
 [connection signal="level_selected" from="Worlds/World3/ButtonStack/ButtonRow2/3-3" to="." method="_on_level_selected"]
 [connection signal="level_selected" from="Worlds/World3/ButtonStack/ButtonRow2/3-4" to="." method="_on_level_selected"]
 [connection signal="level_selected" from="Worlds/World3/ButtonStack/ButtonRow3/3-5" to="." method="_on_level_selected"]
+[connection signal="pressed" from="Worlds/World3/ButtonStack/ButtonRow3/3-5" to="Worlds/World3/ButtonStack/ButtonRow3/3-5" method="_on_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

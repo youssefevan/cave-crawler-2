@@ -1,6 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://0ylgloko7p7v"]
+[gd_scene load_steps=39 format=3 uid="uid://0ylgloko7p7v"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_87bmc"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_j2l08"]
+[ext_resource type="AudioStream" uid="uid://c78onmwe5c0lg" path="res://audio/music/world3.ogg" id="2_2kwph"]
 [ext_resource type="Texture2D" uid="uid://dar57tpu003nr" path="res://sprites/backgrounds/bg4.png" id="2_kylo1"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tilemaps/tile_map.tscn" id="3_22ito"]
 [ext_resource type="PackedScene" uid="uid://ciebte6qaf4gn" path="res://scenes/tilemaps/background_tiles.tscn" id="4_r7qye"]
@@ -27,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://331t2qn34l8g" path="res://scenes/enemies/fly.tscn" id="15_yeg8d"]
 [ext_resource type="PackedScene" uid="uid://dcvtfkkcuh0mh" path="res://scenes/boss_door.tscn" id="16_44dvu"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="17_iaq1j"]
-[ext_resource type="PackedScene" uid="uid://bckw6h4d2naaj" path="res://scenes/gui/menus/menu_level_select.tscn" id="18_1efn4"]
+[ext_resource type="PackedScene" uid="uid://dac0e0pa16hb3" path="res://scenes/gui/menus/menu_main.tscn" id="25_ap2iq"]
 [ext_resource type="AudioStream" uid="uid://bq6iuo7ua202o" path="res://audio/music/world3_boss.ogg" id="28_11l8e"]
 [ext_resource type="Texture2D" uid="uid://72odkmnhyu8c" path="res://sprites/pickups/machine_parts.png" id="30_1qpoa"]
 [ext_resource type="Script" path="res://scripts/game_end_sequence.gd" id="30_64xti"]
@@ -353,6 +355,8 @@ _data = {
 }
 
 [node name="Level3-5" type="Node2D"]
+script = ExtResource("1_j2l08")
+music = ExtResource("2_2kwph")
 
 [node name="WorldEnv" parent="." instance=ExtResource("1_87bmc")]
 
@@ -618,7 +622,7 @@ position = Vector2(1600, 144)
 [node name="Flagpole" parent="Pickups" instance=ExtResource("17_iaq1j")]
 visible = false
 position = Vector2(3512, 776)
-next_level = ExtResource("18_1efn4")
+next_level = ExtResource("25_ap2iq")
 level_id = 15
 
 [node name="Player" parent="." instance=ExtResource("6_4p3sx")]

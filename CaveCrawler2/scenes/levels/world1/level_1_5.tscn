@@ -1,6 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://bw4glxewqp7ky"]
+[gd_scene load_steps=24 format=3 uid="uid://bw4glxewqp7ky"]
 
 [ext_resource type="PackedScene" uid="uid://cwxc1qlgje0kg" path="res://scenes/engine/world_env.tscn" id="1_m2gn4"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_x3uaf"]
+[ext_resource type="AudioStream" uid="uid://dcrffs45asetq" path="res://audio/music/world1.ogg" id="2_8tabx"]
 [ext_resource type="Texture2D" uid="uid://drtiho56w2wkp" path="res://sprites/backgrounds/bg.png" id="2_xa6y4"]
 [ext_resource type="PackedScene" uid="uid://dibi351iqieuk" path="res://scenes/tilemaps/tile_map.tscn" id="3_3xjde"]
 [ext_resource type="PackedScene" uid="uid://ciebte6qaf4gn" path="res://scenes/tilemaps/background_tiles.tscn" id="4_esxbh"]
@@ -19,10 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://cc06aufbhrujy" path="res://scenes/pickups/checkpoint.tscn" id="13_c5qum"]
 [ext_resource type="PackedScene" uid="uid://6eklyp1v0thi" path="res://scenes/enemies/crab.tscn" id="13_hboso"]
 [ext_resource type="PackedScene" uid="uid://bh37x3k406xt" path="res://scenes/pickups/flagpole.tscn" id="16_yu6id"]
-[ext_resource type="PackedScene" uid="uid://dac0e0pa16hb3" path="res://scenes/gui/menus/menu_main.tscn" id="17_nsjmm"]
 [ext_resource type="Texture2D" uid="uid://crcmpxoqb1qfx" path="res://sprites/background_details/warning_sign.png" id="19_5f8ey"]
+[ext_resource type="PackedScene" uid="uid://bckw6h4d2naaj" path="res://scenes/gui/menus/menu_level_select.tscn" id="20_nsgxx"]
 
 [node name="Level1-5" type="Node2D"]
+script = ExtResource("1_x3uaf")
+music = ExtResource("2_8tabx")
 
 [node name="WorldEnv" parent="." instance=ExtResource("1_m2gn4")]
 
@@ -353,7 +357,7 @@ position = Vector2(2096, 432)
 
 [node name="Flagpole" parent="Pickups" instance=ExtResource("16_yu6id")]
 position = Vector2(3368, 1080)
-next_level = ExtResource("17_nsjmm")
+next_level = ExtResource("20_nsgxx")
 level_id = 5
 
 [node name="Player" parent="." instance=ExtResource("5_pfi3k")]

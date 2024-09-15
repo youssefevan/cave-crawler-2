@@ -3,12 +3,14 @@ extends Control
 @onready var title_music = preload("res://audio/music/cc1.ogg")
 
 func _ready():
-	AudioHandler.play_music(title_music, false, false)
+	AudioHandler.play_music(title_music, false)
 	
 	Global.checkpoint_passed = false
 	
 	if OptionsHandler.cursor_visible == false:
 		$Buttons/Play.grab_focus()
+	
+	print(OptionsHandler.levels_unlocked)
 
 func _on_play_pressed():
 	Global.custom_level = false

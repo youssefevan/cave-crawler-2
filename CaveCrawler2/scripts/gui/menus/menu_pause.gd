@@ -44,7 +44,7 @@ func _process(delta):
 
 func pause():
 	AudioHandler.play_sfx(sfx_pause)
-	AudioHandler.play_music(music_pause, true, false)
+	AudioHandler.play_music(music_pause, true)
 	
 	paused = true
 	visible = true
@@ -56,7 +56,7 @@ func pause():
 
 func unpause():
 	AudioHandler.play_sfx(sfx_unpause)
-	AudioHandler.resume_music(false)
+	AudioHandler.resume_music()
 	
 	paused = false
 	visible = false
