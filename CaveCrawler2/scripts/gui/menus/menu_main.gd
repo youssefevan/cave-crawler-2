@@ -10,7 +10,7 @@ func _ready():
 	if OptionsHandler.cursor_visible == false:
 		$Buttons/Play.grab_focus()
 	
-	print(OptionsHandler.levels_unlocked)
+	#print(OptionsHandler.levels_unlocked)
 
 func _on_play_pressed():
 	Global.custom_level = false
