@@ -24,7 +24,7 @@ func _ready():
 	if boss == null:
 		locked = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if boss == null:
 		frame += 1
 		locked = false

@@ -84,6 +84,9 @@ var game_end = false
 
 var random = RandomNumberGenerator.new()
 
+var right = 0
+var left = 0
+
 func _ready() -> void:
 	states.init(self)
 	can_fire = true
@@ -107,15 +110,29 @@ func _physics_process(delta) -> void:
 	else:
 		gravity_multiplier = -1.0
 	
-	if Input.is_action_pressed("shoot") and can_fire:
-		shoot()
+	if Input.is_action_pressed("shoot") or Input.is_action_pressed("controller_shoot"):
+		if can_fire:
+			shoot()
 	
 	$GUI/HealthBar.frame = health
 	move_and_slide()
 
 func handle_input() -> void:
 	if can_move == true:
-		movement_input = Input.get_action_strength("right") - Input.get_action_strength("left")
+		var right_input = Input.is_action_pressed("right") or Input.is_action_pressed("controller_right")
+		var left_input = Input.is_action_pressed("left") or Input.is_action_pressed("controller_left")
+		
+		if right_input:
+			right = 1
+		else:
+			right = 0
+		
+		if left_input:
+			left = 1
+		else:
+			left = 0
+		
+		movement_input = right - left
 		if movement_input > 0:
 			$Sprite.flip_h = false
 			gun.scale.x = 1
@@ -123,12 +140,12 @@ func handle_input() -> void:
 			$Sprite.flip_h = true
 			gun.scale.x = -1
 		
-		if Input.is_action_pressed("look_up"):
+		if Input.is_action_pressed("look_up") or Input.is_action_pressed("controller_look_up"):
 			if $Sprite.flip_h == false:
 				gun.rotation_degrees = -90
 			else:
 				gun.rotation_degrees = 90
-		elif Input.is_action_pressed("drop_through"):
+		elif Input.is_action_pressed("drop_through") or Input.is_action_pressed("controller_drop_through"):
 			if $Sprite.flip_h == false:
 				gun.rotation_degrees = 90
 			else:
@@ -167,7 +184,7 @@ func apply_movement(delta) -> void:
 
 func jump_buffering() -> void:
 	if can_move == true:
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("controller_jump"):
 			jump_was_pressed = true
 			await get_tree().create_timer(jump_buffer).timeout
 			jump_was_pressed = false
@@ -206,7 +223,7 @@ func _on_hurtbox_area_entered(area):
 		else:
 			get_hurt()
 
-func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+func _on_hurtbox_body_shape_entered(body_rid, body, _body_shape_index, _local_shape_index):
 	if body is TileMap:
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
@@ -224,7 +241,7 @@ func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shap
 			elif cell_data.get_custom_data("no_gravity") == true:
 				gravity_tiles.append(cell_pos)
 
-func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+func _on_hurtbox_body_shape_exited(body_rid, body, _body_shape_index, _local_shape_index):
 	if body is TileMap:
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
@@ -266,7 +283,7 @@ func get_hurt() -> void:
 
 func _unhandled_input(event):
 	if hitstun_buffer == true:
-		if event.is_action_pressed("jump"):
+		if event.is_action_pressed("jump") or event.is_action_pressed("controller_jump"):
 			jump_was_pressed = true
 			await get_tree().create_timer(jump_buffer).timeout
 			jump_was_pressed = false
@@ -338,7 +355,7 @@ func get_level_editor_offset() -> Vector2:
 	return level_editor_offset
 
 func handle_oneway_collision() -> void:
-	if Input.is_action_pressed("drop_through"):
+	if Input.is_action_pressed("drop_through") or Input.is_action_pressed("controller_drop_through"):
 		set_collision_mask_value(10, false)
 		await get_tree().create_timer(0.1).timeout
 		set_collision_mask_value(10, true)

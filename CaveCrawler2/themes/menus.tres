@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=37 format=3 uid="uid://bhgqfbo01g2pt"]
+[gd_resource type="Theme" load_steps=40 format=3 uid="uid://bhgqfbo01g2pt"]
 
 [ext_resource type="Texture2D" uid="uid://nvn1nyhqrmqn" path="res://sprites/menus/checkbox_unchecked.png" id="1_i0d12"]
 [ext_resource type="Texture2D" uid="uid://bnaapxrgiuddf" path="res://sprites/menus/checkbox_checked.png" id="1_ol1yn"]
@@ -137,6 +137,22 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tser"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66hik"]
+content_margin_left = 2.0
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 1
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxomy"]
+content_margin_left = 8.0
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvpcg"]
 bg_color = Color(1, 1, 1, 1)
 
@@ -201,6 +217,11 @@ LineEdit/styles/focus = SubResource("StyleBoxFlat_kgi66")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_vfeyf")
 LineEdit/styles/read_only = SubResource("StyleBoxEmpty_k4r8l")
 Panel/styles/panel = SubResource("StyleBoxFlat_xtyn3")
+TabContainer/colors/font_selected_color = Color(1, 1, 1, 1)
+TabContainer/colors/font_unselected_color = Color(0.705882, 0.85098, 0.87451, 1)
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_4tser")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_66hik")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_qxomy")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_nvpcg")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_m4yq7")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_iutad")

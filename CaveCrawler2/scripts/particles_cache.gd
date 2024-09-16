@@ -23,9 +23,9 @@ func locate_scenes():
 	# print(particles)
 
 func cache_materials():
-	for material in particles:
+	for mat in particles:
 		var particles_instance = GPUParticles2D.new()
-		particles_instance.process_material = material
+		particles_instance.process_material = mat
 		particles_instance.one_shot = true
 		particles_instance.emitting = true
 		self.add_child(particles_instance)

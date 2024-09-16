@@ -16,7 +16,7 @@ func _input(event):
 		if target_button:
 			target_button.global_position = get_global_mouse_position().snapped(Vector2(8, 8))
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$Line2D.set_point_position(0, $Start.position + Vector2(16, 4))
 	$Line2D.set_point_position(1, $End.position + Vector2(16, 4))
 	

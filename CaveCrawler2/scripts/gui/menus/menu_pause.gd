@@ -23,7 +23,7 @@ func _ready() -> void:
 	window = get_window()
 	previous_window_position = window.position
 
-func _input(event):
+func _input(_event):
 	if player.health > 0 and player.level_end == false:
 		if Input.is_action_just_pressed("pause"):
 			if paused == false:
@@ -31,7 +31,7 @@ func _input(event):
 			else:
 				unpause()
 
-func _process(delta):
+func _process(_delta):
 	if !window.has_focus() and !paused:
 		if get_parent().get_parent().level_end == false and get_parent().get_parent().health > 0:
 			pause()

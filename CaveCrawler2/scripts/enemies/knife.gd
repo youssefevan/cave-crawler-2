@@ -25,12 +25,8 @@ func _on_area_entered(area):
 		if area.get_parent().is_in_group("Player"):
 			explode()
 
-func _on_area_exited(area):
+func _on_area_exited(_area):
 	pass
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	pass
-
-
-func _on_body_entered(body):
-	pass # Replace with function body.

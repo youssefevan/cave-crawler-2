@@ -103,7 +103,7 @@ func _on_hurtbox_area_entered(area):
 func get_level_editor_offset() -> Vector2:
 	return level_editor_offset
 
-func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+func _on_hurtbox_body_shape_entered(body_rid, body, _body_shape_index, _local_shape_index):
 	if body is TileMap:
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)
@@ -119,7 +119,7 @@ func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shap
 			elif cell_data.get_custom_data("no_gravity") == true:
 				gravity_tiles.append(cell_pos)
 
-func _on_hurtbox_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+func _on_hurtbox_body_shape_exited(body_rid, body, _body_shape_index, _local_shape_index):
 	if body is TileMap:
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)

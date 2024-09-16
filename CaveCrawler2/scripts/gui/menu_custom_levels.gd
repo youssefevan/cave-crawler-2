@@ -23,8 +23,8 @@ func _ready():
 	get_levels()
 	
 	selected_item = 0
-	var name = item_list.get_item_text(selected_item)
-	details_name.text = str(name)
+	var item_name = item_list.get_item_text(selected_item)
+	details_name.text = str(item_name)
 	
 	new_level_panel.visible = false
 	delete_panel.visible = false
@@ -55,8 +55,8 @@ func clear_levels():
 
 func _on_item_list_item_selected(index):
 	selected_item = index
-	var name = item_list.get_item_text(index)
-	details_name.text = str(name)
+	var item_name = item_list.get_item_text(index)
+	details_name.text = str(item_name)
 
 func _on_play_pressed():
 	Global.level_to_load = levels[selected_item]

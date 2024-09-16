@@ -59,7 +59,7 @@ func get_hurt(hitstun_weight):
 func apply_shake():
 	pass
 
-func enter_bounce(bounce_force):
+func enter_bounce(_bounce_force):
 	pass
 
 func _on_hurtbox_area_entered(area):
@@ -76,7 +76,7 @@ func _on_hitbox_area_entered(area):
 		if states.current_state == shield:
 			area.get_parent().enter_bounce(bounce_force)
 
-func _on_hurtbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+func _on_hurtbox_body_shape_entered(body_rid, body, _body_shape_index, _local_shape_index):
 	if body is TileMap:
 		var cell_pos = body.get_coords_for_body_rid(body_rid)
 		var cell_data = body.get_cell_tile_data(0, cell_pos)

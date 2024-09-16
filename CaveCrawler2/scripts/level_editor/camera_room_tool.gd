@@ -15,7 +15,7 @@ func _ready():
 	set_inactive()
 	remove_from_array = false
 
-func _process(delta):
+func _process(_delta):
 	outline.set_size(Vector2(width.value * 8, height.value * 8))
 	size.x = width.value * 8
 	size.y = height.value * 8

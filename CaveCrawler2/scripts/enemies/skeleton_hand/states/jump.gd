@@ -10,7 +10,7 @@ func enter():
 	
 	spawn_particles()
 
-func physics_update(delta):
+func physics_update(_delta):
 	if entity.grab == true:
 		entity.animator.play("Grab")
 

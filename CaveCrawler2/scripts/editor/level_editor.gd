@@ -43,11 +43,11 @@ func _input(event):
 		if Input.is_action_just_pressed("save_level"):
 			save()
 
-func _process(delta):
+func _process(_delta):
 	$ToolPreview.frame_coords = tileset_coordinates
 	$ToolPreview.global_position = Vector2(floor(get_local_mouse_position() / tile_size) + Vector2(.5, .5)) * tile_size
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	var mouse_position_rounded = Vector2(floor(get_local_mouse_position() / tile_size))
 	
 	if Input.is_action_pressed("place_tile"):

@@ -119,15 +119,6 @@ func spawn_knives():
 			AudioHandler.play_sfx(sfx_knife_throw)
 			await get_tree().create_timer(0.5).timeout
 
-func _on_hitbox_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	pass
-	#if body is TileMap:
-		#var cell_pos = body.get_coords_for_body_rid(body_rid)
-		#var cell_data = body.get_cell_tile_data(0, cell_pos)
-		#
-		#if cell_data.get_custom_data("health") != 0:
-			#body.erase_cell(0, cell_pos)
-
 func get_hurt(hitstun_weight):
 	super.get_hurt(hitstun_weight)
 	

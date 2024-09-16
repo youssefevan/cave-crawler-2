@@ -12,12 +12,21 @@ var bloom_intensity := 0.5
 var volume_sfx := 5.0
 var volume_music := 5.0
 
+@export var look_up : InputEvent
+@export var drop_through : InputEvent
+@export var left : InputEvent
+@export var right : InputEvent
+@export var jump : InputEvent
+@export var shoot : InputEvent
+
 var levels_unlocked := 1
 
 var data = {}
+var controls = {}
 
 func _ready():
 	load_options()
+	load_controls()
 	
 	set_fullscreen(fullscreen_enabled)
 	set_cursor(cursor_visible)
@@ -25,6 +34,13 @@ func _ready():
 	set_bloom(bloom_intensity)
 	set_volume_sfx(volume_sfx)
 	set_volume_music(volume_music)
+	
+	set_controls("look_up", look_up)
+	set_controls("drop_through", drop_through)
+	set_controls("left", left)
+	set_controls("right", right)
+	set_controls("jump", jump)
+	set_controls("shoot", shoot)
 	
 	set_levels_unlocked(levels_unlocked)
 
@@ -42,12 +58,27 @@ func save_options():
 	}
 	
 	file.store_var(data)
+	
+func save_controls():
+	var file = FileAccess.open(Global.controls_path, FileAccess.WRITE)
+	
+	controls = {
+		"look_up": look_up,
+		"drop_through": drop_through,
+		"left": left,
+		"right": right,
+		"jump": jump,
+		"shoot": shoot,
+	}
+	
+	file.store_var(controls, true)
 
 func load_options():
 	if FileAccess.file_exists(Global.save_path):
 		var file = FileAccess.open(Global.save_path, FileAccess.READ)
-		
 		var load_data = file.get_var()
+		
+		#print(load_data)
 		
 		fullscreen_enabled = load_data.fullscreen_enabled
 		cursor_visible = load_data.cursor_visible
@@ -64,6 +95,19 @@ func load_options():
 			levels_unlocked = load_data.levels_unlocked
 		else:
 			set_levels_unlocked(levels_unlocked)
+		
+
+func load_controls():
+	if FileAccess.file_exists(Global.controls_path):
+		var file = FileAccess.open(Global.controls_path, FileAccess.READ)
+		var load_controls = file.get_var()
+		
+		look_up = load_controls.look_up
+		drop_through = load_controls.drop_through
+		left = load_controls.left
+		right = load_controls.right
+		jump = load_controls.jump
+		shoot = load_controls.shoot
 
 func set_fullscreen(setting : bool):
 	fullscreen_enabled = setting
@@ -123,3 +167,15 @@ func set_levels_unlocked(levels):
 			SteamHandler.set_achievement("ach_beat_w3")
 		
 		save_options()
+
+func set_controls(action_name : String, action_event : InputEvent):
+	if action_name in controls:
+		data[action_name] = action_event
+		print(controls)
+	else:
+		print("error: action_name not in controls dictionary")
+	
+	InputMap.action_erase_events(action_name)
+	InputMap.action_add_event(action_name, action_event)
+	
+	save_controls()

@@ -9,7 +9,7 @@ func enter():
 	await get_tree().create_timer(entity.anticipate_length).timeout
 	end = true
 
-func physics_update(delta):
+func physics_update(_delta):
 	
 	if end == true:
 		return entity.jump

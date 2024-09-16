@@ -5,5 +5,5 @@ func _on_area_entered(area):
 		if area.get_parent().is_in_group("Player"):
 			explode()
 
-func damage_tile(body, cell_data, cell_pos):
+func damage_tile(body, _cell_data, cell_pos):
 	body.erase_cell(0, cell_pos)
