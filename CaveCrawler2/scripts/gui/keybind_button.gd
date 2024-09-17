@@ -32,9 +32,9 @@ func _unhandled_input(event):
 		if event.pressed:
 			if event.is_action_pressed("pause"):
 				button_pressed = false
-			elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
-				button_pressed = false
-			else:
-				OptionsHandler.set_controls(action_name, event)
+			elif event is InputEventKey:
+				OptionsHandler.set_controls(action_name, event.keycode)
 				button_pressed = false
 				set_button_text()
+			else:
+				button_pressed = false

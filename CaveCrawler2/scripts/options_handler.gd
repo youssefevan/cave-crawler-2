@@ -35,12 +35,7 @@ func _ready():
 	set_volume_sfx(volume_sfx)
 	set_volume_music(volume_music)
 	
-	set_controls("look_up", look_up)
-	set_controls("drop_through", drop_through)
-	set_controls("left", left)
-	set_controls("right", right)
-	set_controls("jump", jump)
-	set_controls("shoot", shoot)
+	#print(controls)
 	
 	set_levels_unlocked(levels_unlocked)
 
@@ -62,16 +57,9 @@ func save_options():
 func save_controls():
 	var file = FileAccess.open(Global.controls_path, FileAccess.WRITE)
 	
-	controls = {
-		"look_up": look_up,
-		"drop_through": drop_through,
-		"left": left,
-		"right": right,
-		"jump": jump,
-		"shoot": shoot,
-	}
+	#print(controls)
 	
-	file.store_var(controls, true)
+	file.store_var(controls)
 
 func load_options():
 	if FileAccess.file_exists(Global.save_path):
@@ -102,12 +90,20 @@ func load_controls():
 		var file = FileAccess.open(Global.controls_path, FileAccess.READ)
 		var load_controls = file.get_var()
 		
-		look_up = load_controls.look_up
-		drop_through = load_controls.drop_through
-		left = load_controls.left
-		right = load_controls.right
-		jump = load_controls.jump
-		shoot = load_controls.shoot
+		#print(load_controls["look_up"])
+		set_controls("look_up", load_controls["look_up"])
+		set_controls("drop_through", load_controls["drop_through"])
+		set_controls("left", load_controls["left"])
+		set_controls("right", load_controls["right"])
+		set_controls("jump", load_controls["jump"])
+		set_controls("shoot", load_controls["shoot"])
+	else:
+		set_controls("look_up", look_up.keycode)
+		set_controls("drop_through", drop_through.keycode)
+		set_controls("left", left.keycode)
+		set_controls("right", right.keycode)
+		set_controls("jump", jump.keycode)
+		set_controls("shoot", shoot.keycode)
 
 func set_fullscreen(setting : bool):
 	fullscreen_enabled = setting
@@ -168,14 +164,13 @@ func set_levels_unlocked(levels):
 		
 		save_options()
 
-func set_controls(action_name : String, action_event : InputEvent):
-	if action_name in controls:
-		data[action_name] = action_event
-		print(controls)
-	else:
-		print("error: action_name not in controls dictionary")
+func set_controls(action_name : String, action_event_keycode):
+	controls[action_name] = action_event_keycode
 	
 	InputMap.action_erase_events(action_name)
-	InputMap.action_add_event(action_name, action_event)
+	
+	var temp = InputEventKey.new()
+	temp.keycode = action_event_keycode
+	InputMap.action_add_event(action_name, temp)
 	
 	save_controls()

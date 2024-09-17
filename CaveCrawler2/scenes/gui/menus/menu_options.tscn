@@ -180,6 +180,8 @@ text = "Aim Down"
 layout_mode = 2
 size_flags_horizontal = 10
 text = "*"
+script = ExtResource("7_erxdj")
+action_name = "drop_through"
 
 [node name="MoveLeft" type="HBoxContainer" parent="ScrollContainer/Content/Controls"]
 layout_mode = 2
@@ -192,6 +194,8 @@ text = "Move Left"
 layout_mode = 2
 size_flags_horizontal = 10
 text = "*"
+script = ExtResource("7_erxdj")
+action_name = "left"
 
 [node name="MoveRight" type="HBoxContainer" parent="ScrollContainer/Content/Controls"]
 layout_mode = 2
@@ -204,6 +208,8 @@ text = "Move Right"
 layout_mode = 2
 size_flags_horizontal = 10
 text = "*"
+script = ExtResource("7_erxdj")
+action_name = "right"
 
 [node name="Jump" type="HBoxContainer" parent="ScrollContainer/Content/Controls"]
 layout_mode = 2
@@ -216,6 +222,8 @@ text = "Jump"
 layout_mode = 2
 size_flags_horizontal = 10
 text = "*"
+script = ExtResource("7_erxdj")
+action_name = "jump"
 
 [node name="Shoot" type="HBoxContainer" parent="ScrollContainer/Content/Controls"]
 layout_mode = 2
@@ -228,6 +236,8 @@ text = "Shoot"
 layout_mode = 2
 size_flags_horizontal = 10
 text = "*"
+script = ExtResource("7_erxdj")
+action_name = "shoot"
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0

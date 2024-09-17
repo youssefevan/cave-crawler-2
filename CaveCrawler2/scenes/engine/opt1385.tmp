@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy6klmjyhfent"]
+
+[ext_resource type="Script" path="res://scripts/options_handler.gd" id="1_2hrq5"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_qksl5"]
+device = -1
+keycode = 4194320
+
+[sub_resource type="InputEventKey" id="InputEventKey_0biyn"]
+device = -1
+keycode = 4194322
+
+[sub_resource type="InputEventKey" id="InputEventKey_5850x"]
+device = -1
+keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_xq5k2"]
+device = -1
+keycode = 4194321
+
+[sub_resource type="InputEventKey" id="InputEventKey_e8lhb"]
+device = -1
+keycode = 90
+unicode = 122
+
+[sub_resource type="InputEventKey" id="InputEventKey_34cb0"]
+device = -1
+keycode = 88
+unicode = 120
+
+[node name="OptionsHandler" type="Node"]
+script = ExtResource("1_2hrq5")
+look_up = SubResource("InputEventKey_qksl5")
+drop_through = SubResource("InputEventKey_0biyn")
+left = SubResource("InputEventKey_5850x")
+right = SubResource("InputEventKey_xq5k2")
+jump = SubResource("InputEventKey_e8lhb")
+shoot = SubResource("InputEventKey_34cb0")
