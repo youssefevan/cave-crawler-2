@@ -9,6 +9,8 @@ var sfx_pause = preload("res://audio/sfx/menu/button_forward.ogg")
 var sfx_unpause = preload("res://audio/sfx/menu/button_back.ogg")
 var music_pause = preload("res://audio/music/pause.ogg")
 
+var focus_button
+
 var previous_window_position
 
 func _ready() -> void:
@@ -49,8 +51,8 @@ func pause():
 	paused = true
 	visible = true
 	
-	if OptionsHandler.cursor_visible == false:
-		$Buttons/Continue.grab_focus()
+	#if OptionsHandler.cursor_visible == false:
+	$Buttons/Continue.grab_focus()
 	
 	get_tree().paused = true
 

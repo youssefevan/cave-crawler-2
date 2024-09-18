@@ -249,6 +249,8 @@ script = ExtResource("5_1g345")
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="BottomBar/Options/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="BottomBar/Options/New" to="." method="_on_new_pressed"]
+[connection signal="focus_entered" from="NewLevel/VBoxContainer/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="NewLevel/VBoxContainer/LineEdit" to="." method="_on_line_edit_focus_exited"]
 [connection signal="pressed" from="NewLevel/VBoxContainer/Buttons/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="NewLevel/VBoxContainer/Buttons/Create" to="." method="_on_create_pressed"]
 [connection signal="pressed" from="DeleteConfirm/VBoxContainer/Buttons/CancelDelete" to="." method="_on_cancel_delete_pressed"]

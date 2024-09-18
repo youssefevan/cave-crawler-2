@@ -11,8 +11,8 @@ extends Control
 @export var btn_back : Button
 
 func _ready():
-	if OptionsHandler.cursor_visible == false:
-		btn_fullscreen.grab_focus()
+	#if OptionsHandler.cursor_visible == false:
+	btn_fullscreen.grab_focus()
 	
 	sync_options()
 

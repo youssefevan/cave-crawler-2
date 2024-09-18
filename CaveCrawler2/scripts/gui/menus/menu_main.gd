@@ -7,8 +7,8 @@ func _ready():
 	
 	Global.checkpoint_passed = false
 	
-	if OptionsHandler.cursor_visible == false:
-		$Buttons/Play.grab_focus()
+	#if OptionsHandler.cursor_visible == false:
+	$Buttons/Play.grab_focus()
 	
 	#print(OptionsHandler.levels_unlocked)
 

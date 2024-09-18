@@ -132,6 +132,7 @@ layout_mode = 2
 [node name="BloomIntensity" type="HSlider" parent="ScrollContainer/Content/Options/Graphics/Bloom"]
 custom_minimum_size = Vector2(42, 0)
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../../../../Controls/AimUp/Button")
 max_value = 6.0
 scrollable = false
 script = ExtResource("6_cvuf7")

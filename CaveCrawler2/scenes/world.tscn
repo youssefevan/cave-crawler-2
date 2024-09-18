@@ -113,7 +113,7 @@ position = Vector2(544, 80)
 position = Vector2(1040, 88)
 
 [node name="Player" parent="." instance=ExtResource("1_1tsot")]
-position = Vector2(34, 103)
+position = Vector2(959, 112)
 
 [node name="BossDoor" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("18_meotr")]
 position = Vector2(68, 104)

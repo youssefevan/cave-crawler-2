@@ -13,11 +13,13 @@ var levels = []
 var selected_item = null
 @onready var path = Global.level_path
 
+var typing
+
 func _ready():
 	Global.checkpoint_passed = false
 	
-	if OptionsHandler.cursor_visible == false:
-		item_list.grab_focus()
+	#if OptionsHandler.cursor_visible == false:
+	item_list.grab_focus()
 	#OptionsHandler.set_cursor(true)
 	
 	get_levels()
@@ -25,6 +27,8 @@ func _ready():
 	selected_item = 0
 	var item_name = item_list.get_item_text(selected_item)
 	details_name.text = str(item_name)
+	
+	item_list.select(0)
 	
 	new_level_panel.visible = false
 	delete_panel.visible = false
@@ -43,11 +47,21 @@ func get_levels():
 				item_list.add_item(file_name)
 			
 			file_name = dir.get_next()
+		
+		item_list.select(0)
+		
 	else:
 		print("An error occurred when trying to access the path.")
 	
 	for i in range(0, item_list.item_count):
 		item_list.set_item_tooltip_enabled(i, false)
+
+func _input(event: InputEvent) -> void:
+	if typing and Input.is_action_just_pressed("ui_accept"):
+		$NewLevel/VBoxContainer/Buttons/Create.grab_focus()
+	
+	if typing and Input.is_action_just_pressed("ui_cancel"):
+		$NewLevel/VBoxContainer/Buttons/Cancel.grab_focus()
 
 func clear_levels():
 	levels = []
@@ -81,6 +95,8 @@ func _on_cancel_pressed():
 	new_level_line_edit.text = ""
 	new_level_panel.visible = false
 	$NewLevel/Error.visible = false
+	
+	item_list.grab_focus()
 
 func _on_create_pressed():
 	if str(path + new_level_line_edit.text + ".cc2") in levels:
@@ -96,6 +112,7 @@ func _on_delete_pressed():
 
 func _on_cancel_delete_pressed():
 	delete_panel.visible = false
+	item_list.grab_focus()
 
 func _on_confirm_delete_pressed():
 	var dir = DirAccess.open(Global.level_path)
@@ -103,3 +120,10 @@ func _on_confirm_delete_pressed():
 	#print(levels[selected_item])
 	delete_panel.visible = false
 	get_levels()
+	item_list.grab_focus()
+
+func _on_line_edit_focus_entered() -> void:
+	typing = true
+
+func _on_line_edit_focus_exited() -> void:
+	typing = false

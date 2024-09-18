@@ -158,7 +158,8 @@ func build_level():
 			destructible:
 				tiles.set_cell(0, cell_position, tileset_id, Vector2(0, 6))
 			player:
-				spawn_entity(player_scene, cell_position)
+				if get_tree().get_node_count_in_group("Player") == 0:
+					spawn_entity(player_scene, cell_position)
 			rat:
 				spawn_entity(rat_scene, cell_position)
 			crab:

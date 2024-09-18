@@ -1,8 +1,8 @@
 extends Control
 
 func _ready():
-	if OptionsHandler.cursor_visible == false:
-		$"Worlds/World1/ButtonStack/ButtonRow1/1-1".grab_focus()
+	#if OptionsHandler.cursor_visible == false:
+	$"Worlds/World1/ButtonStack/ButtonRow1/1-1".grab_focus()
 	
 	Global.checkpoint_passed = false
 

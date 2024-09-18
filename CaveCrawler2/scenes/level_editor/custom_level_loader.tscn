@@ -56,6 +56,7 @@ texture = ExtResource("8_hnsdk")
 [node name="TileMap" parent="." instance=ExtResource("1_o6b1y")]
 
 [node name="Error" type="Panel" parent="."]
+z_index = 1
 offset_left = 32.0
 offset_top = 40.0
 offset_right = 224.0

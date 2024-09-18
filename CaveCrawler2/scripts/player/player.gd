@@ -310,8 +310,8 @@ func die() -> void:
 	await get_tree().create_timer(1).timeout
 	
 	$GUI/MenuDeath.visible = true
-	if OptionsHandler.cursor_visible == false:
-		$GUI/MenuDeath.focus_button.grab_focus()
+	#if OptionsHandler.cursor_visible == false:
+	$GUI/MenuDeath.focus_button.grab_focus()
 	get_tree().paused = true
 
 func _on_camera_room_detector_area_entered(area):
@@ -383,8 +383,8 @@ func end_level() -> void:
 		$GUI/MenuLevelEnd.focus_button.visible = false
 		$GUI/MenuLevelEnd.focus_button = $GUI/MenuLevelEnd.focus_button_end
 	$GUI/MenuLevelEnd.visible = true
-	if OptionsHandler.cursor_visible == false:
-		$GUI/MenuLevelEnd.focus_button.grab_focus()
+	#if OptionsHandler.cursor_visible == false:
+	$GUI/MenuLevelEnd.focus_button.grab_focus()
 	
 	Global.checkpoint_passed = false
 	get_tree().paused = true
