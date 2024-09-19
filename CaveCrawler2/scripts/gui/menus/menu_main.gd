@@ -1,6 +1,6 @@
 extends Control
 
-@onready var title_music = preload("res://audio/music/cc1.ogg")
+@onready var title_music = preload("res://audio/music/title.ogg")
 
 func _ready():
 	AudioHandler.play_music(title_music, false)
