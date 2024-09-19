@@ -323,10 +323,9 @@ theme = ExtResource("7_kusvm")
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 20.0
-current_tab = 2
+current_tab = 0
 
 [node name="Terrain" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -476,6 +475,7 @@ tool_type = 1
 tile_coordinate_x = 9
 
 [node name="Hazards" type="TabBar" parent="CanvasLayer/ToolBar/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

@@ -2,6 +2,7 @@ extends InteractableGUI
 class_name Keybind
 
 @export var action_name : String
+@export var ui_action_name : String
 
 func _ready():
 	super._ready()
@@ -34,6 +35,7 @@ func _unhandled_input(event):
 				button_pressed = false
 			elif event is InputEventKey:
 				OptionsHandler.set_controls(action_name, event.keycode)
+				OptionsHandler.set_ui_controls(ui_action_name, event.keycode)
 				button_pressed = false
 				set_button_text()
 			else:

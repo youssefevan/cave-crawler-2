@@ -33,6 +33,8 @@ func _ready():
 	
 	if new_level == false:
 		load_existing_level()
+	
+	#$CanvasLayer/ToolBar/TabContainer/Terrain/ScrollContainer/HBoxContainer/Terrain1.grab_focus()
 
 func _on_tool_selected(tool_coordinates, tool_type):
 	tileset_coordinates = tool_coordinates

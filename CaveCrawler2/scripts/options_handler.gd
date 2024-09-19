@@ -56,9 +56,6 @@ func save_options():
 	
 func save_controls():
 	var file = FileAccess.open(Global.controls_path, FileAccess.WRITE)
-	
-	#print(controls)
-	
 	file.store_var(controls)
 
 func load_options():
@@ -90,13 +87,24 @@ func load_controls():
 		var file = FileAccess.open(Global.controls_path, FileAccess.READ)
 		var load_controls = file.get_var()
 		
-		#print(load_controls["look_up"])
 		set_controls("look_up", load_controls["look_up"])
+		set_ui_controls("ui_up", load_controls["look_up"])
+		
 		set_controls("drop_through", load_controls["drop_through"])
+		set_ui_controls("ui_down", load_controls["drop_through"])
+		
 		set_controls("left", load_controls["left"])
+		set_ui_controls("ui_left", load_controls["left"])
+		
 		set_controls("right", load_controls["right"])
+		set_ui_controls("ui_right", load_controls["right"])
+		
 		set_controls("jump", load_controls["jump"])
+		set_ui_controls("ui_accept", load_controls["jump"])
+		
 		set_controls("shoot", load_controls["shoot"])
+		set_ui_controls("ui_cancel", load_controls["shoot"])
+		
 	else:
 		set_controls("look_up", look_up.keycode)
 		set_controls("drop_through", drop_through.keycode)
@@ -174,3 +182,8 @@ func set_controls(action_name : String, action_event_keycode):
 	InputMap.action_add_event(action_name, temp)
 	
 	save_controls()
+
+func set_ui_controls(ui_proxy: String, action_event_keycode):
+	var temp = InputEventKey.new()
+	temp.keycode = action_event_keycode
+	InputMap.action_add_event(ui_proxy, temp)
