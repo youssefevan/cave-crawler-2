@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bb8nqnpoddwv0" path="res://scenes/particles/stalactite.tscn" id="2_qvpuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nkn0"]
-size = Vector2(8, 7)
+size = Vector2(4, 6)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7rn48"]
 radius = 2.0
@@ -24,7 +24,7 @@ position = Vector2(0, 4)
 texture = ExtResource("1_yvxls")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_2nkn0")
 
 [node name="Hitbox" parent="." groups=["Hazard"] instance=ExtResource("2_8pemx")]

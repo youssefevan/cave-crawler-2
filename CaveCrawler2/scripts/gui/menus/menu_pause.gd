@@ -71,6 +71,7 @@ func _on_options_pressed():
 	Global.entering_sub_menu()
 	var o = Global.options_scene.instantiate()
 	get_parent().add_child(o)
+	o.btn_fullscreen.grab_focus()
 
 func _on_main_menu_pressed():
 	unpause()
@@ -83,4 +84,5 @@ func _on_restart_pressed():
 
 func _on_edit_pressed():
 	unpause()
+	Global.creating_new_level = false
 	get_tree().change_scene_to_packed(Global.level_editor_scene)

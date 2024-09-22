@@ -5,7 +5,7 @@ signal cursor_changed
 signal volume_sfx_changed
 signal volume_music_changed
 
-var fullscreen_enabled := false
+var fullscreen_enabled := true
 var cursor_visible := true
 var particles_enabled := true
 var bloom_intensity := 0.5

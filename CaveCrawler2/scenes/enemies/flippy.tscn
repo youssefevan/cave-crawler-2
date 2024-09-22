@@ -71,7 +71,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdq5i"]
-size = Vector2(8, 8)
+size = Vector2(6, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6atbn"]
 resource_local_to_scene = true
@@ -88,6 +88,7 @@ size = Vector2(8, 10)
 [node name="Flippy" instance=ExtResource("1_lsg0v")]
 script = ExtResource("2_jeik1")
 gravity = 400.0
+level_editor_offset = Vector2(4, 8)
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -107,6 +108,7 @@ material = SubResource("ShaderMaterial_6atbn")
 position = Vector2(0, -5)
 texture = ExtResource("3_ktd2d")
 hframes = 3
+frame = 2
 
 [node name="Collider" parent="Hitbox" index="0"]
 position = Vector2(0, -5)

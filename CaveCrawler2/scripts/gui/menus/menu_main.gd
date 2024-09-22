@@ -27,6 +27,7 @@ func _on_options_pressed():
 	Global.entering_sub_menu()
 	var o = Global.options_scene.instantiate()
 	get_tree().get_root().add_child(o)
+	o.btn_fullscreen.grab_focus()
 
 
 func _on_logo_pressed():

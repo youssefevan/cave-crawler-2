@@ -214,9 +214,9 @@ func spawn_camera_room(coordinates, size):
 func spawn_moving_platform(start_coords, end_coords):
 	var mp = moving_platform_scene.instantiate()
 	mp.custom_level = true
-	mp.start_position = start_coords
-	mp.end_position = end_coords
-	mp.global_position = start_coords
+	mp.start_position = start_coords + Vector2(16, 4)
+	mp.end_position = end_coords + Vector2(16, 4)
+	mp.global_position = start_coords + Vector2(16, 4)
 	add_child(mp)
 
 func spawn_entity(entity, spawn_position):

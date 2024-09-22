@@ -57,6 +57,7 @@ no_sfx = true
 layout_mode = 2
 text = "Edit"
 script = ExtResource("3_8gjb6")
+no_sfx = true
 
 [node name="Restart" type="Button" parent="Buttons"]
 layout_mode = 2
