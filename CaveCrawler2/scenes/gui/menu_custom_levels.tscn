@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cogsn4qb4v3ki"]
+[gd_scene load_steps=9 format=3 uid="uid://cogsn4qb4v3ki"]
 
 [ext_resource type="Script" path="res://scripts/gui/menu_custom_levels.gd" id="1_41si6"]
 [ext_resource type="Theme" uid="uid://bhgqfbo01g2pt" path="res://themes/menus.tres" id="1_pupcv"]
-[ext_resource type="Texture2D" uid="uid://chefipuxmi2g7" path="res://sprites/preview_temp.png" id="2_rcwkg"]
 [ext_resource type="Texture2D" uid="uid://cr4rjlithoxxv" path="res://sprites/level_editor_icons/play.png" id="3_hky2j"]
 [ext_resource type="Texture2D" uid="uid://cxn2pn2y2gjot" path="res://sprites/level_editor_icons/load.png" id="4_df2c5"]
 [ext_resource type="Script" path="res://scripts/gui/interactable_gui.gd" id="5_1g345"]
@@ -49,41 +48,42 @@ size_flags_horizontal = 6
 theme_override_constants/separation = 0
 
 [node name="Name" type="Label" parent="Details/VBoxContainer"]
-custom_minimum_size = Vector2(80, 24)
+custom_minimum_size = Vector2(80, 36)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="TextureRect" type="TextureRect" parent="Details/VBoxContainer"]
-custom_minimum_size = Vector2(64, 36)
+[node name="Options" type="VBoxContainer" parent="Details/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-texture = ExtResource("2_rcwkg")
-
-[node name="Options" type="HBoxContainer" parent="Details/VBoxContainer"]
-custom_minimum_size = Vector2(0, 14)
-layout_mode = 2
-size_flags_vertical = 10
+alignment = 1
 
 [node name="Play" type="Button" parent="Details/VBoxContainer/Options"]
 layout_mode = 2
+text = "Play"
 icon = ExtResource("3_hky2j")
+alignment = 0
 script = ExtResource("5_1g345")
 
 [node name="Edit" type="Button" parent="Details/VBoxContainer/Options"]
 layout_mode = 2
+text = "Load"
 icon = ExtResource("4_df2c5")
+alignment = 0
 script = ExtResource("5_1g345")
 
 [node name="Delete" type="Button" parent="Details/VBoxContainer/Options"]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 3
+text = "Delete"
 icon = ExtResource("5_oo1bl")
+alignment = 0
 script = ExtResource("5_1g345")
 
 [node name="ItemList" type="ItemList" parent="."]
@@ -135,6 +135,7 @@ text = "+ New
 script = ExtResource("5_1g345")
 
 [node name="NewLevel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 offset_left = 56.0
 offset_top = 41.0

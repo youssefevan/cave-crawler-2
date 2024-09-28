@@ -46,6 +46,7 @@ size = Vector2(18, 7)
 [node name="Fly" instance=ExtResource("1_1wyk2")]
 script = ExtResource("2_16fpd")
 max_health = 6
+level_editor_offset = Vector2(4, 0)
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {

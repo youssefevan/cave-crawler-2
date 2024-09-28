@@ -67,6 +67,7 @@ script = ExtResource("2_0q5p7")
 slug_scene = ExtResource("3_gc24s")
 max_health = 1
 gravity = 600.0
+level_editor_offset = Vector2(4, 4)
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {

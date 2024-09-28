@@ -185,6 +185,7 @@ size = Vector2(14, 8)
 
 [node name="Slug" instance=ExtResource("1_puswo")]
 script = ExtResource("2_omgfc")
+level_editor_offset = Vector2(4, 4)
 enable_hit_flash = false
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]

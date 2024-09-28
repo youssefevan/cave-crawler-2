@@ -44,7 +44,7 @@ func _physics_process(delta):
 
 func jump():
 	velocity.y -= 140.0
-	AudioHandler.play_sfx(sfx_bounce)
+	#AudioHandler.play_sfx(sfx_bounce)
 
 func die():
 	var s2 = slug_scene.instantiate()
