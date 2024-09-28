@@ -50,6 +50,17 @@ func get_levels():
 		
 		item_list.select(0)
 		
+		selected_item = 0
+		
+		if item_list.item_count > 0:
+			$Details/VBoxContainer/Options/Play.visible = true
+			$Details/VBoxContainer/Options/Edit.visible = true
+			$Details/VBoxContainer/Options/Delete.visible = true
+		else:
+			$Details/VBoxContainer/Options/Play.visible = false
+			$Details/VBoxContainer/Options/Edit.visible = false
+			$Details/VBoxContainer/Options/Delete.visible = false
+		
 	else:
 		print("An error occurred when trying to access the path.")
 	
@@ -66,6 +77,7 @@ func _input(event: InputEvent) -> void:
 func clear_levels():
 	levels = []
 	item_list.clear()
+	item_list.force_update_list_size()
 
 func _on_item_list_item_selected(index):
 	selected_item = index

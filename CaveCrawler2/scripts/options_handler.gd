@@ -6,7 +6,7 @@ signal volume_sfx_changed
 signal volume_music_changed
 
 var fullscreen_enabled := true
-var cursor_visible := true
+var cursor_visible := false
 var particles_enabled := true
 var bloom_intensity := 0.5
 var volume_sfx := 5.0
@@ -19,7 +19,7 @@ var volume_music := 5.0
 @export var jump : InputEvent
 @export var shoot : InputEvent
 
-var levels_unlocked := 1
+var levels_unlocked := 15
 
 var data = {}
 var controls = {}
