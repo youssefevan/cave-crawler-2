@@ -19,19 +19,24 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	
 	if player:
-		var player_offset_x = 0.0
-		if player.velocity.x > 65:
-			player_offset_x = 72.0
-		elif player.velocity.x < -65:
-			player_offset_x = -72.0
+		$LineOfSight.look_at(player.global_position)
+		var losTarget = $LineOfSight.get_collider()
+		if losTarget == player:
+			var player_offset_x = 0.0
+			if player.velocity.x > 65:
+				player_offset_x = 72.0
+			elif player.velocity.x < -65:
+				player_offset_x = -72.0
+			else:
+				player_offset_x = 0.0
+			
+			var target = Vector2(player.global_position.x + player_offset_x, player.global_position.y - player_height_offset)
+			gun.rotation = lerp_angle(gun.rotation, get_angle_to(target), 5 * delta)
+			
+			$Animator.play("fire")
+			fire()
 		else:
-			player_offset_x = 0.0
-		
-		var target = Vector2(player.global_position.x + player_offset_x, player.global_position.y - player_height_offset)
-		gun.rotation = lerp_angle(gun.rotation, get_angle_to(target), 5 * delta)
-		
-		$Animator.play("fire")
-		fire()
+			$Animator.stop()
 	else:
 		$Animator.stop()
 	

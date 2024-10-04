@@ -228,4 +228,7 @@ func _on_cancel_reset_pressed():
 
 func _on_confirm_reset_pressed():
 	tiles.clear()
+	for i in get_children():
+		if i is CameraRoomTool or i is MovingPlatformTool:
+			i.queue_free()
 	$CanvasLayer/ResetConfirm.visible = false
