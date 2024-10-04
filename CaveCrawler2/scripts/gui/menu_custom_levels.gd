@@ -13,8 +13,6 @@ var levels = []
 var selected_item = null
 @onready var path = Global.level_path
 
-var typing
-
 func _ready():
 	Global.checkpoint_passed = false
 	
@@ -66,13 +64,6 @@ func get_levels():
 	
 	for i in range(0, item_list.item_count):
 		item_list.set_item_tooltip_enabled(i, false)
-
-func _input(event: InputEvent) -> void:
-	if typing and Input.is_action_just_pressed("ui_accept"):
-		$NewLevel/VBoxContainer/Buttons/Create.grab_focus()
-	
-	if typing and Input.is_action_just_pressed("ui_cancel"):
-		$NewLevel/VBoxContainer/Buttons/Cancel.grab_focus()
 
 func clear_levels():
 	levels = []
@@ -133,9 +124,3 @@ func _on_confirm_delete_pressed():
 	delete_panel.visible = false
 	get_levels()
 	item_list.grab_focus()
-
-func _on_line_edit_focus_entered() -> void:
-	typing = true
-
-func _on_line_edit_focus_exited() -> void:
-	typing = false
