@@ -108,6 +108,7 @@ position = Vector2(616, 17)
 
 [node name="Health" parent="Pickups" instance=ExtResource("14_8fabe")]
 position = Vector2(544, 80)
+spawn_offset = Vector2(0, 0)
 
 [node name="Flagpole" parent="Pickups" instance=ExtResource("15_wjdkq")]
 position = Vector2(1040, 88)
