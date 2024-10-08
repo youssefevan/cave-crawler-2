@@ -71,6 +71,7 @@ position = Vector2(432, 108)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
+level_editor_offset = Vector2(4, -8)
 
 [node name="Bat" parent="Enemies" instance=ExtResource("9_6x0ol")]
 position = Vector2(440, 64)
@@ -83,12 +84,14 @@ position = Vector2(464, 48)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
+level_editor_offset = Vector2(4, -8)
 
 [node name="SkeletonHand" parent="Enemies" instance=ExtResource("8_008sm")]
 position = Vector2(568, 120)
 floor_constant_speed = false
 floor_max_angle = 0.785398
 floor_snap_length = 1.0
+level_editor_offset = Vector2(4, -8)
 
 [node name="RolyPoly" parent="Enemies" instance=ExtResource("11_aygi1")]
 position = Vector2(507, 51)
@@ -132,6 +135,7 @@ boss_music = ExtResource("18_0gxaw")
 [node name="Boss3" parent="." instance=ExtResource("19_q50fo")]
 position = Vector2(313, -40)
 max_health = 3
+level_editor_offset = Vector2(4, -8)
 
 [node name="Flippy" parent="." instance=ExtResource("20_kakta")]
 position = Vector2(604, 89)
@@ -139,7 +143,9 @@ position = Vector2(604, 89)
 [node name="Boss2" parent="." instance=ExtResource("21_lud23")]
 position = Vector2(266, -31)
 max_health = 1
+level_editor_offset = Vector2(4, -8)
 
 [node name="Boss1" parent="." instance=ExtResource("22_xy514")]
 position = Vector2(195, -47)
 max_health = 1
+level_editor_offset = Vector2(4, -8)

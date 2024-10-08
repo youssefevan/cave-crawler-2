@@ -19,6 +19,7 @@ floor_max_angle = 0.872665
 floor_snap_length = 2.0
 safe_margin = 0.04
 script = ExtResource("1_cy1f6")
+level_editor_offset = Vector2(4, 8)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 

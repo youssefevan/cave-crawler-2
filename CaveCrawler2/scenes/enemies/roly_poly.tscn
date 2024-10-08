@@ -47,7 +47,6 @@ radius = 4.5
 [node name="RolyPoly" instance=ExtResource("1_omprq")]
 script = ExtResource("2_p6lwg")
 max_health = 6
-level_editor_offset = Vector2(4, 4)
 
 [node name="Dust" parent="." index="0" instance=ExtResource("5_2fojn")]
 

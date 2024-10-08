@@ -88,7 +88,6 @@ size = Vector2(8, 10)
 [node name="Flippy" instance=ExtResource("1_lsg0v")]
 script = ExtResource("2_jeik1")
 gravity = 400.0
-level_editor_offset = Vector2(4, 8)
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {

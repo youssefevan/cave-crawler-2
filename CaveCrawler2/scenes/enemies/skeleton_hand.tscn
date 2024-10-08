@@ -81,6 +81,7 @@ size = Vector2(12, 17)
 script = ExtResource("2_7n62p")
 print_states = false
 max_health = 2
+level_editor_offset = Vector2(4, 8)
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 libraries = {
