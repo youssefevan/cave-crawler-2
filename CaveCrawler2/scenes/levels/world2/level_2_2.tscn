@@ -213,13 +213,6 @@ metadata/_edit_group_ = true
 [node name="Endpoint" parent="MovingPlatforms/MovingPlatform2" index="2"]
 position = Vector2(104, 0)
 
-[node name="MovingPlatform15" parent="MovingPlatforms" instance=ExtResource("7_f3exu")]
-position = Vector2(448, 88)
-metadata/_edit_group_ = true
-
-[node name="Endpoint" parent="MovingPlatforms/MovingPlatform15" index="2"]
-position = Vector2(104, 0)
-
 [node name="MovingPlatform4" parent="MovingPlatforms" instance=ExtResource("7_f3exu")]
 position = Vector2(928, 120)
 metadata/_edit_group_ = true
@@ -298,7 +291,6 @@ position = Vector2(32, 88)
 [editable path="MovingPlatforms/MovingPlatform5"]
 [editable path="MovingPlatforms/MovingPlatform12"]
 [editable path="MovingPlatforms/MovingPlatform2"]
-[editable path="MovingPlatforms/MovingPlatform15"]
 [editable path="MovingPlatforms/MovingPlatform4"]
 [editable path="MovingPlatforms/MovingPlatform6"]
 [editable path="MovingPlatforms/MovingPlatform7"]

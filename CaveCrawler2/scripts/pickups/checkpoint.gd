@@ -9,7 +9,6 @@ var particles = preload("res://scenes/particles/health_picked.tscn")
 var sfx = preload("res://audio/sfx/checkpoint.ogg")
 
 func picked(body) -> void:
-	#print(Global.checkpoint_position)
 	if Global.checkpoint_position != global_position - spawn_offset:
 		super.picked(body)
 		$Sprite.frame = 1
