@@ -19,7 +19,7 @@ var volume_music := 5.0
 @export var jump : InputEvent
 @export var shoot : InputEvent
 
-var levels_unlocked := 15
+var levels_unlocked := 1
 
 var data = {}
 var controls = {}
