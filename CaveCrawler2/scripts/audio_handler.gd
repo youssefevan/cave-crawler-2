@@ -58,13 +58,13 @@ func clear_sfx(sfx: AudioStream):
 			i.call_deferred("queue_free")
 
 func volume_music_changed():
-	var vol = (OptionsHandler.volume_music/10) * 2
+	var vol = (OptionsHandler.volume_music/10) * 1.33
 	AudioServer.set_bus_volume_db(bus_index_music, linear_to_db(vol))
 
 func volume_sfx_changed():
 	# 10 steps on slider
 	#print("O ", OptionsHandler.volume_sfx)
-	var vol = (OptionsHandler.volume_sfx/10) * 2
+	var vol = (OptionsHandler.volume_sfx/10) * 1.33
 	#print("V ", vol)
 	AudioServer.set_bus_volume_db(bus_index_sfx, linear_to_db(vol))
 	#print("B ", linear_to_db(vol))
