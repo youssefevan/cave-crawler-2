@@ -105,7 +105,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "1.0"
+text = "1.1"
 horizontal_alignment = 2
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]

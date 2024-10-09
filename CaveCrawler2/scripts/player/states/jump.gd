@@ -6,7 +6,7 @@ func enter():
 	entity.velocity.y = 0
 	entity.velocity.y = -entity.jump_velocity
 	
-	if Input.is_action_just_released("jump"):
+	if Input.is_action_just_released("jump") or Input.is_action_just_released("controller_jump"):
 		entity.velocity.y = -entity.release_jump_velocity
 	
 	AudioHandler.play_sfx(entity.sfx_jump)
@@ -23,7 +23,7 @@ func physics_update(delta):
 	
 	apply_gravity(delta)
 	
-	if entity.velocity.y < -entity.release_jump_velocity and Input.is_action_just_released("jump"):
+	if entity.velocity.y < -entity.release_jump_velocity and (Input.is_action_just_released("jump") or Input.is_action_just_released("controller_jump")):
 		entity.velocity.y = -entity.release_jump_velocity
 	
 	if entity.is_on_floor() and entity.movement_input != 0:
