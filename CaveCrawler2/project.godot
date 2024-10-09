@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://sprites/menus/splash.png"
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 
