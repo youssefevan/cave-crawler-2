@@ -4,6 +4,8 @@ extends Pickup
 
 @export var level_id : int
 
+var level_editor_offset := Vector2(4, 0)
+
 var sfx_end = preload("res://audio/sfx/stalactite_fall.ogg")
 
 func _ready():
@@ -22,3 +24,6 @@ func picked(body):
 	else:
 		AudioHandler.play_sfx(sfx_end)
 		body.game_end_rocket()
+
+func get_level_editor_offset() -> Vector2:
+	return level_editor_offset

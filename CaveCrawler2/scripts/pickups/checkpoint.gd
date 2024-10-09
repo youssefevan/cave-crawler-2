@@ -1,6 +1,6 @@
 extends Pickup
 
-var level_editor_offset := Vector2(0, 8)
+var level_editor_offset := Vector2(4, 8)
 var spawn_offset := Vector2(0, 4)
 
 var checked := false
